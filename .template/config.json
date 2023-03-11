@@ -1,0 +1,5 @@
+{
+  "prefix": "__M_COMPONENT__",
+  "output": "./src/components",
+  "excludePath": [".storybook", ".next", ".husky", ".github", "public"]
+}

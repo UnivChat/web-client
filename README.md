@@ -1,38 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CatChat
 
-## Getting Started
+가천대학교 커뮤니티앱 캣챗 web-client 소스코드입니다.
 
-First, run the development server:
+## 👨‍💻 프로젝트 담당 인력
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+|                                                          💻 FE-Developer                                                           |                                                                                     💻 FE-Developer                                                                                     |                                                            💻 FE-Developer                                                            |
+| :--------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
+| <a href='https://github.com/tlshoon'><img width="150" height="150" src="https://avatars.githubusercontent.com/u/87574833?v=4"></a> | <a href='https://github.com/Minsoo-web'><img width="150" height="150" src="https://avatars1.githubusercontent.com/u/57122180?s=200&u=b32867107508426379c28b1d0c2fd8963912a5dd&v=4"></a> | <a href='https://github.com/minjun232'><img width="150" height="150" src="https://avatars.githubusercontent.com/u/126582929?v=4"></a> |
+|                                                              @tlshoon                                                              |                                                                                       @minsoo-web                                                                                       |                                                              @minjun232                                                               |
+
+## 🗂 사용 기술 스택
+
+- package manage
+
+  - yarn (v1)
+
+- deploy
+
+  - 미정
+
+- client
+
+  - SSR: NextJS (v13 / not app dir)
+  - styling: emotion
+  - Typescript
+  - state-management
+
+    client: redux (toolkit)
+
+    server: react-query (v4)
+
+## 👨‍⚖️ Conventions
+
+### 🪵 Branch
+
+```txt
+* feat-*
+|
+| * feat-*
+|/
+* develop
+|
+* main
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ✍️ Commit
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+feat : 기능 추가
+chore : gradle 수정, package.json 같이 프로젝트 환경에 있어서의 변경점
+fix : 버그 픽스
+docs : 문서 관련 변경점
+release : release 버전 merge 완료 시
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+> ⛔️ 커밋을 세분화하는 것을 습관화 합시다.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Branch 단위
 
-## Learn More
+- master(main) : 최종 단위 브랜치. Release 완료 시 master에 최종적으로 병합해주세요.
+- develop : 개발 브랜치. feature 관련 브랜치에서 작업이 완료되면 해당 브랜치로 병합 부탁드립니다.
+- feat: 기능 추가 및 구현을 위한 브랜치. develop 브랜치로부터 분기되는 브랜치입니다.
+- hotfix: 배포한 버전에 긴급한 수정을 진행해야 하는 경우, master 브랜치에서 분기하는 브랜치입니다.
+  문제가 되는 부분의 수정이 완료되면, master 브랜치에 다시 병합하여 배포를 진행해주세요.
+  해당 브랜치에서의 변경 사항은 꼭 dev 브랜치에도 병합 부탁드립니다.
 
-To learn more about Next.js, take a look at the following resources:
+> 이 프로젝트에는 쓰이지 않지만 브랜치 컨벤션
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- release : 추가된 기능 병합 및 테스트를 위한 브랜치.
+  dev 브랜치에서 배포 할 수 있는 수준의 기능이 모이면, 또는 정해진 배포 일정이 되면 Release 브랜치로 분기해 주시기 바랍니다.
+  배포 사이클의 시작이 되는 브랜치이기 때문에, 배포 버전명을 꼭 명시해 주세요.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Branch 형식은 다음으로 맞춰주세요.
 
-## Deploy on Vercel
+[Branch 종류]-[Branch 이름]
+ex: feat-main, release-0314, hotfix-0314-QA
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📝 Code Convention
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. 함수 네이밍과 변수명은 camelCase(카멜케이스)를 원칙으로 합니다.
+2. 폴더구조는 기존 보일러플레이트를 따릅니다.
+3. style 코드는 \*.style.ts 로 파일 네이밍을 해서 분리합니다.
+4. 관심사의 분리와 추상화를 항상 고려합니다.
+5. 필요하다고 생각되는 곳에는 주석을 꼭 작성합니다.
+6. CDD를 원칙으로 개발하는 것을 습관화해봅시다!
+
+### Known ISSUE
+
+### 인수인계 및 공유 내용
