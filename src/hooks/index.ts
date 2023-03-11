@@ -1,0 +1,1 @@
+export { useCheckMobile } from "./useCheckMobile";
