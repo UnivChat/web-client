@@ -8,7 +8,7 @@ export default {
 
 export const Default: ComponentStory<typeof Button> = args => (
   <Button {...args}>
-    <span>hi</span>
+    <span>하이</span>
   </Button>
 );
 
