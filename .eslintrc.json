@@ -18,6 +18,7 @@
   ],
   "ignorePatterns": ["**/build/**/*.*", "node_modules", "yarn.lock"],
   "rules": {
+    "import/no-anonymous-default-export": 0,
     "@typescript-eslint/consistent-type-imports": "error",
     "import/prefer-default-export": 0, // 0 -> 0ff / 1 -> on (default)
     "prettier/prettier": 0,
