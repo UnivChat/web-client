@@ -1,4 +1,4 @@
-# CatChat
+# 🚀 CatChat
 
 가톨릭대학교 커뮤니티앱 캣챗 web-client 소스코드입니다!
 
