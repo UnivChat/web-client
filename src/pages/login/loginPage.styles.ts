@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Image from "next/image";
 import Link from "next/link";
 import type {
   IdPwBoxProps,
@@ -54,11 +53,6 @@ export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   padding-left: 4vw;
-`;
-
-export const InputImage = styled(Image)`
-  width: 2vh;
-  height: 2vh;
 `;
 
 export const IdBox = styled.input<IdPwBoxProps>`
