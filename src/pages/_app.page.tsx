@@ -7,6 +7,7 @@ import {
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Provider } from "react-redux";
 import { RootLayout } from "~/layouts";
+import "assets/fonts/fonts.css";
 import type { AppPropsWithLayout } from "./app.types";
 
 const queryClient = new QueryClient();
