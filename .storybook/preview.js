@@ -3,7 +3,19 @@ export const parameters = {
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/,
-    },
+      date: /Date$/
+    }
   },
-}
+  viewport: {
+    viewports: [
+      {
+        name: "iPhone SE",
+        styles: {
+          width: "375px",
+          height: "667px"
+        }
+      }
+    ],
+    defaultViewport: "iPhone SE"
+  }
+};
