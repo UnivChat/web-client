@@ -5,7 +5,9 @@ module.exports = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "storybook-addon-next",
+    "storybook-addon-next-router"
   ],
   framework: "@storybook/react",
   core: {
@@ -20,24 +22,18 @@ module.exports = {
       "@svgs": path.resolve(__dirname, "../src/assets/svgs")
     };
 
-    let loaders = config.resolve;
-    loaders.fallback = {
-      fs: false,
-      os: false,
-      path: false
-    };
-
-    const fileLoaderRule = config.module.rules.find(
-      rule => rule.test && rule.test.test(".svg")
-    );
+    const rules = config.module.rules;
+    const fileLoaderRule = rules.find(rule => rule.test.test(".svg"));
+    /**
+     * svg는 기본 fileLoader 가 우선순위를 가져서 웹팩 설정이 먹히지 않는 이슈가 있습니다.
+     * 하여 svg 파일만 기본 loader를 제외시키는 코드입니다.
+     */
     fileLoaderRule.exclude = /\.svg$/;
 
-    config.module.rules.push({
+    rules.push({
       test: /\.svg$/,
-      enforce: "pre",
-      loader: require.resolve("@svgr/webpack")
+      use: ["@svgr/webpack"]
     });
-
     return config;
   }
 };
