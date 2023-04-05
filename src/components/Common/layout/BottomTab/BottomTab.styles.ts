@@ -15,5 +15,5 @@ export const Container = styled.nav`
   box-shadow: 0px -17px 18px #00000014;
 
   background-color: #fff;
-  z-index: 9;
+  z-index: 9; // TODO: zindex 정리해야함
 `;
