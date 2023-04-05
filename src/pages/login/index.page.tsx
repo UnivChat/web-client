@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { Svg } from "~/components/Common";
 import {
   AppName,
   Container,
   FindPw,
   IdBox,
-  InputImage,
   InputWrapper,
   LoginBox,
   LoginButton,
@@ -15,9 +15,6 @@ import {
   SubText
 } from "./loginPage.styles";
 import type { LoginFormType } from "./loginPage.type";
-import enter from "../../assets/svgs/enter.svg";
-import unlock from "../../assets/svgs/unlock.svg";
-
 
 const Login = () => {
   const [loginFormData, setloginFormData] = useState<LoginFormType>({
@@ -39,10 +36,10 @@ const Login = () => {
     <Container>
       <LoginBox>
         <AppName>CAT CHAT</AppName>
-        
+
         <LoginForm onSubmit={e => e.preventDefault()}>
           <InputWrapper>
-            <InputImage src={enter} alt="IdImage" />
+            <Svg svgName="enter" _width="2vh" _height="2vh" _fill="#003091" />
             <IdBox
               type="email"
               value={loginFormData.email}
@@ -52,7 +49,7 @@ const Login = () => {
           </InputWrapper>
 
           <InputWrapper>
-            <InputImage src={unlock} alt="PwImage" />
+            <Svg svgName="unlock" _width="2vh" _height="2vh" _fill="#003091" />
             <PwBox
               type="password"
               value={loginFormData.password}
