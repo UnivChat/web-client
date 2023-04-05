@@ -1,11 +1,6 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  nanumGothicExtraBold,
-  nanumGothicBold,
-  nanumGothicRegular
-} from "~/assets/fonts/nanumGothic.page";
 import type {
   IdPwBoxProps,
   LoginButtonProps,
@@ -38,14 +33,14 @@ export const LoginBox = styled.div`
 `;
 
 export const AppName = styled.div`
-  font-family: ${nanumGothicExtraBold.style.fontFamily};
+  /* font-family:  적용 예정 */
   color: ${colors.text};
-  font-size: 3.8vh;
+  font-size: 4.2vh;
   text-align: center;
 `;
 
 export const LoginForm = styled.form<LoginFormProps>`
-  margin-top: 6.7vh;
+  margin-top: 5.5vh;
   text-align: center;
 `;
 
@@ -54,7 +49,7 @@ export const InputWrapper = styled.div`
   height: 5vh;
   border-radius: 62px;
   background-color: ${colors.primary};
-  margin-top: 2vh;
+  margin-top: 2.3vh;
   display: flex;
   align-items: center;
   padding-left: 4vw;
@@ -66,7 +61,7 @@ export const InputImage = styled(Image)`
 `;
 
 export const IdBox = styled.input<IdPwBoxProps>`
-  font-family: ${nanumGothicRegular.style.fontFamily};
+  /* font-family:  적용 예정 */
   font-size: 1.4vh;
   padding-left: 2vw;
   width: 80%;
@@ -80,7 +75,7 @@ export const PwBox = styled(IdBox)<IdPwBoxProps>`
 `;
 
 export const LoginButton = styled.button<LoginButtonProps>`
-  font-family: ${nanumGothicExtraBold.style.fontFamily};
+/* font-family:  적용 예정 */
   margin-top: 6.7vh;
   width: 66vw;
   height: 5vh;
@@ -91,7 +86,7 @@ export const LoginButton = styled.button<LoginButtonProps>`
 `;
 
 export const SubArea = styled.div`
-  font-family: ${nanumGothicBold.style.fontFamily};
+  /* font-family:  적용 예정 */
   text-align: center;
   margin-top: 7vh;
 `;
