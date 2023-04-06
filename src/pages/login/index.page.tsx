@@ -39,7 +39,12 @@ const Login = () => {
 
         <LoginForm onSubmit={e => e.preventDefault()}>
           <InputWrapper>
-            <Svg svgName="enter" _width="2vh" _height="2vh" _fill="#003091" />
+            <Svg
+              svgName="enter"
+              _width="2vh"
+              _height="2vh"
+              _fill="background"
+            />
             <IdBox
               type="email"
               value={loginFormData.email}
@@ -49,7 +54,12 @@ const Login = () => {
           </InputWrapper>
 
           <InputWrapper>
-            <Svg svgName="unlock" _width="2vh" _height="2vh" _fill="#003091" />
+            <Svg
+              svgName="unlock"
+              _width="2vh"
+              _height="2vh"
+              _fill="background"
+            />
             <PwBox
               type="password"
               value={loginFormData.password}
