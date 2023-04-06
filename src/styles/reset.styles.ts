@@ -10,25 +10,6 @@ export const resetCSS = css`
     box-sizing: border-box;
   }
 
-  @font-face {
-    font-family: "NanumSquare";
-    src: url("fonts/NanumSquareR.ttf");
-  }
-  @font-face {
-    font-family: "NanumSquareBold";
-    src: url("fonts/NanumSquareB.ttf");
-  }
-
-  @font-face {
-    font-family: "NanumSquareExtraBold";
-    src: url("fonts/NanumSquareEB.ttf");
-  }
-
-  @font-face {
-    font-family: "NanumSquareLight";
-    src: url("fonts//NanumSquareL.ttf");
-  }
-
   html {
     font-size: ${vw(ROOT_FONT_SIZE)};
     will-change: font-size;
