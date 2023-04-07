@@ -10,16 +10,6 @@ export interface IdPwBoxProps {
     placeholder: string
   }
 
-export interface LoginButtonProps {
-    type: string;
-  }
-
 export interface SubAreaProps {
     href: string;
-  }
-
-// index.page.tsx
-export interface LoginFormType {
-    email: string;
-    password: string;
   }
