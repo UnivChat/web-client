@@ -1,83 +1,60 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
 import { Svg } from "~/components/Common";
-import {
-  AppName,
-  Container,
-  FindPw,
-  IdBox,
-  InputWrapper,
-  LoginBox,
-  LoginButton,
-  LoginForm,
-  PwBox,
-  SignIn,
-  SubArea,
-  SubText
-} from "./loginPage.styles";
-import type { LoginFormType } from "./loginPage.type";
+import * as Styled from "./loginPage.styles";
+import { useLoginForm } from './loginPage.hooks';
 
 const Login = () => {
-  const [loginFormData, setloginFormData] = useState<LoginFormType>({
-    email: "",
-    password: ""
-  });
+  const { email, password } = useLoginForm();
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    inputName: keyof LoginFormType
-  ) => {
-    setloginFormData(prevState => ({
-      ...prevState,
-      [inputName]: event.target.value
-    }));
-  };
+  const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+  }, []);
 
   return (
-    <Container>
-      <LoginBox>
-        <AppName>CAT CHAT</AppName>
+    <Styled.Container>
+      <Styled.LoginBox>
+        <Styled.AppName>CAT CHAT</Styled.AppName>
 
-        <LoginForm onSubmit={e => e.preventDefault()}>
-          <InputWrapper>
+        <Styled.LoginForm onSubmit={handleSubmit}>
+          <Styled.InputWrapper>
             <Svg
               svgName="enter"
               _width="2vh"
               _height="2vh"
               _fill="background"
             />
-            <IdBox
+            <Styled.IdBox
               type="email"
-              value={loginFormData.email}
-              onChange={e => handleInputChange(e, "email")}
+              {...email}
               placeholder="아이디"
             />
-          </InputWrapper>
+          </Styled.InputWrapper>
 
-          <InputWrapper>
+          <Styled.InputWrapper>
             <Svg
               svgName="unlock"
               _width="2vh"
               _height="2vh"
               _fill="background"
             />
-            <PwBox
+            <Styled.PwBox
               type="password"
-              value={loginFormData.password}
-              onChange={e => handleInputChange(e, "password")}
+              {...password}
               placeholder="비밀번호"
             />
-          </InputWrapper>
+          </Styled.InputWrapper>
 
-          <LoginButton type="button">입장하기</LoginButton>
-        </LoginForm>
+          <Styled.LoginButton>입장하기</Styled.LoginButton>
+        </Styled.LoginForm>
 
-        <SubArea>
-          <FindPw href="">비밀번호 찾기</FindPw>
-          <SubText>|</SubText>
-          <SignIn href="">회원가입</SignIn>
-        </SubArea>
-      </LoginBox>
-    </Container>
+        <Styled.SubArea>
+          <Styled.FindPw href="">비밀번호 찾기</Styled.FindPw>
+          <Styled.SubText>|</Styled.SubText>
+          <Styled.SignIn href="">회원가입</Styled.SignIn>
+        </Styled.SubArea>
+      </Styled.LoginBox>
+    </Styled.Container>
   );
 };
 
