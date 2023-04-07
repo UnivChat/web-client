@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
+import { css } from "@emotion/react";
+import { Svg } from "~/components/Common";
 import type {
   IdPwBoxProps,
-  LoginButtonProps,
   LoginFormProps,
   SubAreaProps
 } from "./loginPage.type";
+
+
 
 // Color
 export const colors = {
@@ -55,6 +58,29 @@ export const InputWrapper = styled.div`
   padding-left: 4vw;
 `;
 
+
+export const IdPwIcon = styled(Svg)`
+  width: 2vh;
+  fill: ${colors.background};
+
+  ${({ svgName }) => {
+    if (svgName === 'enter') {
+      return css`
+        height: 1.8vh;
+      `;
+    }
+    
+    if (svgName === 'unlock') {
+      return css`
+        height: 2vh;
+      `;
+    }
+    
+    return css`
+      width: 2vh;
+    `;
+  }}
+`;
 export const IdBox = styled.input<IdPwBoxProps>`
   font-family: "NanumGothic", sans-serif;
   font-weight: 400;
@@ -69,7 +95,7 @@ export const IdBox = styled.input<IdPwBoxProps>`
 
 export const PwBox = styled(IdBox)<IdPwBoxProps>``;
 
-export const LoginButton = styled.button<LoginButtonProps>`
+export const LoginButton = styled.button`
   font-family: "NanumGothic", sans-serif;
   font-weight: 700;
   margin-top: 6.7vh;
