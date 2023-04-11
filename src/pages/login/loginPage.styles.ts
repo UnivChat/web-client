@@ -8,8 +8,6 @@ import type {
   SubAreaProps
 } from "./loginPage.type";
 
-
-
 // Color
 export const colors = {
   background: "#003091",
@@ -17,6 +15,12 @@ export const colors = {
   secondary: "#1360fc",
   text: "white"
 };
+
+// Font
+export const sharedTextStyles = css`
+  font-family: "NanumGothic", sans-serif;
+  color: ${colors.text};
+`;
 
 // Component styles
 export const Container = styled.div`
@@ -35,15 +39,14 @@ export const LoginBox = styled.div`
 `;
 
 export const AppName = styled.div`
-  font-family: "NanumGothic", sans-serif;
-  font-weight: 800;
-  color: ${colors.text};
-  font-size: 4vh;
+  ${sharedTextStyles};
+  font-weight: 600;
+  font-size: 4.5vh;
   text-align: center;
 `;
 
 export const LoginForm = styled.form<LoginFormProps>`
-  margin-top: 5.5vh;
+  margin-top: 4.5vh;
   text-align: center;
 `;
 
@@ -51,13 +54,14 @@ export const InputWrapper = styled.div`
   width: 66vw;
   height: 5vh;
   border-radius: 62px;
+  box-shadow: inset 0px -7px 13px #00000029, 0px 3px 10px #00000029;
   background-color: ${colors.primary};
   margin-top: 2.3vh;
   display: flex;
   align-items: center;
   padding-left: 4vw;
+  border: 1px solid transparent; // 테두리 추가
 `;
-
 
 export const IdPwIcon = styled(Svg)`
   width: 2vh;
@@ -81,51 +85,61 @@ export const IdPwIcon = styled(Svg)`
     `;
   }}
 `;
+
 export const IdBox = styled.input<IdPwBoxProps>`
-  font-family: "NanumGothic", sans-serif;
+  ${sharedTextStyles};
   font-weight: 400;
-  font-size: 1.4vh;
+  font-size: 1.5vh;
   padding-left: 2vw;
   width: 80%;
-  background-color: ${colors.primary};
+  background-color: transparent;
+  color: ${colors.background}; 
+
   ::placeholder {
     color: ${colors.background};
+  }
+
+  &:focus {
+    outline: none; // 기존 테두리 제거
+    ~ ${InputWrapper} {
+      border-color: ${colors.primary}; // 포커스 시 InputWrapper 테두리 색상 변경
+    }
   }
 `;
 
 export const PwBox = styled(IdBox)<IdPwBoxProps>``;
 
 export const LoginButton = styled.button`
-  font-family: "NanumGothic", sans-serif;
-  font-weight: 700;
+  ${sharedTextStyles};
+  font-weight: 600;
   margin-top: 6.7vh;
   width: 66vw;
   height: 5vh;
+  box-shadow: inset 0px -7px 13px #00000029, 0px 6px 10px #00000029;
   background-color: ${colors.secondary};
   border-radius: 62px;
-  color: ${colors.text};
   font-size: 2.2vh;
 `;
 
 export const SubArea = styled.div`
-  font-family: "NanumGothic", sans-serif;
-  font-weight: 400;
+  ${sharedTextStyles};
+  font-weight: 300;
   text-align: center;
   margin-top: 7vh;
 `;
 
 export const FindPw = styled(Link)<SubAreaProps>`
-  color: ${colors.text};
+  ${sharedTextStyles};
   font-size: 1.5vh;
 `;
 
 export const SubText = styled.span`
   margin: 0 6vw;
-  color: ${colors.text};
+  ${sharedTextStyles};
   font-size: 1.5vh;
 `;
 
 export const SignIn = styled(FindPw)<SubAreaProps>`
-  color: ${colors.text};
+  ${sharedTextStyles};
   font-size: 1.5vh;
 `;
