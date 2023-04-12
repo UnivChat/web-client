@@ -1,13 +1,13 @@
-import { Container, Title } from "./Header.styles";
 import type { HeaderProps } from "./Header.types";
 import BackButton from "./BackButton";
+import * as Styled from "./Header.styles";
 
 const Header = ({ title, hasBackButton }: HeaderProps) => {
   return (
-    <Container>
+    <Styled.Container>
       {hasBackButton && <BackButton />}
-      <Title>{title}</Title>
-    </Container>
+      <Styled.Title>{title}</Styled.Title>
+    </Styled.Container>
   );
 };
 
