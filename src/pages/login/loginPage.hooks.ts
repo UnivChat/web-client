@@ -2,10 +2,10 @@ import { useState } from 'react'
 
 export const useLoginForm = () => {
     const [loginFormData, setloginFormData] = useState<{
-        email: string; 
+        id: string; 
         password: string;
       }>({
-        email: "",
+        id: "",
         password: "",
       });
     
@@ -14,14 +14,14 @@ export const useLoginForm = () => {
       ) => {
         setloginFormData(prevState => ({
           ...prevState,
-          [event.target.type]: event.target.value
+          [event.target.name]: event.target.value
         }));
       };
     
 
   return {
-    email: {
-        value: loginFormData.email,
+    id: {
+        value: loginFormData.id,
         onChange: handleInputChange
     },
     password: {
