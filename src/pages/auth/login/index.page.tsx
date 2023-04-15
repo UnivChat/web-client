@@ -1,22 +1,13 @@
-import React, { useCallback } from "react";
+import type { FormEventHandler } from "react";
+import { useCallback } from "react";
 import { useLoginForm } from "./loginPage.hooks";
 import * as Styled from "./loginPage.styles";
 
 const Login = () => {
   const { id, password } = useLoginForm();
 
-  const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit: FormEventHandler = useCallback(e => {
     e.preventDefault();
-  }, []);
-
-  const handleFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
-    e.currentTarget.setAttribute("placeholder", "");
-  }, []);
-
-  const handleBlur = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
-    const inputName = e.currentTarget.name;
-    const placeholderText = inputName === "id" ? "아이디" : "비밀번호";
-    e.currentTarget.setAttribute("placeholder", placeholderText);
   }, []);
 
   return (
@@ -31,8 +22,6 @@ const Login = () => {
               type="text" // email이 아니라 id로 입력 받기
               {...id}
               placeholder="아이디"
-              onFocus={handleFocus}
-              onBlur={handleBlur}
               name="id"
             />
           </Styled.InputWrapper>
@@ -43,8 +32,6 @@ const Login = () => {
               type="password"
               {...password}
               placeholder="비밀번호"
-              onFocus={handleFocus}
-              onBlur={handleBlur}
               name="password"
             />
           </Styled.InputWrapper>
