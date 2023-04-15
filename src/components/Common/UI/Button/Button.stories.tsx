@@ -2,7 +2,6 @@ import type { ComponentStory } from "@storybook/react";
 import { Button } from "./Button";
 
 export default {
-  title: "Common/UI/Button",
   component: Button
 };
 

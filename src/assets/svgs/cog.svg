@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103.69 97">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #040000;
+        stroke-miterlimit: 10;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" y="1.19" width="102.5" height="94.61"/>
+  <g id="_그룹_243" data-name="그룹 243">
+    <path id="_패스_252" data-name="패스 252" class="cls-2" d="m67.76,5.28h-32.97c-5.09,0-9.78,2.74-12.3,7.16L6,41.27c-2.54,4.44-2.54,9.89,0,14.33l16.49,28.82c2.52,4.42,7.21,7.16,12.3,7.16h32.97c5.09,0,9.78-2.74,12.29-7.16l16.49-28.82c2.54-4.44,2.54-9.89,0-14.33l-16.49-28.82c-2.52-4.42-7.21-7.16-12.29-7.16Z"/>
+    <circle id="_타원_22" data-name="타원 22" class="cls-2" cx="51.42" cy="48.64" r="15.46"/>
+  </g>
+</svg>
