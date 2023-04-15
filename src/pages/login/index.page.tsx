@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import * as Styled from "./loginPage.styles";
 import { useLoginForm } from "./loginPage.hooks";
+import * as Styled from "./loginPage.styles";
 
 const Login = () => {
   const { id, password } = useLoginForm();
@@ -10,13 +10,13 @@ const Login = () => {
   }, []);
 
   const handleFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
-    e.currentTarget.setAttribute('placeholder', '');
+    e.currentTarget.setAttribute("placeholder", "");
   }, []);
 
   const handleBlur = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
     const inputName = e.currentTarget.name;
     const placeholderText = inputName === "id" ? "아이디" : "비밀번호";
-    e.currentTarget.setAttribute('placeholder', placeholderText);
+    e.currentTarget.setAttribute("placeholder", placeholderText);
   }, []);
 
   return (
@@ -28,7 +28,7 @@ const Login = () => {
           <Styled.InputWrapper>
             <Styled.IdPwIcon svgName="enter" />
             <Styled.IdBox
-              type="text"  // email이 아니라 id로 입력 받기
+              type="text" // email이 아니라 id로 입력 받기
               {...id}
               placeholder="아이디"
               onFocus={handleFocus}

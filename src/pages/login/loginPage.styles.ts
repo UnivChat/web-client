@@ -1,6 +1,6 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import { css } from "@emotion/react";
 import { Svg } from "~/components/Common";
 import type {
   IdPwBoxProps,
@@ -68,18 +68,18 @@ export const IdPwIcon = styled(Svg)`
   fill: ${colors.background};
 
   ${({ svgName }) => {
-    if (svgName === 'enter') {
+    if (svgName === "enter") {
       return css`
         height: 1.8vh;
       `;
     }
-    
-    if (svgName === 'unlock') {
+
+    if (svgName === "unlock") {
       return css`
         height: 2vh;
       `;
     }
-    
+
     return css`
       width: 2vh;
     `;
@@ -93,7 +93,7 @@ export const IdBox = styled.input<IdPwBoxProps>`
   padding-left: 2vw;
   width: 80%;
   background-color: transparent;
-  color: ${colors.background}; 
+  color: ${colors.background};
 
   ::placeholder {
     color: ${colors.background};
