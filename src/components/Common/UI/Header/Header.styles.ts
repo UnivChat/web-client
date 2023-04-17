@@ -9,14 +9,10 @@ export const Title = styled.span`
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 24px 18px 24px 18px;
+  padding: 24px 18px;
 `;
 
 export const Button = styled.button`
-  color: #003091;
-  font-family: "NanumSquare";
-  font-weight: 800;
   padding-right: 20px;
 `;
