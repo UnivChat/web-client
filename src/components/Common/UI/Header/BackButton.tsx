@@ -3,7 +3,7 @@ import { Svg } from "~/components/Common";
 import { useRouter } from "next/router";
 import { Button } from "./Header.styles";
 
-const BackButton = () => {
+export const BackButton = () => {
   const router = useRouter();
 
   return (
@@ -17,5 +17,3 @@ const BackButton = () => {
     </Button>
   );
 };
-
-export default BackButton;

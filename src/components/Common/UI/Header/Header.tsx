@@ -1,6 +1,6 @@
 import type { HeaderProps } from "./Header.types";
-import BackButton from "./BackButton";
 import * as Styled from "./Header.styles";
+import { BackButton } from "./BackButton";
 
 const Header = ({ title, hasBackButton }: HeaderProps) => {
   return (
