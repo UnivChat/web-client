@@ -10,6 +10,10 @@ const nextConfig = {
     domains: [],
     formats: ["image/webp"]
   },
+
+  redirects: async () => {
+    return [{ source: "/", destination: "/home", permanent: false }];
+  },
   webpack: config => {
     config.module.rules.push({
       test: /\.svg$/,
