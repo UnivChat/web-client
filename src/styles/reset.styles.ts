@@ -23,6 +23,7 @@ export const resetCSS = css`
   body {
     height: 100%;
     will-change: overflow-y, position;
+    font-family: "NanumGothic", "NanumSquare", sans-serif;
 
     &.scroll-lock,
     html.scroll-lock {

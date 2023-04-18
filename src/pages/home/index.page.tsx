@@ -1,17 +1,11 @@
-import React from "react";
-import { Global } from "@emotion/react";
-import { globalStyles } from "./homePage.style";
-import Amenity from "../../components/Home/Amenity/index.page";
-import * as Styled from "./homePage.style";
+import type { NextPageWithLayout } from "../app.types";
 
-function Home() {
-  return (
-    <>
-      <Global styles={globalStyles} />
-      <Styled.Title>CAT CHAT</Styled.Title>
-      <Amenity />
-    </>
-  );
-}
+const HomePage: NextPageWithLayout = () => {
+  return <div>HomePage</div>;
+};
 
-export default Home;
+export default HomePage;
+
+HomePage.layoutConfig = {
+  case: "tab"
+};

@@ -13,13 +13,13 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@tanstack/react-query": "^4.18.0",
+    "axios": "^1.3.4",
+    "emotion-reset": "^3.0.1",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "axios": "^1.3.4",
-    "@tanstack/react-query": "^4.18.0",
     "react-redux": "^8.0.5",
-    "emotion-reset": "^3.0.1",
     "sharp": "^0.31.2"
   },
   "devDependencies": {
@@ -58,6 +58,8 @@
     "husky": "^8.0.2",
     "prettier": "^2.8.0",
     "root-up": "^2.0.7",
+    "storybook-addon-next": "^1.8.0",
+    "storybook-addon-next-router": "^4.0.2",
     "typescript": "4.9.5"
   },
   "main": "index.js",
