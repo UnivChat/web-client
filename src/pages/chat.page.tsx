@@ -1,7 +1,8 @@
 import type { NextPageWithLayout } from "./app.types";
+import { Chat } from "./chat/index.page";
 
 const ChatPage: NextPageWithLayout = () => {
-  return <div>ChatPage</div>;
+  return <Chat />;
 };
 
 export default ChatPage;
