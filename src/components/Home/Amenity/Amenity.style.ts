@@ -1,69 +1,52 @@
 import styled from "@emotion/styled";
 import { Svg } from "~/components/Common";
+import { pxToRem } from "~/utils";
 
 export const Container = styled.div`
   display: flex;
-  width: 100vw;
   justify-content: center;
-  background-color: #f8f9fb;
 `;
 
 export const Amenities = styled.div`
   display: flex;
-  width: 85vw;
-  height: 9.75vh;
-  margin-top: 6vh;
+  width: ${pxToRem(306)};
+  height: ${pxToRem(78)};
   justify-content: space-between;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 0px 5px 13px #00000029;
-  border-radius: 18px; // 한 번만 사용하도록 수정
-  opacity: 1;
   align-items: center;
 `;
 
 export const IconBack = styled.div`
-  --icon-back-color: rgba(227, 227, 227, 0.45);
-  background-color: var(--icon-back-color);
-  width: 5.5vh;
-  height: 5.5vh;
+  background-color: rgba(227, 227, 227, 0.45);
+  width: ${pxToRem(46)};
+  height: ${pxToRem(46)};
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.5vh;
+  margin-bottom: ${pxToRem(5)};
 `;
 
 export const AmenIcon = styled(Svg)`
-  width: 4.5vh;
-  height: 4.5vh;
+  width: ${pxToRem(33)};
+  height: ${pxToRem(33)};
   fill: black;
-  @media (max-width: 768px) {
-    width: 4.5vh;
-    height: 4.5vh;
-  }
 `;
 
 export const StyledLink = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
 `;
 
 export const Amenity = styled.span`
-  font-family: "NanumGothic", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #767676;
   position: relative;
-  width: calc(84vw / 4);
+  width: calc(${pxToRem(630)} / 4);
 
   @media (max-width: 768px) {
     font-size: 1vh;; 
