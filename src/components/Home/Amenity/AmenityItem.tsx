@@ -8,7 +8,7 @@ const AmenityItem = ({ svgName, label, href }: AmenityItemProps) => {
       <Styled.IconBack>
         <Styled.AmenIcon svgName={svgName} />
       </Styled.IconBack>
-      {label}
+      <span>{label} </span>
     </>
   );
 
