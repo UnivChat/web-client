@@ -13,6 +13,9 @@ export const Amenities = styled.div`
   height: ${pxToRem(78)};
   justify-content: space-between;
   align-items: center;
+  background-color: #fff;
+  /* box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
+  border-radius: ${pxToRem(14)}; */
 `;
 
 export const IconBack = styled.div`
