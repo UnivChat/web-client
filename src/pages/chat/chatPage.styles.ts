@@ -10,7 +10,7 @@ export const colors = {
 
 // Font
 export const sharedTextStyles = css`
-  font-family: "NanumSquare", sans-serif;
+  font-family: "NanumSquare";
   font-weight: 300;
 `;
 
@@ -28,7 +28,7 @@ export const Box = styled.div`
   overflow: hidden;
   width: 100%;
   height: 23.75vh;
-  background: ${colors.white} 0% 0% no-repeat padding-box;
+  background: ${colors.white};
   box-shadow: 0px 5px 13px #00000029;
   border-radius: 40px;
   margin-right: 0.875vh;
@@ -41,7 +41,6 @@ export const Box = styled.div`
 
 export const LiveChatBox = styled(Box)`
   height: 17.5vh;
-  background: ${colors.white} 0% 0% no-repeat padding-box;
   box-shadow: 0px 5px 13px #00000029;
   border-radius: 40px;
   display: flex;
