@@ -1,0 +1,33 @@
+import type { ChangeEvent, FormEvent, MouseEvent } from "react";
+
+// useInput 타입 정의
+export interface UseInputReturnValue {
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+// useSiginForm 타입 정의
+export interface UseSiginFormReturnValue {
+  name: UseInputReturnValue;
+  id: UseInputReturnValue;
+  password: UseInputReturnValue;
+  confirmPassword: UseInputReturnValue;
+  nickname: UseInputReturnValue;
+  gender: {
+    value: "male" | "female" | undefined;
+    handleGenderButtonClick: (selectedGender: "male" | "female") => void;
+  };
+  handleGenderButtonClick: (selectedGender: "male" | "female") => void;
+}
+
+// useSubmit 타입 정의
+export interface UseSubmitReturnValue {
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  genderWarning: boolean;
+  passwordsMatchWarning: boolean;
+}
+
+// useIdCheck 타입 정의
+export interface UseIdCheckReturnValue {
+  handleIdCheck: (e: MouseEvent<HTMLButtonElement>) => void;
+}
