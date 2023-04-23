@@ -1,6 +1,10 @@
 import * as Styled from "./auth.styles";
  
-const Header = () => <Styled.Header>회원가입</Styled.Header>;
+
+const Header = ({ text }: {text: string}) => {
+  return <Styled.Header>{text}</Styled.Header>;
+};
+
 
 // ... 부분
 const BodyTopsDots = () => {

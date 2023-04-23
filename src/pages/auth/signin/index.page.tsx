@@ -31,7 +31,7 @@ const SignInPage = () => {
 
   return (
     <Container>
-      <Header />
+      <Header text="회원가입" />
       <Body>
         <BodyTop step={1} />
 
