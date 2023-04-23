@@ -1,13 +1,7 @@
 import type { NextPageWithLayout } from "../app.types";
-import Amenity from '../../components/Home/Amenity/index.page';
 
 const HomePage: NextPageWithLayout = () => {
-  return (
-    <div>
-      HomePage
-      <Amenity />
-    </div>
-  )
+  return <div>HomePage</div>;
 };
 
 export default HomePage;
