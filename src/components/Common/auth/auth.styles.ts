@@ -2,19 +2,29 @@ import { colors } from "~/constants";
 import { pxToRem } from "~/utils";
 import styled from "@emotion/styled";
 
+function flex(
+  displayType = "",
+  flexDirection = "",
+  justifyContent = "",
+  alignItems = ""
+) {
+  return `
+    display: ${displayType};
+    ${flexDirection ? `flex-direction: ${flexDirection};` : ""}
+    ${justifyContent ? `justify-content: ${justifyContent};` : ""}
+    ${alignItems ? `align-items: ${alignItems};` : ""}
+  `;
+}
+
 export const Container = styled.div`
-  display: flex;
+  ${flex("flex", "column", "", "center")};
   position: fixed;
-  align-items: center;
-  flex-direction: column;
   min-height: 100vh;
   background-color: ${colors.white};
 `;
 
 export const Body = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${flex("flex", "column", "", "center")};
   background-color: ${colors.grayf8};
   margin-top: ${pxToRem(18)};
   border-top-right-radius: ${pxToRem(40)};
@@ -32,18 +42,15 @@ export const Header = styled.span`
 `;
 
 export const BodyTop = styled.div`
-    width: ${pxToRem(284)};
-    margin-top: ${pxToRem(30)};
-`
+  width: ${pxToRem(284)};
+  margin-top: ${pxToRem(30)};
+`;
 export const BodyTopWrapper = styled.div`
-    display: flex;
-    align-items: center;
-`
+  ${flex("flex", "", "", "center")};
+`;
 
 export const BodyTopNumber = styled.span<{ opacity?: number }>`
-  display: inline-flex; 
-  justify-content: center; 
-  align-items: center; 
+  ${flex("inline-flex", "", "center", "center")};
   width: ${pxToRem(20)};
   height: ${pxToRem(20)};
   border-radius: ${pxToRem(40)};
@@ -51,18 +58,16 @@ export const BodyTopNumber = styled.span<{ opacity?: number }>`
   color: ${colors.background};
   opacity: ${({ opacity }) => opacity || 1};
   font-weight: 800;
-`
+`;
 
 export const BodyTopDots = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  ${flex("inline-flex", "", "center", "center")};
   margin: 0 2px;
 `;
 
 export const Dot = styled.span`
   display: inline-block;
-  font-size: ${pxToRem(25)};;
+  font-size: ${pxToRem(25)};
   line-height: 1;
   vertical-align: middle;
   position: relative;
@@ -73,14 +78,14 @@ export const Dot = styled.span`
 `;
 
 export const BodyTopText = styled.div`
-    margin-top: ${pxToRem(15)};
-    font-size: ${pxToRem(15)};
-    font-weight: 800;
-    color: ${colors.background};
-`
+  margin-top: ${pxToRem(15)};
+  font-size: ${pxToRem(15)};
+  font-weight: 800;
+  color: ${colors.background};
+`;
 
-export const Text = styled.div<{ isGenderText?: boolean }>`
-  margin-top: ${({ isGenderText }) => (isGenderText ? pxToRem(23) : pxToRem(11))};
+export const Text = styled.div<{ marginTop?: string }>`
+  margin-top: ${({ marginTop }) => marginTop || pxToRem(11)};
   margin-left: ${pxToRem(10)};
   margin-bottom: ${pxToRem(8)};
   font-weight: 600;
@@ -88,9 +93,9 @@ export const Text = styled.div<{ isGenderText?: boolean }>`
   color: ${colors.background};
 `;
 
-export const Input = styled.input<{ isIdInput?: boolean }>`
+export const Input = styled.input<{ width?: string }>`
   padding-left: ${pxToRem(20)};
-  width: ${({ isIdInput }) => (isIdInput ? pxToRem(204) : pxToRem(284))};
+  width: ${({ width }) => width || pxToRem(284)};
   height: ${pxToRem(35)};
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 0.8px solid #d3d7e0;
@@ -104,16 +109,16 @@ export const WarningMessage = styled.div`
   color: ${colors.warning};
   font-size: ${pxToRem(10)};
   font-weight: 600;
-`
+`;
 export const SubmitButton = styled.button`
-    width: 100vw;
-    height: ${pxToRem(56)};
-    background-color: ${colors.background};
-    font-size: ${pxToRem(16)};
-    color: ${colors.white};
-    font-weight: 800;
-    letter-spacing: ${pxToRem(2)};
-    position: fixed;
-    left: 0;
-    bottom: 0;
-`
+  width: 100vw;
+  height: ${pxToRem(56)};
+  background-color: ${colors.background};
+  font-size: ${pxToRem(16)};
+  color: ${colors.white};
+  font-weight: 800;
+  letter-spacing: ${pxToRem(2)};
+  position: fixed;
+  left: 0;
+  bottom: 0;
+`;
