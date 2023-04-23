@@ -2,6 +2,7 @@ import * as CommonComponents from "~/components/Common/auth/auth";
 import { Body, Container } from "~/components/Common/auth/auth.styles";
 import * as Styled from "./signinPage.styles";
 import { useIdCheck, useSiginForm, useSubmit } from "./signinPage.hooks";
+import { pxToRem } from "../../../utils/styles/sizeChanger";
 
 const {
   Header,
@@ -39,7 +40,13 @@ const SignInPage = () => {
           <CustomText>이름</CustomText>
           <CustomInput type="text" name="name" required {...name} />
           <CustomText>아이디</CustomText>
-          <CustomInput type="text" name="id" required isIdInput {...id} />
+          <CustomInput
+            type="text"
+            name="id"
+            required
+            width={pxToRem(204)}
+            {...id}
+          />
           <Styled.CheckIdButton onClick={handleIdCheck}>
             중복확인
           </Styled.CheckIdButton>
@@ -57,7 +64,7 @@ const SignInPage = () => {
           )}
           <CustomText>닉네임</CustomText>
           <CustomInput type="text" name="nickname" required {...nickname} />
-          <CustomText isGenderText>성별</CustomText>
+          <CustomText marginTop={pxToRem(23)}>성별</CustomText>
           <Styled.GenderButton
             type="button"
             isSelected={gender.value === "male"}
