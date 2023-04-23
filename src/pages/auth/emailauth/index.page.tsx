@@ -15,7 +15,7 @@ const EmailAuth = () => {
 
   return (
     <Container>
-      <Header text="회원가입"/>
+      <Header text="회원가입" />
       <Body>
         <BodyTop step={2} />
 

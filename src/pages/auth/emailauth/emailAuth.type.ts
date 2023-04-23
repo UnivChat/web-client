@@ -1,6 +1,5 @@
 export interface UseEmailAuthReturnValue {
-    isEmailAuthButtonClicked: boolean;
-    emailAuthButtonBgColor: string;
-    handleEmailAuthButtonClick: () => void;
-  }
-  
+  isEmailAuthButtonClicked: boolean;
+  emailAuthButtonBgColor: string;
+  handleEmailAuthButtonClick: () => void;
+}

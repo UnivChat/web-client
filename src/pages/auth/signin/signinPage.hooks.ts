@@ -1,11 +1,11 @@
-import { useState, useCallback } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useCallback } from "react";
+import { useRouter } from "next/router";
 import type {
   UseInputReturnValue,
   UseSiginFormReturnValue,
   UseSubmitReturnValue,
-  UseIdCheckReturnValue,
-} from "./signinPage.type"
+  UseIdCheckReturnValue
+} from "./signinPage.type";
 
 export const useInput = (initialValue: string): UseInputReturnValue => {
   const [value, setValue] = useState(initialValue);
@@ -16,20 +16,22 @@ export const useInput = (initialValue: string): UseInputReturnValue => {
 
   return {
     value,
-    onChange,
+    onChange
   };
 };
 
 export const useSiginForm = (): UseSiginFormReturnValue => {
-  const name = useInput('');
-  const id = useInput('');
-  const password = useInput('');
-  const confirmPassword = useInput('');
-  const nickname = useInput('');
+  const name = useInput("");
+  const id = useInput("");
+  const password = useInput("");
+  const confirmPassword = useInput("");
+  const nickname = useInput("");
 
-  const [gender, setGender] = useState<'male' | 'female' | undefined>(undefined);
+  const [gender, setGender] = useState<"male" | "female" | undefined>(
+    undefined
+  );
 
-  const handleGenderButtonClick = (selectedGender: 'male' | 'female') => {
+  const handleGenderButtonClick = (selectedGender: "male" | "female") => {
     setGender(selectedGender);
   };
 
@@ -41,15 +43,15 @@ export const useSiginForm = (): UseSiginFormReturnValue => {
     nickname,
     gender: {
       value: gender,
-      handleGenderButtonClick,
+      handleGenderButtonClick
     },
-    handleGenderButtonClick,
+    handleGenderButtonClick
   };
 };
 
 // 성별, 비밀번호 중복 체크 확인 후 다음 페이지로 이동
 export const useSubmit = (
-  genderValue: 'male' | 'female' | undefined,
+  genderValue: "male" | "female" | undefined,
   passwordValue: string,
   confirmPasswordValue: string
 ): UseSubmitReturnValue => {
@@ -81,7 +83,7 @@ export const useSubmit = (
   return {
     handleSubmit,
     genderWarning,
-    passwordsMatchWarning,
+    passwordsMatchWarning
   };
 };
 
@@ -96,7 +98,7 @@ export const useIdCheck = (): UseIdCheckReturnValue => {
   );
 
   return {
-    handleIdCheck,
+    handleIdCheck
   };
 };
 

@@ -27,9 +27,9 @@ export const CheckAuthButton = styled.button<{
 `;
 
 export const Span = styled.span`
-    margin-top: ${pxToRem(61)};
-    margin-bottom: ${pxToRem(20)};
-`
+  margin-top: ${pxToRem(61)};
+  margin-bottom: ${pxToRem(20)};
+`;
 
 export const Message = styled.div`
   margin-left: ${pxToRem(10)};
@@ -37,13 +37,13 @@ export const Message = styled.div`
   color: ${colors.background};
   font-size: ${pxToRem(10)};
   font-weight: 600;
-`
+`;
 
 export const TitleText = styled.span`
-    font-weight: 800;
-    font-size: ${pxToRem(15)};
-    color: ${colors.background};
-    align-self: flex-start;
-    margin-left: ${pxToRem(38)};
-    padding-bottom: ${pxToRem(13)};
-`
+  font-weight: 800;
+  font-size: ${pxToRem(15)};
+  color: ${colors.background};
+  align-self: flex-start;
+  margin-left: ${pxToRem(38)};
+  padding-bottom: ${pxToRem(13)};
+`;

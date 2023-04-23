@@ -19,12 +19,11 @@ export default {
 const BodyTemplate: Story = () => <Body />;
 export const BodyComponent = BodyTemplate.bind({});
 
-const HeaderTemplate: Story<{ text: string }> = (args) => <Header {...args} />;
+const HeaderTemplate: Story<{ text: string }> = args => <Header {...args} />;
 export const HeaderComponent = HeaderTemplate.bind({});
 HeaderComponent.args = {
   text: '회원가입',
 };
-
 
 // 점
 const BodyTopsDotsTemplate: Story = () => <BodyTopsDots />;
@@ -39,11 +38,15 @@ const CustomTextTemplate: Story = () => <CustomText>아아디</CustomText>;
 export const CustomTextComponent = CustomTextTemplate.bind({});
 
 // input
-const CustomInputTemplate: Story = () => <CustomInput type="text" name="example" required />;
+const CustomInputTemplate: Story = () => (
+  <CustomInput type="text" name="example" required />
+);
 export const CustomInputComponent = CustomInputTemplate.bind({});
 
 // 경고 메세지
-const WarningMessageTemplate: Story = () => <WarningMessage>중복된 아이디입니다</WarningMessage>;
+const WarningMessageTemplate: Story = () => (
+  <WarningMessage>중복된 아이디입니다</WarningMessage>
+);
 export const WarningMessageComponent = WarningMessageTemplate.bind({});
 
 // 다음 버튼
