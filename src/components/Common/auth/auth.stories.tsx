@@ -1,4 +1,3 @@
-// Auth.stories.tsx
 import React from "react";
 import type { Meta, Story } from "@storybook/react";
 import {
@@ -20,9 +19,12 @@ export default {
 const BodyTemplate: Story = () => <Body />;
 export const BodyComponent = BodyTemplate.bind({});
 
-// Header
-const HeaderTemplate: Story = () => <Header />;
+const HeaderTemplate: Story<{ text: string }> = (args) => <Header {...args} />;
 export const HeaderComponent = HeaderTemplate.bind({});
+HeaderComponent.args = {
+  text: '회원가입',
+};
+
 
 // 점
 const BodyTopsDotsTemplate: Story = () => <BodyTopsDots />;
