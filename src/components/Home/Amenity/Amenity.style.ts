@@ -13,9 +13,8 @@ export const Amenities = styled.div`
   height: ${pxToRem(78)};
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  /* box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
-  border-radius: ${pxToRem(14)}; */
+  box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
+  border-radius: ${pxToRem(14)};
 `;
 
 export const IconBack = styled.div`
@@ -42,7 +41,6 @@ export const StyledLink = styled.a`
 `;
 
 export const Amenity = styled.span`
-  font-weight: 400;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,10 +48,6 @@ export const Amenity = styled.span`
   color: #767676;
   position: relative;
   width: calc(${pxToRem(630)} / 4);
-
-  @media (max-width: 768px) {
-    font-size: 1vh;; 
-  }
 
   &:not(:last-child)::after {
     content: "";
