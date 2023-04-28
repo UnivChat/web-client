@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import emotionReset from "emotion-reset";
 import { ROOT_FONT_SIZE } from "~/constants";
-import { media, vw, vwMobile } from "~/utils";
+import { media, vwMobile } from "~/utils";
 
 export const resetCSS = css`
   ${emotionReset}
@@ -11,7 +11,7 @@ export const resetCSS = css`
   }
 
   html {
-    font-size: ${vw(ROOT_FONT_SIZE)};
+    font-size: 10px;
     will-change: font-size;
     height: 100%;
 
@@ -56,6 +56,7 @@ export const resetCSS = css`
     padding: 0;
     margin: 0; // ios default css
     border: none;
+    color: inherit;
 
     &:disabled {
       cursor: not-allowed;
