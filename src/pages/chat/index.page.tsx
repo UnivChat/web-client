@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
 import { DormitoryChat } from "@images/index";
+import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./chat.styles";
 
-export const Chat = () => {
+const ChatPage: NextPageWithLayout = () => {
   return (
     <Styled.Container>
       {/* 라이브 채팅 박스 */}
@@ -87,4 +88,10 @@ export const Chat = () => {
       </Styled.BoxContainer>
     </Styled.Container>
   );
+};
+
+export default ChatPage;
+
+ChatPage.layoutConfig = {
+  case: "tab"
 };
