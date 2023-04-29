@@ -1,5 +1,7 @@
+import Image from "next/image";
 import React from "react";
-import * as Styled from "./chatPage.styles";
+import { DormitoryChat } from "@images/index";
+import * as Styled from "./chat.styles";
 
 export const Chat = () => {
   return (
@@ -47,7 +49,8 @@ export const Chat = () => {
             <Styled.Title>채팅</Styled.Title>
           </div>
           <div className="icon">
-            <Styled.DomitoryChatIcon svgName="dormitoryChat" />
+            {/* <Styled.DomitoryChatIcon svgName="dormitoryChat" /> */}
+            <Image src={DormitoryChat} alt="dormitory" width={85} height={95} />
           </div>
         </Styled.DormitoryChatBox>
       </Styled.BoxContainer>
