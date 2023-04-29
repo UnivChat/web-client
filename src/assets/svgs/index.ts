@@ -6,6 +6,8 @@ export { default as homeActive } from "./home-active.svg";
 export { default as home } from "./home.svg";
 export { default as peoplePlus } from "./people-plus.svg";
 export { default as play } from "./play.svg";
+export { default as enter } from "./enter.svg";
+export { default as unlock } from "./unlock.svg";
 export { default as liveChat } from "./live-chat.svg";
 export { default as classChat } from "./class-chat.svg";
 export { default as loveChat } from "./love-chat.svg";
