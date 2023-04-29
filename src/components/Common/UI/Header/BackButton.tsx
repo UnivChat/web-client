@@ -4,14 +4,10 @@ import { useRouter } from "next/router";
 import * as Styled from "./BackButton.styles";
 
 export const BackButton = () => {
-  const router = useRouter();
-
-  const handleBackClick = () => {
-    router.back();
-  };
+  const { back } = useRouter();
 
   return (
-    <Styled.Button type="button" onClick={handleBackClick}>
+    <Styled.Button type="button" onClick={back}>
       <Svg _width={8} _height={16} svgName="back" />
     </Styled.Button>
   );
