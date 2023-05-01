@@ -2,10 +2,6 @@ import { colors } from "~/constants";
 import { pxToRem } from "~/utils";
 import styled from "@emotion/styled";
 
-export const BodyForm = styled.form`
-  padding-top: ${pxToRem(22)};
-`;
-
 export const BodyText = styled.div`
   font-weight: 800;
   margin-top: ${pxToRem(15)};

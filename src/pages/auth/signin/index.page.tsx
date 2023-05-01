@@ -1,5 +1,9 @@
 import * as CommonComponents from "~/components/Common/auth/auth";
-import { Body, Container } from "~/components/Common/auth/auth.styles";
+import {
+  Body,
+  BodyForm,
+  Container
+} from "~/components/Common/auth/auth.styles";
 import * as Styled from "./signinPage.styles";
 import { useIdCheck, useSiginForm, useSubmit } from "./signinPage.hooks";
 import { pxToRem } from "../../../utils/styles/sizeChanger";
@@ -36,7 +40,7 @@ const SignInPage = () => {
       <Body>
         <BodyTop step={1} />
 
-        <Styled.BodyForm onSubmit={handleSubmit}>
+        <BodyForm onSubmit={handleSubmit} paddingTop={22}>
           <CustomText>이름</CustomText>
           <CustomInput type="text" name="name" required {...name} />
           <CustomText>아이디</CustomText>
@@ -83,7 +87,7 @@ const SignInPage = () => {
             <WarningMessage>성별을 선택해 주세요.</WarningMessage>
           )}
           <SubmitButton>다음</SubmitButton>
-        </Styled.BodyForm>
+        </BodyForm>
       </Body>
     </Container>
   );
