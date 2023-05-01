@@ -77,11 +77,13 @@ export const Dot = styled.span`
   margin: 0 -5px;
 `;
 
-export const BodyTopText = styled.div`
+export const BodyTopText = styled.div<{ marginBottom?: number }>`
   margin-top: ${pxToRem(15)};
   font-size: ${pxToRem(15)};
   font-weight: 800;
   color: ${colors.background};
+  margin-bottom: ${({ marginBottom }) =>
+    marginBottom ? pxToRem(marginBottom) : "0"};
 `;
 
 export const Text = styled.div<{ marginTop?: string }>`
@@ -121,4 +123,42 @@ export const SubmitButton = styled.button`
   position: fixed;
   left: 0;
   bottom: 0;
+`;
+
+export const BodyForm = styled.form<{
+  paddingTop?: number;
+  paddingBottom?: number;
+}>`
+  padding-top: ${({ paddingTop }) => pxToRem(paddingTop || 0)};
+  padding-bottom: ${({ paddingBottom }) => pxToRem(paddingBottom || 0)};
+`;
+
+export const CheckAuthButton = styled.button<{
+  marginTop?: number;
+}>`
+  width: ${pxToRem(231)};
+  height: ${pxToRem(33)};
+  font-size: ${pxToRem(11)};
+  font-weight: 600;
+  background-color: ${colors.background};
+  color: ${colors.white};
+  border: 1px solid;
+  border-radius: ${pxToRem(50)};
+  letter-spacing: ${pxToRem(0.7)};
+  cursor: pointer;
+  outline: none;
+  margin-top: ${({ marginTop }) => pxToRem(marginTop || 20)};
+`;
+
+export const Span = styled.span`
+  margin-top: ${pxToRem(61)};
+  margin-bottom: ${pxToRem(20)};
+`;
+
+export const Message = styled.div`
+  margin-left: ${pxToRem(10)};
+  margin-top: ${pxToRem(14)};
+  color: ${colors.background};
+  font-size: ${pxToRem(10)};
+  font-weight: 600;
 `;
