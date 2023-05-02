@@ -9,3 +9,5 @@ export { default as play } from "./play.svg";
 export { default as enter } from "./enter.svg";
 export { default as unlock } from "./unlock.svg";
 export { default as blueSearch } from "./blue-search.svg";
+export { default as minus } from "./minus.svg";
+export { default as plus } from "./plus.svg";
