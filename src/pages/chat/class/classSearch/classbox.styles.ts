@@ -1,0 +1,39 @@
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { pxToRem } from "~/utils";
+
+const sharedTextStyles = css`
+  font-family: "NanumSquare";
+  font-weight: 600;
+`;
+
+export const ClassBox = styled.div`
+  height: 85px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: ${pxToRem(0.6)} solid #707070;
+  padding: 0 ${pxToRem(12)} 0 ${pxToRem(12)};
+  border-bottom: 1px solid #707070;
+  &:last-child {
+    border: none;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const Title = styled.span`
+  ${sharedTextStyles}
+  font-size: ${pxToRem(15)};
+`;
+
+export const SubTitle = styled.span`
+  ${sharedTextStyles}
+  font-size: ${pxToRem(12)};
+  color: #a7a7a7;
+  padding-top: 8px;
+`;
