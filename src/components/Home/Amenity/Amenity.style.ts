@@ -1,22 +1,14 @@
 import styled from "@emotion/styled";
 import { Svg } from "~/components/Common";
 import { pxToRem } from "~/utils";
-
-function flex(flexDirection = "", justifyContent = "", alignItems = "") {
-  return `
-    display: flex;
-    ${flexDirection ? `flex-direction: ${flexDirection};` : ""}
-    ${justifyContent ? `justify-content: ${justifyContent};` : ""}
-    ${alignItems ? `align-items: ${alignItems};` : ""}
-  `;
-}
+import { flex } from "~/styles/utils/flex";
 
 export const Container = styled.div`
-  ${flex("", "center", "")}
+  ${flex({ justifyContent: "center" })}
 `;
 
 export const Amenities = styled.div`
-  ${flex("", "space-between", "center")}
+  ${flex({ justifyContent: "space-between", alignItems: "center" })}
   width: ${pxToRem(306)};
   height: ${pxToRem(78)};
   box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
@@ -24,7 +16,7 @@ export const Amenities = styled.div`
 `;
 
 export const IconBack = styled.div`
-  ${flex("", "center", "center")}
+  ${flex({ justifyContent: "center", alignItems: "center" })}
   background-color: rgba(227, 227, 227, 0.45);
   width: ${pxToRem(46)};
   height: ${pxToRem(46)};
@@ -39,11 +31,15 @@ export const AmenIcon = styled(Svg)`
 `;
 
 export const StyledLink = styled.a`
-  ${flex("column", "", "center")}
+  ${flex({ flexDirection: "column", alignItems: "center" })}
 `;
 
 export const Amenity = styled.span`
-  ${flex("column", "center", "center")}
+  ${flex({
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  })}
   color: #767676;
   position: relative;
   width: calc(${pxToRem(630)} / 4);
