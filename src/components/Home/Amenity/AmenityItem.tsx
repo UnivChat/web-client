@@ -15,7 +15,11 @@ const AmenityItem = ({ svgName, label, href }: AmenityItemProps) => {
   return (
     <Styled.Amenity>
       {href ? (
-        <Styled.StyledLink href={href} target="_blank" rel="noopener noreferrer">
+        <Styled.StyledLink
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {content}
         </Styled.StyledLink>
       ) : (
