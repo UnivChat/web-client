@@ -17,9 +17,9 @@ const ClassChatBox = ({ title, subTitle, chatCount, chatTime }: Props) => {
       </div>
       <div>
         <Styled.SubTitle>{subTitle}</Styled.SubTitle>
-        <Styled.MessageContainer>
+        <Styled.ChatCountContainer>
           <Styled.ChatCount>{chatCount}</Styled.ChatCount>
-        </Styled.MessageContainer>
+        </Styled.ChatCountContainer>
       </div>
     </Styled.ChatBox>
   );

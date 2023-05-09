@@ -13,6 +13,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 0 ${pxToRem(22)} 0 ${pxToRem(22)};
   background-color: #f8f9fb;
+  min-height: 100vh;
 `;
 
 export const ChatBox = styled.div`
@@ -36,7 +37,7 @@ export const ChatBox = styled.div`
   }
 `;
 
-export const MessageContainer = styled.div`
+export const ChatCountContainer = styled.div`
   position: relative;
   width: 20px;
   height: 20px;

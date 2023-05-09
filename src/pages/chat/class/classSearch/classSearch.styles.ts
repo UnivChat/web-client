@@ -14,7 +14,7 @@ export const Divider = styled.div`
 `;
 
 export const Container = styled.div`
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 0 ${pxToRem(22)} 0 ${pxToRem(22)};
