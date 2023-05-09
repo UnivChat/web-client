@@ -9,3 +9,4 @@ export { default as home } from "./home.svg";
 export { default as peoplePlus } from "./people-plus.svg";
 export { default as play } from "./play.svg";
 export { default as unlock } from "./unlock.svg";
+export { default as plus } from "./plus.svg";
