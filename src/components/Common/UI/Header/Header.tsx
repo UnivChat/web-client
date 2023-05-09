@@ -5,13 +5,16 @@ import { RightButton } from "./RightButton";
 
 const Header = ({ title, hasBackButton, rightButton }: HeaderProps) => {
   return (
-    <Styled.Container>
-      <div>
-        {hasBackButton && <BackButton />}
-        <Styled.Title>{title}</Styled.Title>
-      </div>
-      {rightButton && <RightButton rightButton={rightButton} />}
-    </Styled.Container>
+    <>
+      <Styled.Container>
+        <div>
+          {hasBackButton && <BackButton />}
+          <Styled.Title>{title}</Styled.Title>
+        </div>
+        {rightButton && <RightButton rightButton={rightButton} />}
+      </Styled.Container>
+      <Styled.MarginContainer />
+    </>
   );
 };
 

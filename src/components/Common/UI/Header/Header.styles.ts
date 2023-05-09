@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { colors } from "~/constants";
 import { pxToRem } from "~/utils";
 
 export const Title = styled.span`
@@ -9,11 +10,19 @@ export const Title = styled.span`
 `;
 
 export const Container = styled.div`
+  position: fixed;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 24px 18px;
+  height: 50px;
+  background: ${colors.white};
   div {
     display: flex;
   }
+`;
+
+export const MarginContainer = styled.div`
+  height: 50px;
 `;
