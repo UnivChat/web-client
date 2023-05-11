@@ -15,7 +15,7 @@ const Menu = () => {
           ["123", "1234", "12345"],
           ["123", "1234", "12345"]
         ]}
-      ></MenuContainer>
+      />
       <MenuContainer
         title="카페보나"
         titlePlace="학생미래인재관 1층"
@@ -25,7 +25,7 @@ const Menu = () => {
           ["234", "2345", "23456"],
           ["234", "2345", "23456"]
         ]}
-      ></MenuContainer>
+      />
       <MenuContainer
         title="카페멘사"
         titlePlace="김수환관 1층"
@@ -35,7 +35,7 @@ const Menu = () => {
           ["345", "3456", "34567"],
           ["345", "3456", "34567"]
         ]}
-      ></MenuContainer>
+      />
     </Styled.Container>
   );
 };

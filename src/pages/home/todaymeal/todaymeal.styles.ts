@@ -79,7 +79,7 @@ export const TimeTitle = styled.span`
 export const TimeSub = styled.span`
   margin-top: ${pxToRem(4)};
   font-family: "NanumSquare";
-  font-weight: 600;
+  font-weight: 300;
   font-size: ${pxToRem(9)};
   color: #767676;
 `;
@@ -106,7 +106,7 @@ export const MenuList = styled.div`
 export const MenuEach = styled.div`
   margin-top: ${pxToRem(6)};
   font-family: "NanumSquare";
-  font-weight: 600;
+  font-weight: 300;
   font-size: ${pxToRem(10)};
   text-align: center;
   color: #393939;
