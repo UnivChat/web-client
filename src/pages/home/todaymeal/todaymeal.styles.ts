@@ -20,6 +20,7 @@ export const MenuContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
 export const MenuTitle = styled.div`
   margin-top: ${pxToRem(31)};
   margin-left: ${pxToRem(53)};
