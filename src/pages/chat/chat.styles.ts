@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { Svg } from "~/components/Common";
+import { pxToRem } from "~/utils";
+import { flex } from "~/styles/utils/flex";
 
 // Font
 export const sharedTextStyles = css`
@@ -9,13 +11,13 @@ export const sharedTextStyles = css`
 `;
 
 export const Container = styled.div`
-  padding: 35px 35px 74px;
-  border-top-right-radius: 40px;
+  padding: ${pxToRem(35)} ${pxToRem(35)} ${pxToRem(74)};
+  border-top-right-radius: ${pxToRem(40)};
 `;
 
 export const BoxContainer = styled.div`
-  display: flex;
-  margin-top: 24px;
+  ${flex()}
+  margin-top: ${pxToRem(24)};
 `;
 
 export const Box = styled.div`
@@ -23,87 +25,81 @@ export const Box = styled.div`
   width: 100%;
   height: 188px;
   background: "#FFFFFF";
-  box-shadow: 0px 5px 13px #00000029;
-  border-radius: 40px;
-  margin-right: 7px;
+  box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
+  border-radius: ${pxToRem(40)};
+  margin-right: ${pxToRem(7)};
   .span {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    ${flex({ flexDirection: "column", alignItems: "flex-end" })}
   }
 `;
 
 export const LiveChatBox = styled(Box)`
-  height: 140px;
-  box-shadow: 0px 5px 13px #00000029;
-  border-radius: 40px;
-  display: flex;
-  justify-content: space-between;
+  ${flex({ justifyContent: "space-between" })}
+  height: ${pxToRem(140)};
+  box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
+  border-radius: ${pxToRem(40)};
   .span {
-    align-items: flex-start;
-    padding: 30px 0px 63px 26px;
+    ${flex({ alignItems: "flex-start" })}
+    padding: ${pxToRem(30)} 0px ${pxToRem(63)} ${pxToRem(26)};
     div:nth-child(1) {
-      padding-bottom: 6px;
+      padding-bottom: ${pxToRem(6)};
     }
   }
   .icon {
-    padding: 47px 16px 17px 0px;
+    padding: ${pxToRem(47)} ${pxToRem(16)} ${pxToRem(17)} 0px;
   }
 `;
 
 export const ClassChatBox = styled(Box)`
   .span {
-    padding: 24px 17px 0 0px;
+    padding: ${pxToRem(24)} ${pxToRem(17)} 0px 0px;
     div:nth-child(1) {
-      padding-bottom: 6px;
+      padding-bottom: ${pxToRem(6)};
     }
   }
   .icon {
-    padding-top: 14px;
+    padding-top: ${pxToRem(14)};
   }
 `;
 
 export const LoveChatBox = styled(Box)`
   .span {
-    align-items: flex-start;
-    padding: 24px 0 0 17px;
+    ${flex({ alignItems: "flex-start" })}
+    padding: ${pxToRem(24)} 0px 0px ${pxToRem(17)};
     div:nth-child(1) {
-      padding-bottom: 6px;
+      padding-bottom: ${pxToRem(6)};
     }
   }
   .icon {
-    display: flex;
-    justify-content: flex-end;
+    ${flex({ justifyContent: "flex-end" })}
   }
 `;
 
 export const DormitoryChatBox = styled(Box)`
   .span {
-    align-items: flex-start;
-    padding: 24px 0 0 17px;
+    ${flex({ alignItems: "flex-start" })}
+    padding: ${pxToRem(24)} 0 0 ${pxToRem(17)};
     div {
-      padding-bottom: 6px;
+      padding-bottom: ${pxToRem(6)};
     }
   }
   .icon {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 15px;
+    ${flex({ justifyContent: "flex-end" })}
+    padding-top: ${pxToRem(15)};
     opacity: 0.5;
   }
 `;
 
 export const PrivateChatBox = styled(Box)`
   .span {
-    align-items: flex-start;
-    padding-left: 17px;
+    ${flex({ alignItems: "flex-start" })}
+    padding-left: ${pxToRem(17)};
     div {
-      padding-top: 6px;
+      padding-top: ${pxToRem(6)};
     }
   }
   .icon {
-    display: flex;
-    justify-content: flex-end;
+    ${flex({ justifyContent: "flex-end" })}
   }
 `;
 
@@ -111,7 +107,7 @@ export const PrivateChatBox = styled(Box)`
 
 export const Text = styled.span`
   ${sharedTextStyles};
-  font-size: 12px;
+  font-size: ${pxToRem(12)};
 `;
 
 export const BlueText = styled(Text)`
@@ -119,7 +115,7 @@ export const BlueText = styled(Text)`
 `;
 
 export const LittleText = styled(Text)`
-  font-size: 9px;
+  font-size: ${pxToRem(9)};
 `;
 
 export const LittleBlueText = styled(LittleText)`
@@ -129,12 +125,12 @@ export const LittleBlueText = styled(LittleText)`
 export const Title = styled.span`
   ${sharedTextStyles};
   font-weight: 800;
-  font-size: 26px;
+  font-size: ${pxToRem(26)};
 `;
 
 export const BlueTitle = styled(Title)`
   color: #003091;
-  padding-bottom: 9px;
+  padding-bottom: ${pxToRem(9)};
 `;
 
 export const RedTitle = styled(Title)`
@@ -143,25 +139,25 @@ export const RedTitle = styled(Title)`
 
 /* Icon */
 export const LiveChatIcon = styled(Svg)`
-  width: 117px;
-  height: 75px;
+  width: ${pxToRem(117)};
+  height: ${pxToRem(75)};
   opacity: 0.5;
 `;
 
 export const ClassChatIcon = styled(Svg)`
-  width: 118px;
-  height: 85px;
+  width: ${pxToRem(118)};
+  height: ${pxToRem(85)};
   opacity: 0.5;
 `;
 
 export const LoveChatIcon = styled(Svg)`
-  width: 72px;
-  height: 72px;
+  width: ${pxToRem(72)};
+  height: ${pxToRem(72)};
   opacity: 0.5;
 `;
 
 export const PrivateChatIcon = styled(Svg)`
-  width: 96px;
-  height: 96px;
+  width: ${pxToRem(96)};
+  height: ${pxToRem(96)};
   opacity: 0.5;
 `;
