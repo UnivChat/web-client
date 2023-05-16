@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { pxToRem } from "~/utils";
+import { flex } from "~/styles/utils/flex";
 
 const sharedTextStyles = css`
   font-family: "NanumSquare";
@@ -11,9 +12,7 @@ export const ClassBox = styled.div`
   height: 85px;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  ${flex({ justifyContent: "space-between", alignItems: "center" })}
   border-bottom: ${pxToRem(0.6)} solid #707070;
   padding: 0 ${pxToRem(12)} 0 ${pxToRem(12)};
   border-bottom: 1px solid #707070;
@@ -21,8 +20,7 @@ export const ClassBox = styled.div`
     border: none;
   }
   div {
-    display: flex;
-    flex-direction: column;
+    ${flex({ flexDirection: "column" })};
   }
 `;
 

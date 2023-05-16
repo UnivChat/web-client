@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { pxToRem } from "~/utils";
+import { flex } from "~/styles/utils/flex";
 import { colors } from "~/constants";
 
 const sharedTextStyles = css`
@@ -9,8 +10,7 @@ const sharedTextStyles = css`
 `;
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex({ flexDirection: "column" })};
   padding: 0 ${pxToRem(22)} 0 ${pxToRem(22)};
   background-color: #f8f9fb;
   min-height: 100vh;
@@ -18,29 +18,27 @@ export const Container = styled.div`
 
 export const ChatBox = styled.div`
   cursor: pointer;
-  height: 85px;
+  height: ${pxToRem(85)};
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+  ${flex({ flexDirection: "column", justifyContent: "center" })}
   border-bottom: ${pxToRem(0.6)} solid #707070;
   &:first-child {
     border-top: 1px solid #707070;
   }
   div {
-    display: flex;
-    justify-content: space-between;
+    ${flex({ justifyContent: "space-between" })}
     padding: 0 ${pxToRem(12)} 0 ${pxToRem(12)};
   }
   div:first-child {
-    padding-bottom: 8px;
+    padding-bottom: ${pxToRem(8)};
   }
 `;
 
 export const ChatCountContainer = styled.div`
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: ${pxToRem(20)};
+  height: ${pxToRem(20)};
   border-radius: 45%;
   background: #e3595e;
 `;

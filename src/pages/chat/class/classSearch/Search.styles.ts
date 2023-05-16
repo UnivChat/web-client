@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { pxToRem } from "~/utils";
+import { flex } from "~/styles/utils/flex";
 import { colors } from "~/constants";
 import { blueSearch } from "@svgs";
 
@@ -9,12 +10,11 @@ export const SearchIcon = styled(blueSearch)`
 `;
 
 export const SearchContainer = styled.div`
-  display: flex;
-  align-items: center;
+  ${flex({ alignItems: "center" })}
   padding: 0 ${pxToRem(12)} 0 ${pxToRem(12)};
   background: ${colors.white};
-  box-shadow: 0px 5px 13px #0000001c;
-  border-radius: 25px;
+  box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #0000001c;
+  border-radius: ${pxToRem(25)};
 `;
 
 export const SearchInput = styled.input`
