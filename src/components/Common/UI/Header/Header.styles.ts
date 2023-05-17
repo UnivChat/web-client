@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { colors } from "~/constants";
 import { pxToRem } from "~/utils";
+import { flex } from "~/styles/utils/flex";
 
 export const Title = styled.span`
   font-family: "NanumSquare";
@@ -11,18 +12,17 @@ export const Title = styled.span`
 
 export const Container = styled.div`
   position: fixed;
+  width: 100%;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 18px;
-  height: 50px;
+  ${flex({ justifyContent: "space-between", alignItems: "center" })}
+  padding: ${pxToRem(24)} ${pxToRem(18)};
+  height: ${pxToRem(50)};
   background: ${colors.white};
   div {
-    display: flex;
+    ${flex()};
   }
 `;
 
 export const MarginContainer = styled.div`
-  height: 50px;
+  height: ${pxToRem(50)};
 `;
