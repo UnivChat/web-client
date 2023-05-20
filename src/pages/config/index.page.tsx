@@ -1,6 +1,6 @@
 import Link from "next/link";
 import * as Styled from "./myPage.styles";
-import { configItems } from "./configItem";
+import { configItems } from "./config.constants";
 import type { NextPageWithLayout } from "../app.types";
 
 const MyPage: NextPageWithLayout = () => {
