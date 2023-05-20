@@ -1,18 +1,17 @@
-import * as CommonComponents from "~/components/Common/auth/auth";
+import * as Auth from "~/components/Common/Auth/Auth";
+import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
 import {
   Body,
   BodyForm,
   BodyTopText,
   CheckAuthButton,
   Container
-} from "~/components/Common/auth/auth.styles";
-
-const { Header, CustomInput, CustomText } = CommonComponents;
+} from "~/components/Common/Auth/Auth.styles";
 
 const ChangePw = () => {
   return (
     <Container>
-      <Header text="비밀번호 찾기" />
+      <Auth.Header text="비밀번호 찾기" />
       <Body>
         <BodyForm paddingTop={38} paddingBottom={8}>
           <BodyTopText>인증이 완료되었습니다</BodyTopText>
