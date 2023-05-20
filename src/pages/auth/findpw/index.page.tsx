@@ -1,4 +1,4 @@
-import * as CommonComponents from "~/components/Common/auth/auth";
+import * as Auth from "~/components/Common/Auth/Auth";
 import {
   Body,
   BodyForm,
@@ -6,10 +6,10 @@ import {
   Container,
   Message,
   Span
-} from "~/components/Common/auth/auth.styles";
+} from "~/components/Common/Auth/Auth.styles";
+import { BodyTopsDots } from "~/components/Common/Auth/Auth.BodyTop";
+import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
 import { useFindPw } from "./findPw.hooks";
-
-const { Header, BodyTopsDots, CustomInput, CustomText } = CommonComponents;
 
 const FindPw = () => {
   const { isFindPwButtonClicked, findPwButtonBgColor, handlfindPwButtonClick } =
@@ -17,7 +17,7 @@ const FindPw = () => {
 
   return (
     <Container>
-      <Header text="비밀번호 찾기" />
+      <Auth.Header text="비밀번호 찾기" />
       <Body>
         <BodyForm paddingTop={70} paddingBottom={8}>
           <CustomText>학교 이메일을 입력해주세요</CustomText>
