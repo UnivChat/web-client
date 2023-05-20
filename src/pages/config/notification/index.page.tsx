@@ -2,14 +2,7 @@ import { useState } from "react";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import * as Styled from "./notification.styles";
 import ToggleSwitch from "./toggleSwitch";
-
-const settings = [
-  { label: "라이브 채팅 알림" },
-  { label: "클래스 채팅 알림" },
-  { label: "기숙사 채팅 알림" },
-  { label: "연애 상담 채팅 알림" },
-  { label: "1:1 채팅 알림" }
-];
+import { settings } from "./notification.constants";
 
 const Notification: NextPageWithLayout = () => {
   const [notificationStatus, setNotificationStatus] = useState(
