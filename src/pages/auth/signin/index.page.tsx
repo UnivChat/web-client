@@ -1,21 +1,14 @@
-import * as CommonComponents from "~/components/Common/auth/auth";
+import * as Auth from "~/components/Common/Auth/Auth";
+import { BodyTop } from "~/components/Common/Auth/Auth.BodyTop";
 import {
   Body,
   BodyForm,
   Container
-} from "~/components/Common/auth/auth.styles";
-import * as Styled from "./signinPage.styles";
-import { useIdCheck, useSiginForm, useSubmit } from "./signinPage.hooks";
+} from "~/components/Common/Auth/Auth.styles";
+import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
+import * as Styled from "./signInPage.styles";
 import { pxToRem } from "../../../utils/styles/sizeChanger";
-
-const {
-  Header,
-  BodyTop,
-  CustomInput,
-  CustomText,
-  WarningMessage,
-  SubmitButton
-} = CommonComponents;
+import { useIdCheck, useSiginForm, useSubmit } from "./signInPage.hooks";
 
 const SignInPage = () => {
   const {
@@ -36,9 +29,9 @@ const SignInPage = () => {
 
   return (
     <Container>
-      <Header text="회원가입" />
+      <Auth.Header text="회원가입" />
       <Body>
-        <BodyTop step={1} />
+        <BodyTop currentStep={1} />
 
         <BodyForm onSubmit={handleSubmit} paddingTop={22}>
           <CustomText>이름</CustomText>
@@ -64,11 +57,13 @@ const SignInPage = () => {
             {...confirmPassword}
           />
           {passwordsMatchWarning && (
-            <WarningMessage>비밀번호가 일치하지 않습니다</WarningMessage>
+            <Auth.WarningMessage>
+              비밀번호가 일치하지 않습니다
+            </Auth.WarningMessage>
           )}
           <CustomText>닉네임</CustomText>
           <CustomInput type="text" name="nickname" required {...nickname} />
-          <CustomText marginTop={pxToRem(23)}>성별</CustomText>
+          <CustomText marginTop={23}>성별</CustomText>
           <Styled.GenderButton
             type="button"
             isSelected={gender.value === "male"}
@@ -84,9 +79,9 @@ const SignInPage = () => {
             여 성
           </Styled.GenderButton>
           {genderWarning && (
-            <WarningMessage>성별을 선택해 주세요.</WarningMessage>
+            <Auth.WarningMessage>성별을 선택해 주세요.</Auth.WarningMessage>
           )}
-          <SubmitButton>다음</SubmitButton>
+          <Auth.SubmitButton>다음</Auth.SubmitButton>
         </BodyForm>
       </Body>
     </Container>
