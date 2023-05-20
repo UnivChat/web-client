@@ -5,7 +5,7 @@ import type {
   UseSiginFormReturnValue,
   UseSubmitReturnValue,
   UseIdCheckReturnValue
-} from "./signinPage.type";
+} from "./signinPage.type";
 
 export const useInput = (initialValue: string): UseInputReturnValue => {
   const [value, setValue] = useState(initialValue);

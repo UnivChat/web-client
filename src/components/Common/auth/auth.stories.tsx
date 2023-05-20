@@ -12,7 +12,7 @@ import {
 import { Body } from "./auth.styles";
 
 export default {
-  title: "Auth",
+  title: "Auth"
 } as Meta;
 
 // Body
@@ -22,7 +22,7 @@ export const BodyComponent = BodyTemplate.bind({});
 const HeaderTemplate: Story<{ text: string }> = args => <Header {...args} />;
 export const HeaderComponent = HeaderTemplate.bind({});
 HeaderComponent.args = {
-  text: '회원가입',
+  text: "회원가입"
 };
 
 // 점
