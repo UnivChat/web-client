@@ -1,5 +1,5 @@
 import Link from "next/link";
-import * as Styled from "./myPage.styles";
+import * as Styled from "./config.styles";
 import { configItems } from "./config.constants";
 import type { NextPageWithLayout } from "../app.types";
 
