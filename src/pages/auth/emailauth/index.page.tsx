@@ -1,4 +1,4 @@
-import * as CommonComponents from "~/components/Common/auth/auth";
+import * as Auth from "~/components/Common/Auth/Auth";
 import {
   Body,
   BodyForm,
@@ -6,11 +6,10 @@ import {
   Container,
   Message,
   Span
-} from "~/components/Common/auth/auth.styles";
+} from "~/components/Common/Auth/Auth.styles";
+import { BodyTop, BodyTopsDots } from "~/components/Common/Auth/Auth.BodyTop";
+import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
 import { useEmailAuth } from "./emailAuth.hooks";
-
-const { Header, BodyTop, BodyTopsDots, CustomInput, CustomText, SubmitButton } =
-  CommonComponents;
 
 const EmailAuth = () => {
   const {
@@ -21,16 +20,16 @@ const EmailAuth = () => {
 
   return (
     <Container>
-      <Header text="회원가입" />
+      <Auth.Header text="회원가입" />
       <Body>
-        <BodyTop step={2} />
+        <BodyTop currentStep={2} />
 
         <BodyForm paddingTop={38} paddingBottom={8}>
           <CustomText>이메일을 입력해주세요</CustomText>
           <CustomInput type="email" name="email" required />
         </BodyForm>
         <CheckAuthButton
-          style={{ backgroundColor: emailAuthButtonBgColor }}
+          bgColor={emailAuthButtonBgColor}
           onClick={handleEmailAuthButtonClick}
         >
           이메일 주소를 인증합니다
@@ -44,12 +43,12 @@ const EmailAuth = () => {
 
             <BodyForm paddingTop={38} paddingBottom={8}>
               <CustomText>인증번호를 입력해주세요</CustomText>
-              <CustomInput type="text" name="emailAuth" required />
+              <CustomInput name="emailAuth" required />
             </BodyForm>
             <CheckAuthButton>인증하기</CheckAuthButton>
           </>
         )}
-        <SubmitButton>시작하기</SubmitButton>
+        <Auth.SubmitButton>시작하기</Auth.SubmitButton>
       </Body>
     </Container>
   );
