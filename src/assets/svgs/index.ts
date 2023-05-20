@@ -13,4 +13,4 @@ export { default as food } from "./food.svg";
 export { default as library } from "./library.svg";
 export { default as contact } from "./contact.svg";
 export { default as facility } from "./facility.svg";
-
+export { default as profile } from "./profile.svg";
