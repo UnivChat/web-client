@@ -6,9 +6,7 @@ import { flex } from "~/styles/utils/flex";
 
 export const Container = styled.div`
   ${flex({ flexDirection: "column", alignItems: "center" })}
-
   min-height: 100vh;
-
   background-color: ${colors.background};
 `;
 
