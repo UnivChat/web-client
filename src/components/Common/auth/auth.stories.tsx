@@ -1,15 +1,9 @@
 import React from "react";
 import type { Meta, Story } from "@storybook/react";
-import {
-  Header,
-  BodyTopsDots,
-  BodyTop,
-  CustomInput,
-  CustomText,
-  WarningMessage,
-  SubmitButton
-} from "./auth";
-import { Body } from "./auth.styles";
+import { Header, WarningMessage, SubmitButton } from "./Auth";
+import { Body } from "./Auth.styles";
+import { BodyTop, BodyTopsDots } from "./Auth.BodyTop";
+import { CustomInput, CustomText } from "./Auth.Input";
 
 export default {
   title: "Auth"
@@ -30,7 +24,7 @@ const BodyTopsDotsTemplate: Story = () => <BodyTopsDots />;
 export const BodyTopsDotsComponent = BodyTopsDotsTemplate.bind({});
 
 // form 윗부분
-const BodyTopTemplate: Story = () => <BodyTop step={1} />;
+const BodyTopTemplate: Story = () => <BodyTop currentStep={1} />;
 export const BodyTopComponent = BodyTopTemplate.bind({});
 
 // input title
