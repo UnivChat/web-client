@@ -5,7 +5,7 @@ import type {
   UseSiginFormReturnValue,
   UseSubmitReturnValue,
   UseIdCheckReturnValue
-} from "./signinPage.type";
+} from "./signInPage.type";
 
 export const useInput = (initialValue: string): UseInputReturnValue => {
   const [value, setValue] = useState(initialValue);
@@ -59,8 +59,8 @@ export const useSubmit = (
   const [genderWarning, setGenderWarning] = useState(false);
   const [passwordsMatchWarning, setPasswordsMatchWarning] = useState(false);
 
-  const handleSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback(
+    e => {
       e.preventDefault();
 
       if (!genderValue) {
@@ -89,8 +89,8 @@ export const useSubmit = (
 
 // 중복확인
 export const useIdCheck = (): UseIdCheckReturnValue => {
-  const handleIdCheck = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleIdCheck: React.MouseEventHandler<HTMLButtonElement> = useCallback(
+    e => {
       e.stopPropagation();
       e.preventDefault();
     },

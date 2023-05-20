@@ -1,4 +1,4 @@
-import type { ChangeEvent, FormEvent, MouseEvent } from "react";
+import type { ChangeEvent, FormEventHandler, MouseEventHandler } from "react";
 
 // useInput 타입 정의
 export interface UseInputReturnValue {
@@ -22,12 +22,12 @@ export interface UseSiginFormReturnValue {
 
 // useSubmit 타입 정의
 export interface UseSubmitReturnValue {
-  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  handleSubmit: FormEventHandler<HTMLFormElement>;
   genderWarning: boolean;
   passwordsMatchWarning: boolean;
 }
 
 // useIdCheck 타입 정의
 export interface UseIdCheckReturnValue {
-  handleIdCheck: (e: MouseEvent<HTMLButtonElement>) => void;
+  handleIdCheck: MouseEventHandler<HTMLButtonElement>;
 }
