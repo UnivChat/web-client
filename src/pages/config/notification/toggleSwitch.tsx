@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { Switch, SwitchInput, SwitchSlider } from "./notification.styles";
+import type { ToggleSwitchProps } from "./notification.type";
 
-interface ToggleSwitchProps {
-  onChange: (checked: boolean) => void;
-}
-
-const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ onChange }) => {
+const ToggleSwitch = ({ onChange }: ToggleSwitchProps) => {
   const [checked, setChecked] = useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-    onChange(event.target.checked);
+  const handleChange = () => {
+    setChecked(!checked);
+    if (onChange) {
+      onChange(!checked);
+    }
   };
 
   return (
-    <Switch>
-      <SwitchInput type="checkbox" checked={checked} onChange={handleChange} />
+    <Switch onClick={handleChange}>
+      <SwitchInput type="checkbox" checked={checked} readOnly />
       <SwitchSlider />
     </Switch>
   );
