@@ -1,7 +1,7 @@
 import React from "react";
 import type { NextPageWithLayout } from "../../app.types";
 import * as Styled from "./class.styles";
-import ClassChatBox from "./ClassChatBox";
+import { ClassChatBox } from "./ClassChatBox";
 
 const ClassChatPage: NextPageWithLayout = () => {
   return (

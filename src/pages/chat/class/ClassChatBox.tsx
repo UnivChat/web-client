@@ -1,14 +1,13 @@
 import React from "react";
 import * as Styled from "./class.styles";
+import type { ClassChatBoxProps } from "./classChatBox.types";
 
-interface Props {
-  title: string;
-  subTitle: string;
-  chatCount: number;
-  chatTime: string;
-}
-
-const ClassChatBox = ({ title, subTitle, chatCount, chatTime }: Props) => {
+export const ClassChatBox = ({
+  title,
+  subTitle,
+  chatCount,
+  chatTime
+}: ClassChatBoxProps) => {
   return (
     <Styled.ChatBox>
       <div>
@@ -24,5 +23,3 @@ const ClassChatBox = ({ title, subTitle, chatCount, chatTime }: Props) => {
     </Styled.ChatBox>
   );
 };
-
-export default ClassChatBox;

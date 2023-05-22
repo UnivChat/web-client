@@ -1,15 +1,9 @@
 import React from "react";
 import { Svg } from "~/components/Common";
-import type * as svgList from "@svgs";
 import * as Styled from "./classbox.styles";
+import type { ClassBoxProps } from "./classbox.types";
 
-interface Props {
-  title: string;
-  subTitle: string;
-  svgName: keyof typeof svgList;
-}
-
-export const ClassBox = ({ svgName, title, subTitle }: Props) => {
+export const ClassBox = ({ svgName, title, subTitle }: ClassBoxProps) => {
   return (
     <Styled.ClassBox>
       <div>

@@ -3,7 +3,7 @@ import * as Styled from "./classSearch.styles";
 import { Search } from "./Search";
 import { ClassBox } from "./ClassBox";
 
-const ClassSearch = () => {
+export const ClassSearch = () => {
   return (
     <Styled.Container>
       <Search />
@@ -44,8 +44,6 @@ const ClassSearch = () => {
     </Styled.Container>
   );
 };
-
-export default ClassSearch;
 
 ClassSearch.layoutConfig = {
   case: "tab"

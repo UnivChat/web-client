@@ -18,7 +18,6 @@ export const SearchContainer = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  border: none;
   width: 100%;
   height: ${pxToRem(30)};
   flex: 1;

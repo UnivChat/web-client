@@ -9,12 +9,11 @@ const sharedTextStyles = css`
 `;
 
 export const ClassBox = styled.div`
-  height: 85px;
+  height: ${pxToRem(85)};
   width: 100%;
-  display: flex;
   ${flex({ justifyContent: "space-between", alignItems: "center" })}
   border-bottom: ${pxToRem(0.6)} solid #707070;
-  padding: 0 ${pxToRem(12)} 0 ${pxToRem(12)};
+  padding: 0 ${pxToRem(12)};
   border-bottom: 1px solid #707070;
   &:last-child {
     border: none;
