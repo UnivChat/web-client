@@ -23,7 +23,7 @@ export const BoxContainer = styled.div`
 export const Box = styled.div`
   overflow: hidden;
   width: 100%;
-  height: 188px;
+  height: ${pxToRem(188)};
   background: "#FFFFFF";
   box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
   border-radius: ${pxToRem(40)};
