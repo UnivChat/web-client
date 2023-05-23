@@ -1,7 +1,7 @@
-import * as Styled from "./todaymeal.styles";
-import type { MenuProps } from "./todaymeal.types";
+import * as Styled from "./TodayMeal.styles";
+import type { MenuProps } from "./TodayMeal.types";
 
-export const MenuContainer = ({ ...containerProps }: MenuProps) => {
+export const MenuContainer = (containerProps: MenuProps) => {
   return (
     <Styled.MenuContainer>
       <Styled.MenuTitle>

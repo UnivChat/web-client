@@ -1,5 +1,5 @@
-import * as Styled from "./todaymeal.styles";
-import { MenuContainer } from "./todaymeal";
+import * as Styled from "./TodayMeal.styles";
+import { MenuContainer } from "./TodayMeal";
 
 const Menu = () => {
   return (

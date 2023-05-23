@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { pxToRem } from "~/utils";
+import { flex } from "~/styles/utils/Flex";
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -16,6 +17,7 @@ export const Day = styled.div`
 `;
 
 export const MenuContainer = styled.div`
+  ${flex({ flexDirection: "column", alignItems: "center" })}
   display: flex;
   flex-direction: column;
   align-items: center;
