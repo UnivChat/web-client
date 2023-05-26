@@ -17,3 +17,4 @@ export { default as liveChat } from "./live-chat.svg";
 export { default as classChat } from "./class-chat.svg";
 export { default as loveChat } from "./love-chat.svg";
 export { default as privateChat } from "./private-chat.svg";
+export { default as profile } from "./profile.svg";
