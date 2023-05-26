@@ -18,6 +18,9 @@ export const Container = styled.div`
 export const BoxContainer = styled.div`
   ${flex()}
   margin-top: ${pxToRem(24)};
+  a {
+    width: 100%;
+  }
 `;
 
 export const Box = styled.div`
@@ -35,13 +38,14 @@ export const Box = styled.div`
 
 export const LiveChatBox = styled(Box)`
   ${flex({ justifyContent: "space-between" })}
+  width: 100%;
   height: ${pxToRem(140)};
   box-shadow: 0px ${pxToRem(5)} ${pxToRem(13)} #00000029;
   border-radius: ${pxToRem(40)};
   .span {
     ${flex({ alignItems: "flex-start" })}
     padding: ${pxToRem(30)} 0px ${pxToRem(63)} ${pxToRem(26)};
-    div:nth-child(1) {
+    div:nth-of-type(1) {
       padding-bottom: ${pxToRem(6)};
     }
   }
@@ -51,9 +55,10 @@ export const LiveChatBox = styled(Box)`
 `;
 
 export const ClassChatBox = styled(Box)`
+  width: 100%;
   .span {
     padding: ${pxToRem(24)} ${pxToRem(17)} 0px 0px;
-    div:nth-child(1) {
+    div:nth-of-type(1) {
       padding-bottom: ${pxToRem(6)};
     }
   }
@@ -66,7 +71,7 @@ export const LoveChatBox = styled(Box)`
   .span {
     ${flex({ alignItems: "flex-start" })}
     padding: ${pxToRem(24)} 0px 0px ${pxToRem(17)};
-    div:nth-child(1) {
+    div:nth-of-type(1) {
       padding-bottom: ${pxToRem(6)};
     }
   }
@@ -76,6 +81,7 @@ export const LoveChatBox = styled(Box)`
 `;
 
 export const DormitoryChatBox = styled(Box)`
+  width: 100%;
   .span {
     ${flex({ alignItems: "flex-start" })}
     padding: ${pxToRem(24)} 0 0 ${pxToRem(17)};

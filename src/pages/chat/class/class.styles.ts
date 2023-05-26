@@ -23,14 +23,14 @@ export const ChatBox = styled.div`
 
   ${flex({ flexDirection: "column", justifyContent: "center" })}
   border-bottom: ${pxToRem(0.6)} solid #707070;
-  &:first-child {
+  &:first-of-type {
     border-top: 1px solid #707070;
   }
   div {
     ${flex({ justifyContent: "space-between" })}
     padding: 0 ${pxToRem(12)} 0 ${pxToRem(12)};
   }
-  div:first-child {
+  div:first-of-type {
     padding-bottom: ${pxToRem(8)};
   }
 `;
