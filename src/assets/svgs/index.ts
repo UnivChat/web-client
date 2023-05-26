@@ -13,4 +13,7 @@ export { default as food } from "./food.svg";
 export { default as library } from "./library.svg";
 export { default as contact } from "./contact.svg";
 export { default as facility } from "./facility.svg";
-export { default as profile } from "./profile.svg";
+export { default as liveChat } from "./live-chat.svg";
+export { default as classChat } from "./class-chat.svg";
+export { default as loveChat } from "./love-chat.svg";
+export { default as privateChat } from "./private-chat.svg";
