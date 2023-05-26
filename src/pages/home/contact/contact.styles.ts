@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { pxToRem } from "~/utils";
 import { Svg } from "~/components/Common";
+import { flex } from "~/styles/utils/flex";
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -8,14 +9,11 @@ export const Container = styled.div`
 `;
 
 export const SearchContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${flex({ flexDirection: "column", alignItems: "center" })};
 `;
 
 export const SearchBox = styled.div`
-  display: flex;
-  align-items: center;
+  ${flex({ alignItems: "center" })};
   width: ${pxToRem(318)};
   height: ${pxToRem(33)};
   margin-top: ${pxToRem(80)};
@@ -42,8 +40,7 @@ export const SearchInput = styled.input`
 `;
 
 export const ContactContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${flex({ flexDirection: "column" })};
 `;
 
 export const ContactTitle = styled.div`
@@ -64,8 +61,7 @@ export const Title = styled.span`
 
 export const ContactBox = styled.div`
   width: ${pxToRem(318)};
-  display: flex;
-  flex-direction: column;
+  ${flex({ flexDirection: "column" })};
 `;
 
 export const ContactList = styled.details`
