@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { pxToRem } from "~/utils";
-import { flex } from "~/styles/utils/Flex";
+import { flex } from "~/styles/utils/flex";
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -17,17 +17,13 @@ export const Day = styled.div`
 `;
 
 export const MenuContainer = styled.div`
-  ${flex({ flexDirection: "column", alignItems: "center" })}
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${flex({ flexDirection: "column", alignItems: "center" })};
 `;
 
 export const MenuTitle = styled.div`
+  ${flex({ alignItems: "flex-start" })};
   margin-top: ${pxToRem(31)};
   margin-left: ${pxToRem(53)};
-  display: flex;
-  align-self: flex-start;
 `;
 
 export const Title = styled.span`
@@ -54,8 +50,7 @@ export const MenuBox = styled.div`
 `;
 
 export const MenuTime = styled.div`
-  display: flex;
-  justify-content: space-around;
+  ${flex({ justifyContent: "space-around" })};
   width: ${pxToRem(305)};
   height: ${pxToRem(48)};
   background-color: ${props => props.color};
@@ -63,15 +58,15 @@ export const MenuTime = styled.div`
 `;
 
 export const Time = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  ${flex({
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  })};
 `;
 
 export const TimeTitle = styled.span`
-  display: flex;
-  justify-content: space-around;
+  ${flex({ justifyContent: "space-around" })};
   font-family: "NanumSquare";
   font-weight: 600;
   font-size: ${pxToRem(14)};
@@ -87,17 +82,16 @@ export const TimeSub = styled.span`
 `;
 
 export const MenuListBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  ${flex({ justifyContent: "space-around", alignItems: "center" })};
   margin-top: ${pxToRem(13)};
 `;
 
 export const MenuList = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  ${flex({
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  })};
   width: ${pxToRem(102)};
   height: ${pxToRem(167)};
   &:not(:last-child) {
