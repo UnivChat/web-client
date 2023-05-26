@@ -3,5 +3,6 @@ export const colors = {
   black: "#000000",
   background: "#003091",
   grayf8: "#f8f9fb",
-  blue13: "#1360fc"
+  blue13: "#1360fc",
+  warning: "#C90000"
 } as const;
