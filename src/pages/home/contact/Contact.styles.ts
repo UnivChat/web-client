@@ -17,7 +17,6 @@ export const SearchBox = styled.div`
   width: ${pxToRem(318)};
   height: ${pxToRem(33)};
   margin-top: ${pxToRem(80)};
-  margin-left: ${pxToRem(23)};
   padding-left: ${pxToRem(12)};
   border-radius: ${pxToRem(25)};
   background-color: #ffffff;
@@ -40,12 +39,11 @@ export const SearchInput = styled.input`
 `;
 
 export const ContactContainer = styled.div`
-  ${flex({ flexDirection: "column" })};
+  ${flex({ flexDirection: "column", alignItems: "center" })};
 `;
 
 export const ContactTitle = styled.div`
   margin-top: ${pxToRem(39)};
-  margin-left: ${pxToRem(36)};
   margin-bottom: ${pxToRem(28)};
 `;
 

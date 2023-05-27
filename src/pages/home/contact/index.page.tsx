@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import * as Styled from "./contact.styles";
+import * as Styled from "./Contact.styles";
+import { ContactList } from 
 
 const Contact = () => {
   return (
@@ -15,21 +14,9 @@ const Contact = () => {
         <Styled.ContactTitle>
           <Styled.Title>즐겨찾기</Styled.Title>
           <Styled.ContactBox>
-            <Styled.ContactList>
-              <Styled.ContactName>000교수님</Styled.ContactName>
-              <Styled.ContactSub>123-123-12321 (M212)</Styled.ContactSub>
-              <Styled.ContactSub2>computer@catholic.ac.kr</Styled.ContactSub2>
-            </Styled.ContactList>
-            <Styled.ContactList>
-              <Styled.ContactName>학습지원센터</Styled.ContactName>
-              <Styled.ContactSub>123-123-12321 (M212)</Styled.ContactSub>
-              <Styled.ContactSub2>computer@catholic.ac.kr</Styled.ContactSub2>
-            </Styled.ContactList>
-            <Styled.ContactList>
-              <Styled.ContactName>도서관열람자료실</Styled.ContactName>
-              <Styled.ContactSub>123-123-12321 (M212)</Styled.ContactSub>
-              <Styled.ContactSub2>computer@catholic.ac.kr</Styled.ContactSub2>
-            </Styled.ContactList>
+            <ContactList name='000교수님' contact="123-123-12321" lab="M212" email="computer@catholic.ac.kr" />
+            <ContactList name='학습지원센터' contact="123-123-12321" lab="M212" email="computer@catholic.ac.kr" />
+            <ContactList name='도서관열람자료실' contact="123-123-12321" lab="M212" email="computer@catholic.ac.kr" />
           </Styled.ContactBox>
         </Styled.ContactTitle>
       </Styled.ContactContainer>
@@ -37,26 +24,10 @@ const Contact = () => {
         <Styled.ContactTitle>
           <Styled.Title>전체 연락망</Styled.Title>
           <Styled.ContactBox>
-            <Styled.ContactList>
-              <Styled.ContactName>000교수님</Styled.ContactName>
-              <Styled.ContactSub>123-123-12321 (M212)</Styled.ContactSub>
-              <Styled.ContactSub2>computer@catholic.ac.kr</Styled.ContactSub2>
-            </Styled.ContactList>
-            <Styled.ContactList>
-              <Styled.ContactName>학습지원센터</Styled.ContactName>
-              <Styled.ContactSub>123-123-12321 (M212)</Styled.ContactSub>
-              <Styled.ContactSub2>computer@catholic.ac.kr</Styled.ContactSub2>
-            </Styled.ContactList>
-            <Styled.ContactList>
-              <Styled.ContactName>도서관열람자료실</Styled.ContactName>
-              <Styled.ContactSub>123-123-12321 (M212)</Styled.ContactSub>
-              <Styled.ContactSub2>computer@catholic.ac.kr</Styled.ContactSub2>
-            </Styled.ContactList>
-            <Styled.ContactList>
-              <Styled.ContactName>0000학과사무실</Styled.ContactName>
-              <Styled.ContactSub>123-123-12321 (M212)</Styled.ContactSub>
-              <Styled.ContactSub2>computer@catholic.ac.kr</Styled.ContactSub2>
-            </Styled.ContactList>
+            <ContactList name='000교수님' contact="123-123-12321" lab="M212" email="computer@catholic.ac.kr" />
+            <ContactList name='학습지원센터' contact="123-123-12321" lab="M212" email="computer@catholic.ac.kr" />
+            <ContactList name='도서관열람자료실' contact="123-123-12321" lab="M212" email="computer@catholic.ac.kr" />
+            <ContactList name='0000학과사무실' contact="123-123-12321" lab="M212" email="computer@catholic.ac.kr" />
           </Styled.ContactBox>
         </Styled.ContactTitle>
       </Styled.ContactContainer>
