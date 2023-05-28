@@ -75,7 +75,7 @@ export const useSubmit = (
       }
       setPasswordsMatchWarning(false);
 
-      router.push("/auth/emailauth");
+      router.push("/auth/email-auth");
     },
     [router, genderValue, passwordValue, confirmPasswordValue]
   );

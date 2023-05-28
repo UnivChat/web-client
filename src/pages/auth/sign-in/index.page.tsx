@@ -62,8 +62,8 @@ const SignIn: NextPageWithLayout = () => {
       </Styled.LoginForm>
 
       <Styled.SubArea>
-        <Styled.SubText href="">비밀번호 찾기</Styled.SubText>
-        <Styled.SubText href="">회원가입</Styled.SubText>
+        <Styled.SubText href="/auth/find-pw">비밀번호 찾기</Styled.SubText>
+        <Styled.SubText href="/auth/sign-up">회원가입</Styled.SubText>
       </Styled.SubArea>
     </Styled.Container>
   );
