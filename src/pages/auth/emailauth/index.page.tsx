@@ -1,4 +1,6 @@
-import * as Auth from "~/components/Common/Auth/Auth";
+import * as Auth from "~/components/Auth/Auth";
+import { BodyTop, BodyTopsDots } from "~/components/Auth/Auth.BodyTop";
+import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
   Body,
   BodyForm,
@@ -6,12 +8,11 @@ import {
   Container,
   Message,
   Span
-} from "~/components/Common/Auth/Auth.styles";
-import { BodyTop, BodyTopsDots } from "~/components/Common/Auth/Auth.BodyTop";
-import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
+} from "~/components/Auth/Auth.styles";
+import type { NextPageWithLayout } from "~/pages/app.types";
 import { useEmailAuth } from "./emailAuth.hooks";
 
-const EmailAuth = () => {
+const EmailAuth: NextPageWithLayout = () => {
   const {
     isEmailAuthButtonClicked,
     emailAuthButtonBgColor,
@@ -55,3 +56,7 @@ const EmailAuth = () => {
 };
 
 export default EmailAuth;
+
+EmailAuth.layoutConfig = {
+  case: "default"
+};

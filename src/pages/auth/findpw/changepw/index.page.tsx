@@ -1,14 +1,15 @@
-import * as Auth from "~/components/Common/Auth/Auth";
-import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
+import * as Auth from "~/components/Auth/Auth";
+import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
   Body,
   BodyForm,
   BodyTopText,
   CheckAuthButton,
   Container
-} from "~/components/Common/Auth/Auth.styles";
+} from "~/components/Auth/Auth.styles";
+import type { NextPageWithLayout } from "~/pages/app.types";
 
-const ChangePw = () => {
+const ChangePw: NextPageWithLayout = () => {
   return (
     <Container>
       <Auth.Header text="비밀번호 찾기" />
@@ -28,3 +29,7 @@ const ChangePw = () => {
 };
 
 export default ChangePw;
+
+ChangePw.layoutConfig = {
+  case: "default"
+};

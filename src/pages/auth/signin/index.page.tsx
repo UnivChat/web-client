@@ -1,16 +1,13 @@
-import * as Auth from "~/components/Common/Auth/Auth";
-import { BodyTop } from "~/components/Common/Auth/Auth.BodyTop";
-import {
-  Body,
-  BodyForm,
-  Container
-} from "~/components/Common/Auth/Auth.styles";
-import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
-import * as Styled from "./signInPage.styles";
-import { pxToRem } from "../../../utils/styles/sizeChanger";
+import * as Auth from "~/components/Auth/Auth";
+import { BodyTop } from "~/components/Auth/Auth.BodyTop";
+import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
+import { Body, BodyForm, Container } from "~/components/Auth/Auth.styles";
+import type { NextPageWithLayout } from "~/pages/app.types";
+import { pxToRem } from "~/utils/styles/sizeChanger";
 import { useIdCheck, useSiginForm, useSubmit } from "./signInPage.hooks";
+import * as Styled from "./signInPage.styles";
 
-const SignInPage = () => {
+const SignInPage: NextPageWithLayout = () => {
   const {
     name,
     id,
@@ -89,3 +86,7 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
+
+SignInPage.layoutConfig = {
+  case: 'default'
+}

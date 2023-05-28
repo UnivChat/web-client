@@ -9,7 +9,7 @@ import { TabLayout } from "./TabLayout";
 export const RootLayout = ({
   children,
   layoutConfig = {
-    case: "default"
+    case: "tab"
   }
 }: PropsWithChildren & Layout.Config) => {
   useCheckMobile();

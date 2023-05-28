@@ -5,7 +5,3 @@ const HomePage: NextPageWithLayout = () => {
 };
 
 export default HomePage;
-
-HomePage.layoutConfig = {
-  case: "tab"
-};

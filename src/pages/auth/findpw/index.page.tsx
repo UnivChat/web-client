@@ -1,4 +1,6 @@
-import * as Auth from "~/components/Common/Auth/Auth";
+import * as Auth from "~/components/Auth/Auth";
+import { BodyTopsDots } from "~/components/Auth/Auth.BodyTop";
+import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
   Body,
   BodyForm,
@@ -6,12 +8,11 @@ import {
   Container,
   Message,
   Span
-} from "~/components/Common/Auth/Auth.styles";
-import { BodyTopsDots } from "~/components/Common/Auth/Auth.BodyTop";
-import { CustomInput, CustomText } from "~/components/Common/Auth/Auth.Input";
+} from "~/components/Auth/Auth.styles";
+import type { NextPageWithLayout } from "~/pages/app.types";
 import { useFindPw } from "./findPw.hooks";
 
-const FindPw = () => {
+const FindPw: NextPageWithLayout = () => {
   const { isFindPwButtonClicked, findPwButtonBgColor, handlfindPwButtonClick } =
     useFindPw();
 
@@ -49,3 +50,7 @@ const FindPw = () => {
 };
 
 export default FindPw;
+
+FindPw.layoutConfig = {
+  case: "default"
+};
