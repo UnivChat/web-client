@@ -1,12 +1,11 @@
-import { colors } from "~/constants";
-import { pxToRem } from "~/utils";
 import styled from "@emotion/styled";
+import { colors } from "~/constants";
 import { flex } from "~/styles/utils/flex";
+import { pxToRem } from "~/utils";
 import type { StyleProps } from "./Auth.type";
 
 export const Container = styled.div`
   ${flex({ flexDirection: "column", alignItems: "center" })}
-  position: fixed;
 
   min-height: 100vh;
 

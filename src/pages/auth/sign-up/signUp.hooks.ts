@@ -1,11 +1,11 @@
-import { useState, useCallback } from "react";
 import { useRouter } from "next/router";
+import { useCallback, useState } from "react";
 import type {
+  UseIdCheckReturnValue,
   UseInputReturnValue,
   UseSiginFormReturnValue,
-  UseSubmitReturnValue,
-  UseIdCheckReturnValue
-} from "./signInPage.type";
+  UseSubmitReturnValue
+} from "./signUp.type";
 
 export const useInput = (initialValue: string): UseInputReturnValue => {
   const [value, setValue] = useState(initialValue);
