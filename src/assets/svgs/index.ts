@@ -19,5 +19,6 @@ export { default as peoplePlus } from "./people-plus.svg";
 export { default as play } from "./play.svg";
 export { default as plus } from "./plus.svg";
 export { default as privateChat } from "./private-chat.svg";
+export { default as profile } from "./profile.svg";
 export { default as search } from "./search.svg";
 export { default as unlock } from "./unlock.svg";
