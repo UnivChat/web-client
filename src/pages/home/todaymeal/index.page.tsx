@@ -1,43 +1,39 @@
+/* eslint-disable react/no-array-index-key */
 import * as Styled from "./TodayMeal.styles";
-import { MenuContainer } from "./TodayMeal";
+import type { MenuProps } from "./TodayMeal.types";
 
-const Menu = () => {
+export const MenuContainer = (containerProps: MenuProps) => {
   return (
-    <Styled.Container>
-      {/* <Header title="오늘의 식단" hasBackButton /> */}
-      <Styled.Day>4월 06일 화요일</Styled.Day>
-      <MenuContainer
-        title="부온프란조"
-        titlePlace="학생미래인재관 2층"
-        color="rgba(0, 49, 151, 0.11)"
-        mItems={[
-          ["123", "1234", "12345"],
-          ["123", "1234", "12345"],
-          ["123", "1234", "12345"]
-        ]}
-      />
-      <MenuContainer
-        title="카페보나"
-        titlePlace="학생미래인재관 1층"
-        color="rgba(151, 134, 0, 0.11)"
-        mItems={[
-          ["234", "2345", "23456"],
-          ["234", "2345", "23456"],
-          ["234", "2345", "23456"]
-        ]}
-      />
-      <MenuContainer
-        title="카페멘사"
-        titlePlace="김수환관 1층"
-        color="rgba(151, 0, 87, 0.11)"
-        mItems={[
-          ["345", "3456", "34567"],
-          ["345", "3456", "34567"],
-          ["345", "3456", "34567"]
-        ]}
-      />
-    </Styled.Container>
+    <Styled.MenuContainer>
+      <Styled.MenuTitle>
+        <Styled.Title>{containerProps.title}</Styled.Title>
+        <Styled.TitlePlace>{containerProps.titlePlace}</Styled.TitlePlace>
+      </Styled.MenuTitle>
+      <Styled.MenuBox>
+        <Styled.MenuTime color={containerProps.color}>
+          <Styled.Time>
+            <Styled.TimeTitle>아침</Styled.TimeTitle>
+            <Styled.TimeSub>8:00~9:00</Styled.TimeSub>
+          </Styled.Time>
+          <Styled.Time>
+            <Styled.TimeTitle>점심</Styled.TimeTitle>
+            <Styled.TimeSub>8:00~9:00</Styled.TimeSub>
+          </Styled.Time>
+          <Styled.Time>
+            <Styled.TimeTitle>저녁</Styled.TimeTitle>
+            <Styled.TimeSub>8:00~9:00</Styled.TimeSub>
+          </Styled.Time>
+        </Styled.MenuTime>
+        <Styled.MenuListBox>
+          {containerProps.mItems.map((mList, index) => (
+            <Styled.MenuList key={index}>
+              {mList.map((mItem, index) => (
+                <Styled.MenuEach key={index}>{mItem}</Styled.MenuEach>
+              ))}
+            </Styled.MenuList>
+          ))}
+        </Styled.MenuListBox>
+      </Styled.MenuBox>
+    </Styled.MenuContainer>
   );
 };
-
-export default Menu;

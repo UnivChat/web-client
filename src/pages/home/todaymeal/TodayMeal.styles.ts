@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { pxToRem } from "~/utils";
 import { flex } from "~/styles/utils/flex";
+import { pxToRem } from "~/utils";
 
 export const Container = styled.div`
   min-height: 100vh;
