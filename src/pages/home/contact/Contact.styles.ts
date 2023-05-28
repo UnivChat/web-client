@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { pxToRem } from "~/utils";
 import { Svg } from "~/components/Common";
 import { flex } from "~/styles/utils/flex";
+import { pxToRem } from "~/utils";
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -23,7 +23,7 @@ export const SearchBox = styled.div`
   box-shadow: 0px 5px 13px #0000001c;
 `;
 
-export const searchIcon = styled(Svg)`
+export const SearchIcon = styled(Svg)`
   fill: #ffffff;
   width: ${pxToRem(20)};
   height: ${pxToRem(20)};
