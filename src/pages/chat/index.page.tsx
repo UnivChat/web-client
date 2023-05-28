@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { DormitoryChat } from "@images/index";
@@ -26,19 +27,22 @@ const ChatPage: NextPageWithLayout = () => {
       </Styled.LiveChatBox>
       {/* 클래스 채팅 박스 */}
       <Styled.BoxContainer>
-        <Styled.ClassChatBox>
-          <div className="span">
-            <div>
-              <Styled.LittleBlueText>같은 수업 </Styled.LittleBlueText>
-              <Styled.LittleText>듣는 사람 모여라</Styled.LittleText>
+        <Link href="/chat/class" passHref>
+          <Styled.ClassChatBox>
+            <div className="span">
+              <div>
+                <Styled.LittleBlueText>같은 수업 </Styled.LittleBlueText>
+                <Styled.LittleText>듣는 사람 모여라</Styled.LittleText>
+              </div>
+              <Styled.BlueTitle>클래스</Styled.BlueTitle>
+              <Styled.Title>채팅</Styled.Title>
             </div>
-            <Styled.BlueTitle>클래스</Styled.BlueTitle>
-            <Styled.Title>채팅</Styled.Title>
-          </div>
-          <div className="icon">
-            <Styled.ClassChatIcon svgName="classChat" />
-          </div>
-        </Styled.ClassChatBox>
+            <div className="icon">
+              <Styled.ClassChatIcon svgName="classChat" />
+            </div>
+          </Styled.ClassChatBox>
+        </Link>
+
         {/* 기숙사 채팅 박스 */}
         <Styled.DormitoryChatBox>
           <div className="span">
