@@ -1,3 +1,4 @@
+import { useSignIn } from "@server-state/auth";
 import React, { useCallback } from "react";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { useLoginForm } from "./SignIn.hooks";
@@ -5,10 +6,18 @@ import * as Styled from "./SignIn.styles";
 
 const SignIn: NextPageWithLayout = () => {
   const { id, password } = useLoginForm();
+  const { mutate: callSignInAPI } = useSignIn();
 
-  const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  }, []);
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      callSignInAPI({
+        email: id.value,
+        password: password.value
+      });
+    },
+    [callSignInAPI, id, password]
+  );
 
   const handleFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
     e.currentTarget.setAttribute("placeholder", "");

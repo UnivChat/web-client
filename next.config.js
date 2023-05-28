@@ -10,7 +10,14 @@ const nextConfig = {
     domains: [],
     formats: ["image/webp"]
   },
-
+  rewrites: () => {
+    return [
+      {
+        source: "/api/:path*",
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`
+      }
+    ];
+  },
   redirects: async () => {
     return [{ source: "/", destination: "/home", permanent: false }];
   },
