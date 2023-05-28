@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import * as Styled from "./TodayMeal.styles";
 import type { MenuProps } from "./TodayMeal.types";
 
