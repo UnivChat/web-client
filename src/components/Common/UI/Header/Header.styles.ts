@@ -1,18 +1,28 @@
 import styled from "@emotion/styled";
+import { colors } from "~/constants";
+import { pxToRem } from "~/utils";
+import { flex } from "~/styles/utils/flex";
 
 export const Title = styled.span`
   font-family: "NanumSquare";
   font-weight: 800;
-  font-size: 15px;
+  font-size: ${pxToRem(15)};
   color: #003091;
 `;
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 24px 18px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  ${flex({ justifyContent: "space-between", alignItems: "center" })}
+  padding: ${pxToRem(24)} ${pxToRem(18)};
+  height: ${pxToRem(50)};
+  background: ${colors.white};
+  div {
+    ${flex()};
+  }
 `;
 
-export const Button = styled.button`
-  padding-right: 20px;
+export const MarginContainer = styled.div`
+  height: ${pxToRem(50)};
 `;
