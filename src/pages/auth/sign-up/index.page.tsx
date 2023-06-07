@@ -4,8 +4,8 @@ import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import { Body, BodyForm, Container } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { pxToRem } from "~/utils/styles/sizeChanger";
-import { useIdCheck, useSiginForm, useSubmit } from "./SignUp.hooks";
-import * as Styled from "./SignUp.styles";
+import { useIdCheck, useSiginForm, useSubmit } from "./signUp.hooks";
+import * as Styled from "./signUp.styles";
 
 const SignInPage: NextPageWithLayout = () => {
   const {
