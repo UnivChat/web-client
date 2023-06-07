@@ -1,11 +1,18 @@
+import { deleteCookie } from "cookies-next";
 import Link from "next/link";
-import * as Styled from "./config.styles";
-import { configItems } from "./config.constants";
+import { useRouter } from "next/router";
+import { AC_TOKEN_KEY, RE_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "../app.types";
+import { configItems } from "./config.constants";
+import * as Styled from "./config.styles";
 
 const MyPage: NextPageWithLayout = () => {
+  const { push } = useRouter();
+
   const handleLogout = () => {
-    // 로그아웃
+    deleteCookie(AC_TOKEN_KEY);
+    deleteCookie(RE_TOKEN_KEY);
+    push("/auth/sign-in");
   };
 
   return (
