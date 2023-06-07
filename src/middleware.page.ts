@@ -45,7 +45,7 @@ const middleware: NextMiddleware = async request => {
   }
 
   try {
-    await typedFetch(`${API_URL}/member/info`, {
+    await typedFetch(`${API_URL}/member/info?v1=1`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${AC_TOKEN}`

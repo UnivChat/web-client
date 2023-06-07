@@ -2,7 +2,6 @@ import { createAxiosInstance } from "@server-state/axios";
 import type { SignInRequestDTO, SignInResponseDTO } from "./apis.types";
 
 const api = createAxiosInstance();
-const authApi = createAxiosInstance({ needAuth: true });
 
 export const signIn = async (payload: SignInRequestDTO) => {
   const { data } = await api.post<SignInResponseDTO>("/login", payload);
@@ -11,9 +10,17 @@ export const signIn = async (payload: SignInRequestDTO) => {
 };
 
 export const getUserInfo = async () => {
+  const authApi = createAxiosInstance({ needAuth: true });
+
   const data = await authApi.get("/member/info");
 
   // console.log(data);
 
   return { data };
+};
+
+export const signOut = async () => {
+  const authApi = createAxiosInstance({ needAuth: true });
+
+  await authApi.get("/member/logout");
 };

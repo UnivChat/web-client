@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
-import { setCookie } from "cookies-next";
+import { deleteCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { AC_TOKEN_KEY, RE_TOKEN_KEY } from "~/constants";
-import { signIn } from "../apis";
+import { signIn, signOut } from "../apis";
 
 export const useSignIn = () => {
   const { replace } = useRouter();
@@ -13,6 +13,18 @@ export const useSignIn = () => {
       setCookie(RE_TOKEN_KEY, jwtDto.refreshToken);
 
       replace("/");
+    }
+  });
+};
+
+export const useSignOut = () => {
+  const { push } = useRouter();
+
+  return useMutation(signOut, {
+    onSuccess: () => {
+      deleteCookie(AC_TOKEN_KEY);
+      deleteCookie(RE_TOKEN_KEY);
+      push("/auth/sign-in");
     }
   });
 };

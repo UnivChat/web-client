@@ -1,18 +1,14 @@
-import { deleteCookie } from "cookies-next";
+import { useSignOut } from "@server-state/auth";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { AC_TOKEN_KEY, RE_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "../app.types";
 import { configItems } from "./config.constants";
 import * as Styled from "./config.styles";
 
 const MyPage: NextPageWithLayout = () => {
-  const { push } = useRouter();
+  const { mutate: callSignOutAPI } = useSignOut();
 
   const handleLogout = () => {
-    deleteCookie(AC_TOKEN_KEY);
-    deleteCookie(RE_TOKEN_KEY);
-    push("/auth/sign-in");
+    callSignOutAPI();
   };
 
   return (
