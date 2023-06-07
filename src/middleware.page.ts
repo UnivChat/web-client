@@ -2,7 +2,7 @@ import { NextResponse, type NextMiddleware } from "next/server";
 import { AC_TOKEN_KEY, RE_TOKEN_KEY } from "./constants";
 import { typedFetch } from "./utils";
 
-const AUTH_ROUTES = "/auth";
+const AUTH_ROUTE = "/auth";
 
 const middleware: NextMiddleware = async request => {
   const AC_TOKEN = request.cookies.get(AC_TOKEN_KEY)?.value;
@@ -15,7 +15,7 @@ const middleware: NextMiddleware = async request => {
     NextResponse.redirect(new URL(_url, request.url));
 
   // 로그인이 필요하지 않은 경우
-  if (where.includes(AUTH_ROUTES)) {
+  if (where.includes(AUTH_ROUTE)) {
     if (AC_TOKEN || RE_TOKEN) {
       // 로그인이 된 상태로 접근하는 경우
       return _redirect("/home");

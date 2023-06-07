@@ -1,7 +1,7 @@
-export const typedFetch = async <T = unknown>(
+export const typedFetch = <T = unknown>(
   ...params: Parameters<typeof fetch>
 ) => {
-  const res = await fetch(...params).then<T>(res => res.json());
-
-  return res;
+  return fetch(...params)
+    .then<T>(res => res.json())
+    .catch(() => undefined);
 };
