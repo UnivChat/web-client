@@ -10,7 +10,16 @@ import { RootLayout } from "~/layouts";
 import "~/styles/font-face.css";
 import type { AppPropsWithLayout } from "./app.types";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      onError: error => {
+        console.log(error);
+      },
+      refetchOnWindowFocus: false
+    }
+  }
+});
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
