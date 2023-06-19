@@ -125,7 +125,7 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
     }
 
     try {
-      const response = await axios.post(`/api/member/check/email`, { email });
+      const response = await axios.post("/api/member/check/email", { email });
       if (response.data.code === "1000") {
         setMessage("인증되었습니다.");
       } else {
