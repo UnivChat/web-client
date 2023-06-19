@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
+import axios from "axios";
 import type {
   UseIdCheckReturnValue,
   UseInputReturnValue,
@@ -88,17 +89,25 @@ export const useSubmit = (
 };
 
 // 중복확인
-export const useIdCheck = (): UseIdCheckReturnValue => {
-  const handleIdCheck: React.MouseEventHandler<HTMLButtonElement> = useCallback(
-    e => {
-      e.stopPropagation();
-      e.preventDefault();
-    },
-    []
-  );
+export const useIdCheck = (email: string): UseIdCheckReturnValue => {
+  const [message, setMessage] = useState("");
+
+  const handleIdCheck = async () => {
+    try {
+      const response = await axios.post(`/api/member/check/email`, { email });
+      if (response.data.code === "1000") {
+        setMessage("인증되었습니다.");
+      } else {
+        setMessage("중복입니다.");
+      }
+    } catch (error) {
+      setMessage("에러가 발생했습니다.");
+    }
+  };
 
   return {
-    handleIdCheck
+    handleIdCheck,
+    message
   };
 };
 
