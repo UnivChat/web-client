@@ -22,7 +22,7 @@ const SignInPage: NextPageWithLayout = () => {
     password.value,
     confirmPassword.value
   );
-  const { handleIdCheck } = useIdCheck();
+  const { handleIdCheck, message } = useIdCheck(id.value);
 
   return (
     <Container>
@@ -44,6 +44,7 @@ const SignInPage: NextPageWithLayout = () => {
           <Styled.CheckIdButton onClick={handleIdCheck}>
             중복확인
           </Styled.CheckIdButton>
+          {message && <Auth.WarningMessage>{message}</Auth.WarningMessage>}
           <CustomText>비밀번호</CustomText>
           <CustomInput type="password" name="password" required {...password} />
           <CustomText>비밀번호 확인</CustomText>
