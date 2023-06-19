@@ -20,7 +20,9 @@ const SignInPage: NextPageWithLayout = () => {
   const { handleSubmit, genderWarning, passwordsMatchWarning } = useSubmit(
     gender.value,
     password.value,
-    confirmPassword.value
+    confirmPassword.value,
+    id.value,
+    nickname.value
   );
   const { handleIdCheck, message } = useIdCheck(id.value);
 
