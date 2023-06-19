@@ -93,6 +93,11 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const [message, setMessage] = useState("");
 
   const handleIdCheck = async () => {
+    if (!email) {
+      setMessage("아이디를 입력해주세요.");
+      return;
+    }
+
     try {
       const response = await axios.post(`/api/member/check/email`, { email });
       if (response.data.code === "1000") {
