@@ -54,14 +54,17 @@ export const useSiginForm = (): UseSiginFormReturnValue => {
 export const useSubmit = (
   genderValue: "male" | "female" | undefined,
   passwordValue: string,
-  confirmPasswordValue: string
+  confirmPasswordValue: string,
+  idValue: string,
+  nicknameValue: string
 ): UseSubmitReturnValue => {
   const router = useRouter();
   const [genderWarning, setGenderWarning] = useState(false);
   const [passwordsMatchWarning, setPasswordsMatchWarning] = useState(false);
+  const [signupError, setSignupError] = useState("");
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback(
-    e => {
+    async e => {
       e.preventDefault();
 
       if (!genderValue) {
@@ -76,15 +79,38 @@ export const useSubmit = (
       }
       setPasswordsMatchWarning(false);
 
-      router.push("/auth/email-auth");
+      try {
+        const response = await axios.post("/api/member/signup", {
+          email: idValue,
+          gender: genderValue,
+          nickname: nicknameValue,
+          password: passwordValue
+        });
+
+        if (response.data.code === "1000") {
+          router.push("/auth/email-auth"); // 회원가입 성공 시 이메일 인증 페이지로 이동
+        } else {
+          setSignupError(response.data.message);
+        }
+      } catch (error) {
+        setSignupError("에러가 발생했습니다.");
+      }
     },
-    [router, genderValue, passwordValue, confirmPasswordValue]
+    [
+      router,
+      genderValue,
+      passwordValue,
+      confirmPasswordValue,
+      idValue,
+      nicknameValue
+    ] // idValue, nicknameValue 의존성 배열에 추가
   );
 
   return {
     handleSubmit,
     genderWarning,
-    passwordsMatchWarning
+    passwordsMatchWarning,
+    signupError
   };
 };
 
