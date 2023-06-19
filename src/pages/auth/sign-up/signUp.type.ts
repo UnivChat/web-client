@@ -25,6 +25,7 @@ export interface UseSubmitReturnValue {
   handleSubmit: FormEventHandler<HTMLFormElement>;
   genderWarning: boolean;
   passwordsMatchWarning: boolean;
+  signupError: string;
 }
 
 // useIdCheck 타입 정의
