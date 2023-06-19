@@ -14,6 +14,9 @@ import { useEmailAuth } from "./emailAuth.hooks";
 
 const EmailAuth: NextPageWithLayout = () => {
   const {
+    email,
+    handleEmailChange,
+    emailErrorMessage,
     isEmailAuthButtonClicked,
     emailAuthButtonBgColor,
     handleEmailAuthButtonClick
@@ -27,7 +30,16 @@ const EmailAuth: NextPageWithLayout = () => {
 
         <BodyForm paddingTop={38} paddingBottom={8}>
           <CustomText>이메일을 입력해주세요</CustomText>
-          <CustomInput type="email" name="email" required />
+          <CustomInput
+            type="email"
+            name="email"
+            required
+            value={email}
+            onChange={handleEmailChange}
+          />
+          {emailErrorMessage && (
+            <Auth.WarningMessage>{emailErrorMessage}</Auth.WarningMessage>
+          )}
         </BodyForm>
         <CheckAuthButton
           bgColor={emailAuthButtonBgColor}
