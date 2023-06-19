@@ -30,4 +30,5 @@ export interface UseSubmitReturnValue {
 // useIdCheck 타입 정의
 export interface UseIdCheckReturnValue {
   handleIdCheck: MouseEventHandler<HTMLButtonElement>;
+  message: string;
 }
