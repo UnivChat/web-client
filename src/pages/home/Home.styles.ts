@@ -69,3 +69,29 @@ export const SelectLine = styled.div`
   height: ${pxToRem(55)};
   border-right: ${pxToRem(1)} solid #9f9f9f;
 `;
+
+export const DocContainer = styled.div`
+  ${flex({
+    flexDirection: "column"
+  })};
+  margin-top: ${pxToRem(29)};
+  margin-left: ${pxToRem(27)};
+  margin-right: ${pxToRem(27)};
+  width: auto;
+`;
+
+export const DocTitle = styled.div`
+  margin-left: ${pxToRem(8)};
+  font-family: "NanumSquare";
+  font-weight: 800;
+  color: #313131;
+  font-size: ${pxToRem(20)};
+`;
+
+export const DocBox = styled.div`
+  margin-top: ${pxToRem(16)};
+  width: auto;
+  min-height: ${pxToRem(80)};
+  box-shadow: 0 ${pxToRem(5)} ${pxToRem(13)} #00000029;
+  border-radius: ${pxToRem(14)};
+`;

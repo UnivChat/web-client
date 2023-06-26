@@ -1,6 +1,7 @@
 import React from "react";
 import * as Styled from "./Home.styles";
 import { SelectionProps } from "./Home.types";
+import { BottomTab } from "../../components/Common/layout";
 
 const Selection = (ContainerProps: SelectionProps) => {
   const content = (
@@ -27,6 +28,15 @@ export const Home = () => {
         <Styled.SelectLine />
         <Selection name="편의시설" svgName="facility" />
       </Styled.SelectContainer>
+      <Styled.DocContainer>
+        <Styled.DocTitle>학사일정</Styled.DocTitle>
+        <Styled.DocBox></Styled.DocBox>
+      </Styled.DocContainer>
+      <Styled.DocContainer>
+        <Styled.DocTitle>공지사항</Styled.DocTitle>
+        <Styled.DocBox></Styled.DocBox>
+      </Styled.DocContainer>
+      <BottomTab />
     </Styled.Container>
   );
 };
