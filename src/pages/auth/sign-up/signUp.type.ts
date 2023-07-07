@@ -26,10 +26,12 @@ export interface UseSubmitReturnValue {
   genderWarning: boolean;
   passwordsMatchWarning: boolean;
   signupError: string;
+  message: string;
 }
 
 // useIdCheck 타입 정의
 export interface UseIdCheckReturnValue {
   handleIdCheck: MouseEventHandler<HTMLButtonElement>;
   message: string;
+  isDuplicate: boolean;
 }

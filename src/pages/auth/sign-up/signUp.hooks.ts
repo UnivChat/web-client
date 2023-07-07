@@ -59,12 +59,14 @@ export const useSubmit = (
   passwordValue: string,
   confirmPasswordValue: string,
   idValue: string,
-  nicknameValue: string
+  nicknameValue: string,
+  idCheck: UseIdCheckReturnValue
 ): UseSubmitReturnValue => {
   const router = useRouter();
   const [genderWarning, setGenderWarning] = useState(false);
   const [passwordsMatchWarning, setPasswordsMatchWarning] = useState(false);
   const [signupError, setSignupError] = useState("");
+  const [message, setMessage] = useState("");
 
   const mutation = useMutation(
     () =>
@@ -92,6 +94,11 @@ export const useSubmit = (
     e => {
       e.preventDefault();
 
+      if (idCheck.isDuplicate) {
+        setMessage("아이디가 중복입니다.");
+        return;
+      }
+
       if (!genderValue) {
         setGenderWarning(true);
         return;
@@ -106,20 +113,28 @@ export const useSubmit = (
 
       mutation.mutate();
     },
-    [genderValue, passwordValue, confirmPasswordValue, mutation]
+    [
+      genderValue,
+      passwordValue,
+      confirmPasswordValue,
+      mutation,
+      idCheck.isDuplicate
+    ]
   );
 
   return {
     handleSubmit,
     genderWarning,
     passwordsMatchWarning,
-    signupError
+    signupError,
+    message
   };
 };
 
 // 중복확인
 export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const [message, setMessage] = useState("");
+  const [isDuplicate, setDuplicate] = useState(false);
 
   const mutation = useMutation(
     () => axiosInstance.post("/member/check/email", { email }),
@@ -127,8 +142,10 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
       onSuccess: response => {
         if (response.data.result === "사용 가능한 이메일입니다.") {
           setMessage("사용 가능한 이메일입니다.");
+          setDuplicate(false);
         } else {
           setMessage(response.data.result);
+          setDuplicate(true);
         }
       },
       onError: () => {
@@ -147,7 +164,8 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   };
   return {
     handleIdCheck,
-    message
+    message,
+    isDuplicate
   };
 };
 

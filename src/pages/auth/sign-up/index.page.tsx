@@ -17,14 +17,18 @@ const SignInPage: NextPageWithLayout = () => {
     gender,
     handleGenderButtonClick
   } = useSiginForm();
+
+  const idCheck = useIdCheck(id.value);
+  const { handleIdCheck, message } = idCheck;
+
   const { handleSubmit, genderWarning, passwordsMatchWarning } = useSubmit(
     gender.value,
     password.value,
     confirmPassword.value,
     id.value,
-    nickname.value
+    nickname.value,
+    idCheck
   );
-  const { handleIdCheck, message } = useIdCheck(id.value);
 
   return (
     <Container>
@@ -43,6 +47,7 @@ const SignInPage: NextPageWithLayout = () => {
             width={pxToRem(204)}
             {...id}
           />
+
           <Styled.CheckIdButton onClick={handleIdCheck}>
             중복확인
           </Styled.CheckIdButton>
