@@ -125,10 +125,10 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
     () => axiosInstance.post("/member/check/email", { email }),
     {
       onSuccess: response => {
-        if (response.data.code === "1000") {
-          setMessage("인증되었습니다.");
+        if (response.data.result === "사용 가능한 이메일입니다.") {
+          setMessage("사용 가능한 이메일입니다.");
         } else {
-          setMessage(response.data.message);
+          setMessage(response.data.result);
         }
       },
       onError: () => {
