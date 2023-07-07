@@ -1,8 +1,8 @@
 export interface UseEmailAuthReturnValue {
   email: string;
-  handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleEmailChange: React.ChangeEventHandler<HTMLInputElement>;
   emailErrorMessage: string;
   isEmailAuthButtonClicked: boolean;
   emailAuthButtonBgColor: string;
-  handleEmailAuthButtonClick: () => Promise<void>;
+  handleEmailAuthButtonClick: () => void;
 }
