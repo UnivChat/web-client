@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
-import axios from "axios";
+import { createAxiosInstance } from "@server-state/axios";
+import { useMutation } from "@tanstack/react-query";
 import type {
   UseIdCheckReturnValue,
   UseInputReturnValue,
@@ -50,6 +51,8 @@ export const useSiginForm = (): UseSiginFormReturnValue => {
   };
 };
 
+const axiosInstance = createAxiosInstance({ needAuth: true });
+
 // 성별, 비밀번호 중복 체크 확인 후 다음 페이지로 이동
 export const useSubmit = (
   genderValue: "male" | "female" | undefined,
@@ -63,8 +66,30 @@ export const useSubmit = (
   const [passwordsMatchWarning, setPasswordsMatchWarning] = useState(false);
   const [signupError, setSignupError] = useState("");
 
+  const mutation = useMutation(
+    () =>
+      axiosInstance.post("/member/signup", {
+        email: idValue,
+        gender: genderValue,
+        nickname: nicknameValue,
+        password: passwordValue
+      }),
+    {
+      onSuccess: response => {
+        if (response.data.code === "1000") {
+          router.push("/auth/email-auth");
+        } else {
+          setSignupError(response.data.message);
+        }
+      },
+      onError: () => {
+        setSignupError("에러가 발생했습니다.");
+      }
+    }
+  );
+
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback(
-    async e => {
+    e => {
       e.preventDefault();
 
       if (!genderValue) {
@@ -79,31 +104,9 @@ export const useSubmit = (
       }
       setPasswordsMatchWarning(false);
 
-      try {
-        const response = await axios.post("/api/member/signup", {
-          email: idValue,
-          gender: genderValue,
-          nickname: nicknameValue,
-          password: passwordValue
-        });
-
-        if (response.data.code === "1000") {
-          router.push("/auth/email-auth"); // 회원가입 성공 시 이메일 인증 페이지로 이동
-        } else {
-          setSignupError(response.data.message);
-        }
-      } catch (error) {
-        setSignupError("에러가 발생했습니다.");
-      }
+      mutation.mutate();
     },
-    [
-      router,
-      genderValue,
-      passwordValue,
-      confirmPasswordValue,
-      idValue,
-      nicknameValue
-    ] // idValue, nicknameValue 의존성 배열에 추가
+    [genderValue, passwordValue, confirmPasswordValue, mutation]
   );
 
   return {
@@ -118,24 +121,30 @@ export const useSubmit = (
 export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const [message, setMessage] = useState("");
 
-  const handleIdCheck = async () => {
+  const mutation = useMutation(
+    () => axiosInstance.post("/member/check/email", { email }),
+    {
+      onSuccess: response => {
+        if (response.data.code === "1000") {
+          setMessage("인증되었습니다.");
+        } else {
+          setMessage(response.data.message);
+        }
+      },
+      onError: () => {
+        setMessage("에러가 발생했습니다.");
+      }
+    }
+  );
+
+  const handleIdCheck = () => {
     if (!email) {
       setMessage("아이디를 입력해주세요.");
       return;
     }
 
-    try {
-      const response = await axios.post("/api/member/check/email", { email });
-      if (response.data.code === "1000") {
-        setMessage("인증되었습니다.");
-      } else {
-        setMessage("중복입니다.");
-      }
-    } catch (error) {
-      setMessage("에러가 발생했습니다.");
-    }
+    mutation.mutate();
   };
-
   return {
     handleIdCheck,
     message
