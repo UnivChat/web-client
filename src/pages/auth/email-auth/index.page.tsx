@@ -16,10 +16,16 @@ const EmailAuth: NextPageWithLayout = () => {
   const {
     email,
     handleEmailChange,
+    emailAuth,
+    handleEmailAuthChange,
     emailErrorMessage,
     isEmailAuthButtonClicked,
     emailAuthButtonBgColor,
-    handleEmailAuthButtonClick
+    handleEmailAuthButtonClick,
+    authErrorMessage,
+    validateAuthCode,
+    isVerified,
+    handleStartButtonClick
   } = useEmailAuth();
 
   return (
@@ -56,12 +62,27 @@ const EmailAuth: NextPageWithLayout = () => {
 
             <BodyForm paddingTop={38} paddingBottom={8}>
               <CustomText>인증번호를 입력해주세요</CustomText>
-              <CustomInput name="emailAuth" required />
+              <CustomInput
+                type="text"
+                name="emailAuth"
+                required
+                value={emailAuth}
+                onChange={handleEmailAuthChange}
+              />
+              {authErrorMessage && (
+                <Auth.WarningMessage>{authErrorMessage}</Auth.WarningMessage>
+              )}
+              {isVerified && <Message>인증되었습니다.</Message>}
             </BodyForm>
-            <CheckAuthButton>인증하기</CheckAuthButton>
+            <CheckAuthButton onClick={validateAuthCode}>
+              인증하기
+            </CheckAuthButton>
           </>
         )}
-        <Auth.SubmitButton>시작하기</Auth.SubmitButton>
+
+        <Auth.SubmitButton onClick={handleStartButtonClick}>
+          시작하기
+        </Auth.SubmitButton>
       </Body>
     </Container>
   );
