@@ -1,5 +1,5 @@
-import { createAxiosInstance } from "@server-state/axios";
 import { useState } from "react";
+import { createAxiosInstance } from "@server-state/axios";
 import { useRouter } from "next/router";
 import { useMutation } from "@tanstack/react-query";
 import type { ChangeEvent } from "react";
@@ -20,7 +20,7 @@ export const useEmailAuth = (): UseEmailAuthReturnValue => {
   const router = useRouter();
 
   const mutation = useMutation(
-    email =>
+    (email: string) =>
       axiosInstance
         .post("/member/email/verified", { email })
         .then(response => response.data),
@@ -59,6 +59,12 @@ export const useEmailAuth = (): UseEmailAuthReturnValue => {
   };
 
   const handleVerifyButtonClick = (): boolean => {
+    if (!emailAuth) {
+      setAuthErrorMessage("인증번호를 입력해주세요.");
+      setIsVerified(false);
+      return false;
+    }
+
     const isCodeValid = String(serverAuthCode) === emailAuth;
     if (!isCodeValid) {
       setAuthErrorMessage("인증번호가 틀립니다.");

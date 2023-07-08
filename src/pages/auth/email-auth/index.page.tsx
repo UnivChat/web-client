@@ -6,7 +6,7 @@ import {
   BodyForm,
   CheckAuthButton,
   Container,
-  Message,
+  AcceptMessage,
   Span
 } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
@@ -55,7 +55,9 @@ const EmailAuth: NextPageWithLayout = () => {
         </CheckAuthButton>
         {isEmailAuthButtonClicked && (
           <>
-            <Message>입력하신 이메일로 인증번호가 전송되었습니다</Message>
+            <AcceptMessage>
+              입력하신 이메일로 인증번호가 전송되었습니다
+            </AcceptMessage>
             <Span>
               <BodyTopsDots />
             </Span>
@@ -72,7 +74,7 @@ const EmailAuth: NextPageWithLayout = () => {
               {authErrorMessage && (
                 <Auth.WarningMessage>{authErrorMessage}</Auth.WarningMessage>
               )}
-              {isVerified && <Message>인증되었습니다.</Message>}
+              {isVerified && <AcceptMessage>인증되었습니다.</AcceptMessage>}
             </BodyForm>
             <CheckAuthButton onClick={validateAuthCode}>
               인증하기
