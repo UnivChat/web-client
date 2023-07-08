@@ -161,3 +161,12 @@ export const Message = styled.div`
   font-size: ${pxToRem(10)};
   font-weight: 600;
 `;
+
+export const AcceptMessage = styled.div`
+  margin-left: ${pxToRem(10)};
+  margin-top: ${pxToRem(8)};
+
+  color: ${colors.background};
+  font-size: ${pxToRem(10)};
+  font-weight: 600;
+`;
