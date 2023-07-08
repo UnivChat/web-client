@@ -2,10 +2,10 @@ import * as Auth from "~/components/Auth/Auth";
 import { BodyTop } from "~/components/Auth/Auth.BodyTop";
 import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
+  AcceptMessage,
   Body,
   BodyForm,
-  Container,
-  Message
+  Container
 } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { pxToRem } from "~/utils/styles/sizeChanger";
@@ -59,7 +59,7 @@ const SignInPage: NextPageWithLayout = () => {
             (messageType === "error" ? (
               <Auth.WarningMessage>{message}</Auth.WarningMessage>
             ) : (
-              <Message>{message}</Message>
+              <AcceptMessage>{message}</AcceptMessage>
             ))}
           <CustomText>비밀번호</CustomText>
           <CustomInput type="password" name="password" required {...password} />
