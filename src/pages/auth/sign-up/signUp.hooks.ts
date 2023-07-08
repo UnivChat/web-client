@@ -134,6 +134,7 @@ export const useSubmit = (
 // 중복확인
 export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState<"error" | "success">("error");
   const [isDuplicate, setDuplicate] = useState(false);
 
   const mutation = useMutation(
@@ -142,14 +143,17 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
       onSuccess: response => {
         if (response.data.result === "사용 가능한 이메일입니다.") {
           setMessage("사용 가능한 이메일입니다.");
+          setMessageType("success");
           setDuplicate(false);
         } else {
           setMessage(response.data.result);
+          setMessageType("error");
           setDuplicate(true);
         }
       },
       onError: () => {
         setMessage("에러가 발생했습니다.");
+        setMessageType("error");
       }
     }
   );
@@ -157,14 +161,17 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const handleIdCheck = () => {
     if (!email) {
       setMessage("아이디를 입력해주세요.");
+      setMessageType("error");
       return;
     }
 
     mutation.mutate();
   };
+
   return {
     handleIdCheck,
     message,
+    messageType,
     isDuplicate
   };
 };

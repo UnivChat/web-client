@@ -34,4 +34,12 @@ export interface UseIdCheckReturnValue {
   handleIdCheck: MouseEventHandler<HTMLButtonElement>;
   message: string;
   isDuplicate: boolean;
+  messageType: string;
+}
+
+// useNicknameCheck 타입 정의
+export interface UseNicknameCheckReturnValue {
+  handleNicknameCheck: () => void;
+  message: string;
+  isDuplicate: boolean;
 }
