@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setEmail as setEmailInRedux } from "~/state/client/changepw/emailSlice";
+import type { RootState } from "@client-state/index";
 import { createAxiosInstance } from "@server-state/axios";
 import { useRouter } from "next/router";
 import { useMutation } from "@tanstack/react-query";
 import type { AxiosResponseData, UseFindPwReturnValue } from "./findPw.type";
 
 export const useFindPw = (): UseFindPwReturnValue => {
-  const [email, setEmail] = useState("");
+  const dispatch = useDispatch(); // Get dispatch function
   const [emailAuth, setEmailAuth] = useState("");
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [isFindPwButtonClicked, setIsFindPwButtonClicked] = useState(false);
@@ -15,6 +18,8 @@ export const useFindPw = (): UseFindPwReturnValue => {
   const [isVerified, setIsVerified] = useState(false);
   const axiosInstance = createAxiosInstance({ needAuth: true });
   const router = useRouter();
+
+  const email = useSelector((state: RootState) => state.email);
 
   const mutation = useMutation<AxiosResponseData, Error, string, unknown>(
     email =>
@@ -38,7 +43,7 @@ export const useFindPw = (): UseFindPwReturnValue => {
   );
 
   const handleEmailChange: React.ChangeEventHandler<HTMLInputElement> = e => {
-    setEmail(e.target.value);
+    dispatch(setEmailInRedux(e.target.value)); // Dispatch setEmail action with new email
   };
 
   const handleEmailAuthChange: React.ChangeEventHandler<
