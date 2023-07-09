@@ -16,7 +16,8 @@ const AUTH_ROUTE = [
   "/auth/sign-in",
   "/auth/email-auth",
   "/auth/find-pw",
-  "/auth/sign-up"
+  "/auth/sign-up",
+  "/auth/find-pw/changepw"
 ];
 
 const middleware: NextMiddleware = async request => {
