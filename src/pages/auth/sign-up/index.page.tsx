@@ -43,7 +43,7 @@ const SignInPage: NextPageWithLayout = () => {
 
         <BodyForm onSubmit={handleSubmit} paddingTop={22}>
           <CustomText>이름</CustomText>
-          <CustomInput type="text" name="name" required {...name} />
+          <CustomInput name="name" required {...name} />
           <CustomText>이메일</CustomText>
           <CustomInput
             type="email"
