@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useMutation } from "@tanstack/react-query";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import { useRouter } from "next/router";
 import { createAxiosInstance } from "@server-state/axios";
-import type { RootState } from "@client-state/index";
 import { clearEmail } from "@client-state/changepw/emailSlice";
-import type { UseChangePwReturnType } from "./chagePw.type";
+import type { UseChangePwReturnType } from "./changePw.type";
 
 export const useChangePw = (): UseChangePwReturnType => {
-  const email = useSelector((state: RootState) => state.email);
+  const email = useAppSelector(({ email }) => email);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,7 +15,7 @@ export const useChangePw = (): UseChangePwReturnType => {
 
   const axiosInstance = createAxiosInstance({ needAuth: true });
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const mutation = useMutation(
     () =>
@@ -30,7 +29,7 @@ export const useChangePw = (): UseChangePwReturnType => {
         setConfirmPassword("");
         setSuccessMessage("비밀번호가 변경되었습니다.");
         setErrorMessage("");
-        dispatch(clearEmail()); // Clear the email
+        dispatch(clearEmail());
         router.push("/auth/sign-in");
       },
       onError: () => {
