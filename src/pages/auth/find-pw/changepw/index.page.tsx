@@ -1,5 +1,6 @@
 import * as Auth from "~/components/Auth/Auth";
 import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
+import { useAppSelector } from "@client-state/hooks";
 import {
   Body,
   BodyForm,
@@ -18,9 +19,10 @@ const ChangePw: NextPageWithLayout = () => {
     handlePasswordChange,
     handleConfirmPasswordChange,
     handleChangePwButtonClick,
-    errorMessage,
-    successMessage
+    errorMessage
   } = useChangePw();
+
+  const { successMessage } = useAppSelector(state => state.changePw);
 
   return (
     <Container>
@@ -46,7 +48,9 @@ const ChangePw: NextPageWithLayout = () => {
             required
           />
           <Auth.WarningMessage>{errorMessage}</Auth.WarningMessage>
-          <Message>{successMessage}</Message>
+          {successMessage && (
+            <Message>비밀번호가 변경되었습니다. 다시 로그인 해주세요.</Message>
+          )}
         </BodyForm>
         <CheckAuthButton marginTop={45} onClick={handleChangePwButtonClick}>
           확인

@@ -7,5 +7,5 @@ export type UseChangePwReturnType = {
   handleConfirmPasswordChange: ChangeEventHandler<HTMLInputElement>;
   handleChangePwButtonClick: MouseEventHandler;
   errorMessage: string;
-  successMessage: string;
+  successMessage: boolean;
 };
