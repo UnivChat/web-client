@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setEmail as setEmailInRedux } from "~/state/client/changepw/emailSlice";
+import { setEmail as setEmailInRedux } from "@client-state/Auth/changepw/emailSlice";
 import type { RootState } from "@client-state/index";
 import { createAxiosInstance } from "@server-state/axios";
 import { useRouter } from "next/router";
