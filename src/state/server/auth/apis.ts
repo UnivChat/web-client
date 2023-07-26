@@ -1,4 +1,5 @@
 import { createAxiosInstance } from "@server-state/axios";
+import type { AxiosResponseData } from "~/pages/auth/find-pw/findPw.type";
 import type { SignInRequestDTO, SignInResponseDTO } from "./apis.types";
 
 const api = createAxiosInstance();
@@ -30,4 +31,25 @@ export const verifyEmail = async (email: string) => {
   const authApi = createAxiosInstance({ needAuth: true });
   const response = await authApi.post("/member/email/verified", { email });
   return response.data;
+};
+
+// 비밀번호 찾기 (이메일 인증) api
+export const verifyPasswordEmail = async (email: string) => {
+  const authApi = createAxiosInstance({ needAuth: true });
+  const response = await authApi.post<AxiosResponseData>(
+    "/member/email/verified",
+    {
+      email
+    }
+  );
+  return response.data;
+};
+
+// 비밀번호 변경 api
+export const changePasswordApi = (email: string, password: string) => {
+  const authApi = createAxiosInstance({ needAuth: true });
+  return authApi.post("/member/change/password", {
+    email,
+    password
+  });
 };
