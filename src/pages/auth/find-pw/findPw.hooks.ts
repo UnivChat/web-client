@@ -1,18 +1,21 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { setEmail as setEmailInRedux } from "@client-state/Auth/find-pw/changepw/emailSlice";
 import type { RootState } from "@client-state/index";
 import { useRouter } from "next/router";
+import { useAppDispatch } from "@client-state/hooks";
 import {
   setEmailAuth,
   setEmailErrorMessage,
   setAuthErrorMessage,
-  setIsVerified
+  setIsVerified,
+  setIsFindPwButtonClicked,
+  setFindPwButtonBgColor
 } from "@client-state/Auth/find-pw/findPwSlice";
 import { useVerifyPasswordEmailMutation } from "@server-state/auth";
 import type { UseFindPwReturnValue } from "./findPw.type";
 
 export const useFindPw = (): UseFindPwReturnValue => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const {
     emailAuth,
@@ -61,7 +64,15 @@ export const useFindPw = (): UseFindPwReturnValue => {
     } else {
       dispatch(setAuthErrorMessage(""));
       dispatch(setIsVerified(true));
-      router.push("/auth/find-pw/changepw");
+      setTimeout(() => {
+        router.push("/auth/find-pw/changepw");
+      }, 1000);
+      setTimeout(() => {
+        dispatch(setEmailAuth(""));
+        dispatch(setIsFindPwButtonClicked(false));
+        dispatch(setFindPwButtonBgColor("#003091"));
+        dispatch(setIsVerified(false));
+      }, 2000);
     }
     return isCodeValid;
   };

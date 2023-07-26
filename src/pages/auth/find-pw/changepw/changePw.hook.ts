@@ -3,7 +3,8 @@ import { useChangePasswordMutation } from "@server-state/auth";
 import {
   setPassword,
   setConfirmPassword,
-  setErrorMessage
+  setErrorMessage,
+  setSuccessMessage
 } from "@client-state/Auth/find-pw/changepw/changePwSlice";
 import type { UseChangePwReturnType } from "./changePw.type";
 
@@ -35,6 +36,10 @@ export const useChangePw = (): UseChangePwReturnType => {
     if (password !== confirmPassword) {
       dispatch(setErrorMessage("비밀번호가 일치하지 않습니다."));
       return;
+    }
+
+    if (password === confirmPassword) {
+      dispatch(setSuccessMessage(true));
     }
 
     changePasswordMutation.mutate();
