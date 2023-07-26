@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "@client-state/hooks";
 import { deleteCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { AC_TOKEN_KEY, RE_TOKEN_KEY } from "~/constants";
@@ -42,7 +42,7 @@ export const useSignOut = () => {
 
 // 이메일 인증 mutation
 export const useEmailVerification = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return useMutation(verifyEmail, {
     onSuccess: data => {
@@ -66,7 +66,7 @@ export const useEmailVerification = () => {
 
 // 비밀번호 찾기 mutation
 export const useVerifyPasswordEmailMutation = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return useMutation(verifyPasswordEmail, {
     onSuccess: data => {
@@ -88,15 +88,16 @@ export const useVerifyPasswordEmailMutation = () => {
 
 // 비밀번호 변경 mutation
 export const useChangePasswordMutation = (email: string, password: string) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   return useMutation(() => changePasswordApi(email, password), {
     onSuccess: () => {
-      dispatch(changePwSlice.setSuccessMessage(true));
-      dispatch(clearEmail());
-      dispatch(changePwSlice.clearChangePw());
-      router.push("/auth/sign-in");
+      setTimeout(() => {
+        dispatch(clearEmail());
+        dispatch(changePwSlice.clearChangePw());
+        router.push("/auth/sign-in");
+      }, 1000);
     },
     onError: () => {
       dispatch(changePwSlice.setErrorMessage("비밀번호 변경에 실패했습니다."));

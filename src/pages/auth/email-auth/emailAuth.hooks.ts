@@ -1,8 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEmailVerification } from "@server-state/auth";
 import type { ChangeEvent } from "react";
 import type { RootState } from "@client-state/index";
+import { useAppDispatch } from "@client-state/hooks";
 import {
   setEmail,
   setEmailAuth,
@@ -13,7 +14,7 @@ import {
 import type { UseEmailAuthReturnValue } from "./emailAuth.type";
 
 export const useEmailAuth = (): UseEmailAuthReturnValue => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const {
     email,
     emailAuth,
