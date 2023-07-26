@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import { useRouter } from "next/router";
 import { createAxiosInstance } from "@server-state/axios";
-import { clearEmail } from "@client-state/changepw/emailSlice";
+import { clearEmail } from "@client-state/Auth/changepw/emailSlice";
 import type { UseChangePwReturnType } from "./changePw.type";
 
 export const useChangePw = (): UseChangePwReturnType => {
