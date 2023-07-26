@@ -24,3 +24,10 @@ export const signOut = async () => {
 
   await authApi.get("/member/logout");
 };
+
+// 이메일 인증 api
+export const verifyEmail = async (email: string) => {
+  const authApi = createAxiosInstance({ needAuth: true });
+  const response = await authApi.post("/member/email/verified", { email });
+  return response.data;
+};
