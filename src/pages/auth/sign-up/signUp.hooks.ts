@@ -9,6 +9,7 @@ import type {
   UseSubmitReturnValue
 } from "./signUp.type";
 
+// 회원가입 폼 e.target.velue 훅
 export const useInput = (initialValue: string): UseInputReturnValue => {
   const [value, setValue] = useState(initialValue);
 
@@ -22,6 +23,7 @@ export const useInput = (initialValue: string): UseInputReturnValue => {
   };
 };
 
+// 회원가입 폼
 export const useSiginForm = (): UseSiginFormReturnValue => {
   const name = useInput("");
   const id = useInput("");
@@ -53,7 +55,7 @@ export const useSiginForm = (): UseSiginFormReturnValue => {
 
 const axiosInstance = createAxiosInstance({ needAuth: true });
 
-// 성별, 비밀번호 중복 체크 확인 후 다음 페이지로 이동
+// 폼 제출 시 성별, 비밀번호 중복 체크 확인 후 다음 페이지로 이동
 export const useSubmit = (
   genderValue: "male" | "female" | undefined,
   passwordValue: string,
@@ -131,7 +133,7 @@ export const useSubmit = (
   };
 };
 
-// 중복확인
+// 아이디 중복확인
 export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"error" | "success">("error");
@@ -161,6 +163,13 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const handleIdCheck = () => {
     if (!email) {
       setMessage("아이디를 입력해주세요.");
+      setMessageType("error");
+      return;
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(email)) {
+      setMessage("이메일 형식으로 입력해주세요.");
       setMessageType("error");
       return;
     }
