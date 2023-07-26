@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import { useEmailVerification } from "@server-state/auth";
 import type { ChangeEvent } from "react";
 import type { RootState } from "@client-state/index";
-import type { UseEmailAuthReturnValue } from "./emailAuth.type";
 import {
   setEmail,
   setEmailAuth,
   setEmailErrorMessage,
   setAuthErrorMessage,
   setIsVerified
-} from "../../../state/client/Auth/emailAuth/emailAuthSlice";
+} from "@client-state/Auth/emailAuth/emailAuthSlice";
+import type { UseEmailAuthReturnValue } from "./emailAuth.type";
 
 export const useEmailAuth = (): UseEmailAuthReturnValue => {
   const dispatch = useDispatch();
