@@ -1,8 +1,6 @@
-import { useSelector } from "react-redux";
 import { setEmail as setEmailInRedux } from "@client-state/Auth/find-pw/changepw/emailSlice";
-import type { RootState } from "@client-state/index";
 import { useRouter } from "next/router";
-import { useAppDispatch } from "@client-state/hooks";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import {
   setEmailAuth,
   setEmailErrorMessage,
@@ -11,6 +9,7 @@ import {
   setIsFindPwButtonClicked,
   setFindPwButtonBgColor
 } from "@client-state/Auth/find-pw/findPwSlice";
+import { emailRegex } from "~/constants/emailRegex";
 import { useVerifyPasswordEmailMutation } from "@server-state/auth";
 import type { UseFindPwReturnValue } from "./findPw.type";
 
@@ -25,9 +24,9 @@ export const useFindPw = (): UseFindPwReturnValue => {
     serverAuthCode,
     authErrorMessage,
     isVerified
-  } = useSelector((state: RootState) => state.findPw);
+  } = useAppSelector(state => state.findPw);
 
-  const email = useSelector((state: RootState) => state.email);
+  const email = useAppSelector(state => state.email);
   const mutation = useVerifyPasswordEmailMutation();
 
   const handleEmailChange: React.ChangeEventHandler<HTMLInputElement> = e => {
@@ -42,7 +41,7 @@ export const useFindPw = (): UseFindPwReturnValue => {
   };
 
   const handleFindPwButtonClick = () => {
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+    if (!email || !emailRegex.test(email)) {
       dispatch(setEmailErrorMessage("이메일 형식을 확인해주세요."));
       return;
     }
