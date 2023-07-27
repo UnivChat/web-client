@@ -1,51 +1,53 @@
-import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
-import { createAxiosInstance } from "@server-state/axios";
-import { useMutation } from "@tanstack/react-query";
+import { useCallback } from "react";
 import { emailRegex } from "~/constants/emailRegex";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
+import * as signUpSlice from "@client-state/Auth/signUp/signUpSlice";
+import { useIdCheckMutation, useSubmitMutation } from "@server-state/auth";
 import type {
   UseIdCheckReturnValue,
-  UseInputReturnValue,
   UseSiginFormReturnValue,
   UseSubmitReturnValue
 } from "./signUp.type";
 
-// 회원가입 폼 e.target.velue 훅
-export const useInput = (initialValue: string): UseInputReturnValue => {
-  const [value, setValue] = useState(initialValue);
-
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-  };
-
-  return {
-    value,
-    onChange
-  };
-};
-
 // 회원가입 폼
 export const useSiginForm = (): UseSiginFormReturnValue => {
-  const name = useInput("");
-  const id = useInput("");
-  const password = useInput("");
-  const confirmPassword = useInput("");
-  const nickname = useInput("");
+  const dispatch = useAppDispatch();
+  const name = useAppSelector(state => state.signup.name);
 
-  const [gender, setGender] = useState<"male" | "female" | undefined>(
-    undefined
-  );
+  const id = useAppSelector(state => state.signup.id);
+  const password = useAppSelector(state => state.signup.password);
+  const confirmPassword = useAppSelector(state => state.signup.confirmPassword);
+  const nickname = useAppSelector(state => state.signup.nickname);
+  const gender = useAppSelector(state => state.signup.gender);
 
   const handleGenderButtonClick = (selectedGender: "male" | "female") => {
-    setGender(selectedGender);
+    dispatch(signUpSlice.setGender(selectedGender));
+  };
+  const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(signUpSlice.setName(e.target.value));
+  };
+  const onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(signUpSlice.setId(e.target.value));
+  };
+  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(signUpSlice.setPassword(e.target.value));
+  };
+  const onChangeConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(signUpSlice.setConfirmPassword(e.target.value));
+  };
+  const onChangeNickname = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(signUpSlice.setNickname(e.target.value));
   };
 
   return {
-    name,
-    id,
-    password,
-    confirmPassword,
-    nickname,
+    name: { value: name, onChange: onChangeName },
+    id: { value: id, onChange: onChangeId },
+    password: { value: password, onChange: onChangePassword },
+    confirmPassword: {
+      value: confirmPassword,
+      onChange: onChangeConfirmPassword
+    },
+    nickname: { value: nickname, onChange: onChangeNickname },
     gender: {
       value: gender,
       handleGenderButtonClick
@@ -53,8 +55,6 @@ export const useSiginForm = (): UseSiginFormReturnValue => {
     handleGenderButtonClick
   };
 };
-
-const axiosInstance = createAxiosInstance({ needAuth: true });
 
 // 폼 제출 시 성별, 비밀번호 중복 체크 확인 후 다음 페이지로 이동
 export const useSubmit = (
@@ -65,63 +65,49 @@ export const useSubmit = (
   nicknameValue: string,
   idCheck: UseIdCheckReturnValue
 ): UseSubmitReturnValue => {
-  const router = useRouter();
-  const [genderWarning, setGenderWarning] = useState(false);
-  const [passwordsMatchWarning, setPasswordsMatchWarning] = useState(false);
-  const [signupError, setSignupError] = useState("");
-  const [message, setMessage] = useState("");
+  const dispatch = useAppDispatch();
 
-  const mutation = useMutation(
-    () =>
-      axiosInstance.post("/member/signup", {
-        email: idValue,
-        gender: genderValue,
-        nickname: nicknameValue,
-        password: passwordValue
-      }),
-    {
-      onSuccess: response => {
-        if (response.data.code === "1000") {
-          router.push("/auth/email-auth");
-        } else {
-          setSignupError(response.data.message);
-        }
-      },
-      onError: () => {
-        setSignupError("에러가 발생했습니다.");
-      }
-    }
+  const genderWarning = useAppSelector(state => state.signup.genderWarning);
+  const passwordsMatchWarning = useAppSelector(
+    state => state.signup.passwordsMatchWarning
   );
+  const signupError = useAppSelector(state => state.signup.signupError);
+  const message = useAppSelector(state => state.signup.message);
+
+  const mutation = useSubmitMutation();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback(
     e => {
       e.preventDefault();
 
       if (idCheck.isDuplicate) {
-        setMessage("아이디가 중복입니다.");
+        dispatch(signUpSlice.setMessage("아이디가 중복입니다."));
         return;
       }
 
       if (!genderValue) {
-        setGenderWarning(true);
+        dispatch(signUpSlice.setGenderWarning(true));
         return;
       }
-      setGenderWarning(false);
+      dispatch(signUpSlice.setGenderWarning(false));
 
       if (passwordValue !== confirmPasswordValue) {
-        setPasswordsMatchWarning(true);
+        dispatch(signUpSlice.setPasswordsMatchWarning(true));
         return;
       }
-      setPasswordsMatchWarning(false);
+      dispatch(signUpSlice.setPasswordsMatchWarning(false));
 
-      mutation.mutate();
+      mutation.mutate({ idValue, genderValue, nicknameValue, passwordValue });
     },
     [
       genderValue,
       passwordValue,
       confirmPasswordValue,
       mutation,
-      idCheck.isDuplicate
+      idCheck.isDuplicate,
+      idValue,
+      nicknameValue,
+      dispatch
     ]
   );
 
@@ -136,45 +122,29 @@ export const useSubmit = (
 
 // 아이디 중복확인
 export const useIdCheck = (email: string): UseIdCheckReturnValue => {
-  const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState<"error" | "success">("error");
-  const [isDuplicate, setDuplicate] = useState(false);
+  const dispatch = useAppDispatch();
 
-  const mutation = useMutation(
-    () => axiosInstance.post("/member/check/email", { email }),
-    {
-      onSuccess: response => {
-        if (response.data.result === "사용 가능한 이메일입니다.") {
-          setMessage("사용 가능한 이메일입니다.");
-          setMessageType("success");
-          setDuplicate(false);
-        } else {
-          setMessage(response.data.result);
-          setMessageType("error");
-          setDuplicate(true);
-        }
-      },
-      onError: () => {
-        setMessage("에러가 발생했습니다.");
-        setMessageType("error");
-      }
-    }
-  );
+  const message = useAppSelector(state => state.signup.message);
+  const messageType = useAppSelector(state => state.signup.messageType);
+  const isDuplicate = useAppSelector(state => state.signup.isDuplicate);
 
-  const handleIdCheck = () => {
+  const mutation = useIdCheckMutation();
+
+  const handleIdCheck = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // 중복 확인 눌렀을 때 라우팅 되는 문제
     if (!email) {
-      setMessage("아이디를 입력해주세요.");
-      setMessageType("error");
+      dispatch(signUpSlice.setMessage("아이디를 입력해주세요."));
+      dispatch(signUpSlice.setMessageType("error"));
       return;
     }
 
     if (!emailRegex.test(email)) {
-      setMessage("이메일 형식으로 입력해주세요.");
-      setMessageType("error");
+      dispatch(signUpSlice.setMessage("이메일 형식으로 입력해주세요."));
+      dispatch(signUpSlice.setMessageType("error"));
       return;
     }
 
-    mutation.mutate();
+    mutation.mutate(email);
   };
 
   return {

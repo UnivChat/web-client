@@ -1,4 +1,5 @@
 import { createAxiosInstance } from "@server-state/axios";
+import type { SignupParams } from "~/pages/auth/sign-up/signUp.type";
 import type { AxiosResponseData } from "~/pages/auth/find-pw/findPw.type";
 import type { SignInRequestDTO, SignInResponseDTO } from "./apis.types";
 
@@ -52,4 +53,26 @@ export const changePasswordApi = (email: string, password: string) => {
     email,
     password
   });
+};
+
+// 회원가입 api
+export const signUpApi = ({
+  idValue,
+  genderValue,
+  nicknameValue,
+  passwordValue
+}: SignupParams) => {
+  const authApi = createAxiosInstance({ needAuth: true });
+  return authApi.post("/member/signup", {
+    email: idValue,
+    gender: genderValue,
+    nickname: nicknameValue,
+    password: passwordValue
+  });
+};
+
+// 회원가입 id 중복확인 api
+export const idCheckApi = (email: string) => {
+  const authApi = createAxiosInstance({ needAuth: true });
+  return authApi.post("/member/check/email", { email });
 };
