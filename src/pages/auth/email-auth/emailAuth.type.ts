@@ -8,9 +8,9 @@ export type UseEmailAuthReturnValue = {
   emailErrorMessage: string;
   isEmailAuthButtonClicked: boolean;
   emailAuthButtonBgColor: string;
-  handleEmailAuthButtonClick: () => void;
+  handleEmailAuthButtonClick: VoidFunction;
   validateAuthCode: () => boolean;
   authErrorMessage: string;
   isVerified: boolean;
-  handleStartButtonClick: () => void;
+  handleStartButtonClick: VoidFunction;
 };
