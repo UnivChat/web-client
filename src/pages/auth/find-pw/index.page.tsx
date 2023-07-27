@@ -13,19 +13,7 @@ import type { NextPageWithLayout } from "~/pages/app.types";
 import { useFindPw } from "./findPw.hooks";
 
 const FindPw: NextPageWithLayout = () => {
-  const {
-    email,
-    handleEmailChange,
-    emailAuth,
-    handleEmailAuthChange,
-    emailErrorMessage,
-    isFindPwButtonClicked,
-    findPwButtonBgColor,
-    handleFindPwButtonClick,
-    authErrorMessage,
-    validateAuthCode,
-    isVerified
-  } = useFindPw();
+  const hook = useFindPw();
 
   return (
     <Container>
@@ -37,20 +25,20 @@ const FindPw: NextPageWithLayout = () => {
             type="email"
             name="email"
             required
-            value={email}
-            onChange={handleEmailChange}
+            value={hook.email}
+            onChange={hook.handleEmailChange}
           />
-          {emailErrorMessage && (
-            <Auth.WarningMessage>{emailErrorMessage}</Auth.WarningMessage>
+          {hook.emailErrorMessage && (
+            <Auth.WarningMessage>{hook.emailErrorMessage}</Auth.WarningMessage>
           )}
         </BodyForm>
         <CheckAuthButton
-          style={{ backgroundColor: findPwButtonBgColor }}
-          onClick={handleFindPwButtonClick}
+          style={{ backgroundColor: hook.findPwButtonBgColor }}
+          onClick={hook.handleFindPwButtonClick}
         >
           확인
         </CheckAuthButton>
-        {isFindPwButtonClicked && (
+        {hook.isFindPwButtonClicked && (
           <>
             <AcceptMessage>
               입력하신 이메일로 인증번호가 전송되었습니다
@@ -65,15 +53,19 @@ const FindPw: NextPageWithLayout = () => {
                 type="text"
                 name="emailAuth"
                 required
-                value={emailAuth}
-                onChange={handleEmailAuthChange}
+                value={hook.emailAuth}
+                onChange={hook.handleEmailAuthChange}
               />
-              {authErrorMessage && (
-                <Auth.WarningMessage>{authErrorMessage}</Auth.WarningMessage>
+              {hook.authErrorMessage && (
+                <Auth.WarningMessage>
+                  {hook.authErrorMessage}
+                </Auth.WarningMessage>
               )}
-              {isVerified && <AcceptMessage>인증되었습니다.</AcceptMessage>}
+              {hook.isVerified && (
+                <AcceptMessage>인증되었습니다.</AcceptMessage>
+              )}
             </BodyForm>
-            <CheckAuthButton onClick={validateAuthCode}>
+            <CheckAuthButton onClick={hook.validateAuthCode}>
               인증하기
             </CheckAuthButton>
           </>
