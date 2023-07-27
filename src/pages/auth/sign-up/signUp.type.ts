@@ -29,6 +29,14 @@ export interface UseSubmitReturnValue {
   message: string;
 }
 
+// api 타입
+export interface SignupParams {
+  idValue: string;
+  genderValue: "male" | "female";
+  nicknameValue: string;
+  passwordValue: string;
+}
+
 // useIdCheck 타입 정의
 export interface UseIdCheckReturnValue {
   handleIdCheck: MouseEventHandler<HTMLButtonElement>;
