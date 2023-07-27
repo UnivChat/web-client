@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { createAxiosInstance } from "@server-state/axios";
 import { useMutation } from "@tanstack/react-query";
+import { emailRegex } from "~/constants/emailRegex";
 import type {
   UseIdCheckReturnValue,
   UseInputReturnValue,
@@ -167,7 +168,6 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
       return;
     }
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailRegex.test(email)) {
       setMessage("이메일 형식으로 입력해주세요.");
       setMessageType("error");
