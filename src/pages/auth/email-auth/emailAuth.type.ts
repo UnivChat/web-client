@@ -1,10 +1,10 @@
-import type { ChangeEvent } from "react";
+import type { ChangeEventHandler } from "react";
 
 export type UseEmailAuthReturnValue = {
   email: string;
-  handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleEmailChange: ChangeEventHandler<HTMLInputElement>;
   emailAuth: string;
-  handleEmailAuthChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleEmailAuthChange: ChangeEventHandler<HTMLInputElement>;
   emailErrorMessage: string;
   isEmailAuthButtonClicked: boolean;
   emailAuthButtonBgColor: string;

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEmailVerification } from "@server-state/auth";
-import type { ChangeEvent } from "react";
+import type { ChangeEventHandler } from "react";
 import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import {
   setEmail,
@@ -9,7 +9,7 @@ import {
   setAuthErrorMessage,
   setIsVerified
 } from "@client-state/Auth/emailAuth/emailAuthSlice";
-import { emailRegex } from "~/constants/emailRegex";
+import { regex } from "~/constants/regex";
 import type { UseEmailAuthReturnValue } from "./emailAuth.type";
 
 export const useEmailAuth = (): UseEmailAuthReturnValue => {
@@ -28,17 +28,17 @@ export const useEmailAuth = (): UseEmailAuthReturnValue => {
   const verifyEmailMutation = useEmailVerification();
   const router = useRouter();
 
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(setEmail(e.target.value));
   };
 
-  const handleEmailAuthChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleEmailAuthChange: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(setEmailAuth(e.target.value));
     dispatch(setAuthErrorMessage(""));
   };
 
   const handleEmailAuthButtonClick = () => {
-    if (!email || !emailRegex.test(email)) {
+    if (!email || !regex.email.test(email)) {
       dispatch(setEmailErrorMessage("이메일 형식을 입력해주세요."));
       return;
     }

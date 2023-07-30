@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import { useChangePasswordMutation } from "@server-state/auth";
+import type { ChangeEventHandler } from "react";
 import {
   setPassword,
   setConfirmPassword,
@@ -17,13 +18,13 @@ export const useChangePw = (): UseChangePwReturnType => {
 
   const changePasswordMutation = useChangePasswordMutation(email, password);
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(setPassword(e.target.value));
   };
 
-  const handleConfirmPasswordChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleConfirmPasswordChange: ChangeEventHandler<
+    HTMLInputElement
+  > = e => {
     dispatch(setConfirmPassword(e.target.value));
   };
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ChangeEventHandler } from "react";
 
 export const useLoginForm = () => {
   const [loginFormData, setloginFormData] = useState<{
@@ -9,10 +10,10 @@ export const useLoginForm = () => {
     password: ""
   });
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = e => {
     setloginFormData(prevState => ({
       ...prevState,
-      [event.target.name]: event.target.value
+      [e.target.name]: e.target.value
     }));
   };
 

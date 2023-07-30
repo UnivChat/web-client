@@ -1,9 +1,13 @@
-import type { ChangeEvent, FormEventHandler, MouseEventHandler } from "react";
+import type {
+  ChangeEventHandler,
+  FormEventHandler,
+  MouseEventHandler
+} from "react";
 
 // useInput 타입 정의
 export interface UseInputReturnValue {
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
 // useSiginForm 타입 정의

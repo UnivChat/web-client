@@ -1,5 +1,6 @@
 import { useCallback } from "react";
-import { emailRegex } from "~/constants/emailRegex";
+import type { ChangeEventHandler } from "react";
+import { regex } from "~/constants/regex";
 import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import * as signUpSlice from "@client-state/Auth/signUp/signUpSlice";
 import { useIdCheckMutation, useSubmitMutation } from "@server-state/auth";
@@ -23,19 +24,19 @@ export const useSiginForm = (): UseSiginFormReturnValue => {
   const handleGenderButtonClick = (selectedGender: "male" | "female") => {
     dispatch(signUpSlice.setGender(selectedGender));
   };
-  const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeName: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(signUpSlice.setName(e.target.value));
   };
-  const onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeId: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(signUpSlice.setId(e.target.value));
   };
-  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangePassword: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(signUpSlice.setPassword(e.target.value));
   };
-  const onChangeConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeConfirmPassword: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(signUpSlice.setConfirmPassword(e.target.value));
   };
-  const onChangeNickname = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeNickname: ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(signUpSlice.setNickname(e.target.value));
   };
 
@@ -138,7 +139,7 @@ export const useIdCheck = (email: string): UseIdCheckReturnValue => {
       return;
     }
 
-    if (!emailRegex.test(email)) {
+    if (!regex.email.test(email)) {
       dispatch(signUpSlice.setMessage("이메일 형식으로 입력해주세요."));
       dispatch(signUpSlice.setMessageType("error"));
       return;
