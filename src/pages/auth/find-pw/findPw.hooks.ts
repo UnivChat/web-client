@@ -1,5 +1,6 @@
 import { setEmail as setEmailInRedux } from "@client-state/Auth/find-pw/changepw/emailSlice";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import {
   setEmailAuth,
@@ -9,7 +10,7 @@ import {
   setIsFindPwButtonClicked,
   setFindPwButtonBgColor
 } from "@client-state/Auth/find-pw/findPwSlice";
-import { emailRegex } from "~/constants/emailRegex";
+import { regex } from "~/constants/regex";
 import { useVerifyPasswordEmailMutation } from "@server-state/auth";
 import type { UseFindPwReturnValue } from "./findPw.type";
 
@@ -41,7 +42,7 @@ export const useFindPw = (): UseFindPwReturnValue => {
   };
 
   const handleFindPwButtonClick = () => {
-    if (!email || !emailRegex.test(email)) {
+    if (!email || !regex.email.test(email)) {
       dispatch(setEmailErrorMessage("이메일 형식을 확인해주세요."));
       return;
     }
@@ -61,17 +62,7 @@ export const useFindPw = (): UseFindPwReturnValue => {
       dispatch(setAuthErrorMessage("인증번호가 틀립니다."));
       dispatch(setIsVerified(false));
     } else {
-      dispatch(setAuthErrorMessage(""));
-      dispatch(setIsVerified(true));
-      setTimeout(() => {
-        router.push("/auth/find-pw/changepw");
-      }, 1000);
-      setTimeout(() => {
-        dispatch(setEmailAuth(""));
-        dispatch(setIsFindPwButtonClicked(false));
-        dispatch(setFindPwButtonBgColor("#003091"));
-        dispatch(setIsVerified(false));
-      }, 2000);
+      router.push("/auth/find-pw/changepw");
     }
     return isCodeValid;
   };
@@ -83,6 +74,17 @@ export const useFindPw = (): UseFindPwReturnValue => {
       dispatch(setAuthErrorMessage("인증번호를 입력해주세요."));
     }
   };
+
+  useEffect(() => {
+    return () => {
+      dispatch(setAuthErrorMessage(""));
+      dispatch(setIsVerified(true));
+      dispatch(setEmailAuth(""));
+      dispatch(setIsFindPwButtonClicked(false));
+      dispatch(setFindPwButtonBgColor("#003091"));
+      dispatch(setIsVerified(false));
+    };
+  }, [dispatch]);
 
   return {
     email,
