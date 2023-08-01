@@ -13,31 +13,36 @@ import type {
 // 회원가입 폼
 export const useSiginForm = (): UseSiginFormReturnValue => {
   const dispatch = useAppDispatch();
-  const name = useAppSelector(state => state.signup.name);
 
-  const id = useAppSelector(state => state.signup.id);
-  const password = useAppSelector(state => state.signup.password);
-  const confirmPassword = useAppSelector(state => state.signup.confirmPassword);
-  const nickname = useAppSelector(state => state.signup.nickname);
-  const gender = useAppSelector(state => state.signup.gender);
+  const { name, id, password, confirmPassword, nickname, gender } =
+    useAppSelector(state => state.signup);
 
   const handleGenderButtonClick = (selectedGender: "male" | "female") => {
     dispatch(signUpSlice.setGender(selectedGender));
   };
   const onChangeName: ChangeEventHandler<HTMLInputElement> = e => {
-    dispatch(signUpSlice.setName(e.target.value));
+    dispatch(signUpSlice.setSignUpInfo({ key: "name", value: e.target.value }));
   };
   const onChangeId: ChangeEventHandler<HTMLInputElement> = e => {
-    dispatch(signUpSlice.setId(e.target.value));
+    dispatch(signUpSlice.setSignUpInfo({ key: "id", value: e.target.value }));
   };
   const onChangePassword: ChangeEventHandler<HTMLInputElement> = e => {
-    dispatch(signUpSlice.setPassword(e.target.value));
+    dispatch(
+      signUpSlice.setSignUpInfo({ key: "password", value: e.target.value })
+    );
   };
   const onChangeConfirmPassword: ChangeEventHandler<HTMLInputElement> = e => {
-    dispatch(signUpSlice.setConfirmPassword(e.target.value));
+    dispatch(
+      signUpSlice.setSignUpInfo({
+        key: "confirmPassword",
+        value: e.target.value
+      })
+    );
   };
   const onChangeNickname: ChangeEventHandler<HTMLInputElement> = e => {
-    dispatch(signUpSlice.setNickname(e.target.value));
+    dispatch(
+      signUpSlice.setSignUpInfo({ key: "nickname", value: e.target.value })
+    );
   };
 
   return {
@@ -68,12 +73,8 @@ export const useSubmit = (
 ): UseSubmitReturnValue => {
   const dispatch = useAppDispatch();
 
-  const genderWarning = useAppSelector(state => state.signup.genderWarning);
-  const passwordsMatchWarning = useAppSelector(
-    state => state.signup.passwordsMatchWarning
-  );
-  const signupError = useAppSelector(state => state.signup.signupError);
-  const message = useAppSelector(state => state.signup.message);
+  const { genderWarning, passwordsMatchWarning, signupError, message } =
+    useAppSelector(state => state.signup);
 
   const mutation = useSubmitMutation();
 
@@ -125,9 +126,9 @@ export const useSubmit = (
 export const useIdCheck = (email: string): UseIdCheckReturnValue => {
   const dispatch = useAppDispatch();
 
-  const message = useAppSelector(state => state.signup.message);
-  const messageType = useAppSelector(state => state.signup.messageType);
-  const isDuplicate = useAppSelector(state => state.signup.isDuplicate);
+  const { message, messageType, isDuplicate } = useAppSelector(
+    state => state.signup
+  );
 
   const mutation = useIdCheckMutation();
 
