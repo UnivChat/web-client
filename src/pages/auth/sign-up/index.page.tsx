@@ -52,7 +52,7 @@ const SignInPage: NextPageWithLayout = () => {
             width={pxToRem(204)}
             {...id}
           />
-          <Styled.CheckIdButton onClick={e => handleIdCheck(e)}>
+          <Styled.CheckIdButton onClick={handleIdCheck}>
             중복확인
           </Styled.CheckIdButton>
           {message &&
