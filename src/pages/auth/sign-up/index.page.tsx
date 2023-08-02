@@ -1,7 +1,12 @@
 import * as Auth from "~/components/Auth/Auth";
 import { BodyTop } from "~/components/Auth/Auth.BodyTop";
 import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
-import { Body, BodyForm, Container } from "~/components/Auth/Auth.styles";
+import {
+  AcceptMessage,
+  Body,
+  BodyForm,
+  Container
+} from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { pxToRem } from "~/utils/styles/sizeChanger";
 import { useIdCheck, useSiginForm, useSubmit } from "./signUp.hooks";
@@ -17,12 +22,18 @@ const SignInPage: NextPageWithLayout = () => {
     gender,
     handleGenderButtonClick
   } = useSiginForm();
+
+  const idCheck = useIdCheck(id.value);
+  const { handleIdCheck, message, messageType } = idCheck;
+
   const { handleSubmit, genderWarning, passwordsMatchWarning } = useSubmit(
     gender.value,
     password.value,
-    confirmPassword.value
+    confirmPassword.value,
+    id.value,
+    nickname.value,
+    idCheck
   );
-  const { handleIdCheck } = useIdCheck();
 
   return (
     <Container>
@@ -32,10 +43,10 @@ const SignInPage: NextPageWithLayout = () => {
 
         <BodyForm onSubmit={handleSubmit} paddingTop={22}>
           <CustomText>이름</CustomText>
-          <CustomInput type="text" name="name" required {...name} />
-          <CustomText>아이디</CustomText>
+          <CustomInput name="name" required {...name} />
+          <CustomText>이메일</CustomText>
           <CustomInput
-            type="text"
+            type="email"
             name="id"
             required
             width={pxToRem(204)}
@@ -44,6 +55,12 @@ const SignInPage: NextPageWithLayout = () => {
           <Styled.CheckIdButton onClick={handleIdCheck}>
             중복확인
           </Styled.CheckIdButton>
+          {message &&
+            (messageType === "error" ? (
+              <Auth.WarningMessage>{message}</Auth.WarningMessage>
+            ) : (
+              <AcceptMessage>{message}</AcceptMessage>
+            ))}
           <CustomText>비밀번호</CustomText>
           <CustomInput type="password" name="password" required {...password} />
           <CustomText>비밀번호 확인</CustomText>
