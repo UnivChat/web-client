@@ -3,7 +3,7 @@ import { pxToRem } from "~/utils";
 import { flex } from "~/styles/utils/flex";
 
 export const DocBox = styled.div`
-  height: ${pxToRem(224)};
+  height: ${pxToRem(228)};
   margin-top: ${pxToRem(16)};
   box-shadow: 0 ${pxToRem(5)} ${pxToRem(13)} #00000029;
   border-radius: ${pxToRem(14)};
@@ -31,6 +31,7 @@ export const DocSubject = styled.span`
 export const Subline = styled.span`
   border: 1px solid #003091;
   opacity: 1;
+  margin-top: ${pxToRem(4)};
 `;
 
 export const NoticeContainer = styled.div`
