@@ -47,6 +47,14 @@ export const NoticeText = styled.div`
   opacity: 1;
 `;
 
+export const TruncatedText = styled.a`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 95%;
+`;
+
 export const NoticeError = styled.div`
   ${flex({ alignItems: "center", justifyContent: "center" })}
   margin-top: ${pxToRem(83)};
