@@ -1,4 +1,5 @@
 import type { Post } from "@server-state/home/notice/hooks/notice.queries";
+import Link from "next/link";
 import * as Styled from "../Notice.style";
 
 interface PostListProps {
@@ -6,18 +7,16 @@ interface PostListProps {
 }
 
 const PostList = ({ posts }: PostListProps) => {
-  const truncateTitle = (title: string) => {
-    return title.length > 30 ? `${title.slice(0, 30)}...` : title;
-  };
-
   return (
     <div>
       <ul>
         {posts.map(post => (
           <Styled.NoticeText key={post.link}>
-            <a href={post.link} target="_blank" rel="noreferrer">
-              {truncateTitle(post.title)}
-            </a>
+            <Link href={post.link} passHref>
+              <Styled.TruncatedText target="_blank" rel="noreferrer">
+                {post.title}
+              </Styled.TruncatedText>
+            </Link>
           </Styled.NoticeText>
         ))}
       </ul>
