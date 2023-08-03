@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import cheerio from "cheerio";
 import { fetchPosts } from "../api";
 
@@ -8,7 +8,28 @@ export interface Post {
 }
 
 export const usePosts = (keyword: string) => {
-  return useQuery(["posts", keyword], () => parsePosts(fetchPosts(keyword)));
+  const queryClient = useQueryClient();
+
+  // 현재 페이지 데이터 가져오기
+  const queryResult = useQuery(["posts", keyword], () =>
+    parsePosts(fetchPosts(keyword))
+  );
+
+  // keyword를 기반으로 다음 키워드를 반환하는 함수
+  function getNextKeyword(keyword: string): string | null {
+    const nextKeyword = parseInt(keyword, 10) + 1;
+    return nextKeyword.toString();
+  }
+
+  // 다음 페이지 데이터 미리 가져오기
+  const nextKeyword = getNextKeyword(keyword);
+  if (nextKeyword) {
+    queryClient.prefetchQuery(["posts", nextKeyword], () =>
+      parsePosts(fetchPosts(nextKeyword))
+    );
+  }
+
+  return queryResult;
 
   async function parsePosts(htmlPromise: Promise<string>) {
     const html = await htmlPromise;
