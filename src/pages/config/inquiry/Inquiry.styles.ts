@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import { flex } from "~/styles/utils/flex";
+import { colors } from "~/constants/colors";
 import { pxToRem } from "~/utils";
 
 export const Container = styled.div`
   min-height: 100vh;
 
-  background-color: #f8f9fb;
+  background-color: ${colors.grayf8};
 `;
 
 export const Title = styled.div`

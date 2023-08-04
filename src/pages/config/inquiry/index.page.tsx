@@ -1,6 +1,6 @@
 import * as Styled from "./Inquiry.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
-import Header from "../../../components/Common/UI/Header/Header";
+import Header from "~/components/Common/UI/Header/Header";
 
 const Inquiry: NextPageWithLayout = () => {
   return (
