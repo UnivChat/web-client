@@ -3,7 +3,6 @@ import Notice from "~/components/Home/Notice/Notice";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./Home.styles";
 import type { SelectionProps } from "./Home.types";
-import { BottomTab } from "../../components/Common/layout";
 
 const Selection = (ContainerProps: SelectionProps) => {
   const content = (
@@ -38,7 +37,6 @@ export const Home = () => {
         <Styled.DocTitle>공지사항</Styled.DocTitle>
         <Notice />
       </Styled.DocContainer>
-      <BottomTab />
     </Styled.Container>
   );
 };

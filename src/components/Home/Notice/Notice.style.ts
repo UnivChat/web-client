@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { pxToRem } from "~/utils";
 import { flex } from "~/styles/utils/flex";
+import { pxToRem } from "~/utils";
 
 export const DocBox = styled.div`
   height: ${pxToRem(228)};
@@ -14,23 +14,28 @@ export const DocTop = styled.div`
   ${flex({ justifyContent: "space-around" })}
 `;
 
-export const DocTitleContainer = styled.span`
+export const DocTitleContainer = styled.button<{ isActive: boolean }>`
+  position: relative;
   ${flex({ flexDirection: "column" })}
-  cursor: pointer;
-`;
 
-export const DocSubject = styled.span`
-  letter-spacing: 0px;
-  color: ${props => (props["aria-selected"] ? "#003091" : "#919191")};
-  font-family: "NanumGodic", sans-serif;
+  color: ${({ isActive }) => (isActive ? "#003091" : "#919191")};
   font-size: ${pxToRem(14)};
   font-weight: 500;
-  opacity: 1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background-color: ${({ isActive }) =>
+      isActive ? "#003091" : "transparent"};
+  }
 `;
 
 export const Subline = styled.span`
   border: 1px solid #003091;
-  opacity: 1;
   margin-top: ${pxToRem(4)};
 `;
 
@@ -42,12 +47,10 @@ export const NoticeText = styled.div`
   letter-spacing: 0px;
   margin: ${pxToRem(16)} 0px;
   color: #1f1f1f;
-  font-family: "NanumGodic", sans-serif;
   font-size: ${pxToRem(12)};
-  opacity: 1;
 `;
 
-export const TruncatedText = styled.a`
+export const TruncatedText = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

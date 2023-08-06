@@ -13,9 +13,7 @@ const PostList = ({ posts }: PostListProps) => {
         {posts.map(post => (
           <Styled.NoticeText key={post.link}>
             <Link href={post.link} passHref>
-              <Styled.TruncatedText target="_blank" rel="noreferrer">
-                {post.title}
-              </Styled.TruncatedText>
+              <Styled.TruncatedText>{post.title}</Styled.TruncatedText>
             </Link>
           </Styled.NoticeText>
         ))}

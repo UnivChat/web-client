@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import { usePosts } from "@server-state/home/notice/hooks/notice.queries";
+import { useState } from "react";
 import * as Styled from "./Notice.style";
 import PostList from "./NoticeComponents/PostList";
 
 const Notice = () => {
-  const categoryMapping: { [key: string]: string } = {
+  const categoryMapping: Record<string, string> = {
     일반: "1",
     학사: "2",
     장학: "3",
@@ -12,7 +12,12 @@ const Notice = () => {
   };
 
   const [activeCategory, setActiveCategory] = useState("1");
-  const { data: posts, isError, isLoading } = usePosts(activeCategory);
+  const {
+    data: posts,
+    isError,
+    isLoading,
+    isSuccess
+  } = usePosts(activeCategory);
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(categoryMapping[category]);
@@ -25,28 +30,23 @@ const Notice = () => {
           <Styled.DocTitleContainer
             key={category}
             onClick={() => handleCategoryClick(category)}
-            aria-selected={activeCategory === categoryMapping[category]}
+            isActive={activeCategory === categoryMapping[category]}
           >
-            <Styled.DocSubject
-              aria-selected={activeCategory === categoryMapping[category]}
-            >
-              {category}
-            </Styled.DocSubject>
-            {activeCategory === categoryMapping[category] && <Styled.Subline />}
+            {category}
           </Styled.DocTitleContainer>
         ))}
       </Styled.DocTop>
 
       <Styled.NoticeContainer>
-        {isLoading && (
-          <Styled.NoticeError>공지사항을 가지고 오고 있어요</Styled.NoticeError>
-        )}
-        {isError && (
+        {isSuccess ? (
+          <PostList posts={posts} />
+        ) : (
           <Styled.NoticeError>
-            공지사항을 가져오는 데 실패했어요
+            {isLoading
+              ? "공지사항을 가지고 오고 있어요"
+              : "공지사항을 가져오는 데 실패했어요"}
           </Styled.NoticeError>
         )}
-        {activeCategory && <PostList posts={posts || []} />}
       </Styled.NoticeContainer>
     </Styled.DocBox>
   );
