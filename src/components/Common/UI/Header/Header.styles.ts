@@ -6,7 +6,7 @@ import { flex } from "~/styles/utils/flex";
 export const Title = styled.span`
   font-family: "NanumSquare";
   font-weight: 800;
-  font-size: ${pxToRem(15)};
+  font-size: ${pxToRem(18)};
   color: #003091;
 `;
 
@@ -17,7 +17,7 @@ export const Container = styled.div`
   ${flex({ justifyContent: "space-between", alignItems: "center" })}
   padding: ${pxToRem(24)} ${pxToRem(18)};
   height: ${pxToRem(50)};
-  background: ${colors.white};
+  background: ${colors.grayf8};
   div {
     ${flex()};
   }
