@@ -1,9 +1,13 @@
-import type { ChangeEvent, FormEventHandler, MouseEventHandler } from "react";
+import type {
+  ChangeEventHandler,
+  FormEventHandler,
+  MouseEventHandler
+} from "react";
 
 // useInput 타입 정의
 export interface UseInputReturnValue {
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
 // useSiginForm 타입 정의
@@ -25,9 +29,29 @@ export interface UseSubmitReturnValue {
   handleSubmit: FormEventHandler<HTMLFormElement>;
   genderWarning: boolean;
   passwordsMatchWarning: boolean;
+  signupError: string;
+  message: string;
+}
+
+// api 타입
+export interface SignupParams {
+  idValue: string;
+  genderValue: "male" | "female";
+  nicknameValue: string;
+  passwordValue: string;
 }
 
 // useIdCheck 타입 정의
 export interface UseIdCheckReturnValue {
   handleIdCheck: MouseEventHandler<HTMLButtonElement>;
+  message: string;
+  isDuplicate: boolean;
+  messageType: string;
+}
+
+// useNicknameCheck 타입 정의
+export interface UseNicknameCheckReturnValue {
+  handleNicknameCheck: () => void;
+  message: string;
+  isDuplicate: boolean;
 }

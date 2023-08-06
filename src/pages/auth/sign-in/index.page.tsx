@@ -37,7 +37,6 @@ const SignIn: NextPageWithLayout = () => {
         <Styled.InputWrapper>
           <Styled.IdPwIcon svgName="enter" />
           <Styled.Input
-            type="text" // email이 아니라 id로 입력 받기
             {...id}
             placeholder="아이디"
             onFocus={handleFocus}

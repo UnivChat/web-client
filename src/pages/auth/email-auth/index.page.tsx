@@ -6,18 +6,14 @@ import {
   BodyForm,
   CheckAuthButton,
   Container,
-  Message,
+  AcceptMessage,
   Span
 } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { useEmailAuth } from "./emailAuth.hooks";
 
 const EmailAuth: NextPageWithLayout = () => {
-  const {
-    isEmailAuthButtonClicked,
-    emailAuthButtonBgColor,
-    handleEmailAuthButtonClick
-  } = useEmailAuth();
+  const hook = useEmailAuth();
 
   return (
     <Container>
@@ -27,29 +23,59 @@ const EmailAuth: NextPageWithLayout = () => {
 
         <BodyForm paddingTop={38} paddingBottom={8}>
           <CustomText>이메일을 입력해주세요</CustomText>
-          <CustomInput type="email" name="email" required />
+          <CustomInput
+            type="email"
+            name="email"
+            required
+            value={hook.email}
+            onChange={hook.handleEmailChange}
+          />
+          {hook.emailErrorMessage && (
+            <Auth.WarningMessage>{hook.emailErrorMessage}</Auth.WarningMessage>
+          )}
         </BodyForm>
         <CheckAuthButton
-          bgColor={emailAuthButtonBgColor}
-          onClick={handleEmailAuthButtonClick}
+          bgColor={hook.emailAuthButtonBgColor}
+          onClick={hook.handleEmailAuthButtonClick}
         >
           이메일 주소를 인증합니다
         </CheckAuthButton>
-        {isEmailAuthButtonClicked && (
+        {hook.isEmailAuthButtonClicked && (
           <>
-            <Message>입력하신 이메일로 인증번호가 전송되었습니다</Message>
+            <AcceptMessage>
+              입력하신 이메일로 인증번호가 전송되었습니다
+            </AcceptMessage>
             <Span>
               <BodyTopsDots />
             </Span>
 
             <BodyForm paddingTop={38} paddingBottom={8}>
               <CustomText>인증번호를 입력해주세요</CustomText>
-              <CustomInput name="emailAuth" required />
+              <CustomInput
+                type="text"
+                name="emailAuth"
+                required
+                value={hook.emailAuth}
+                onChange={hook.handleEmailAuthChange}
+              />
+              {hook.authErrorMessage && (
+                <Auth.WarningMessage>
+                  {hook.authErrorMessage}
+                </Auth.WarningMessage>
+              )}
+              {hook.isVerified && (
+                <AcceptMessage>인증되었습니다.</AcceptMessage>
+              )}
             </BodyForm>
-            <CheckAuthButton>인증하기</CheckAuthButton>
+            <CheckAuthButton onClick={hook.validateAuthCode}>
+              인증하기
+            </CheckAuthButton>
           </>
         )}
-        <Auth.SubmitButton>시작하기</Auth.SubmitButton>
+
+        <Auth.SubmitButton onClick={hook.handleStartButtonClick}>
+          시작하기
+        </Auth.SubmitButton>
       </Body>
     </Container>
   );
