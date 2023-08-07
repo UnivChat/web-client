@@ -1,45 +1,39 @@
 import { usePosts } from "@server-state/home/notice/hooks/notice.queries";
 import { useState } from "react";
 import * as Styled from "./Notice.style";
-import PostList from "./NoticeComponents/PostList";
+import NoticeContent from "./NoticeContent/NoticeContent";
 
 const Notice = () => {
-  const categoryMapping: Record<string, string> = {
-    일반: "1",
-    학사: "2",
-    장학: "3",
-    "취·창업": "4"
-  };
+  const categories: string[] = ["일반", "학사", "장학", "취·창업"];
 
-  const [activeCategory, setActiveCategory] = useState("1");
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
   const {
     data: posts,
-    isError,
     isLoading,
     isSuccess
-  } = usePosts(activeCategory);
+  } = usePosts(String(activeCategoryIndex + 1));
 
-  const handleCategoryClick = (category: string) => {
-    setActiveCategory(categoryMapping[category]);
+  const handleCategoryClick = (index: number) => {
+    setActiveCategoryIndex(index);
   };
 
   return (
-    <Styled.DocBox>
-      <Styled.DocTop>
-        {Object.keys(categoryMapping).map(category => (
-          <Styled.DocTitleContainer
+    <Styled.NoticeBox>
+      <Styled.NoticeTitleWrap>
+        {categories.map((category, index) => (
+          <Styled.NoticeTitle
             key={category}
-            onClick={() => handleCategoryClick(category)}
-            isActive={activeCategory === categoryMapping[category]}
+            onClick={() => handleCategoryClick(index)}
+            isActive={activeCategoryIndex === index}
           >
             {category}
-          </Styled.DocTitleContainer>
+          </Styled.NoticeTitle>
         ))}
-      </Styled.DocTop>
+      </Styled.NoticeTitleWrap>
 
-      <Styled.NoticeContainer>
+      <Styled.NoticeContent>
         {isSuccess ? (
-          <PostList posts={posts} />
+          <NoticeContent posts={posts} />
         ) : (
           <Styled.NoticeError>
             {isLoading
@@ -47,8 +41,8 @@ const Notice = () => {
               : "공지사항을 가져오는 데 실패했어요"}
           </Styled.NoticeError>
         )}
-      </Styled.NoticeContainer>
-    </Styled.DocBox>
+      </Styled.NoticeContent>
+    </Styled.NoticeBox>
   );
 };
 
