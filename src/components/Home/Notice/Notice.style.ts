@@ -2,25 +2,26 @@ import styled from "@emotion/styled";
 import { flex } from "~/styles/utils/flex";
 import { pxToRem } from "~/utils";
 
-export const DocBox = styled.div`
+export const NoticeBox = styled.div`
   height: ${pxToRem(228)};
   margin-top: ${pxToRem(16)};
   box-shadow: 0 ${pxToRem(5)} ${pxToRem(13)} #00000029;
   border-radius: ${pxToRem(14)};
 `;
 
-export const DocTop = styled.div`
+export const NoticeTitleWrap = styled.div`
   padding: ${pxToRem(16)} ${pxToRem(10)} 0px ${pxToRem(10)};
   ${flex({ justifyContent: "space-around" })}
 `;
 
-export const DocTitleContainer = styled.button<{ isActive: boolean }>`
+export const NoticeTitle = styled.button<{ isActive: boolean }>`
   position: relative;
   ${flex({ flexDirection: "column" })}
 
   color: ${({ isActive }) => (isActive ? "#003091" : "#919191")};
   font-size: ${pxToRem(14)};
   font-weight: 500;
+  padding-bottom: ${pxToRem(2)};
 
   &:before {
     content: "";
@@ -28,18 +29,13 @@ export const DocTitleContainer = styled.button<{ isActive: boolean }>`
     left: 0;
     right: 0;
     bottom: -2px;
-    height: 1px;
+    height: 2px;
     background-color: ${({ isActive }) =>
       isActive ? "#003091" : "transparent"};
   }
 `;
 
-export const Subline = styled.span`
-  border: 1px solid #003091;
-  margin-top: ${pxToRem(4)};
-`;
-
-export const NoticeContainer = styled.div`
+export const NoticeContent = styled.div`
   padding: ${pxToRem(3)} 0px ${pxToRem(1)} ${pxToRem(23)};
 `;
 
