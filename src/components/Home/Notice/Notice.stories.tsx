@@ -1,4 +1,4 @@
-import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { Story, Meta } from "@storybook/react";
 import Notice from "./Notice";
 
@@ -7,7 +7,13 @@ export default {
   component: Notice
 } as Meta;
 
-const Template: Story = args => <Notice {...args} />;
+const queryClient = new QueryClient();
 
-export const Default = Template.bind({});
-Default.args = {};
+const Template: Story = args => (
+  <QueryClientProvider client={queryClient}>
+    <Notice {...args} />
+  </QueryClientProvider>
+);
+
+export const notice = Template.bind({});
+notice.args = {};
