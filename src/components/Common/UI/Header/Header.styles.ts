@@ -10,7 +10,16 @@ export const Title = styled.span`
   color: #003091;
 `;
 
-export const Container = styled.div`
+export const SubTitle = styled.span`
+  align-self: flex-end;
+  margin-left: ${pxToRem(8)};
+  font-family: "NanumSquare";
+  font-weight: 800;
+  font-size: ${pxToRem(16)};
+  color: #acb8d0;
+`;
+
+export const Header = styled.header`
   position: fixed;
   width: 100%;
   z-index: 10;

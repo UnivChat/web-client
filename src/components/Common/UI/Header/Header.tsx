@@ -1,21 +1,26 @@
 import type { HeaderProps } from "./Header.types";
 import * as Styled from "./Header.styles";
-import { BackButton } from "./BackButton";
-import { RightButton } from "./RightButton";
+import { Back, Plus } from "./items";
 
-const Header = ({ title, hasBackButton, rightButton }: HeaderProps) => {
+export const Header = ({
+  title,
+  subTitle,
+  element: { left, right } = {}
+}: HeaderProps) => {
   return (
     <>
-      <Styled.Container>
+      <Styled.Header>
         <div>
-          {hasBackButton && <BackButton />}
+          {left}
           <Styled.Title>{title}</Styled.Title>
+          <Styled.SubTitle>{subTitle}</Styled.SubTitle>
         </div>
-        {rightButton && <RightButton rightButton={rightButton} />}
-      </Styled.Container>
+        {right}
+      </Styled.Header>
       <Styled.MarginContainer />
     </>
   );
 };
 
-export default Header;
+Header.Back = Back;
+Header.Plus = Plus;
