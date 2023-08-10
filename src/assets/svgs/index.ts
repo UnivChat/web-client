@@ -22,3 +22,5 @@ export { default as privateChat } from "./private-chat.svg";
 export { default as profile } from "./profile.svg";
 export { default as search } from "./search.svg";
 export { default as unlock } from "./unlock.svg";
+export { default as toasttalk } from "./toasttalk.svg";
+export { default as toastexit } from "./toastexit.svg";
