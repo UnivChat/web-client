@@ -1,5 +1,4 @@
-import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
-import { BottomTab } from "../../components/Common/layout";
+import Notice from "~/components/Home/Notice/Notice";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./Home.styles";
 import type { SelectionProps } from "./Home.types";
@@ -31,26 +30,19 @@ export const Home = () => {
       </Styled.SelectContainer>
       <Styled.HomeWrapper>
         <Styled.HomeTitle>학사일정</Styled.HomeTitle>
-        <Styled.CalendarBox />
+        <Styled.CalendarBox>달력</Styled.CalendarBox>
       </Styled.HomeWrapper>
       <Styled.HomeWrapper>
         <Styled.HomeTitle>공지사항</Styled.HomeTitle>
-        <Styled.CalendarBox />
+        <Notice />
       </Styled.HomeWrapper>
-      <BottomTab />
     </Styled.Container>
   );
 };
 
 const HomePage: NextPageWithLayout = () => {
-  const { data } = useFetchUserInfo();
-
   return (
     <div>
-      <div>
-        HomePage
-        {JSON.stringify(data)}
-      </div>
       <Home />
     </div>
   );
