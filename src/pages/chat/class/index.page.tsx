@@ -1,8 +1,7 @@
-import React from "react";
 import { Header } from "~/components/Common/UI/Header/Header";
 import type { NextPageWithLayout } from "../../app.types";
-import * as Styled from "./class.styles";
 import { ClassChatBox } from "./ClassChatBox";
+import * as Styled from "./class.styles";
 
 const dummyData = [
   {
@@ -28,10 +27,8 @@ const dummyData = [
 const ClassChatPage: NextPageWithLayout = () => {
   return (
     <>
-      <Header
-        title="클래스 채팅"
-        element={{ left: <Header.Back />, right: <Header.Plus /> }}
-      />
+      <Header.Back title="클래스 채팅" />
+
       <Styled.Container>
         {dummyData.map(data => (
           <ClassChatBox

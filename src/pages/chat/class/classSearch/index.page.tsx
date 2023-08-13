@@ -1,8 +1,7 @@
-import React from "react";
 import { Header } from "~/components/Common/UI/Header/Header";
-import * as Styled from "./classSearch.styles";
-import { Search } from "./Search";
 import { ClassBox } from "./ClassBox";
+import { Search } from "./Search";
+import * as Styled from "./classSearch.styles";
 
 const dummyData = [
   {
@@ -22,7 +21,7 @@ const dummyData = [
 export default function ClassSearch() {
   return (
     <>
-      <Header title="클래스 찾기" element={{ left: <Header.Back /> }} />
+      <Header.Back title="클래스 찾기" />
       <Styled.Container>
         <Search />
         <Styled.TitleContainer className="add-class">
