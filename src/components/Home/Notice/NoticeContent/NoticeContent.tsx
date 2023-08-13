@@ -8,17 +8,16 @@ interface PostListProps {
 
 const NoticeContent = ({ posts }: PostListProps) => {
   return (
-    <div>
-      <ul>
-        {posts.map(post => (
-          <Styled.NoticeText key={post.link}>
-            <Link href={post.link} passHref>
-              <Styled.TruncatedText>{post.title}</Styled.TruncatedText>
-            </Link>
-          </Styled.NoticeText>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {posts.map((post, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Styled.NoticeText key={index}>
+          <Link href={post.link} passHref>
+            <Styled.TruncatedText>{post.title}</Styled.TruncatedText>
+          </Link>
+        </Styled.NoticeText>
+      ))}
+    </ul>
   );
 };
 
