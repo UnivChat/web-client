@@ -7,12 +7,15 @@ const Inquiry: NextPageWithLayout = () => {
   return (
     <Styled.Container>
       <Header title="기숙사 채팅" hasBackButton />
-      <ChatDetail.ChatEach sender="me">
-        채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트
-      </ChatDetail.ChatEach>
-      <ChatDetail.ChatEach sender="me">
-        채팅테스트채팅테스트
-      </ChatDetail.ChatEach>
+      <Styled.ChatContainer>
+        <Styled.ChatHr />
+        <ChatDetail.ChatEach sender="other" gender="female">
+          채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트
+        </ChatDetail.ChatEach>
+        <ChatDetail.ChatEach sender="me">
+          채팅테스트채팅테스트
+        </ChatDetail.ChatEach>
+      </Styled.ChatContainer>
     </Styled.Container>
   );
 };

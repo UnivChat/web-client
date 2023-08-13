@@ -1,5 +1,5 @@
 export interface ChatRoomProps {
-  sender: "me" | "other" | undefined;
-  gender?: "male" | "female" | "private" | undefined;
+  sender?: "me" | "other";
+  gender?: "male" | "female" | "private";
   children?: string;
 }
