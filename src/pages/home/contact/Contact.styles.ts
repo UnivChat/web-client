@@ -15,8 +15,8 @@ export const SearchContainer = styled.div`
 export const SearchBox = styled.div`
   ${flex({ alignItems: "center" })};
   width: ${pxToRem(318)};
-  height: ${pxToRem(33)};
-  margin-top: ${pxToRem(80)};
+  height: ${pxToRem(45)};
+  margin-top: ${pxToRem(50)};
   padding-left: ${pxToRem(12)};
   border-radius: ${pxToRem(25)};
   background-color: #ffffff;
@@ -35,7 +35,7 @@ export const SearchInput = styled.input`
   font-family: "NanumSquare";
   font-weight: 600;
   color: #5979bb;
-  font-size: ${pxToRem(9)};
+  font-size: ${pxToRem(12)};
 `;
 
 export const ContactContainer = styled.div`
@@ -52,7 +52,7 @@ export const Title = styled.span`
   width: ${pxToRem(318)};
   font-family: "NanumSquare";
   font-weight: 600;
-  font-size: ${pxToRem(15)};
+  font-size: ${pxToRem(18)};
   padding: ${pxToRem(15)};
   border-bottom: ${pxToRem(2)} solid #707070;
 `;
@@ -60,6 +60,7 @@ export const Title = styled.span`
 export const ContactBox = styled.div`
   width: ${pxToRem(318)};
   ${flex({ flexDirection: "column" })};
+  padding-bottom: ${pxToRem(50)};
 `;
 
 export const ContactList = styled.details`
@@ -67,19 +68,25 @@ export const ContactList = styled.details`
 `;
 
 export const ContactName = styled.summary`
+  display: flex;
+  justify-content: space-between;
   font-family: "NanumSquare";
   font-weight: 600;
-  font-size: ${pxToRem(13)};
+  font-size: ${pxToRem(15)};
   color: #313131;
   list-style: none;
   border-bottom: ${pxToRem(0.6)} solid #707070;
-  padding: ${pxToRem(11)} 0 ${pxToRem(11)} ${pxToRem(16)};
+  padding: ${pxToRem(13)} ${pxToRem(16)} ${pxToRem(13)} ${pxToRem(16)};
+`;
+export const ArrowIcon = styled(Svg)`
+  width: ${pxToRem(10)};
+  height: ${pxToRem(10)};
 `;
 
 export const ContactSub = styled.p`
   font-family: "NanumSquare";
   font-weight: 600;
-  font-size: ${pxToRem(12)};
+  font-size: ${pxToRem(14)};
   color: #313131;
   background-color: #ffffff;
   padding: ${pxToRem(7)} 0 ${pxToRem(5)} ${pxToRem(16)};
@@ -88,7 +95,7 @@ export const ContactSub = styled.p`
 export const ContactSub2 = styled.p`
   font-family: "NanumSquare";
   font-weight: 100;
-  font-size: ${pxToRem(12)};
+  font-size: ${pxToRem(14)};
   color: #313131;
   background-color: #ffffff;
   padding: 0 0 ${pxToRem(7)} ${pxToRem(16)};
