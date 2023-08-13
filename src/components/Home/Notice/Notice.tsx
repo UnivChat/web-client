@@ -3,9 +3,9 @@ import { useState } from "react";
 import * as Styled from "./Notice.style";
 import NoticeContent from "./NoticeContent/NoticeContent";
 
-const Notice = () => {
-  const categories: string[] = ["일반", "학사", "장학", "취·창업"];
+const categories = ["일반", "학사", "장학", "취·창업"];
 
+const Notice = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
   const {
     data: posts,
