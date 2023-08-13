@@ -1,12 +1,7 @@
 import styled from "@emotion/styled";
 import { pxToRem } from "~/utils";
 import { flex } from "~/styles/utils/flex";
-
-type ButtonProps = {
-  color?: string;
-  backgroundColor?: string;
-  marginbottom?: string;
-};
+import type { ButtonProps } from "../ChatToastCommon.style";
 
 export const SubText = styled.div`
   font-size: ${pxToRem(8)};
@@ -16,10 +11,6 @@ export const SubText = styled.div`
 export const ButtonWrap = styled.div`
   margin-top: ${pxToRem(17)};
   ${flex({ justifyContent: "center" })}
-`;
-
-export const Spacer = styled.div`
-  width: ${pxToRem(18)};
 `;
 
 export const ExitButton = styled.button<ButtonProps>`
