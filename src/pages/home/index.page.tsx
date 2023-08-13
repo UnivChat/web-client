@@ -29,14 +29,14 @@ export const Home = () => {
         <Styled.SelectLine />
         <Selection name="편의시설" svgName="facility" />
       </Styled.SelectContainer>
-      <Styled.DocContainer>
-        <Styled.DocTitle>학사일정</Styled.DocTitle>
-        <Styled.DocBox />
-      </Styled.DocContainer>
-      <Styled.DocContainer>
-        <Styled.DocTitle>공지사항</Styled.DocTitle>
-        <Styled.DocBox />
-      </Styled.DocContainer>
+      <Styled.HomeWrapper>
+        <Styled.HomeTitle>학사일정</Styled.HomeTitle>
+        <Styled.CalendarBox />
+      </Styled.HomeWrapper>
+      <Styled.HomeWrapper>
+        <Styled.HomeTitle>공지사항</Styled.HomeTitle>
+        <Styled.CalendarBox />
+      </Styled.HomeWrapper>
       <BottomTab />
     </Styled.Container>
   );
