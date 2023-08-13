@@ -1,29 +1,30 @@
 import React from "react";
 import { pxToRem } from "~/utils";
 import * as Styled from "./ChatToast.style";
+import * as CommonStyle from "../ChatToastCommon.style";
 
 const ChatToast = () => {
   return (
-    <Styled.Container>
-      <Styled.IconWrap>
-        <Styled.Icon svgName="toasttalk" />
-      </Styled.IconWrap>
-      <Styled.Box>
-        <Styled.BoxContent>
-          <Styled.Text>
+    <CommonStyle.Container>
+      <CommonStyle.IconWrap>
+        <CommonStyle.Icon svgName="toasttalk" />
+      </CommonStyle.IconWrap>
+      <CommonStyle.Box>
+        <CommonStyle.BoxContent>
+          <CommonStyle.Text>
             <span>
               익명 1님과
-              <Styled.TextHilight> 1:1 채팅 </Styled.TextHilight>
+              <CommonStyle.TextHilight> 1:1 채팅 </CommonStyle.TextHilight>
               하시겠습니까?
             </span>
-          </Styled.Text>
-          <Styled.Button marginbottom={pxToRem(7)}>네, 할래요!</Styled.Button>
+          </CommonStyle.Text>
+          <Styled.Button marginBottom={pxToRem(7)}>네, 할래요!</Styled.Button>
           <Styled.Button backgroundColor="#DDD" color="#727272">
             아니요 안할래요.
           </Styled.Button>
-        </Styled.BoxContent>
-      </Styled.Box>
-    </Styled.Container>
+        </CommonStyle.BoxContent>
+      </CommonStyle.Box>
+    </CommonStyle.Container>
   );
 };
 
