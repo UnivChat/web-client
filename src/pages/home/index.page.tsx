@@ -1,4 +1,5 @@
-import Notice from "~/components/Home/Notice/Notice";
+import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
+import { BottomTab } from "../../components/Common/layout";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./Home.styles";
 import type { SelectionProps } from "./Home.types";
@@ -28,21 +29,28 @@ export const Home = () => {
         <Styled.SelectLine />
         <Selection name="편의시설" svgName="facility" />
       </Styled.SelectContainer>
-      <Styled.HomeWrapper>
-        <Styled.HomeTitle>학사일정</Styled.HomeTitle>
-        <Styled.CalendarBox>달력</Styled.CalendarBox>
-      </Styled.HomeWrapper>
-      <Styled.HomeWrapper>
-        <Styled.HomeTitle>공지사항</Styled.HomeTitle>
-        <Notice />
-      </Styled.HomeWrapper>
+      <Styled.DocContainer>
+        <Styled.DocTitle>학사일정</Styled.DocTitle>
+        <Styled.DocBox />
+      </Styled.DocContainer>
+      <Styled.DocContainer>
+        <Styled.DocTitle>공지사항</Styled.DocTitle>
+        <Styled.DocBox />
+      </Styled.DocContainer>
+      <BottomTab />
     </Styled.Container>
   );
 };
 
 const HomePage: NextPageWithLayout = () => {
+  const { data } = useFetchUserInfo();
+
   return (
     <div>
+      <div>
+        HomePage
+        {JSON.stringify(data)}
+      </div>
       <Home />
     </div>
   );
