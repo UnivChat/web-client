@@ -10,4 +10,3 @@ export default {
 const Template: Story = args => <ChatExitToast {...args} />;
 
 export const chatExitToast = Template.bind({});
-chatExitToast.args = {};
