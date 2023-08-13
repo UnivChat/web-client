@@ -76,7 +76,7 @@ export const SelectLine = styled.div`
   border-right: ${pxToRem(1)} solid #9f9f9f;
 `;
 
-export const DocContainer = styled.div`
+export const HomeWrapper = styled.div`
   ${flex({
     flexDirection: "column"
   })};
@@ -84,7 +84,7 @@ export const DocContainer = styled.div`
   margin: ${pxToRem(29)} ${pxToRem(27)} 0 ${pxToRem(27)};
 `;
 
-export const DocTitle = styled.div`
+export const HomeTitle = styled.div`
   margin-left: ${pxToRem(8)};
 
   font-family: "NanumSquare";
@@ -93,7 +93,7 @@ export const DocTitle = styled.div`
   color: #313131;
 `;
 
-export const DocBox = styled.div`
+export const CalendarBox = styled.div`
   min-height: ${pxToRem(50)};
 
   margin-top: ${pxToRem(16)};

@@ -1,4 +1,14 @@
-import { RouterContext } from "next/dist/shared/lib/router-context"; // next 12
+import { RouterContext } from "next/dist/shared/lib/router-context";
+import { addDecorator } from "@storybook/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+addDecorator(Story => (
+  <QueryClientProvider client={queryClient}>
+    <Story />
+  </QueryClientProvider>
+));
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
