@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
 
-export const Button = styled.button`
+export const BackButton = styled.button`
   padding-right: 20px;
 `;
