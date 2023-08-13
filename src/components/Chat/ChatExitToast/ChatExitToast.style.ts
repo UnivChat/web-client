@@ -17,8 +17,8 @@ export const ExitButton = styled.button<ButtonProps>`
   width: ${pxToRem(75)};
   height: ${pxToRem(25)};
 
-  color: ${props => props.color || "#fff"};
-  background-color: ${props => props.backgroundColor || "#002f92"};
+  color: ${({ color }) => color || "#fff"};
+  background-color: ${({ backgroundColor }) => backgroundColor || "#002f92"};
   border-radius: ${pxToRem(13)};
   border: 0;
 `;

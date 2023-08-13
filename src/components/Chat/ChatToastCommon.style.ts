@@ -69,12 +69,12 @@ export const Text = styled.div<TextProps>`
   font-size: ${pxToRem(12)};
   font-weight: 600;
   letter-spacing: ${pxToRem(0.5)};
-  margin-bottom: ${props => props.marginBottom || pxToRem(12)};
+  margin-bottom: ${({ marginBottom }) => marginBottom || pxToRem(12)};
 `;
 export const TextHilight = styled.span`
   color: #002f92;
 `;
 
 export const Spacer = styled.div<SpacerProps>`
-  width: ${props => props.width || pxToRem(0)};
+  width: ${({ width }) => width || pxToRem(0)};
 `;
