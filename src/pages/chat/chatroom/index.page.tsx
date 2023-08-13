@@ -10,11 +10,9 @@ const Inquiry: NextPageWithLayout = () => {
       <Styled.ChatContainer>
         <Styled.ChatHr />
         <ChatDetail.ChatEach sender="other" gender="female">
-          채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트
+          채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트채팅테스트
         </ChatDetail.ChatEach>
-        <ChatDetail.ChatEach sender="me">
-          채팅테스트채팅테스트
-        </ChatDetail.ChatEach>
+        <ChatDetail.ChatEach sender="me">채팅테스트</ChatDetail.ChatEach>
       </Styled.ChatContainer>
     </Styled.Container>
   );

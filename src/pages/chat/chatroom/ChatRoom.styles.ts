@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { flex } from "~/styles/utils/flex";
 import { colors } from "~/constants/colors";
 import { pxToRem } from "~/utils";
+import type { ChatRoomStyledProps } from "./ChatRoom.types";
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -20,11 +21,17 @@ export const ChatHr = styled.hr`
   border-top: ${pxToRem(0.8)} solid #707070;
 `;
 
-export const ChatBox = styled.div`
+export const ChatBox = styled.div<ChatRoomStyledProps>`
   ${flex({ alignItems: "center" })};
+  justify-content: ${props =>
+    props.sender == "other"
+      ? "flex-start"
+      : props.sender == "me"
+      ? "flex-end"
+      : "flex-start"};
 `;
 
-export const ChatProfile = styled.div`
+export const ChatProfile = styled.div<ChatRoomStyledProps>`
   display: ${props =>
     props.sender == "other"
       ? "visible"
@@ -33,6 +40,7 @@ export const ChatProfile = styled.div`
       : "none"};
   width: ${pxToRem(37)};
   height: ${pxToRem(37)};
+  margin-right: ${pxToRem(4)};
 
   background-color: ${props =>
     props.gender == "male"
@@ -43,18 +51,18 @@ export const ChatProfile = styled.div`
       ? "#C6C6C6"
       : "#C6C6C6"};
 
-  border: ${pxToRem(1)} solid black;
+  border: ${pxToRem(0.5)} solid #707070;
   border-radius: 50%;
 `;
 
-export const ChatText = styled.div`
-  ${flex({})};
-  align-content: ${props =>
-    props.sender == "me"
-      ? "flex-end"
-      : props.sender == "other"
-      ? "flex-start"
-      : "flex-start"};
+export const ChatName = styled.div`
+  height: ${pxToRem(9)};
+  font-weight: 600;
+  font-size: ${pxToRem(8)};
+  color: #707070;
+`;
+
+export const ChatText = styled.div<ChatRoomStyledProps>`
   margin-top: ${pxToRem(24)};
   padding: ${pxToRem(7)} ${pxToRem(15)};
   min-height: ${pxToRem(30)};
@@ -62,9 +70,8 @@ export const ChatText = styled.div`
   max-width: 60%;
 
   border: ${pxToRem(0.5)} solid #707070;
-  border-radius: ${pxToRem(31)};
+  border-radius: ${pxToRem(22)};
 
-  font-family: "NanumSquare";
   font-weight: 300;
   font-size: ${pxToRem(13)};
   color: ${colors.black};
