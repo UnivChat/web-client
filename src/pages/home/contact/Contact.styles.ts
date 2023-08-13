@@ -63,6 +63,12 @@ export const ContactBox = styled.div`
   padding-bottom: ${pxToRem(50)};
 `;
 
+export const ErrorHandling = styled.div`
+  ${flex({ justifyContent: "center" })};
+  margin-top: ${pxToRem(240)};
+  font-size: ${pxToRem(18)};
+`;
+
 export const ContactList = styled.details`
   border-bottom: ${pxToRem(0.6)} solid #707070;
 `;

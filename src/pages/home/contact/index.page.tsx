@@ -4,7 +4,7 @@ import * as Styled from "./Contact.styles";
 import type { ContactDTO } from "./Contact.types";
 
 export const Contact = () => {
-  const { data: contacts } = useContact();
+  const { data: contacts, isLoading, isError } = useContact();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredContacts, setFilteredContacts] = useState<ContactDTO[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -35,6 +35,16 @@ export const Contact = () => {
         <Styled.ContactTitle>
           <Styled.Title>전체연락망</Styled.Title>
           <Styled.ContactBox>
+            {isLoading && (
+              <Styled.ErrorHandling>
+                연락망을 가지고 오고 있어요
+              </Styled.ErrorHandling>
+            )}
+            {isError && (
+              <Styled.ErrorHandling>
+                연락망을 가지고 오는데 실패했어요
+              </Styled.ErrorHandling>
+            )}
             {filteredContacts.map((contact: ContactDTO, index: number) => (
               <Styled.ContactList
                 // eslint-disable-next-line react/no-array-index-key
