@@ -1,11 +1,11 @@
-import * as Styled from "./Inquiry.styles";
+import { Header } from "~/components/Common/UI/Header/Header";
 import type { NextPageWithLayout } from "~/pages/app.types";
-import Header from "~/components/Common/UI/Header/Header";
+import * as Styled from "./Inquiry.styles";
 
 const Inquiry: NextPageWithLayout = () => {
   return (
     <Styled.Container>
-      <Header title="문의하기" hasBackButton />
+      <Header.Back title="문의하기" />
       <Styled.Title>문의 내용 작성</Styled.Title>
       <Styled.SubContainer>
         <Styled.SubTitle>내용</Styled.SubTitle>
@@ -17,7 +17,7 @@ const Inquiry: NextPageWithLayout = () => {
       </Styled.SubContainer>
       <Styled.Title2>개인정보 수집 및 이용</Styled.Title2>
       <Styled.SubContainer>
-        <Styled.CheckButton type="checkbox"></Styled.CheckButton>
+        <Styled.CheckButton type="checkbox" />
         <Styled.CheckText>개인정보 수집 및 이용 동의(필수)</Styled.CheckText>
         <Styled.TextBox>
           <Styled.Text>

@@ -1,8 +1,8 @@
 import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
+import { BottomTab } from "../../components/Common/layout";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./Home.styles";
-import { SelectionProps } from "./Home.types";
-import { BottomTab } from "../../components/Common/layout";
+import type { SelectionProps } from "./Home.types";
 
 const Selection = (ContainerProps: SelectionProps) => {
   const content = (
@@ -31,11 +31,11 @@ export const Home = () => {
       </Styled.SelectContainer>
       <Styled.DocContainer>
         <Styled.DocTitle>학사일정</Styled.DocTitle>
-        <Styled.DocBox></Styled.DocBox>
+        <Styled.DocBox />
       </Styled.DocContainer>
       <Styled.DocContainer>
         <Styled.DocTitle>공지사항</Styled.DocTitle>
-        <Styled.DocBox></Styled.DocBox>
+        <Styled.DocBox />
       </Styled.DocContainer>
       <BottomTab />
     </Styled.Container>
