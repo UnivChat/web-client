@@ -1,7 +1,11 @@
 import axios from "axios";
 import cheerio from "cheerio";
+import { createAxiosInstance } from "@server-state/axios";
 import type { Post } from "./hooks/notice.queries";
 
+const api = createAxiosInstance();
+
+// 공지사항 크롤링
 const allOriginsURL = "https://api.allorigins.win/get?url=";
 const targetURLBase =
   "https://www.catholic.ac.kr/front/boardlist.do?cmsDirPkid=2053&cmsLocalPkid=";
@@ -32,4 +36,10 @@ export const fetchPosts = async (keyword: string) => {
   const response = await axios.get(`${allOriginsURL}${targetURL}`);
 
   return parsePosts(response.data.contents);
+};
+
+// 연락망 api
+export const fetchContact = async () => {
+  const res = await api.get("/school/phone");
+  return res.data.result;
 };
