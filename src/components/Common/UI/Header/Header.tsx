@@ -2,10 +2,10 @@ import * as Styled from "./Header.styles";
 import type { HeaderProps } from "./Header.types";
 import * as headerIcons from "./items";
 
-export const Header = ({ title, subTitle, element }: HeaderProps) => {
+export const Header = ({ title, subTitle, element, bgColor }: HeaderProps) => {
   return (
     <>
-      <Styled.Header>
+      <Styled.Header bgColor={bgColor}>
         {element?.left}
         <Styled.Title>{title}</Styled.Title>
         <Styled.SubTitle>{subTitle}</Styled.SubTitle>

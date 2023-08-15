@@ -3,7 +3,7 @@ import { colors } from "~/constants";
 import { flex } from "~/styles/utils/flex";
 import { pxToRem } from "~/utils";
 
-export const Header = styled.header`
+export const Header = styled.header<{ bgColor?: string }>`
   position: fixed;
   z-index: 10;
 
@@ -11,8 +11,7 @@ export const Header = styled.header`
   width: 100%;
   height: ${pxToRem(50)};
   padding: 0 ${pxToRem(18)};
-
-  background: ${colors.grayf8};
+  background: ${({ bgColor }) => bgColor || colors.grayf8};
 `;
 
 export const Title = styled.span`
