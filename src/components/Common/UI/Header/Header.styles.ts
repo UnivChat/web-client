@@ -11,7 +11,7 @@ export const Header = styled.header<{ bgColor?: string }>`
   width: 100%;
   height: ${pxToRem(50)};
   padding: 0 ${pxToRem(18)};
-  background: ${({ bgColor }) => bgColor || colors.grayf8};
+  background: ${({ bgColor = colors.grayf8 }) => bgColor};
 `;
 
 export const Title = styled.span`

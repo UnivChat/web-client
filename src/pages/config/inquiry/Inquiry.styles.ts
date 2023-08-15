@@ -20,6 +20,8 @@ export const Title = styled.div`
 
 export const SubContainer = styled.div`
   padding: 0 ${pxToRem(30)};
+
+  ${flex({ flexDirection: "column" })}
 `;
 
 export const SubTitle = styled.div`
@@ -33,23 +35,43 @@ export const SubTitle = styled.div`
 `;
 
 export const ContentsInput = styled.textarea`
-  margin-top: ${pxToRem(6)};
   width: 100%;
   height: ${pxToRem(175)};
   resize: none;
 
   background-color: #fcfdff;
 
+  font-family: "NanumSquare";
+  font-weight: 600;
+  font-size: ${pxToRem(9)};
+
+  &::placeholder {
+    color: #cb7a7a;
+  }
+
+  margin-top: ${pxToRem(6)};
+  padding: ${pxToRem(10)} ${pxToRem(12)};
+
   border: ${pxToRem(1)} solid #d0d3d5;
   border-radius: ${pxToRem(9)};
 `;
 
 export const EmailInput = styled.input`
-  margin-top: ${pxToRem(6)};
   width: 100%;
   height: ${pxToRem(30)};
 
   background-color: #fcfdff;
+
+  font-family: "NanumSquare";
+  font-weight: 600;
+  font-size: ${pxToRem(9)};
+
+  &::placeholder {
+    color: #cb7a7a;
+  }
+
+  margin-top: ${pxToRem(5)};
+  padding: 0 ${pxToRem(12)};
 
   border: ${pxToRem(1)} solid #d0d3d5;
   border-radius: ${pxToRem(9)};
@@ -68,9 +90,9 @@ export const Title2 = styled.div`
 export const CheckContainer = styled.div`
   ${flex({ alignItems: "center" })}
 
-  padding-left: ${pxToRem(15)};
-  column-gap: ${pxToRem(11)};
   margin-top: ${pxToRem(18)};
+  padding-left: ${pxToRem(15)};
+  gap: ${pxToRem(11)};
 `;
 
 export const CheckButton = styled.input`
@@ -78,8 +100,6 @@ export const CheckButton = styled.input`
   height: ${pxToRem(17)};
 
   border-radius: ${pxToRem(4)};
-  /* border: 1px solid #d0d3d5; */
-  border: 1px solid red;
 `;
 
 export const CheckText = styled.label`
@@ -103,6 +123,17 @@ export const TextBox = styled.div`
 
   border: ${pxToRem(1)} solid #d0d3d5;
   border-radius: ${pxToRem(9)};
+`;
+
+export const ErrorLabel = styled.label`
+  font-family: "NanumSquare";
+  font-weight: 600;
+  font-size: ${pxToRem(9)};
+
+  color: #cb7a7a;
+
+  margin-top: ${pxToRem(5)};
+  padding: 0 ${pxToRem(12)};
 `;
 
 export const Submit = styled.button`
