@@ -1,24 +1,14 @@
 import { Header } from "~/components/Common/UI/Header/Header";
+import InfiniteScroll from "react-infinite-scroller";
+import { useClassSearch } from "@server-state/class/hooks/classSearch.queries";
 import { ClassBox } from "./ClassBox";
 import { Search } from "./Search";
 import * as Styled from "./classSearch.styles";
-
-const dummyData = [
-  {
-    title: "[05421 - 2345] 금융시장의 이해",
-    subTitle: "화1 M403 / 목 1 -2 M403 | 분반02"
-  },
-  {
-    title: "[05421 - 2345] 금융시장의 이해",
-    subTitle: "화1 M403 / 목 1 -2 M403 | 분반02"
-  },
-  {
-    title: "[05421 - 2345] 금융시장의 이해",
-    subTitle: "화1 M403 / 목 1 -2 M403 | 분반02"
-  }
-];
+import type { ClassBoxProps } from "./classbox.types";
 
 export default function ClassSearch() {
+  const { data, fetchNextPage, hasNextPage } = useClassSearch();
+
   return (
     <>
       <Header.Back title="클래스 찾기" />
@@ -28,26 +18,32 @@ export default function ClassSearch() {
           <Styled.Title>추가한 클래스</Styled.Title>
         </Styled.TitleContainer>
         <Styled.TitleDivider />
-        {dummyData.map(data => (
-          <ClassBox
-            key={data.title}
-            title={data.title}
-            subTitle={data.subTitle}
-            svgName="minus"
-          />
-        ))}
+
         <Styled.TitleContainer className="class">
           <Styled.Title>클래스</Styled.Title>
         </Styled.TitleContainer>
         <Styled.TitleDivider />
-        {dummyData.map(data => (
-          <ClassBox
-            key={data.title}
-            title={data.title}
-            subTitle={data.subTitle}
-            svgName="plus"
-          />
-        ))}
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={page => {
+            fetchNextPage({ pageParam: page });
+          }}
+          hasMore={hasNextPage}
+        >
+          {data?.pages.map(page => {
+            return page.map((classItem: ClassBoxProps) => {
+              return (
+                <ClassBox
+                  key={classItem.classNumber}
+                  title={classItem.className}
+                  classNumber={classItem.classNumber}
+                  classTime={classItem.classTime}
+                  svgName="plus"
+                />
+              );
+            });
+          })}
+        </InfiniteScroll>
       </Styled.Container>
     </>
   );
