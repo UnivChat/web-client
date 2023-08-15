@@ -3,7 +3,7 @@ import { pxToRem } from "~/utils";
 import * as Styled from "./ChatExitToast.style";
 import * as CommonStyle from "../ChatToastCommon.style";
 
-const ChatExitToast = () => {
+export const ChatExitToast = () => {
   return (
     <CommonStyle.Container>
       <CommonStyle.IconWrap>
@@ -25,11 +25,11 @@ const ChatExitToast = () => {
         </CommonStyle.BoxContent>
 
         <Styled.ButtonWrap>
-          <Styled.ExitButton backgroundColor="#DDD" color="#727272">
+          <CommonStyle.ExitButton backgroundColor="#DDD" color="#727272">
             취소
-          </Styled.ExitButton>
+          </CommonStyle.ExitButton>
           <CommonStyle.Spacer width={pxToRem(18)} />
-          <Styled.ExitButton>나가기</Styled.ExitButton>
+          <CommonStyle.ExitButton>나가기</CommonStyle.ExitButton>
         </Styled.ButtonWrap>
       </CommonStyle.Box>
     </CommonStyle.Container>

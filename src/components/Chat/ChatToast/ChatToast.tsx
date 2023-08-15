@@ -1,9 +1,8 @@
 import React from "react";
 import { pxToRem } from "~/utils";
-import * as Styled from "./ChatToast.style";
 import * as CommonStyle from "../ChatToastCommon.style";
 
-const ChatToast = () => {
+export const ChatToast = () => {
   return (
     <CommonStyle.Container>
       <CommonStyle.IconWrap>
@@ -18,10 +17,12 @@ const ChatToast = () => {
               하시겠습니까?
             </span>
           </CommonStyle.Text>
-          <Styled.Button marginBottom={pxToRem(7)}>네, 할래요!</Styled.Button>
-          <Styled.Button backgroundColor="#DDD" color="#727272">
+          <CommonStyle.Button marginBottom={pxToRem(7)}>
+            네, 할래요!
+          </CommonStyle.Button>
+          <CommonStyle.Button backgroundColor="#DDD" color="#727272">
             아니요 안할래요.
-          </Styled.Button>
+          </CommonStyle.Button>
         </CommonStyle.BoxContent>
       </CommonStyle.Box>
     </CommonStyle.Container>
