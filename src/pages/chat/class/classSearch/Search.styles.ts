@@ -19,12 +19,12 @@ export const SearchContainer = styled.div`
 
 export const SearchInput = styled.input`
   width: 100%;
-  height: ${pxToRem(30)};
+  height: ${pxToRem(45)};
   flex: 1;
   margin-left: ${pxToRem(8)};
   font-family: "NanumSquare";
   font-weight: 600;
-  font-size: ${pxToRem(11)};
+  font-size: ${pxToRem(12)};
   color: #5979bb;
   &::placeholder {
     color: #5979bb;
