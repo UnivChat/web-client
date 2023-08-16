@@ -16,7 +16,7 @@ export const SearchBox = styled.div`
   ${flex({ alignItems: "center" })};
   width: ${pxToRem(318)};
   height: ${pxToRem(45)};
-  margin-top: ${pxToRem(50)};
+  margin-top: ${pxToRem(20)};
   padding-left: ${pxToRem(12)};
   border-radius: ${pxToRem(25)};
   background-color: #ffffff;
@@ -43,7 +43,7 @@ export const ContactContainer = styled.div`
 `;
 
 export const ContactTitle = styled.div`
-  margin-top: ${pxToRem(39)};
+  margin-top: ${pxToRem(29)};
   margin-bottom: ${pxToRem(28)};
 `;
 
@@ -74,15 +74,14 @@ export const ContactList = styled.details`
 `;
 
 export const ContactName = styled.summary`
-  display: flex;
-  justify-content: space-between;
+  ${flex({ justifyContent: "space-between" })}
   font-family: "NanumSquare";
   font-weight: 600;
   font-size: ${pxToRem(15)};
   color: #313131;
   list-style: none;
   border-bottom: ${pxToRem(0.6)} solid #707070;
-  padding: ${pxToRem(13)} ${pxToRem(16)} ${pxToRem(13)} ${pxToRem(16)};
+  padding: ${pxToRem(13)} ${pxToRem(16)};
 `;
 export const ArrowIcon = styled(Svg)`
   width: ${pxToRem(10)};
