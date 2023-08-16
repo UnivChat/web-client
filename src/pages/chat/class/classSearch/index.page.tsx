@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Header } from "~/components/Common/UI/Header/Header";
 import InfiniteScroll from "react-infinite-scroller";
 import { useClassSearch } from "@server-state/class/hooks/classSearch.queries";
@@ -7,13 +8,14 @@ import * as Styled from "./classSearch.styles";
 import type { ClassBoxProps } from "./classbox.types";
 
 export default function ClassSearch() {
-  const { data, fetchNextPage, hasNextPage } = useClassSearch();
+  const [searchTerm, setSearchTerm] = useState("");
+  const { data, fetchNextPage, hasNextPage } = useClassSearch(searchTerm);
 
   return (
     <>
       <Header.Back title="클래스 찾기" />
       <Styled.Container>
-        <Search />
+        <Search value={searchTerm} onSearch={setSearchTerm} />
         <Styled.TitleContainer className="add-class">
           <Styled.Title>추가한 클래스</Styled.Title>
         </Styled.TitleContainer>
@@ -30,19 +32,23 @@ export default function ClassSearch() {
           }}
           hasMore={hasNextPage}
         >
-          {data?.pages.map(page => {
-            return page.map((classItem: ClassBoxProps) => {
-              return (
-                <ClassBox
-                  key={classItem.classNumber}
-                  title={classItem.className}
-                  classNumber={classItem.classNumber}
-                  classTime={classItem.classTime}
-                  svgName="plus"
-                />
-              );
-            });
-          })}
+          {data?.pages.length ? (
+            data.pages.map(page => {
+              return page.map((classItem: ClassBoxProps) => {
+                return (
+                  <ClassBox
+                    key={classItem.classNumber}
+                    title={classItem.className}
+                    classNumber={classItem.classNumber}
+                    classTime={classItem.classTime}
+                    svgName="plus"
+                  />
+                );
+              });
+            })
+          ) : (
+            <div>{}</div>
+          )}
         </InfiniteScroll>
       </Styled.Container>
     </>
