@@ -32,12 +32,6 @@ export const ChatBox = styled.div<ChatRoomStyledProps>`
 `;
 
 export const ChatProfile = styled.div<ChatRoomStyledProps>`
-  display: ${props =>
-    props.sender == "other"
-      ? "visible"
-      : props.sender == "me"
-      ? "none"
-      : "none"};
   width: ${pxToRem(37)};
   height: ${pxToRem(37)};
   margin-right: ${pxToRem(4)};
@@ -55,7 +49,26 @@ export const ChatProfile = styled.div<ChatRoomStyledProps>`
   border-radius: 50%;
 `;
 
-export const ChatName = styled.div`
+export const ProfileDetail1 = styled.div({
+  width: pxToRem(14),
+  height: pxToRem(14),
+
+  backgroundColor: colors.white,
+
+  borderRadius: "50%"
+});
+
+export const ProfileDetail2 = styled.div({
+  overflow: "hidden",
+  width: pxToRem(50),
+  height: pxToRem(50),
+
+  backgroundColor: colors.white,
+
+  borderRadius: "50%"
+});
+
+export const ChatName = styled.div<ChatRoomStyledProps>`
   height: ${pxToRem(9)};
   font-weight: 600;
   font-size: ${pxToRem(8)};
@@ -75,4 +88,23 @@ export const ChatText = styled.div<ChatRoomStyledProps>`
   font-weight: 300;
   font-size: ${pxToRem(13)};
   color: ${colors.black};
+`;
+
+export const InputContainer = styled.div`
+  ${flex({ alignItems: "center" })};
+  position: fixed;
+  bottom: 0;
+  width: 100vh;
+  height: ${pxToRem(51)};
+
+  background-color: ${colors.white};
+`;
+
+export const InputBox = styled.input`
+  width: 75vw;
+  height: ${pxToRem(28)};
+
+  background-color: #f0f1f4;
+
+  border-radius: ${pxToRem(30)};
 `;
