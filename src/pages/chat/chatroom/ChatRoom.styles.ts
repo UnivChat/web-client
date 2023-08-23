@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { flex } from "~/styles/utils/flex";
 import { colors } from "~/constants/colors";
+import { flex } from "~/styles/utils/flex";
 import { pxToRem } from "~/utils";
 import type { ChatRoomStyledProps } from "./ChatRoom.types";
 
@@ -13,6 +13,7 @@ export const Container = styled.div`
 export const ChatContainer = styled.div`
   ${flex({ flexDirection: "column" })};
   padding: ${pxToRem(24)} ${pxToRem(22)};
+  gap: ${pxToRem(20)};
 `;
 
 export const ChatHr = styled.hr`

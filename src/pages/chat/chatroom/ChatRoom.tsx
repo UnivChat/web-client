@@ -23,7 +23,7 @@ const UserInfo = (ChatProps: ChatRoomProps) => {
 export const ChatEach = (ChatProps: ChatRoomProps) => {
   return (
     <Styled.ChatBox sender={ChatProps.sender} gender={ChatProps.gender}>
-      {ChatProps.sender == "other" ? (
+      {ChatProps.sender === "other" ? (
         <UserInfo sender={ChatProps.sender} gender={ChatProps.gender} />
       ) : null}
       <Styled.ChatText sender={ChatProps.sender} gender={ChatProps.gender}>
