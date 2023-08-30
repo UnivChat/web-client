@@ -4,9 +4,9 @@ import { useContact } from "@server-state/home/contact/hooks/contact.queires";
 import * as Styled from "./Contact.styles";
 import type { ContactDTO } from "./Contact.types";
 
-export const Contact = () => {
+const Contact = () => {
   const { data: contacts, isLoading, isError } = useContact();
-  const [searchContact, setSearchContact] = useState("");
+  const [contactSearchInput, setContactSearchInput] = useState("");
   const [filteredContacts, setFilteredContacts] = useState<ContactDTO[]>([]);
   const [activeIndices, setActiveIndices] = useState<Record<number, boolean>>(
     {}
@@ -16,11 +16,11 @@ export const Contact = () => {
     if (contacts) {
       setFilteredContacts(
         contacts.filter(contact =>
-          contact.major.toLowerCase().includes(searchContact.toLowerCase())
+          contact.major.toLowerCase().includes(contactSearchInput.toLowerCase())
         )
       );
     }
-  }, [contacts, searchContact]);
+  }, [contacts, contactSearchInput]);
 
   const toggleContact = (index: number) => {
     setActiveIndices({
@@ -38,8 +38,8 @@ export const Contact = () => {
             <Styled.SearchIcon svgName="search" />
             <Styled.SearchInput
               placeholder="필요한 연락망을 검색하세요"
-              value={searchContact}
-              onChange={e => setSearchContact(e.target.value)}
+              value={contactSearchInput}
+              onChange={e => setContactSearchInput(e.target.value)}
             />
           </Styled.SearchBox>
         </Styled.SearchContainer>
