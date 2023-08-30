@@ -4,10 +4,10 @@
 
 ## 👨‍💻 프로젝트 담당 인력
 
-|                                                          💻 FE-Developer                                                           |                                                                                     💻 FE-Developer                                                                                     |                                                            💻 FE-Developer                                                            |
-| :--------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
-| <a href='https://github.com/tlshoon'><img width="150" height="150" src="https://avatars.githubusercontent.com/u/87574833?v=4"></a> | <a href='https://github.com/Minsoo-web'><img width="150" height="150" src="https://avatars1.githubusercontent.com/u/57122180?s=200&u=b32867107508426379c28b1d0c2fd8963912a5dd&v=4"></a> | <a href='https://github.com/minjun232'><img width="150" height="150" src="https://avatars.githubusercontent.com/u/126582929?v=4"></a> |
-|                                                              @tlshoon                                                              |                                                                                       @minsoo-web                                                                                       |                                                              @minjun232                                                               |
+| 💻 FE-Developer | 💻 FE-Developer | 💻 FE-Developer | 💻 FE-Developer |
+| :-------------: | :-------------: | :-------------: | :-------------: |
+| <a href='https://github.com/tlshoon'><img width="150" height="150" src="https://avatars.githubusercontent.com/u/87574833?v=4"></a> |     <a href='https://github.com/Minsoo-web'><img width="150" height="150" src="https://avatars1.githubusercontent.com/u/57122180?s=200&u=b32867107508426379c28b1d0c2fd8963912a5dd&v=4"></a>             |  <a href='https://github.com/minjun232'><img width="150" height="150" src="https://avatars.githubusercontent.com/u/126582929?v=4"></a> | <a href='https://github.com/Duck-98'><img width="150" height="150" src="https://avatars.githubusercontent.com/u/72850354?v=4"></a>
+|     @tlshoon    |        @minsoo-web        |        @minjun232         |     @Duck-98      |  
 
 ## 🗂 사용 기술 스택
 
