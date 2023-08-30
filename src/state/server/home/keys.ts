@@ -1,5 +1,5 @@
 import { queryKey } from "../queryKey";
 
 export const ContactKey = {
-  getContacts: [queryKey.contact, "getContacts"] as const
+  getContacts: [queryKey.home, "getContacts"] as const
 } as const;
