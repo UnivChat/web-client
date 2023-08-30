@@ -45,14 +45,8 @@ type Contact = {
   location: string;
 };
 
-type ApiResponse = {
-  code: string;
-  message: string;
-  result: Contact[];
-};
-
 // 연락망 api
 export const fetchContact = async (): Promise<Contact[]> => {
-  const res = await api.get<ApiResponse>("/school/phone");
+  const res = await api.get<API.DefaultResponse<Contact[]>>("/school/phone");
   return res.data.result;
 };
