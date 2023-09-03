@@ -7,8 +7,7 @@ import * as Styled from "./config.styles";
 
 const MyPage: NextPageWithLayout = () => {
   const { mutate: callSignOutAPI } = useSignOut();
-  const fetchUserInfoData = useFetchUserInfo();
-  const result = fetchUserInfoData?.data?.data?.data.result || null;
+  const { data } = useFetchUserInfo();
 
   const handleLogout = () => {
     callSignOutAPI();
@@ -20,7 +19,7 @@ const MyPage: NextPageWithLayout = () => {
       <Styled.Body>
         <Styled.BodyTop marginTop={48}>
           <Styled.Profile svgName="profile" />
-          <Styled.BodyTopText>{result?.nickname}</Styled.BodyTopText>
+          <Styled.BodyTopText>{data?.result.nickname}</Styled.BodyTopText>
           <Styled.ButtonText>내 정보</Styled.ButtonText>
         </Styled.BodyTop>
         <Styled.BodyTopDivider />

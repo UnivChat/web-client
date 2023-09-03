@@ -20,14 +20,14 @@ const DeleteAcc: NextPageWithLayout = () => {
   const DeleteMutation = useDeleteAcc();
   const [password, setPassword] = useState("");
   const [Message, setMessage] = useState<boolean | null>(null);
-  const fetchUserInfoData = useFetchUserInfo();
-  const result = fetchUserInfoData?.data?.data?.data.result || null;
+  const { data } = useFetchUserInfo();
+
   const { push } = useRouter();
 
   const handleSubmit = () => {
     DeleteMutation.mutate(
       {
-        email: result.email,
+        email: data?.result.email,
         password
       },
       {
@@ -49,7 +49,7 @@ const DeleteAcc: NextPageWithLayout = () => {
   // 성공 실패 메세지
   let displayedMessage;
   if (Message === true) {
-    displayedMessage = <AcceptMessage>회원탈되 되었습니다</AcceptMessage>;
+    displayedMessage = <AcceptMessage>회원탈되가 완료되었습니다</AcceptMessage>;
   } else if (Message === false) {
     displayedMessage = (
       <Auth.WarningMessage>

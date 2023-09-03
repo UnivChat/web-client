@@ -23,8 +23,7 @@ const Password: NextPageWithLayout = () => {
     type: "success" | "warning" | null;
   }>({ message: "", type: null });
 
-  const fetchUserInfoData = useFetchUserInfo();
-  const result = fetchUserInfoData?.data?.data?.data.result || null;
+  const { data } = useFetchUserInfo();
   const mutation = useChangePasswordMutation();
 
   const handleClick = () => {
@@ -41,7 +40,7 @@ const Password: NextPageWithLayout = () => {
     } else {
       mutation.mutate(
         {
-          emailValue: result.email,
+          emailValue: data?.result.email,
           passwordValue: confirmPassword
         },
         {
