@@ -2,10 +2,10 @@ import * as Styled from "./Header.styles";
 import type { HeaderProps } from "./Header.types";
 import * as headerIcons from "./items";
 
-export const Header = ({ title, subTitle, element }: HeaderProps) => {
+export const Header = ({ title, subTitle, element, bgColor }: HeaderProps) => {
   return (
     <>
-      <Styled.Header>
+      <Styled.Header bgColor={bgColor}>
         {element?.left}
         <Styled.Title>{title}</Styled.Title>
         <Styled.SubTitle>{subTitle}</Styled.SubTitle>
@@ -19,9 +19,13 @@ export const Header = ({ title, subTitle, element }: HeaderProps) => {
 };
 
 // eslint-disable-next-line react/display-name
-Header.Back = (props: Omit<HeaderProps, "element">) => (
+Header.Back = ({
+  bgColor,
+  ...props
+}: Omit<HeaderProps, "element"> & { bgColor?: string }) => (
   <Header
     {...props}
+    bgColor={bgColor}
     element={{
       left: <headerIcons.Back />
     }}
