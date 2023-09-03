@@ -15,7 +15,7 @@ const DeleteAcc: NextPageWithLayout = () => {
       <CommonStyled.ConfigBody>
         <BodyForm paddingTop={70} paddingBottom={8}>
           <CustomText>계정 비밀번호</CustomText>
-          <CustomInput name="password" required />
+          <CustomInput type="password" name="password" required />
         </BodyForm>
         <CheckAuthButton>확인</CheckAuthButton>
       </CommonStyled.ConfigBody>
