@@ -50,25 +50,6 @@ export const ChatProfile = styled.div<ChatRoomStyledProps>`
   border-radius: 50%;
 `;
 
-export const ProfileDetail1 = styled.div({
-  width: pxToRem(14),
-  height: pxToRem(14),
-
-  backgroundColor: colors.white,
-
-  borderRadius: "50%"
-});
-
-export const ProfileDetail2 = styled.div({
-  overflow: "hidden",
-  width: pxToRem(50),
-  height: pxToRem(50),
-
-  backgroundColor: colors.white,
-
-  borderRadius: "50%"
-});
-
 export const ChatName = styled.div<ChatRoomStyledProps>`
   height: ${pxToRem(9)};
   font-weight: 600;

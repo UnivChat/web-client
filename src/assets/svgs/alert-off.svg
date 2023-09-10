@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24.66 22.16">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+        stroke-width: 2.5px;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #313131;
+      }
+
+      .cls-3 {
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="1.24" width="20.45" height="22.16"/>
+    </clipPath>
+  </defs>
+  <g id="_그룹_330" data-name="그룹 330">
+    <g class="cls-4">
+      <g id="_그룹_329" data-name="그룹 329">
+        <path id="_패스_327" data-name="패스 327" class="cls-3" d="m18.24,13.82v-6.12c0-3.74-3.03-6.77-6.77-6.77s-6.77,3.03-6.77,6.77v6.12l-2.4,3.16c-.2.26-.16.64.1.84.11.08.24.13.38.13h17.38c.33,0,.6-.26.61-.59,0-.14-.04-.27-.13-.38l-2.4-3.16Z"/>
+        <path id="_패스_328" data-name="패스 328" class="cls-3" d="m8.19,17.95c0,1.81,1.47,3.28,3.28,3.28s3.28-1.47,3.28-3.28h-6.56Z"/>
+      </g>
+    </g>
+  </g>
+  <line id="_선_121" data-name="선 121" class="cls-2" x1="1.33" y1="4.83" x2="23.33" y2="18.83"/>
+</svg>

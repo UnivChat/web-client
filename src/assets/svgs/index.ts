@@ -24,3 +24,8 @@ export { default as search } from "./search.svg";
 export { default as unlock } from "./unlock.svg";
 export { default as toasttalk } from "./toasttalk.svg";
 export { default as toastexit } from "./toastexit.svg";
+export { default as alertOn } from "./alert-on.svg";
+export { default as alertOff } from "./alert-off.svg";
+export { default as chatEnter } from "./chat-enter.svg";
+export { default as chatPlus } from "./chat-plus.svg";
+export { default as chatProfile } from "./chat-profile.svg";
