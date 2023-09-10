@@ -4,4 +4,5 @@ export interface HeaderProps {
   title: string;
   subTitle?: string;
   element?: { left?: ReactNode; right?: ReactNode };
+  bgColor?: string;
 }

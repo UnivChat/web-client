@@ -1,4 +1,5 @@
 import Notice from "~/components/Home/Notice/Notice";
+import Link from "next/link";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./Home.styles";
 import type { SelectionProps } from "./Home.types";
@@ -24,7 +25,9 @@ export const Home = () => {
         <Styled.SelectLine />
         <Selection name="도서관 자리" svgName="library" />
         <Styled.SelectLine />
-        <Selection name="연락망" svgName="contact" />
+        <Link href="/home/contact" passHref>
+          <Selection name="연락망" svgName="contact" />
+        </Link>
         <Styled.SelectLine />
         <Selection name="편의시설" svgName="facility" />
       </Styled.SelectContainer>
