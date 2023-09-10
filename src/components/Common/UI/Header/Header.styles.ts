@@ -11,7 +11,6 @@ export const Header = styled.header<{ bgColor?: string }>`
   width: 100%;
   height: ${pxToRem(50)};
   padding: 0 ${pxToRem(18)};
-
   background: ${({ bgColor = colors.grayf8 }) => bgColor};
 `;
 
