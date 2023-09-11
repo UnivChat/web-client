@@ -81,6 +81,7 @@ export const InputContainer = styled.div`
   height: ${pxToRem(51)};
 
   background-color: ${colors.white};
+  box-shadow: 0 ${pxToRem(-17)} ${pxToRem(18)} #00000014;
 `;
 
 export const InputBox = styled.input`
