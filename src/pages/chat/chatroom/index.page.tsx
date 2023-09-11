@@ -32,7 +32,9 @@ const Inquiry: NextPageWithLayout = () => {
       </Styled.ChatContainer>
 
       <Styled.InputContainer>
+        <Styled.InputButton svgName="chatPlus" />
         <Styled.InputBox />
+        <Styled.InputButton svgName="chatEnter" />
       </Styled.InputContainer>
     </Styled.Container>
   );

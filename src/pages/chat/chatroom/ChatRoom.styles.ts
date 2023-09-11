@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "~/constants/colors";
+import { Svg } from "~/components/Common";
 import { flex } from "~/styles/utils/flex";
 import { pxToRem } from "~/utils";
 import type { ChatRoomStyledProps } from "./ChatRoom.types";
@@ -73,20 +74,25 @@ export const ChatText = styled.div<ChatRoomStyledProps>`
 `;
 
 export const InputContainer = styled.div`
-  ${flex({ alignItems: "center" })};
+  ${flex({ justifyContent: "space-around", alignItems: "center" })};
   position: fixed;
   bottom: 0;
-  width: 100vh;
+  width: 100vw;
   height: ${pxToRem(51)};
 
   background-color: ${colors.white};
 `;
 
 export const InputBox = styled.input`
-  width: 75vw;
+  width: ${pxToRem(282)};
   height: ${pxToRem(28)};
 
   background-color: #f0f1f4;
 
   border-radius: ${pxToRem(30)};
+`;
+
+export const InputButton = styled(Svg)`
+  width: ${pxToRem(23)};
+  height: ${pxToRem(23)};
 `;
