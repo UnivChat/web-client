@@ -1,12 +1,10 @@
 import * as Styled from "./ChatRoom.styles";
-import type { ChatRoomProps } from "./ChatRoom.types";
 
-export const ChatEach = (ChatProps: ChatRoomProps) => {
+export const ChatDate = () => {
   return (
-    <Styled.ChatBox sender={ChatProps.sender} gender={ChatProps.gender}>
-      <Styled.ChatText sender={ChatProps.sender} gender={ChatProps.gender}>
-        {ChatProps.children}
-      </Styled.ChatText>
-    </Styled.ChatBox>
+    <>
+      <Styled.ChatHr />
+      <Styled.Date>2023/09/11</Styled.Date>
+    </>
   );
 };

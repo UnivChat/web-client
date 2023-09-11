@@ -3,7 +3,6 @@ import { colors } from "~/constants/colors";
 import { Svg } from "~/components/Common";
 import { flex } from "~/styles";
 import { pxToRem } from "~/utils";
-import type { ChatRoomStyledProps } from "./ChatRoom.types";
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -20,57 +19,20 @@ export const ChatContainer = styled.div`
 export const ChatHr = styled.hr`
   width: 90%;
   border: 0;
-  border-top: ${pxToRem(0.8)} solid #707070;
+  border-bottom: ${pxToRem(0.8)} solid #707070;
 `;
 
-export const ChatBox = styled.div<ChatRoomStyledProps>`
-  ${flex({ alignItems: "center" })};
-  justify-content: ${props =>
-    props.sender == "other"
-      ? "flex-start"
-      : props.sender == "me"
-      ? "flex-end"
-      : "flex-start"};
-`;
+export const Date = styled.div`
+  position: absolute;
+  padding: 0 ${pxToRem(14)};
+  left: 50%;
+  transform: translate(-50%, 0);
 
-export const ChatProfile = styled.div<ChatRoomStyledProps>`
-  width: ${pxToRem(37)};
-  height: ${pxToRem(37)};
-  margin-right: ${pxToRem(4)};
+  background-color: ${colors.grayf8};
 
-  background-color: ${props =>
-    props.gender == "male"
-      ? "#C0D6EB"
-      : props.gender == "female"
-      ? "#EBC0D0"
-      : props.gender == "private"
-      ? "#C6C6C6"
-      : "#C6C6C6"};
-
-  border: ${pxToRem(0.5)} solid #707070;
-  border-radius: 50%;
-`;
-
-export const ChatName = styled.div<ChatRoomStyledProps>`
-  height: ${pxToRem(9)};
   font-weight: 600;
-  font-size: ${pxToRem(8)};
+  font-size: ${pxToRem(11)};
   color: #707070;
-`;
-
-export const ChatText = styled.div<ChatRoomStyledProps>`
-  margin-top: ${pxToRem(24)};
-  padding: ${pxToRem(7)} ${pxToRem(15)};
-  min-height: ${pxToRem(30)};
-  min-width: ${pxToRem(30)};
-  max-width: 60%;
-
-  border: ${pxToRem(0.5)} solid #707070;
-  border-radius: ${pxToRem(22)};
-
-  font-weight: 300;
-  font-size: ${pxToRem(13)};
-  color: ${colors.black};
 `;
 
 export const InputContainer = styled.div`

@@ -1,4 +1,6 @@
+import { Header } from "~/components/Common/UI/Header/Header";
 import { ChatBox } from "~/components/Chat/ChatBox";
+import { ChatDate } from "./ChatRoom";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import * as Styled from "./ChatRoom.styles";
 
@@ -21,11 +23,12 @@ const DUMMY_CHAT_LIST = [
   }
 ];
 
-// <Header.Header title="기숙사 채팅" hasBackButton />
 const Inquiry: NextPageWithLayout = () => {
   return (
     <Styled.Container>
+      <Header.Back title="기숙사 채팅" subTitle="32" bgColor="#FFF" />
       <Styled.ChatContainer>
+        <ChatDate />
         {DUMMY_CHAT_LIST.map(chat => (
           <ChatBox key={chat.messageSendingTime} {...chat} />
         ))}
