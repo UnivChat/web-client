@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { colors } from "~/constants/colors";
 import { Svg } from "~/components/Common";
-import { flex } from "~/styles/utils/flex";
+import { flex } from "~/styles";
 import { pxToRem } from "~/utils";
 import type { ChatRoomStyledProps } from "./ChatRoom.types";
 
@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const ChatContainer = styled.div`
-  ${flex({ flexDirection: "column" })};
+  ${flex({ direction: "column" })};
   padding: ${pxToRem(24)} ${pxToRem(22)};
   gap: ${pxToRem(20)};
 `;
@@ -74,18 +74,20 @@ export const ChatText = styled.div<ChatRoomStyledProps>`
 `;
 
 export const InputContainer = styled.div`
-  ${flex({ justifyContent: "space-around", alignItems: "center" })};
+  ${flex({ gap: 8, alignItems: "center" })};
   position: fixed;
   bottom: 0;
   width: 100vw;
   height: ${pxToRem(51)};
+
+  padding: ${pxToRem(8)};
 
   background-color: ${colors.white};
   box-shadow: 0 ${pxToRem(-17)} ${pxToRem(18)} #00000014;
 `;
 
 export const InputBox = styled.input`
-  width: ${pxToRem(282)};
+  width: 100%;
   height: ${pxToRem(28)};
 
   background-color: #f0f1f4;
@@ -94,6 +96,6 @@ export const InputBox = styled.input`
 `;
 
 export const InputButton = styled(Svg)`
-  width: ${pxToRem(23)};
-  height: ${pxToRem(23)};
+  width: ${pxToRem(24)};
+  height: ${pxToRem(24)};
 `;
