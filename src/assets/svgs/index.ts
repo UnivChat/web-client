@@ -24,13 +24,10 @@ export { default as search } from "./search.svg";
 export { default as unlock } from "./unlock.svg";
 export { default as toasttalk } from "./toasttalk.svg";
 export { default as toastexit } from "./toastexit.svg";
-<<<<<<< HEAD
+export { default as belowarrow } from "./belowarrow.svg";
+export { default as rightarrow } from "./rightarrow.svg";
 export { default as alertOn } from "./alert-on.svg";
 export { default as alertOff } from "./alert-off.svg";
 export { default as chatEnter } from "./chat-enter.svg";
 export { default as chatPlus } from "./chat-plus.svg";
 export { default as chatProfile } from "./chat-profile.svg";
-=======
-export { default as belowarrow } from "./belowarrow.svg";
-export { default as rightarrow } from "./rightarrow.svg";
->>>>>>> 313a0f4a9795cabf6c9e698c646677a2fbcf8b15

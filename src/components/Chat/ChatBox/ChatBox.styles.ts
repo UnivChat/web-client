@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Svg } from "~/components/Common";
 import { flex } from "~/styles";
 import { pxToRem } from "~/utils";
 
@@ -15,10 +16,17 @@ export const ChatBubble = styled.div`
   line-height: 150%;
 `;
 
-export const Profile = styled.div`
+const profileColors = {
+  default: "#C6C6C6",
+  female: "#EBC0D0",
+  male: "#C0D6EB"
+};
+
+export const Profile = styled(Svg)`
   width: ${pxToRem(36.8)};
   min-width: ${pxToRem(36.8)};
   height: ${pxToRem(36.8)};
-  border-radius: 50%;
-  border: 0.5px solid #707070;
+  path {
+    fill: #f00;
+  }
 `;

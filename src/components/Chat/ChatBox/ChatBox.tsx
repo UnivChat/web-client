@@ -8,7 +8,7 @@ export const ChatBox = ({
 }: Chat.DTO) => {
   return (
     <Styled.Container>
-      <Styled.Profile />
+      <Styled.Profile svgName={"chatProfile"} />
 
       <Flex gap={5.27} direction="column">
         {memberNickname}
