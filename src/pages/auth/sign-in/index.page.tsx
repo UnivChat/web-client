@@ -64,7 +64,7 @@ const SignIn: NextPageWithLayout = () => {
           </Styled.ErrorMessage>
         ) : null}
 
-        <Styled.LoginButton>입장하기</Styled.LoginButton>
+        <Styled.LoginButton>로그인</Styled.LoginButton>
       </Styled.LoginForm>
 
       <Styled.SubArea>

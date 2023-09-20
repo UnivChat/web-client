@@ -17,6 +17,7 @@ export const useSignIn = () => {
 
   return useMutation(api.signIn, {
     onSuccess: ({ jwtDto }) => {
+      dispatch(setLoginError(false));
       setCookie(AC_TOKEN_KEY, jwtDto.accessToken);
       setCookie(RE_TOKEN_KEY, jwtDto.refreshToken);
       replace("/");

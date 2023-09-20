@@ -24,6 +24,7 @@ export const AppName = styled.span`
 
 export const LoginForm = styled.form`
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   gap: ${pxToRem(20)};
@@ -104,5 +105,4 @@ export const SubText = styled(Link)`
 export const ErrorMessage = styled.div`
   color: white;
   font-size: ${pxToRem(14)};
-  width: ${pxToRem(250)};
 `;
