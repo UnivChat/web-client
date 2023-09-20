@@ -50,3 +50,17 @@ export const fetchContact = async (): Promise<Contact[]> => {
   const res = await api.get<API.DefaultResponse<Contact[]>>("/school/phone");
   return res.data.result;
 };
+
+export type CalendarType = {
+  month: string;
+  date: string;
+  event: string;
+};
+
+// 학사일정 api
+export const fetchCalendar = async (): Promise<CalendarType[]> => {
+  const res = await api.get<API.DefaultResponse<CalendarType[]>>(
+    "/school/schedule"
+  );
+  return res.data.result;
+};

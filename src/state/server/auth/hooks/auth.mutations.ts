@@ -3,6 +3,7 @@ import { useAppDispatch } from "@client-state/hooks";
 import { deleteCookie, setCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { AC_TOKEN_KEY, RE_TOKEN_KEY } from "~/constants";
+import { setLoginError } from "@client-state/Auth/signIn/signInSlice";
 import * as EmailAuthSlice from "@client-state/Auth/emailAuth/emailAuthSlice";
 import * as FindPwSlice from "@client-state/Auth/find-pw/findPwSlice";
 import * as changePwSlice from "@client-state/Auth/find-pw/changepw/changePwSlice";
@@ -12,13 +13,16 @@ import * as api from "../apis";
 
 export const useSignIn = () => {
   const { replace } = useRouter();
+  const dispatch = useAppDispatch();
 
   return useMutation(api.signIn, {
     onSuccess: ({ jwtDto }) => {
       setCookie(AC_TOKEN_KEY, jwtDto.accessToken);
       setCookie(RE_TOKEN_KEY, jwtDto.refreshToken);
-
       replace("/");
+    },
+    onError: () => {
+      dispatch(setLoginError(true));
     }
   });
 };
