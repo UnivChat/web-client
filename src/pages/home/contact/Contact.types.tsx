@@ -1,6 +1,6 @@
-export interface ContactProps {
-  name: string;
-  contact: string;
-  lab: string;
+export interface ContactDTO {
   email: string;
+  location: string;
+  major: string;
+  phoneNumber: string;
 }

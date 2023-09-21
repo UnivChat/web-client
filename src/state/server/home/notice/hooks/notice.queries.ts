@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchPosts } from "../api";
+import { fetchPosts } from "../../api";
 
 export interface Post {
   title: string;
