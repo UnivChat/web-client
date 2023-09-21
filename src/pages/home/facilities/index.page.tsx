@@ -57,7 +57,10 @@ const Facilities = () => {
         {/* 김수환관 */}
         <Styled.Kimbox>
           <Styled.BuildingContainer>
-            <Styled.KimTitle>김수환관</Styled.KimTitle>
+            <Styled.BuildingBox>
+              <Styled.BuildingIcon svgName="K" />
+              <Styled.KimTitle>김수환관</Styled.KimTitle>
+            </Styled.BuildingBox>
             <Styled.Divider />
             <div>
               <Styled.Line>
@@ -129,7 +132,10 @@ const Facilities = () => {
         {/* 니콜스관 */}
         <Styled.Nbox>
           <Styled.BuildingContainer>
-            <Styled.KimTitle>니콜스관</Styled.KimTitle>
+            <Styled.BuildingBox>
+              <Styled.BuildingIcon svgName="N" />
+              <Styled.KimTitle>니콜스관</Styled.KimTitle>
+            </Styled.BuildingBox>
             <Styled.Divider />
             <div>
               <Styled.Line>
@@ -181,7 +187,10 @@ const Facilities = () => {
         {/* 학생미래인재관 */}
         <Styled.Nbox>
           <Styled.BuildingContainer>
-            <Styled.KimTitle>학생미래인재관</Styled.KimTitle>
+            <Styled.BuildingBox>
+              <Styled.BuildingIcon svgName="B" />
+              <Styled.KimTitle>학생미래인재관</Styled.KimTitle>
+            </Styled.BuildingBox>
             <Styled.Divider />
             <div>
               <Styled.Line>
@@ -242,7 +251,10 @@ const Facilities = () => {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Styled.Mbox>
             <Styled.BuildingContainer>
-              <Styled.KimTitle>미카엘관</Styled.KimTitle>
+              <Styled.BuildingBox>
+                <Styled.BuildingIcon svgName="T" />
+                <Styled.KimTitle>미카엘관</Styled.KimTitle>
+              </Styled.BuildingBox>
               <Styled.Mdivider />
               <div>
                 <Styled.MLine>
@@ -271,7 +283,10 @@ const Facilities = () => {
           {/* 베리타스관 */}
           <Styled.Mbox>
             <Styled.BuildingContainer>
-              <Styled.KimTitle>베스타스관</Styled.KimTitle>
+              <Styled.BuildingBox>
+                <Styled.BuildingIcon svgName="L" />
+                <Styled.KimTitle>베리타스관</Styled.KimTitle>
+              </Styled.BuildingBox>
               <Styled.Mdivider />
               <div>
                 <Styled.MLine>
@@ -303,7 +318,10 @@ const Facilities = () => {
           {/* 다솔관 */}
           <Styled.Mbox>
             <Styled.BuildingContainer>
-              <Styled.KimTitle>다솔관</Styled.KimTitle>
+              <Styled.BuildingBox>
+                <Styled.BuildingIcon svgName="D" />
+                <Styled.KimTitle>다솔관</Styled.KimTitle>
+              </Styled.BuildingBox>
               <Styled.Mdivider />
               <div>
                 <Styled.MLine>
@@ -327,7 +345,10 @@ const Facilities = () => {
           {/* 안드레아관 */}
           <Styled.Mbox>
             <Styled.BuildingContainer>
-              <Styled.KimTitle>안드레아관</Styled.KimTitle>
+              <Styled.BuildingBox>
+                <Styled.BuildingIcon svgName="A" />
+                <Styled.KimTitle>안드레아관</Styled.KimTitle>
+              </Styled.BuildingBox>
               <Styled.Mdivider />
               <div>
                 <Styled.MLine>
@@ -354,7 +375,10 @@ const Facilities = () => {
           {/* 밤비노관 */}
           <Styled.Mbox>
             <Styled.BuildingContainer>
-              <Styled.KimTitle>밤비노관</Styled.KimTitle>
+              <Styled.BuildingBox>
+                <Styled.BuildingIcon svgName="BA" />
+                <Styled.KimTitle>밤비노관</Styled.KimTitle>
+              </Styled.BuildingBox>
               <Styled.Mdivider />
               <div>
                 <Styled.MLine>
@@ -378,7 +402,10 @@ const Facilities = () => {
           {/* 비르투스관 */}
           <Styled.Mbox>
             <Styled.BuildingContainer>
-              <Styled.KimTitle>비르투스관</Styled.KimTitle>
+              <Styled.BuildingBox>
+                <Styled.BuildingIcon svgName="V" />
+                <Styled.KimTitle>비르투스관</Styled.KimTitle>
+              </Styled.BuildingBox>
               <Styled.Mdivider />
               <div>
                 <Styled.MLine>

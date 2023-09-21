@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #003091;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        isolation: isolate;
+      }
+    </style>
+  </defs>
+  <g id="_그룹_419" data-name="그룹 419">
+    <g id="_타원_67" data-name="타원 67">
+      <circle class="cls-1" cx="125" cy="125" r="125"/>
+    </g>
+    <g id="V" class="cls-3">
+      <g class="cls-3">
+        <path class="cls-2" d="m177.84,75.6l-40.42,121.77h-17.79l-40.17-121.77h24.64l24.47,79.35,24.47-79.35h24.81Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

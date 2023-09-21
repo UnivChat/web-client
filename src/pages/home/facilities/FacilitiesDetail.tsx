@@ -24,23 +24,28 @@ const FacilitiesDetail = ({ data }: FacilitiesDetailProps) => {
           <Styled.BuildingContainer>
             <Styled.TopWrapper>
               <Styled.DetailTitle>{data[0]?.name}</Styled.DetailTitle>
-              <Styled.Closed onClick={() => dispatch(setModalState(false))}>
-                X
-              </Styled.Closed>
+              <button
+                type="button"
+                onClick={() => dispatch(setModalState(false))}
+              >
+                <Styled.ClosedIcon svgName="close" />
+              </button>
             </Styled.TopWrapper>
             <Styled.Divider />
             <Styled.DetailContainer>
               <Styled.DetailWrap>
                 <Styled.DetailText>위치</Styled.DetailText>
-                <Styled.DetailInfo>{data[0]?.location}</Styled.DetailInfo>
+                <Styled.DetailOhter>{data[0]?.location}</Styled.DetailOhter>
               </Styled.DetailWrap>
               <Styled.DetailWrap>
                 <Styled.DetailText>운영시간</Styled.DetailText>
-                <Styled.DetailInfo>{data[0]?.time}</Styled.DetailInfo>
+                <Styled.DetailInfo name={data[0]?.name}>
+                  {data[0]?.time}
+                </Styled.DetailInfo>
               </Styled.DetailWrap>
               <Styled.DetailWrap>
                 <Styled.DetailText>전화</Styled.DetailText>
-                <Styled.DetailInfo>{data[0]?.phone}</Styled.DetailInfo>
+                <Styled.DetailOhter>{data[0]?.phone}</Styled.DetailOhter>
               </Styled.DetailWrap>
             </Styled.DetailContainer>
           </Styled.BuildingContainer>

@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Kimbox = styled.div`
   width: ${pxToRem(322)};
-  height: ${pxToRem(346)};
+  height: ${pxToRem(360)};
   background: #fff;
   border: ${pxToRem(1)} solid #dfe4e6;
   border-radius: ${pxToRem(15)};
@@ -23,8 +23,28 @@ export const BuildingContainer = styled.div`
   align-items: center;
 `;
 
-export const KimTitle = styled.div`
+export const ClosedIcon = styled(Svg)`
+  width: ${pxToRem(15)};
+  height: ${pxToRem(15)};
+  position: absolute;
+  top: ${pxToRem(23)};
+  right: ${pxToRem(30)};
+`;
+
+export const BuildingIcon = styled(Svg)`
+  width: ${pxToRem(22)};
+  height: ${pxToRem(22)};
+  margin-right: ${pxToRem(6)};
+`;
+
+export const BuildingBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: ${pxToRem(23)} 0 ${pxToRem(16)} 0;
+`;
+
+export const KimTitle = styled.div`
   font-family: "NanumSquare", sans-serif;
   font-weight: 800;
   font-size: ${pxToRem(14)};
@@ -66,6 +86,7 @@ export const CafeIcon = styled(Svg)`
   ${({ svgName }) => svgName === "gym" && `margin-top: ${pxToRem(9)};`}
   ${({ svgName }) => svgName === "rest" && `margin-top: ${pxToRem(7)};`}
 `;
+
 export const IconTitle = styled.div`
   font-family: "NanumSquare", sans-serif;
   font-size: ${pxToRem(10)};
@@ -75,7 +96,7 @@ export const IconTitle = styled.div`
 
 export const Nbox = styled.div`
   width: ${pxToRem(322)};
-  height: ${pxToRem(264)};
+  height: ${pxToRem(278)};
   background: #fff;
   border: ${pxToRem(1)} solid #dfe4e6;
   border-radius: ${pxToRem(15)};
@@ -85,7 +106,7 @@ export const Nbox = styled.div`
 export const Mbox = styled.div`
   display: flex;
   width: ${pxToRem(156)};
-  height: ${pxToRem(172)};
+  height: ${pxToRem(186)};
   background: #fff;
   border: ${pxToRem(1)} solid #dfe4e6;
   border-radius: ${pxToRem(15)};
@@ -174,6 +195,7 @@ export const DetailContainer = styled.div`
 export const DetailWrap = styled.div`
   display: flex;
   margin-bottom: ${pxToRem(14)};
+  width: ${pxToRem(396)};
 `;
 
 export const DetailText = styled.div`
@@ -189,15 +211,32 @@ export const DetailText = styled.div`
   letter-spacing: ${pxToRem(1)};
   margin-right: ${pxToRem(20)};
 `;
-export const DetailInfo = styled.div`
+
+interface DetailInfoProps {
+  name: string;
+}
+
+export const DetailOhter = styled.div`
+  height: ${pxToRem(25)};
+  width: ${pxToRem(221)};
+  color: #434343;
+  font-size: ${pxToRem(15)};
+  display: flex;
+  align-items: center;
+`;
+
+export const DetailInfo = styled.div<DetailInfoProps>`
   height: ${pxToRem(25)};
   width: ${pxToRem(221)};
   color: #434343;
   font-size: ${pxToRem(13)};
   display: flex;
   align-items: center;
+  word-wrap: break-word;
+  max-width: ${pxToRem(125)};
+  ${({ name }) => name === "커뮤니티라운지" && `max-width: ${pxToRem(200)};`}
+  ${({ name }) => name === "학생지원팀" && `max-width: ${pxToRem(200)};`}
 `;
-
 export const MapBox = styled.div`
   width: ${pxToRem(350)};
   height: ${pxToRem(450)};
