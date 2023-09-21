@@ -30,7 +30,9 @@ export const EventModal: React.FC<EventModalProps> = ({
       <Styled.Container>
         <Styled.TopWrapper>
           <Styled.DetailTitle>학사일정</Styled.DetailTitle>
-          <Styled.Closed onClick={onClose}>X</Styled.Closed>
+          <button type="button" onClick={onClose}>
+            <Styled.ClosedIcon svgName="close" />
+          </button>
         </Styled.TopWrapper>
         <Styled.Divider />
         <ul>{content}</ul>

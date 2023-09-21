@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Svg } from "~/components/Common";
 import { pxToRem } from "~/utils";
 
 export const Bg = styled.div`
@@ -73,4 +74,12 @@ export const List = styled.li`
 
 export const CalendarContainer = styled.div`
   height: ${pxToRem(394)};
+`;
+
+export const ClosedIcon = styled(Svg)`
+  width: ${pxToRem(15)};
+  height: ${pxToRem(15)};
+  position: absolute;
+  top: ${pxToRem(23)};
+  right: ${pxToRem(30)};
 `;
