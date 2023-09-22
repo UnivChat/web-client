@@ -33,3 +33,9 @@ export const deleteAccApi = () => {
   const authApi = createAxiosInstance({ needAuth: true });
   return authApi.delete("/member");
 };
+
+// 닉네임 중복확인 api
+export const checkNicknameDuplicate = (nickname: string) => {
+  const authApi = createAxiosInstance({ needAuth: true });
+  return authApi.post("/member/check/nickname", { nickname });
+};

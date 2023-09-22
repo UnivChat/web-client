@@ -9,7 +9,12 @@ import {
 } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { pxToRem } from "~/utils/styles/sizeChanger";
-import { useIdCheck, useSiginForm, useSubmit } from "./signUp.hooks";
+import {
+  useIdCheck,
+  useNicknameCheck,
+  useSiginForm,
+  useSubmit
+} from "./signUp.hooks";
 import * as Styled from "./signUp.styles";
 
 const SignInPage: NextPageWithLayout = () => {
@@ -26,13 +31,18 @@ const SignInPage: NextPageWithLayout = () => {
   const idCheck = useIdCheck(id.value);
   const { handleIdCheck, message, messageType } = idCheck;
 
+  const nicknameCheck = useNicknameCheck(nickname.value);
+  const { handleNicknameCheck, nickNameMessage, nickNameMessageType } =
+    nicknameCheck;
+
   const { handleSubmit, genderWarning, passwordsMatchWarning } = useSubmit(
     gender.value,
     password.value,
     confirmPassword.value,
     id.value,
     nickname.value,
-    idCheck
+    idCheck,
+    nicknameCheck
   );
 
   return (
@@ -76,7 +86,22 @@ const SignInPage: NextPageWithLayout = () => {
             </Auth.WarningMessage>
           )}
           <CustomText>닉네임</CustomText>
-          <CustomInput type="text" name="nickname" required {...nickname} />
+          <CustomInput
+            type="text"
+            name="nickname"
+            required
+            {...nickname}
+            width={pxToRem(204)}
+          />
+          <Styled.CheckIdButton onClick={handleNicknameCheck}>
+            중복확인
+          </Styled.CheckIdButton>
+          {nickNameMessage &&
+            (nickNameMessageType === "error" ? (
+              <Auth.WarningMessage>{nickNameMessage}</Auth.WarningMessage>
+            ) : (
+              <AcceptMessage>{nickNameMessage}</AcceptMessage>
+            ))}
           <CustomText marginTop={23}>성별</CustomText>
           <Styled.GenderButton
             type="button"
