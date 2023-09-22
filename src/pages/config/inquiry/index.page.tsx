@@ -4,6 +4,7 @@ import type { NextPageWithLayout } from "~/pages/app.types";
 import { colors } from "~/constants";
 import * as Styled from "./Inquiry.styles";
 import type { InquiryProps } from "./Inquiry.types";
+import { useInquiry } from "@server-state/config/inquiry/hooks/inquiry.mutation";
 
 const Inquiry: NextPageWithLayout = () => {
   const {
@@ -20,9 +21,14 @@ const Inquiry: NextPageWithLayout = () => {
 
   const hasErrors = Object.keys(errors).length > 0;
 
+  const inquiryMutation = useInquiry();
+
   // TODO: 문의 접수 API 연동
   const onSubmit = (data: InquiryProps) => {
-    console.log(data, "data");
+    inquiryMutation.mutate({
+      content: data.contents,
+      receiverEmail: data.email,
+    });
   };
 
   return (

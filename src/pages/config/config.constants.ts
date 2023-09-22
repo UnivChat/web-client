@@ -21,6 +21,10 @@ export const configItems: ConfigItem[] = [
     href: "/config/announcement"
   },
   {
+    label: "문의하기",
+    href: "/config/inquiry"
+  },
+  {
     label: "로그아웃"
   },
   {
