@@ -95,3 +95,11 @@ export const ListItem = styled.div`
   font-size: ${pxToRem(17)};
   font-weight: 600;
 `;
+
+export const ConfigBody = styled.div`
+  ${flex({ flexDirection: "column", alignItems: "center" })}
+  width: 100vw;
+  height: 100vh;
+  box-shadow: inset 0 ${pxToRem(2)} ${pxToRem(13)} #0000000a;
+  background-color: ${colors.grayf8};
+`;

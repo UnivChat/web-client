@@ -1,4 +1,5 @@
 import { useSignOut } from "@server-state/auth";
+import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
 import Link from "next/link";
 import type { NextPageWithLayout } from "../app.types";
 import { configItems } from "./config.constants";
@@ -6,6 +7,7 @@ import * as Styled from "./config.styles";
 
 const MyPage: NextPageWithLayout = () => {
   const { mutate: callSignOutAPI } = useSignOut();
+  const { data } = useFetchUserInfo();
 
   const handleLogout = () => {
     callSignOutAPI();
@@ -17,7 +19,7 @@ const MyPage: NextPageWithLayout = () => {
       <Styled.Body>
         <Styled.BodyTop marginTop={48}>
           <Styled.Profile svgName="profile" />
-          <Styled.BodyTopText>김가대</Styled.BodyTopText>
+          <Styled.BodyTopText>{data?.result.nickname}</Styled.BodyTopText>
           <Styled.ButtonText>내 정보</Styled.ButtonText>
         </Styled.BodyTop>
         <Styled.BodyTopDivider />

@@ -81,7 +81,7 @@ export const BodyTopText = styled.div<StyleProps>`
     marginBottom ? pxToRem(marginBottom) : "0"};
 
   color: ${colors.background};
-  font-size: ${pxToRem(15)};
+  font-size: ${({ fontSize = pxToRem(15) }) => fontSize};
   font-weight: 800;
 `;
 
