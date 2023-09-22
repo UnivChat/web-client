@@ -1,13 +1,13 @@
-import { postInquiry } from "@server-state/config/api"
-import { useMutation } from "@tanstack/react-query"
+import { setIsInquiryModal } from "@client-state/config/inquiry/inquirySlice";
+import { useAppDispatch } from "@client-state/hooks";
+import { postInquiry } from "@server-state/config/api";
+import { useMutation } from "@tanstack/react-query";
 
 export const useInquiry = () => {
-	return useMutation(postInquiry, {
-		onSuccess: () => {
-			console.log('succ')
-		},
-		onError: () => {
-			console.log('err')
-		}
-	})
-}
+  const dispatch = useAppDispatch();
+  return useMutation(postInquiry, {
+    onSuccess: () => {
+      dispatch(setIsInquiryModal(true));
+    }
+  });
+};

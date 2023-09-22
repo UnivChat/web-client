@@ -2,11 +2,15 @@ import { useForm } from "react-hook-form";
 import { Header } from "~/components/Common/UI/Header/Header";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { colors } from "~/constants";
+import { useInquiry } from "@server-state/config/inquiry/hooks/inquiry.mutation";
+import { useAppSelector } from "@client-state/hooks";
 import * as Styled from "./Inquiry.styles";
 import type { InquiryProps } from "./Inquiry.types";
-import { useInquiry } from "@server-state/config/inquiry/hooks/inquiry.mutation";
+import InquiryModal from "./inquiryModal";
 
 const Inquiry: NextPageWithLayout = () => {
+  const { isInquiryModal } = useAppSelector(state => state.inquiry);
+
   const {
     register,
     handleSubmit,
@@ -27,13 +31,14 @@ const Inquiry: NextPageWithLayout = () => {
   const onSubmit = (data: InquiryProps) => {
     inquiryMutation.mutate({
       content: data.contents,
-      receiverEmail: data.email,
+      receiverEmail: data.email
     });
   };
 
   return (
     <Styled.Container onSubmit={handleSubmit(onSubmit)}>
       <Header.Back bgColor={colors.white} title="문의하기" />
+      {isInquiryModal ? <InquiryModal /> : null}
       <Styled.Title>문의 내용 작성</Styled.Title>
       <Styled.SubContainer>
         <Styled.SubTitle>내용</Styled.SubTitle>

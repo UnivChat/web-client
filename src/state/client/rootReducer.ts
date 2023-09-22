@@ -5,6 +5,7 @@ import emailAuthReducer from "./Auth/emailAuth/emailAuthSlice";
 import findPwReducer from "./Auth/find-pw/findPwSlice";
 import changePwReducer from "./Auth/find-pw/changepw/changePwSlice";
 import signupReducer from "./Auth/signUp/signUpSlice";
+import inquiryReducer from "./config/inquiry/inquirySlice";
 
 const stores = combineReducers({
   root: rootReducer,
@@ -12,7 +13,8 @@ const stores = combineReducers({
   emailAuth: emailAuthReducer,
   findPw: findPwReducer,
   changePw: changePwReducer,
-  signup: signupReducer
+  signup: signupReducer,
+  inquiry: inquiryReducer
 });
 
 export default stores;

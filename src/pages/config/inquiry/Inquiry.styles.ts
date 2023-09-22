@@ -43,7 +43,7 @@ export const ContentsInput = styled.textarea`
 
   font-family: "NanumSquare";
   font-weight: 600;
-  font-size: ${pxToRem(9)};
+  font-size: ${pxToRem(16)};
 
   &::placeholder {
     color: #cb7a7a;
@@ -58,13 +58,13 @@ export const ContentsInput = styled.textarea`
 
 export const EmailInput = styled.input`
   width: 100%;
-  height: ${pxToRem(30)};
+  height: ${pxToRem(40)};
 
   background-color: #fcfdff;
 
   font-family: "NanumSquare";
   font-weight: 600;
-  font-size: ${pxToRem(9)};
+  font-size: ${pxToRem(14)};
 
   &::placeholder {
     color: #cb7a7a;
@@ -112,14 +112,15 @@ export const CheckText = styled.label`
 
 export const TextBox = styled.div`
   margin-top: ${pxToRem(16)};
-  padding: ${pxToRem(7)} ${pxToRem(26)} ${pxToRem(5)};
+  padding: ${pxToRem(12)} ${pxToRem(16)};
 
   background-color: #f4f4f4;
   color: #5c5c5c;
 
   font-family: "NanumSquare";
   font-weight: 600;
-  font-size: ${pxToRem(8)};
+  font-size: ${pxToRem(12)};
+  line-height: ${pxToRem(15)};
 
   border: ${pxToRem(1)} solid #d0d3d5;
   border-radius: ${pxToRem(9)};
@@ -150,4 +151,56 @@ export const Submit = styled.button`
   color: ${({ disabled }) => (disabled ? "#fafffd" : "#fafffd")};
   background-color: ${({ disabled }) => (disabled ? "#5c5c5c" : "#003091")};
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+`;
+
+export const Bg = styled.div`
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const DetailBox = styled.div`
+  width: ${pxToRem(322)};
+  height: ${pxToRem(180)};
+  background: #fff;
+  z-index: 10;
+  border: ${pxToRem(1)} solid #dfe4e6;
+  border-radius: ${pxToRem(15)};
+  margin-bottom: ${pxToRem(30)};
+`;
+
+export const DetailBoxWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: ${pxToRem(24)};
+`;
+
+export const DetailBoxTxt = styled.div`
+  font-size: ${pxToRem(18)};
+  font-family: "NanumSquare";
+  font-weight: 600;
+  line-height: ${pxToRem(25)};
+`;
+
+export const Divider = styled.div`
+  margin-top: ${pxToRem(25)};
+  width: ${pxToRem(322)};
+  border: 1px solid #dfe4e6;
+  margin-top: ${pxToRem(26)};
+`;
+
+export const DetailBoxTxtBlue = styled.div`
+  margin-top: ${pxToRem(15)};
+  font-size: ${pxToRem(18)};
+  font-family: "NanumSquare";
+  font-weight: 600;
+  color: #003091;
 `;
