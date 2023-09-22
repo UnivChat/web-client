@@ -16,4 +16,5 @@ export interface StyleProps {
   width?: string;
   opacity?: number;
   bgColor?: string;
+  fontSize?: string;
 }
