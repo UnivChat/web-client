@@ -2,6 +2,10 @@ import styled from "@emotion/styled";
 import { Svg } from "~/components/Common";
 import { pxToRem } from "~/utils";
 
+interface DetailWrapProps {
+  marginBottom?: number;
+}
+
 export const Container = styled.div`
   min-height: 100vh;
   background-color: #f8f9fb;
@@ -179,7 +183,6 @@ export const Bg = styled.div`
 
 export const DetailBox = styled.div`
   width: ${pxToRem(322)};
-  height: ${pxToRem(220)};
   background: #fff;
   z-index: 10;
   border: ${pxToRem(1)} solid #dfe4e6;
@@ -193,10 +196,10 @@ export const DetailContainer = styled.div`
   padding-left: ${pxToRem(31)};
 `;
 
-export const DetailWrap = styled.div`
+export const DetailWrap = styled.div<DetailWrapProps>`
   display: flex;
-  margin-bottom: ${pxToRem(14)};
-  width: ${pxToRem(396)};
+  align-items: center;
+  margin-bottom: ${props => pxToRem(props.marginBottom || 14)};
 `;
 
 export const DetailText = styled.div`
@@ -214,30 +217,17 @@ export const DetailText = styled.div`
 `;
 
 interface DetailInfoProps {
-  name: string;
+  name?: string;
   svgName?: string;
 }
 
-export const DetailOhter = styled.div`
-  height: ${pxToRem(25)};
-  width: ${pxToRem(221)};
-  color: #434343;
-  font-size: ${pxToRem(13)};
-  display: flex;
-  align-items: center;
-`;
-
 export const DetailInfo = styled.div<DetailInfoProps>`
-  height: ${pxToRem(25)};
-  width: ${pxToRem(221)};
+  height: ${pxToRem(20)};
   color: #434343;
-  font-size: ${pxToRem(13)};
+  font-size: ${pxToRem(15)};
+  ${({ name }) => name === "커뮤니티라운지" && `font-size: ${pxToRem(14)};`}
   display: flex;
   align-items: center;
-  word-wrap: break-word;
-  max-width: ${pxToRem(125)};
-  ${({ name }) => name === "커뮤니티라운지" && `max-width: ${pxToRem(200)};`}
-  ${({ name }) => name === "학생지원팀" && `max-width: ${pxToRem(200)};`}
 `;
 export const MapBox = styled.div`
   width: ${pxToRem(350)};

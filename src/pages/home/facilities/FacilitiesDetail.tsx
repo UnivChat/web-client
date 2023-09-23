@@ -7,7 +7,8 @@ import type { svgType } from "./FacilitiesData";
 interface FacilityData {
   name: string;
   location: string;
-  time: string;
+  time1?: string;
+  time2?: string;
   phone: string;
 }
 
@@ -37,17 +38,24 @@ const FacilitiesDetail = ({ data, svgName }: FacilitiesDetailProps) => {
             <Styled.DetailContainer>
               <Styled.DetailWrap>
                 <Styled.DetailText>위치</Styled.DetailText>
-                <Styled.DetailOhter>{data[0]?.location}</Styled.DetailOhter>
+                <Styled.DetailInfo>{data[0]?.location}</Styled.DetailInfo>
               </Styled.DetailWrap>
               <Styled.DetailWrap>
                 <Styled.DetailText>운영시간</Styled.DetailText>
-                <Styled.DetailInfo name={data[0]?.name}>
-                  {data[0]?.time}
-                </Styled.DetailInfo>
+                <div>
+                  <Styled.DetailInfo name={data[0]?.name}>
+                    {data[0]?.time1}
+                  </Styled.DetailInfo>
+                  {data[0]?.time2 ? (
+                    <Styled.DetailInfo name={data[0]?.name}>
+                      {data[0]?.time2}
+                    </Styled.DetailInfo>
+                  ) : null}
+                </div>
               </Styled.DetailWrap>
-              <Styled.DetailWrap>
+              <Styled.DetailWrap marginBottom={30}>
                 <Styled.DetailText>전화</Styled.DetailText>
-                <Styled.DetailOhter>{data[0]?.phone}</Styled.DetailOhter>
+                <Styled.DetailInfo>{data[0]?.phone}</Styled.DetailInfo>
               </Styled.DetailWrap>
             </Styled.DetailContainer>
           </Styled.BuildingContainer>
