@@ -174,3 +174,19 @@ export const LboxData = [
     svgName: "media"
   }
 ];
+
+export type svgType =
+  | "cafe"
+  | "mart"
+  | "laundry"
+  | "bank"
+  | "burger"
+  | "gym"
+  | "copy"
+  | "media"
+  | "lounge"
+  | "rest"
+  | "delivery"
+  | "certification"
+  | "team"
+  | "restaurant";

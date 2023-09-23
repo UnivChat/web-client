@@ -26,15 +26,21 @@ const Facilities = () => {
   const dispatch = useAppDispatch();
   const { modalState, mapState } = useAppSelector(state => state.facilities);
 
+  const [selectedSvgName, setSelectedSvgName] = useState("");
   const [selectedBuilding, setSelectedBuilding] = useState("");
   const [selectedName, setSelectedName] = useState("");
 
   const { data } = useFacilities(selectedBuilding, selectedName);
 
-  const handleIconClick = ({ building, name }: FacilitiesParam) => {
+  const handleIconClick = ({
+    building,
+    name,
+    svgName
+  }: FacilitiesParam & { svgName: string }) => {
     setSelectedBuilding(building);
     setSelectedName(name);
-    dispatch(setModalState(true)); // 아이콘 클릭시 모달을 띄웁니다.
+    setSelectedSvgName(svgName);
+    dispatch(setModalState(true));
   };
   return (
     <div>
@@ -52,7 +58,10 @@ const Facilities = () => {
         >
           <Styled.MapIcon svgName="mapIcon" />
         </div>
-        {modalState ? <FacilitiesDetail data={data} /> : null}
+        {modalState ? (
+          <FacilitiesDetail data={data} svgName={selectedSvgName} />
+        ) : null}
+
         {mapState ? <FacilitiesMap /> : null}
         {/* 김수환관 */}
         <Styled.Kimbox>
@@ -70,7 +79,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: item.building,
-                        name: item.name
+                        name: item.name,
+                        svgName: item.svgName
                       })
                     }
                   >
@@ -90,7 +100,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: item.building,
-                        name: item.name
+                        name: item.name,
+                        svgName: item.svgName
                       })
                     }
                   >
@@ -112,7 +123,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: item.building,
-                        name: item.name
+                        name: item.name,
+                        svgName: item.svgName
                       })
                     }
                   >
@@ -145,7 +157,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: item.building,
-                        name: item.name
+                        name: item.name,
+                        svgName: item.svgName
                       })
                     }
                   >
@@ -167,7 +180,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: item.building,
-                        name: item.name
+                        name: item.name,
+                        svgName: item.svgName
                       })
                     }
                   >
@@ -200,7 +214,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: item.building,
-                        name: item.name
+                        name: item.name,
+                        svgName: item.svgName
                       })
                     }
                   >
@@ -220,7 +235,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: item.building,
-                        name: item.name
+                        name: item.name,
+                        svgName: item.svgName
                       })
                     }
                   >
@@ -264,7 +280,8 @@ const Facilities = () => {
                       onClick={() =>
                         handleIconClick({
                           building: item.building,
-                          name: item.name
+                          name: item.name,
+                          svgName: item.svgName
                         })
                       }
                     >
@@ -296,7 +313,8 @@ const Facilities = () => {
                       onClick={() =>
                         handleIconClick({
                           building: item.building,
-                          name: item.name
+                          name: item.name,
+                          svgName: item.svgName
                         })
                       }
                     >
@@ -329,7 +347,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: "D",
-                        name: "복사실"
+                        name: "복사실",
+                        svgName: "copy"
                       })
                     }
                   >
@@ -356,7 +375,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: "A",
-                        name: "커뮤니티라운지"
+                        name: "커뮤니티라운지",
+                        svgName: "lounge"
                       })
                     }
                   >
@@ -386,7 +406,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: "BA",
-                        name: "여자휴게실"
+                        name: "여자휴게실",
+                        svgName: "rest"
                       })
                     }
                   >
@@ -413,7 +434,8 @@ const Facilities = () => {
                     onClick={() =>
                       handleIconClick({
                         building: "V",
-                        name: "보건실"
+                        name: "보건실",
+                        svgName: "hospital"
                       })
                     }
                   >

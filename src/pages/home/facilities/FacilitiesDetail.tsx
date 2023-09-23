@@ -12,9 +12,10 @@ interface FacilityData {
 
 interface FacilitiesDetailProps {
   data?: FacilityData[] | null;
+  svgName?: string | undefined;
 }
 
-const FacilitiesDetail = ({ data }: FacilitiesDetailProps) => {
+const FacilitiesDetail = ({ data, svgName }: FacilitiesDetailProps) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -49,6 +50,7 @@ const FacilitiesDetail = ({ data }: FacilitiesDetailProps) => {
               </Styled.DetailWrap>
             </Styled.DetailContainer>
           </Styled.BuildingContainer>
+          <Styled.BgSvg name={data[0]?.name} svgName={svgName as any} />
         </Styled.DetailBox>
       ) : null}
     </Styled.Bg>

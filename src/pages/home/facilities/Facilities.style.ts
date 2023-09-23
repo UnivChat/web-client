@@ -185,6 +185,7 @@ export const DetailBox = styled.div`
   border: ${pxToRem(1)} solid #dfe4e6;
   border-radius: ${pxToRem(15)};
   margin-bottom: ${pxToRem(30)};
+  position: relative;
 `;
 
 export const DetailContainer = styled.div`
@@ -214,13 +215,14 @@ export const DetailText = styled.div`
 
 interface DetailInfoProps {
   name: string;
+  svgName?: string;
 }
 
 export const DetailOhter = styled.div`
   height: ${pxToRem(25)};
   width: ${pxToRem(221)};
   color: #434343;
-  font-size: ${pxToRem(15)};
+  font-size: ${pxToRem(13)};
   display: flex;
   align-items: center;
 `;
@@ -261,4 +263,20 @@ export const MapClosed = styled.button`
   font-family: "NanumSquare", sans-serif;
   font-weight: 500;
   z-index: 25;
+`;
+
+export const BgSvg = styled(Svg)<DetailInfoProps>`
+  width: ${pxToRem(110)};
+  height: ${pxToRem(110)};
+  opacity: 0.05;
+  position: absolute;
+  right: ${pxToRem(15)};
+  bottom: ${pxToRem(16)};
+  ${({ svgName }) => svgName === "cafe" && `bottom: ${pxToRem(24)};`}
+  ${({ svgName }) => svgName === "laundry" && `bottom: ${pxToRem(30)};`}
+  ${({ svgName }) => svgName === "gym" && `bottom: ${pxToRem(-12)};`}
+  ${({ svgName }) => svgName === "lounge" && `bottom: ${pxToRem(8)};`}
+  ${({ svgName }) => svgName === "rest" && `bottom: ${pxToRem(-1)};`}
+  ${({ svgName }) => svgName === "bank" && `bottom: ${pxToRem(22)};`}
+  ${({ svgName }) => svgName === "certification" && `bottom: ${pxToRem(35)};`}
 `;
