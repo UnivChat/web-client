@@ -2,6 +2,7 @@ import React from "react";
 import { useAppDispatch } from "@client-state/hooks";
 import { setModalState } from "@client-state/Home/Facilities/facilitiesSlice";
 import * as Styled from "./Facilities.style";
+import type { svgType } from "./FacilitiesData";
 
 interface FacilityData {
   name: string;
@@ -50,7 +51,7 @@ const FacilitiesDetail = ({ data, svgName }: FacilitiesDetailProps) => {
               </Styled.DetailWrap>
             </Styled.DetailContainer>
           </Styled.BuildingContainer>
-          <Styled.BgSvg name={data[0]?.name} svgName={svgName as any} />
+          <Styled.BgSvg name={data[0]?.name} svgName={svgName as svgType} />
         </Styled.DetailBox>
       ) : null}
     </Styled.Bg>

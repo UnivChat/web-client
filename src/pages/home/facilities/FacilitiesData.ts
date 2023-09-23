@@ -1,4 +1,10 @@
-export const kimFirstboxData = [
+type FacilityItem = {
+  building: string;
+  name: string;
+  svgName: svgType; // svgType을 사용
+};
+
+export const kimFirstboxData: FacilityItem[] = [
   {
     building: "K",
     name: "카페멘사",
@@ -21,7 +27,7 @@ export const kimFirstboxData = [
   }
 ];
 
-export const kimSecondboxData = [
+export const kimSecondboxData: FacilityItem[] = [
   {
     building: "K",
     name: "세탁소",
@@ -44,7 +50,7 @@ export const kimSecondboxData = [
   }
 ];
 
-export const kimThirdboxData = [
+export const kimThirdboxData: FacilityItem[] = [
   {
     building: "K",
     name: "복사실",
@@ -67,7 +73,7 @@ export const kimThirdboxData = [
   }
 ];
 
-export const NiFirstboxData = [
+export const NiFirstboxData: FacilityItem[] = [
   {
     building: "N",
     name: "카페하랑",
@@ -90,7 +96,7 @@ export const NiFirstboxData = [
   }
 ];
 
-export const NiSecondboxData = [
+export const NiSecondboxData: FacilityItem[] = [
   {
     building: "N",
     name: "증명무인발급",
@@ -113,7 +119,7 @@ export const NiSecondboxData = [
   }
 ];
 
-export const BFiristboxData = [
+export const BFiristboxData: FacilityItem[] = [
   {
     building: "B",
     name: "부온프란조",
@@ -136,7 +142,7 @@ export const BFiristboxData = [
   }
 ];
 
-export const BSecondboxData = [
+export const BSecondboxData: FacilityItem[] = [
   {
     building: "B",
     name: "스타트업라운지",
@@ -149,7 +155,7 @@ export const BSecondboxData = [
   }
 ];
 
-export const TboxData = [
+export const TboxData: FacilityItem[] = [
   {
     building: "T",
     name: "우리은행ATM",
@@ -162,7 +168,7 @@ export const TboxData = [
   }
 ];
 
-export const LboxData = [
+export const LboxData: FacilityItem[] = [
   {
     building: "L",
     name: "카페드림",
@@ -189,4 +195,5 @@ export type svgType =
   | "delivery"
   | "certification"
   | "team"
-  | "restaurant";
+  | "restaurant"
+  | "hospital";

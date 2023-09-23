@@ -21,6 +21,7 @@ import {
   kimSecondboxData,
   kimThirdboxData
 } from "./FacilitiesData";
+import type { svgType } from "./FacilitiesData";
 
 const Facilities = () => {
   const dispatch = useAppDispatch();
@@ -36,7 +37,7 @@ const Facilities = () => {
     building,
     name,
     svgName
-  }: FacilitiesParam & { svgName: string }) => {
+  }: FacilitiesParam & { svgName: svgType }) => {
     setSelectedBuilding(building);
     setSelectedName(name);
     setSelectedSvgName(svgName);
