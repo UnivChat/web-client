@@ -17,10 +17,6 @@ export const configItems: ConfigItem[] = [
     href: "/config/notification"
   },
   {
-    label: "캣챗 공지",
-    href: "/config/announcement"
-  },
-  {
     label: "문의하기",
     href: "/config/inquiry"
   },

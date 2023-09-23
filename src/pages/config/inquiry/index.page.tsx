@@ -37,7 +37,7 @@ const Inquiry: NextPageWithLayout = () => {
 
   return (
     <Styled.Container onSubmit={handleSubmit(onSubmit)}>
-      <Header.Back bgColor={colors.white} title="문의하기" />
+      <Header.Back bgColor={colors.white} title="설정" />
       {isInquiryModal ? <InquiryModal /> : null}
       <Styled.Title>문의 내용 작성</Styled.Title>
       <Styled.SubContainer>
