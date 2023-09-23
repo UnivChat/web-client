@@ -62,7 +62,7 @@ const DeleteAcc: NextPageWithLayout = () => {
 
   return (
     <Container>
-      <Header.Back title="회원탈퇴" bgColor="white" />
+      <Header.Back title="설정" bgColor="white" />
       <CommonStyled.ConfigBody>
         <BodyForm paddingTop={70} paddingBottom={8}>
           <CustomText>계정 비밀번호</CustomText>
