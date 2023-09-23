@@ -45,7 +45,7 @@ const Facilities = () => {
   };
   return (
     <div>
-      <Header.Back title="편의시설" />
+      <Header.Back title="홈" />
       <Styled.Container>
         <div
           onClick={() => dispatch(setMapState(true))}
