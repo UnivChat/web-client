@@ -31,7 +31,7 @@ const SignIn: NextPageWithLayout = () => {
 
   return (
     <Styled.Container>
-      <Styled.AppName>CAT CHAT</Styled.AppName>
+      <Styled.Logo svgName="logo" />
 
       <Styled.LoginForm onSubmit={handleSubmit}>
         <Styled.InputWrapper>
@@ -57,7 +57,7 @@ const SignIn: NextPageWithLayout = () => {
           />
         </Styled.InputWrapper>
 
-        <Styled.LoginButton>입장하기</Styled.LoginButton>
+        <Styled.LoginButton>로그인</Styled.LoginButton>
       </Styled.LoginForm>
 
       <Styled.SubArea>
