@@ -19,9 +19,13 @@ export const Header = ({ title, subTitle, element, bgColor }: HeaderProps) => {
 };
 
 // eslint-disable-next-line react/display-name
-Header.Back = (props: Omit<HeaderProps, "element">) => (
+Header.Back = ({
+  bgColor,
+  ...props
+}: Omit<HeaderProps, "element"> & { bgColor?: string }) => (
   <Header
     {...props}
+    bgColor={bgColor}
     element={{
       left: <headerIcons.Back />
     }}
