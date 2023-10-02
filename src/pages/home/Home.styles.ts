@@ -5,7 +5,7 @@ import { pxToRem } from "~/utils";
 
 export const Container = styled.div`
   min-height: 100vh;
-
+  padding-bottom: ${pxToRem(90)};
   background-color: #f8f9fb;
 `;
 

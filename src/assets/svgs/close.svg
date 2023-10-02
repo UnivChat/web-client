@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #707070;
+      }
+    </style>
+  </defs>
+  <g id="_그룹_531" data-name="그룹 531">
+    <g id="_선_141" data-name="선 141">
+      <rect class="cls-1" x="-1.35" y="3.98" width="11.69" height="1.03" transform="translate(-1.86 4.5) rotate(-45)"/>
+    </g>
+    <g id="_선_142" data-name="선 142">
+      <rect class="cls-1" x="3.98" y="-1.35" width="1.03" height="11.69" transform="translate(-1.86 4.5) rotate(-45)"/>
+    </g>
+  </g>
+</svg>
