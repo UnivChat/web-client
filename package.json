@@ -14,22 +14,24 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@tanstack/react-query": "^4.18.0",
+    "@types/date-fns": "^2.6.0",
+    "@types/react-big-calendar": "^1.6.3",
     "axios": "^1.3.4",
     "cheerio": "^1.0.0-rc.12",
     "cookies-next": "^2.1.1",
+    "date-fns": "^2.29.3",
     "emotion-reset": "^3.0.1",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "moment": "^2.29.4",
+    "react": "latest",
+    "react-dom": "latest",
+    "next": "latest",
+    "react-big-calendar": "^1.6.9",
     "react-hook-form": "^7.45.2",
     "react-infinite-scroller": "^1.2.6",
     "react-redux": "^8.0.5",
     "sharp": "^0.31.2",
-    "react-big-calendar": "^1.6.9",
-    "date-fns": "^2.29.3",
-    "moment": "^2.29.4",
-    "@types/react-big-calendar": "^1.6.3",
-    "@types/date-fns": "^2.6.0"
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -46,8 +48,6 @@
     "@svgr/webpack": "^6.5.1",
     "@tanstack/react-query-devtools": "^4.18.0",
     "@types/node": "18.15.0",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
     "@types/react-infinite-scroller": "^1.2.3",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
@@ -69,6 +69,6 @@
     "root-up": "^2.0.7",
     "storybook-addon-next": "^1.8.0",
     "storybook-addon-next-router": "^4.0.2",
-    "typescript": "4.9.5"
+    "typescript": "5.2.2"
   }
 }

@@ -5,5 +5,4 @@ export interface HeaderProps {
   subTitle?: string;
   bgColor?: string;
   element?: { left?: ReactNode; right?: ReactNode };
-  bgColor?: string;
 }

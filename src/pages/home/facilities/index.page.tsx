@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import { Header } from "~/components/Common/UI/Header/Header";
-import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import {
   setMapState,
   setModalState
 } from "@client-state/Home/Facilities/facilitiesSlice";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import type { FacilitiesParam } from "@server-state/home/api";
 import { useFacilities } from "@server-state/home/facilities/facilities.queires";
+import { useState } from "react";
+import { Header } from "~/components/Common/UI/Header/Header";
 import * as Styled from "./Facilities.style";
-import FacilitiesDetail from "./FacilitiesDetail";
-import FacilitiesMap from "./FacilitiesMap";
+import type { svgType } from "./FacilitiesData";
 import {
   BFiristboxData,
   BSecondboxData,
@@ -21,7 +20,8 @@ import {
   kimSecondboxData,
   kimThirdboxData
 } from "./FacilitiesData";
-import type { svgType } from "./FacilitiesData";
+import FacilitiesDetail from "./FacilitiesDetail";
+import FacilitiesMap from "./FacilitiesMap";
 
 const Facilities = () => {
   const dispatch = useAppDispatch();
