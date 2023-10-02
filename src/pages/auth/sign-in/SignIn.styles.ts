@@ -24,9 +24,10 @@ export const AppName = styled.span`
 
 export const LoginForm = styled.form`
   display: flex;
+  width: 100%;
   flex-direction: column;
+  align-items: center;
   gap: ${pxToRem(20)};
-  width: ${pxToRem(210)};
   margin-top: ${pxToRem(38)};
 `;
 
@@ -35,6 +36,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   position: relative;
   border-radius: ${pxToRem(62)};
+  width: ${pxToRem(210)};
 `;
 
 export const IdPwIcon = styled(Svg)`
@@ -69,7 +71,7 @@ export const Input = styled.input`
 `;
 
 export const LoginButton = styled.button`
-  width: 100%;
+  width: ${pxToRem(210)};
   height: ${pxToRem(35)};
   margin-top: ${pxToRem(20)};
   box-shadow: inset 0px -7px 13px #00000029, 0px 6px 10px #00000029;
@@ -98,4 +100,9 @@ export const SubText = styled(Link)`
     left: -${pxToRem(21 / 2)};
     transform: translate(-100%, -50%);
   }
+`;
+
+export const ErrorMessage = styled.div`
+  color: white;
+  font-size: ${pxToRem(14)};
 `;

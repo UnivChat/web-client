@@ -1,6 +1,6 @@
+import { createAxiosInstance } from "@server-state/axios";
 import axios from "axios";
 import cheerio from "cheerio";
-import { createAxiosInstance } from "@server-state/axios";
 import type { Post } from "./notice/hooks/notice.queries";
 
 const api = createAxiosInstance();
@@ -61,6 +61,21 @@ export type FacilitiesType = {
 // 연락망 api
 export const fetchContact = async (): Promise<Contact[]> => {
   const res = await api.get<API.DefaultResponse<Contact[]>>("/school/phone");
+  return res.data.result;
+};
+
+export type CalendarType = {
+  month: string;
+  date: string;
+  event: string;
+};
+
+// 학사일정 api
+export const fetchCalendar = async (): Promise<CalendarType[]> => {
+  const res = await api.get<API.DefaultResponse<CalendarType[]>>(
+    "/school/schedule"
+  );
+
   return res.data.result;
 };
 

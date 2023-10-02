@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./Home.styles";
 import type { SelectionProps } from "./Home.types";
+import Calendars from "./calendar/Calendars";
 
 const Selection = (ContainerProps: SelectionProps) => {
   const content = (
@@ -39,7 +40,9 @@ export const Home = () => {
       </Styled.SelectContainer>
       <Styled.HomeWrapper>
         <Styled.HomeTitle>학사일정</Styled.HomeTitle>
-        <Styled.CalendarBox>달력</Styled.CalendarBox>
+        <Styled.CalendarBox>
+          <Calendars />
+        </Styled.CalendarBox>
       </Styled.HomeWrapper>
       <Styled.HomeWrapper>
         <Styled.HomeTitle>공지사항</Styled.HomeTitle>
