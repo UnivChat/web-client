@@ -280,7 +280,7 @@ const bottomSizeMap = (svgName: SvgProps["svgName"]) => {
       return 35;
 
     default:
-      return 0;
+      return 16;
   }
 };
 
@@ -290,6 +290,5 @@ export const BgSvg = styled(Svg)<DetailInfoProps>`
   opacity: 0.05;
   position: absolute;
   right: ${pxToRem(15)};
-  bottom: ${pxToRem(16)};
   ${({ svgName }) => `bottom: ${bottomSizeMap(svgName)}`}
 `;
