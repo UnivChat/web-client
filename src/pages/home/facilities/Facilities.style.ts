@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Svg } from "~/components/Common";
+import type { SvgProps } from "~/components/Common/UI/Svg/Svg.types";
 import { pxToRem } from "~/utils";
 
 interface DetailWrapProps {
@@ -255,6 +256,34 @@ export const MapClosed = styled.button`
   z-index: 25;
 `;
 
+const bottomSizeMap = (svgName: SvgProps["svgName"]) => {
+  switch (svgName) {
+    case "cafe":
+      return 24;
+
+    case "laundry":
+      return 30;
+
+    case "gym":
+      return -12;
+
+    case "lounge":
+      return 8;
+
+    case "rest":
+      return -1;
+
+    case "bank":
+      return 22;
+
+    case "certification":
+      return 35;
+
+    default:
+      return 0;
+  }
+};
+
 export const BgSvg = styled(Svg)<DetailInfoProps>`
   width: ${pxToRem(110)};
   height: ${pxToRem(110)};
@@ -262,11 +291,5 @@ export const BgSvg = styled(Svg)<DetailInfoProps>`
   position: absolute;
   right: ${pxToRem(15)};
   bottom: ${pxToRem(16)};
-  ${({ svgName }) => svgName === "cafe" && `bottom: ${pxToRem(24)};`}
-  ${({ svgName }) => svgName === "laundry" && `bottom: ${pxToRem(30)};`}
-  ${({ svgName }) => svgName === "gym" && `bottom: ${pxToRem(-12)};`}
-  ${({ svgName }) => svgName === "lounge" && `bottom: ${pxToRem(8)};`}
-  ${({ svgName }) => svgName === "rest" && `bottom: ${pxToRem(-1)};`}
-  ${({ svgName }) => svgName === "bank" && `bottom: ${pxToRem(22)};`}
-  ${({ svgName }) => svgName === "certification" && `bottom: ${pxToRem(35)};`}
+  ${({ svgName }) => `bottom: ${bottomSizeMap(svgName)}`}
 `;
