@@ -1,16 +1,16 @@
-import { useCallback, useState } from "react";
-import type { ChangeEventHandler } from "react";
-import { regex } from "~/constants/regex";
-import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import * as signUpSlice from "@client-state/Auth/signUp/signUpSlice";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import { useIdCheckMutation, useSubmitMutation } from "@server-state/auth";
+import { useCheckNicknameDuplicate } from "@server-state/config/hooks/checkNickname.mutaion";
+import type { ChangeEventHandler } from "react";
+import { useCallback, useState } from "react";
+import { regex } from "~/constants/regex";
 import type {
   UseIdCheckReturnValue,
   UseNicknameCheckReturnValue,
   UseSiginFormReturnValue,
   UseSubmitReturnValue
 } from "./signUp.type";
-import { useCheckNicknameDuplicate } from "@server-state/config/hooks/checkNickname.mutaion";
 
 // 회원가입 폼
 export const useSiginForm = (): UseSiginFormReturnValue => {
@@ -128,15 +128,17 @@ export const useSubmit = (
       mutation.mutate({ idValue, genderValue, nicknameValue, passwordValue });
     },
     [
+      idCheck.isDuplicate,
+      idCheck.isChecked,
+      nicknameCheck.nickNameisDuplicate,
+      nicknameCheck.isChecked,
       genderValue,
+      dispatch,
       passwordValue,
       confirmPasswordValue,
-      mutation,
-      idCheck.isDuplicate,
-      nicknameCheck.nickNameisDuplicate,
-      idValue,
       nicknameValue,
-      dispatch
+      mutation,
+      idValue
     ]
   );
 
