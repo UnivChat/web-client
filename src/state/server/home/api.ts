@@ -1,6 +1,6 @@
+import { createAxiosInstance } from "@server-state/axios";
 import axios from "axios";
 import cheerio from "cheerio";
-import { createAxiosInstance } from "@server-state/axios";
 import type { Post } from "./notice/hooks/notice.queries";
 
 const api = createAxiosInstance();
@@ -45,6 +45,19 @@ type Contact = {
   location: string;
 };
 
+export type FacilitiesParam = {
+  building: string;
+  name: string;
+};
+
+export type FacilitiesType = {
+  building: string;
+  name: string;
+  location: string;
+  time: string;
+  phone: string;
+};
+
 // 연락망 api
 export const fetchContact = async (): Promise<Contact[]> => {
   const res = await api.get<API.DefaultResponse<Contact[]>>("/school/phone");
@@ -61,6 +74,18 @@ export type CalendarType = {
 export const fetchCalendar = async (): Promise<CalendarType[]> => {
   const res = await api.get<API.DefaultResponse<CalendarType[]>>(
     "/school/schedule"
+  );
+
+  return res.data.result;
+};
+
+// 편의시설 디테일 api
+export const featchFacilitiesDetail = async ({
+  building,
+  name
+}: FacilitiesParam): Promise<FacilitiesType[]> => {
+  const res = await api.get<API.DefaultResponse<FacilitiesType[]>>(
+    `/school/facility/${building}/${name}`
   );
   return res.data.result;
 };

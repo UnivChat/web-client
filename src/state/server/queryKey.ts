@@ -1,4 +1,5 @@
 export const enum queryKey {
   auth = "AUTH",
-  home = "HOME"
+  home = "HOME",
+  classSearch = "ClassSearch"
 }

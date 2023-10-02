@@ -7,3 +7,7 @@ export const ContactKey = {
 export const CalendarKey = {
   getCalendar: [queryKey.home, "getCalendar"] as const
 } as const;
+
+export const FacilitiesKey = {
+  getFacilities: [queryKey.home, "getFacilities"] as const
+} as const;

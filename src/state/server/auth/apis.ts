@@ -14,11 +14,11 @@ export const signIn = async (payload: SignInRequestDTO) => {
 export const getUserInfo = async () => {
   const authApi = createAxiosInstance({ needAuth: true });
 
-  const data = await authApi.get("/member/info");
+  const response = await authApi.get("/member/info");
 
   // console.log(data);
 
-  return { data };
+  return response.data;
 };
 
 export const signOut = async () => {
