@@ -17,7 +17,7 @@ export const Divider = styled.div`
 export const Container = styled.div`
   min-height: 100vh;
   ${flex({ flexDirection: "column" })}
-  padding: 0 ${pxToRem(22)} 0 ${pxToRem(22)};
+  padding: 0 ${pxToRem(22)} ${pxToRem(60)} ${pxToRem(22)};
   background-color: #f8f9fb;
   .add-class {
     margin-top: ${pxToRem(32)};
