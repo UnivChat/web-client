@@ -33,7 +33,7 @@ const SignIn: NextPageWithLayout = () => {
 
   return (
     <Styled.Container>
-      <Styled.AppName>CAT CHAT</Styled.AppName>
+      <Styled.Logo svgName="logo" />
 
       <Styled.LoginForm onSubmit={handleSubmit}>
         <Styled.InputWrapper>

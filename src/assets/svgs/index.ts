@@ -30,6 +30,7 @@ export { default as L } from "./L.svg";
 export { default as laundry } from "./laundry.svg";
 export { default as library } from "./library.svg";
 export { default as liveChat } from "./live-chat.svg";
+export { default as logo } from "./logo.svg";
 export { default as lounge } from "./lounge.svg";
 export { default as loveChat } from "./love-chat.svg";
 export { default as mapIcon } from "./mapIcon.svg";

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { pxToRem } from "~/utils";
 
 export const Container = styled.nav`
   position: fixed;
@@ -10,7 +11,7 @@ export const Container = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: ${pxToRem(75)};
 
   box-shadow: 0px -17px 18px #00000014;
 

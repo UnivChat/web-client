@@ -8,12 +8,17 @@ import { pxToRem } from "~/utils";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
   padding-bottom: ${pxToRem(163)};
   min-height: 100vh;
-  background-color: ${colors.background};
+  background-color: #f8f9fb;
   color: ${colors.white};
+`;
+
+export const Logo = styled(Svg)`
+  margin: ${pxToRem(203)} ${pxToRem(18)} ${pxToRem(55)} 0;
+  width: ${pxToRem(136)};
+  height: ${pxToRem(136)};
 `;
 
 export const AppName = styled.span`
@@ -28,6 +33,7 @@ export const LoginForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: ${pxToRem(20)};
+  width: ${pxToRem(240)};
   margin-top: ${pxToRem(38)};
 `;
 
@@ -40,26 +46,23 @@ export const InputWrapper = styled.div`
 `;
 
 export const IdPwIcon = styled(Svg)`
+  width: ${pxToRem(16)};
+  height: ${pxToRem(16)};
   fill: ${colors.background};
   position: absolute;
   left: ${pxToRem(14.2)};
 `;
 
-IdPwIcon.defaultProps = {
-  _width: 12,
-  _height: 13
-};
-
 export const Input = styled.input`
   width: 100%;
-  height: ${pxToRem(35)};
-  padding-left: ${pxToRem(14.2 * 2 + 6)};
+  height: ${pxToRem(42)};
+  font-size: ${pxToRem(14)};
+  padding-left: ${pxToRem(14.2 * 2 + 8)};
   background-color: ${colors.white};
 
   color: ${colors.background};
-  border: 1px solid transparent;
-  box-shadow: inset 0px -7px 13px #00000029, 0px 3px 10px #00000029;
-  border-radius: ${pxToRem(62)};
+  border: 1px solid #e6e6e6;
+  border-radius: ${pxToRem(15)};
 
   ::placeholder {
     color: ${colors.background};
@@ -71,12 +74,12 @@ export const Input = styled.input`
 `;
 
 export const LoginButton = styled.button`
-  width: ${pxToRem(210)};
-  height: ${pxToRem(35)};
+  width: 100%;
+  height: ${pxToRem(45)};
   margin-top: ${pxToRem(20)};
   box-shadow: inset 0px -7px 13px #00000029, 0px 6px 10px #00000029;
-  background-color: ${colors.blue13};
-  border-radius: ${pxToRem(62)};
+  background-color: #003091;
+  border-radius: ${pxToRem(15)};
   font-weight: 600;
   font-size: ${pxToRem(16)};
 `;
@@ -88,11 +91,12 @@ export const SubArea = styled.div`
   width: ${pxToRem(210)};
   font-weight: 300;
   margin-top: ${pxToRem(26)};
+  color: ${colors.background};
 `;
 
 export const SubText = styled(Link)`
   position: relative;
-  font-size: 1.5vh;
+  font-size: ${pxToRem(13)};
   & + &::before {
     content: "|";
     position: absolute;

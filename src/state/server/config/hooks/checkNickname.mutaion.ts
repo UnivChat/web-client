@@ -1,8 +1,7 @@
-import { useMutation } from "@tanstack/react-query";
-import { checkNicknameDuplicate } from "../api";
-import { useAppDispatch } from "@client-state/hooks";
-import * as api from "../api";
 import * as signupSlice from "@client-state/Auth/signUp/signUpSlice";
+import { useAppDispatch } from "@client-state/hooks";
+import { useMutation } from "@tanstack/react-query";
+import * as api from "../api";
 
 export const useCheckNicknameDuplicate = () => {
   const dispatch = useAppDispatch();

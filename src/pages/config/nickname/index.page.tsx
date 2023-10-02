@@ -1,3 +1,10 @@
+import {
+  checkNicknameDuplicate,
+  patchUserInfo
+} from "@server-state/config/api";
+import { useMutation } from "@tanstack/react-query";
+import { useState } from "react";
+import * as Auth from "~/components/Auth/Auth";
 import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
   AcceptMessage,
@@ -5,13 +12,9 @@ import {
   CheckAuthButton,
   Container
 } from "~/components/Auth/Auth.styles";
-import { useState } from "react";
-import type { NextPageWithLayout } from "~/pages/app.types";
 import { Header } from "~/components/Common/UI/Header/Header";
-import * as Auth from "~/components/Auth/Auth";
+import type { NextPageWithLayout } from "~/pages/app.types";
 import * as CommonStyled from "../config.styles";
-import { useMutation } from "@tanstack/react-query";
-import { checkNicknameDuplicate, patchUserInfo } from "@server-state/config/api";
 
 const NickName: NextPageWithLayout = () => {
   const [nickName, setNickName] = useState("");
@@ -31,7 +34,7 @@ const NickName: NextPageWithLayout = () => {
       await checkMutation.mutateAsync(nickName);
     } catch (error) {
       setMessage(false);
-      return; 
+      return;
     }
 
     // 닉네임 변경
@@ -58,7 +61,9 @@ const NickName: NextPageWithLayout = () => {
     displayedMessage = <AcceptMessage>닉네임이 변경 되었습니다.</AcceptMessage>;
   } else if (Message === false) {
     displayedMessage = (
-      <Auth.WarningMessage>중복된 닉네임입니다. 다른 닉네임을 사용해주세요.</Auth.WarningMessage>
+      <Auth.WarningMessage>
+        중복된 닉네임입니다. 다른 닉네임을 사용해주세요.
+      </Auth.WarningMessage>
     );
   } else {
     displayedMessage = null;
