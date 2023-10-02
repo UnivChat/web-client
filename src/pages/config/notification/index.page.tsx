@@ -20,7 +20,7 @@ const Notification: NextPageWithLayout = () => {
 
   return (
     <Styled.Container>
-      <Header.Back title="알림 설정" bgColor="white" />
+      <Header.Back title="설정" bgColor="white" />
       {settings.map((setting, index) => (
         <Styled.Wrapper key={setting.label} marginTop={index === 0 ? 58 : 51}>
           <Styled.Text>{setting.label}</Styled.Text>

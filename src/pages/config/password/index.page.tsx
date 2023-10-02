@@ -79,7 +79,7 @@ const Password: NextPageWithLayout = () => {
 
   return (
     <Container>
-      <Header.Back title="비밀번호 변경" bgColor="white" />
+      <Header.Back title="설정" bgColor="white" />
       <CommonStyled.ConfigBody>
         <BodyForm paddingTop={38} paddingBottom={8}>
           <BodyTopText>비밀번호를 변경해주세요</BodyTopText>
