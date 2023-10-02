@@ -54,7 +54,7 @@ const NickName: NextPageWithLayout = () => {
 
   return (
     <Container>
-      <Header.Back title="닉네임 변경" bgColor="white" />
+      <Header.Back title="설정" bgColor="white" />
       <CommonStyled.ConfigBody>
         <BodyForm paddingTop={70} paddingBottom={8}>
           <CustomText>닉네임 변경하기</CustomText>

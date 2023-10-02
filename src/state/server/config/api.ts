@@ -33,3 +33,14 @@ export const deleteAccApi = () => {
   const authApi = createAxiosInstance({ needAuth: true });
   return authApi.delete("/member");
 };
+
+export type InquiryProps = {
+	content: string,
+	receiverEmail: string
+}
+
+export const postInquiry = async (inquiryData: InquiryProps) => {
+	const api = createAxiosInstance({ needAuth: true });
+	const res = await api.post('/inquiry/register', inquiryData)
+	return res.data
+  };
