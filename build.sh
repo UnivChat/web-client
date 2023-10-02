@@ -1,5 +1,5 @@
 #!/bin/sh
 cd ../
 mkdir output
-cp -R ./cat-chat/* ./output
-cp -R ./output ./cat-chat/
+cp -R ./web-client/* ./output
+cp -R ./output ./web-client/
