@@ -47,11 +47,14 @@ export interface UseIdCheckReturnValue {
   message: string;
   isDuplicate: boolean;
   messageType: string;
+  isChecked: boolean;
 }
 
 // useNicknameCheck 타입 정의
 export interface UseNicknameCheckReturnValue {
-  handleNicknameCheck: () => void;
-  message: string;
-  isDuplicate: boolean;
+  handleNicknameCheck: MouseEventHandler<HTMLButtonElement>;
+  nickNameMessage: string;
+  nickNameisDuplicate: boolean;
+  nickNameMessageType: string;
+  isChecked: boolean;
 }
