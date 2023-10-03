@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { Svg } from "~/components/Common";
-import type { SvgProps } from "~/components/Common/UI/Svg/Svg.types";
 import { pxToRem } from "~/utils";
 
 interface DetailWrapProps {
@@ -10,6 +9,9 @@ interface DetailWrapProps {
 export const Container = styled.div`
   min-height: 100vh;
   background-color: #f8f9fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: ${pxToRem(25)} ${pxToRem(31)} ${pxToRem(55)};
 `;
 
@@ -232,7 +234,7 @@ export const DetailInfo = styled.div<DetailInfoProps>`
 `;
 export const MapBox = styled.div`
   width: ${pxToRem(350)};
-  height: ${pxToRem(450)};
+  height: ${pxToRem(435)};
   background: #fff;
   z-index: 10;
   border: ${pxToRem(1)} solid #dfe4e6;
@@ -246,8 +248,8 @@ export const MapBox = styled.div`
 
 export const MapClosed = styled.button`
   position: absolute;
-  top: ${pxToRem(12)};
-  right: ${pxToRem(12)};
+  top: ${pxToRem(14)};
+  right: ${pxToRem(15)};
   width: ${pxToRem(30)};
   height: ${pxToRem(30)};
   font-size: ${pxToRem(19)};
@@ -256,33 +258,12 @@ export const MapClosed = styled.button`
   z-index: 25;
 `;
 
-const bottomSizeMap = (svgName: SvgProps["svgName"]) => {
-  switch (svgName) {
-    case "cafe":
-      return 24;
-
-    case "laundry":
-      return 30;
-
-    case "gym":
-      return -12;
-
-    case "lounge":
-      return 8;
-
-    case "rest":
-      return -1;
-
-    case "bank":
-      return 22;
-
-    case "certification":
-      return 35;
-
-    default:
-      return 16;
-  }
-};
+export const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: ${pxToRem(335)};
+`;
 
 export const BgSvg = styled(Svg)<DetailInfoProps>`
   width: ${pxToRem(110)};
@@ -290,5 +271,18 @@ export const BgSvg = styled(Svg)<DetailInfoProps>`
   opacity: 0.05;
   position: absolute;
   right: ${pxToRem(15)};
-  ${({ svgName }) => `bottom: ${bottomSizeMap(svgName)}`}
+  bottom: ${pxToRem(16)};
+  ${({ svgName }) => svgName === "cafe" && `bottom: ${pxToRem(24)};`}
+  ${({ svgName }) => svgName === "laundry" && `bottom: ${pxToRem(30)};`}
+  ${({ svgName }) => svgName === "gym" && `bottom: ${pxToRem(-12)};`}
+  ${({ svgName }) => svgName === "lounge" && `bottom: ${pxToRem(8)};`}
+  ${({ svgName }) => svgName === "rest" && `bottom: ${pxToRem(-1)};`}
+  ${({ svgName }) => svgName === "bank" && `bottom: ${pxToRem(22)};`}
+  ${({ svgName }) => svgName === "certification" && `bottom: ${pxToRem(35)};`}
+`;
+
+export const RowContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: ${pxToRem(322)};
 `;

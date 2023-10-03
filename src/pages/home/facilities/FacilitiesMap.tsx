@@ -8,13 +8,15 @@ const FacilitiesMap = () => {
   const dispatch = useAppDispatch();
   return (
     <Styled.Bg>
-      <Styled.MapBox>
-        <Styled.MapClosed onClick={() => dispatch(setMapState(false))}>
-          X
-        </Styled.MapClosed>
-        <Image src="/image/map.png" alt="map" width={346} height={448} />
-      </Styled.MapBox>
-    </Styled.Bg>
+    <Styled.MapBox>
+      <Styled.MapClosed onClick={() => dispatch(setMapState(false))}>
+        X
+      </Styled.MapClosed>
+      <Styled.ImageWrapper>
+        <Image src="/image/map.png" alt="map" layout="fill" objectFit="contain" />
+      </Styled.ImageWrapper>
+    </Styled.MapBox>
+  </Styled.Bg>
   );
 };
 

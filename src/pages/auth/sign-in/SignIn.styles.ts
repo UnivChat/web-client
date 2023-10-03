@@ -42,7 +42,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   position: relative;
   border-radius: ${pxToRem(62)};
-  width: ${pxToRem(210)};
+  width: 100%;
 `;
 
 export const IdPwIcon = styled(Svg)`

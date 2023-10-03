@@ -44,7 +44,7 @@ const Facilities = () => {
     dispatch(setModalState(true));
   };
   return (
-    <div>
+    <div style={{ backgroundColor: "#f8f9fb" }}>
       <Header.Back title="홈" />
       <Styled.Container>
         <div
@@ -265,7 +265,7 @@ const Facilities = () => {
         </Styled.Nbox>
 
         {/* 미카엘관 */}
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Styled.RowContainer>
           <Styled.Mbox>
             <Styled.BuildingContainer>
               <Styled.BuildingBox>
@@ -331,9 +331,9 @@ const Facilities = () => {
               </div>
             </Styled.BuildingContainer>
           </Styled.Mbox>
-        </div>
+        </Styled.RowContainer>
 
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Styled.RowContainer>
           {/* 다솔관 */}
           <Styled.Mbox>
             <Styled.BuildingContainer>
@@ -390,9 +390,9 @@ const Facilities = () => {
               </div>
             </Styled.BuildingContainer>
           </Styled.Mbox>
-        </div>
+        </Styled.RowContainer>
 
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Styled.RowContainer>
           {/* 밤비노관 */}
           <Styled.Mbox>
             <Styled.BuildingContainer>
@@ -449,7 +449,7 @@ const Facilities = () => {
               </div>
             </Styled.BuildingContainer>
           </Styled.Mbox>
-        </div>
+        </Styled.RowContainer>
       </Styled.Container>
     </div>
   );
