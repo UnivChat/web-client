@@ -15,8 +15,12 @@ export const Container = styled.div`
   color: ${colors.white};
 `;
 
+export const LogoBox = styled.div`
+  width: 100%;
+`;
+
 export const Logo = styled(Svg)`
-  margin: ${pxToRem(203)} ${pxToRem(18)} ${pxToRem(55)} 0;
+  margin: ${pxToRem(203)} auto ${pxToRem(55)} auto;
   width: ${pxToRem(136)};
   height: ${pxToRem(136)};
 `;
