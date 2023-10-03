@@ -111,6 +111,6 @@ export const SubText = styled(Link)`
 `;
 
 export const ErrorMessage = styled.div`
-  color: white;
-  font-size: ${pxToRem(14)};
+  color: ${colors.warning};
+  font-size: ${pxToRem(13)};
 `;
