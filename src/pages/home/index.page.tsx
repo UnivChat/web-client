@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./Home.styles";
 import type { SelectionProps } from "./Home.types";
+import Calendars from "./calendar/Calendars";
 
 const Selection = (ContainerProps: SelectionProps) => {
   const content = (
@@ -21,19 +22,27 @@ export const Home = () => {
     <Styled.Container>
       <Styled.Title>CAT CHAT</Styled.Title>
       <Styled.SelectContainer>
-        <Selection name="오늘의 식단" svgName="food" />
+        <Link href="https://www.catholic.ac.kr/www/campuslife41_1.html">
+          <Selection name="오늘의 식단" svgName="food" />
+        </Link>
         <Styled.SelectLine />
-        <Selection name="도서관 자리" svgName="library" />
+        <Link href="http://203.229.203.240/8080/Domian5_jythh.asp">
+          <Selection name="도서관 자리" svgName="library" />
+        </Link>
         <Styled.SelectLine />
         <Link href="/home/contact" passHref>
           <Selection name="연락망" svgName="contact" />
         </Link>
         <Styled.SelectLine />
-        <Selection name="편의시설" svgName="facility" />
+        <Link href="/home/facilities" passHref>
+          <Selection name="편의시설" svgName="facility" />
+        </Link>
       </Styled.SelectContainer>
       <Styled.HomeWrapper>
         <Styled.HomeTitle>학사일정</Styled.HomeTitle>
-        <Styled.CalendarBox>달력</Styled.CalendarBox>
+        <Styled.CalendarBox>
+          <Calendars />
+        </Styled.CalendarBox>
       </Styled.HomeWrapper>
       <Styled.HomeWrapper>
         <Styled.HomeTitle>공지사항</Styled.HomeTitle>

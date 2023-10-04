@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import emotionReset from "emotion-reset";
 import { ROOT_FONT_SIZE } from "~/constants";
-import { media, vwMobile } from "~/utils";
+import { media, pxToRem, vwMobile } from "~/utils";
 
 export const resetCSS = css`
   ${emotionReset}
@@ -66,5 +66,62 @@ export const resetCSS = css`
   svg,
   img {
     vertical-align: top;
+  }
+
+  .rbc-day-bg + .rbc-day-bg {
+    border-left: none !important;
+  }
+
+  .rbc-header {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none !important;
+  }
+
+  .rbc-month-view {
+    border: none !important;
+  }
+
+  .rbc-event-content {
+    color: #1f1f1f;
+  }
+
+  .rbc-toolbar button {
+    border: none !important;
+    font-size: ${pxToRem(16)};
+  }
+
+  .rbc-header {
+    color: #767676;
+    font-size: ${pxToRem(12)};
+  }
+
+  .rbc-header:first-child {
+    color: #e33f3f;
+  }
+
+  .rbc-toolbar-label {
+    color: #313131;
+    font-size: ${pxToRem(16)};
+    font-weight: bold;
+  }
+
+  .rbc-button-link {
+    color: #1f1f1f;
+  }
+
+  .rbc-toolbar {
+    margin-bottom: 0;
+    padding: ${pxToRem(14)} ${pxToRem(10)};
+  }
+
+  .rbc-today {
+    background-color: #d9e0ef;
+  }
+
+  .rbc-toolbar button:hover {
+    background-color: transparent;
   }
 `;

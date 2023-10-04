@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <div style={{ backgroundColor: "#f8f9fb" }}>
       <Header.Back title="홈" />
       <Styled.Container>
         <Styled.SearchContainer>
@@ -83,7 +83,7 @@ const Contact = () => {
           </Styled.ContactTitle>
         </Styled.ContactContainer>
       </Styled.Container>
-    </>
+    </div>
   );
 };
 

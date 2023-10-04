@@ -17,6 +17,9 @@ type SignupState = {
   message: string;
   messageType: "error" | "success";
   isDuplicate: boolean;
+  nickNameMessage: string;
+  nickNameMessageType: "error" | "success";
+  nickNameisDuplicate: boolean;
 };
 
 const initialState: SignupState & SignUpBase = {
@@ -31,7 +34,10 @@ const initialState: SignupState & SignUpBase = {
   signupError: "",
   message: "",
   messageType: "error",
-  isDuplicate: false
+  isDuplicate: false,
+  nickNameMessage: "",
+  nickNameMessageType: "error",
+  nickNameisDuplicate: false
 };
 
 export const signupSlice = createSlice({
@@ -72,6 +78,18 @@ export const signupSlice = createSlice({
     },
     setIsDuplicate: (state, action: PayloadAction<boolean>) => {
       state.isDuplicate = action.payload;
+    },
+    setNickNameMessage: (state, action: PayloadAction<string>) => {
+      state.nickNameMessage = action.payload;
+    },
+    setNickNameMessageType: (
+      state,
+      action: PayloadAction<"error" | "success">
+    ) => {
+      state.nickNameMessageType = action.payload;
+    },
+    setNickNameIsDuplicate: (state, action: PayloadAction<boolean>) => {
+      state.nickNameisDuplicate = action.payload;
     }
   }
 });
@@ -84,7 +102,10 @@ export const {
   setSignupError,
   setMessage,
   setMessageType,
-  setIsDuplicate
+  setIsDuplicate,
+  setNickNameMessage,
+  setNickNameMessageType,
+  setNickNameIsDuplicate
 } = signupSlice.actions;
 
 export default signupSlice.reducer;

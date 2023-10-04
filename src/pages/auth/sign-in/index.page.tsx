@@ -1,10 +1,12 @@
 import { useSignIn } from "@server-state/auth";
 import React, { useCallback } from "react";
 import type { NextPageWithLayout } from "~/pages/app.types";
+import { useAppSelector } from "@client-state/hooks";
 import { useLoginForm } from "./SignIn.hooks";
 import * as Styled from "./SignIn.styles";
 
 const SignIn: NextPageWithLayout = () => {
+  const { message } = useAppSelector(state => state.signin);
   const { id, password } = useLoginForm();
   const { mutate: callSignInAPI } = useSignIn();
 
@@ -31,7 +33,9 @@ const SignIn: NextPageWithLayout = () => {
 
   return (
     <Styled.Container>
-      <Styled.AppName>CAT CHAT</Styled.AppName>
+      <Styled.LogoBox>
+        <Styled.Logo svgName="logo" />
+      </Styled.LogoBox>
 
       <Styled.LoginForm onSubmit={handleSubmit}>
         <Styled.InputWrapper>
@@ -56,8 +60,13 @@ const SignIn: NextPageWithLayout = () => {
             name="password"
           />
         </Styled.InputWrapper>
+        {message ? (
+          <Styled.ErrorMessage>
+            아이디 또는 비밀번호를 잘못 입력했습니다.
+          </Styled.ErrorMessage>
+        ) : null}
 
-        <Styled.LoginButton>입장하기</Styled.LoginButton>
+        <Styled.LoginButton>로그인</Styled.LoginButton>
       </Styled.LoginForm>
 
       <Styled.SubArea>

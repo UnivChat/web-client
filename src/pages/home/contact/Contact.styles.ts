@@ -71,6 +71,11 @@ export const ErrorHandling = styled.div`
 
 export const ContactList = styled.details`
   border-bottom: ${pxToRem(0.6)} solid #707070;
+
+  /* 사파리에서 기본 화살표 스타일 제거 */
+  & > summary::-webkit-details-marker {
+    display: none;
+  }
 `;
 
 export const ContactName = styled.summary`
