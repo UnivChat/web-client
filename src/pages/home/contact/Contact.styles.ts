@@ -14,7 +14,7 @@ export const SearchContainer = styled.div`
 
 export const SearchBox = styled.div`
   ${flex({ alignItems: "center" })};
-  width: ${pxToRem(318)};
+  width: ${pxToRem(325)};
   height: ${pxToRem(45)};
   margin-top: ${pxToRem(20)};
   padding-left: ${pxToRem(12)};
@@ -49,7 +49,7 @@ export const ContactTitle = styled.div`
 
 export const Title = styled.span`
   display: inline-block;
-  width: ${pxToRem(318)};
+  width: ${pxToRem(325)};
   font-family: "NanumSquare";
   font-weight: 600;
   font-size: ${pxToRem(18)};
@@ -58,7 +58,7 @@ export const Title = styled.span`
 `;
 
 export const ContactBox = styled.div`
-  width: ${pxToRem(318)};
+  width: ${pxToRem(325)};
   ${flex({ flexDirection: "column" })};
   padding-bottom: ${pxToRem(50)};
 `;
