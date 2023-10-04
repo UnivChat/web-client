@@ -15,9 +15,7 @@ const FacilitiesMap = () => {
           <Styled.MapClosed svgName="close" />
         </button>
         <Styled.ImageWrapper>
-          {isLoading && (
-            <Styled.LoaderText>지도를 가지고 오고 있어요</Styled.LoaderText>
-          )}
+          {isLoading && <Styled.Spinner />}
           <Image
             src="/image/map.png"
             alt="map"

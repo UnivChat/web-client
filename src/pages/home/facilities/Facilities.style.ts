@@ -1,3 +1,4 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Svg } from "~/components/Common";
 import { pxToRem } from "~/utils";
@@ -248,6 +249,21 @@ export const MapBox = styled.div`
 
 export const LoaderText = styled.p`
   font-size: ${pxToRem(16)};
+`;
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+export const Spinner = styled.div`
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid black;
+  width: 40px;
+  height: 40px;
+  animation: ${spin} 1s linear infinite;
+  margin: 0 auto;
 `;
 
 export const MapClosed = styled(Svg)`
