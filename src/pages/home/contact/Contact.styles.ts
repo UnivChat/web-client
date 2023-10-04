@@ -18,7 +18,7 @@ export const SearchBox = styled.div`
   height: ${pxToRem(45)};
   margin-top: ${pxToRem(20)};
   padding-left: ${pxToRem(12)};
-  border-radius: ${pxToRem(25)};
+  border-radius: ${pxToRem(15)};
   background-color: #ffffff;
   box-shadow: 0px 5px 13px #0000001c;
 `;

@@ -23,7 +23,7 @@ const ChangePw: NextPageWithLayout = () => {
       <Body>
         <BodyForm paddingTop={38} paddingBottom={8}>
           <BodyTopText>인증이 완료되었습니다</BodyTopText>
-          <BodyTopText marginBottom={40}>비밀번호를 입력해주세요</BodyTopText>
+          <BodyTopText marginBottom={35}>비밀번호를 입력해주세요</BodyTopText>
           <CustomText>새 비밀번호 입력</CustomText>
           <CustomInput
             type="password"

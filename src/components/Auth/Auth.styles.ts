@@ -89,7 +89,7 @@ export const Text = styled.div<StyleProps>`
   margin-top: ${({ marginTop }) =>
     marginTop ? pxToRem(marginTop) : pxToRem(11)};
   margin-left: ${pxToRem(10)};
-  margin-bottom: ${pxToRem(8)};
+  margin-bottom: ${pxToRem(12)};
 
   color: ${colors.background};
   font-weight: 600;
@@ -98,12 +98,12 @@ export const Text = styled.div<StyleProps>`
 
 export const Input = styled.input<StyleProps>`
   width: ${({ width }) => width || pxToRem(284)};
-  height: ${pxToRem(35)};
+  height: ${pxToRem(40)};
   padding-left: ${pxToRem(20)};
 
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 0.8px solid #d3d7e0;
-  border-radius: 50px;
+  border-radius: ${pxToRem(15)};
   opacity: 1;
 `;
 
@@ -137,7 +137,7 @@ export const BodyForm = styled.form<StyleProps>`
 
 export const CheckAuthButton = styled.button<StyleProps>`
   width: ${pxToRem(231)};
-  height: ${pxToRem(33)};
+  height: ${pxToRem(40)};
   margin-top: ${({ marginTop }) => pxToRem(marginTop || 20)};
 
   color: ${colors.white};
@@ -146,7 +146,7 @@ export const CheckAuthButton = styled.button<StyleProps>`
   letter-spacing: ${pxToRem(0.7)};
   background-color: ${props => props.bgColor || colors.background};
   border: 1px solid;
-  border-radius: ${pxToRem(50)};
+  border-radius: ${pxToRem(15)};
 `;
 
 export const Span = styled.span`
