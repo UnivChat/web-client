@@ -56,7 +56,8 @@ export const TruncatedText = styled.span`
 
 export const NoticeError = styled.div`
   ${flex({ alignItems: "center", justifyContent: "center" })}
-  margin-top: ${pxToRem(83)};
-  margin-right: ${pxToRem(22)};
+  height: ${pxToRem(178)};
+  width: 100%;
+  padding-right: ${pxToRem(28)};
   font-size: ${pxToRem(12)};
 `;

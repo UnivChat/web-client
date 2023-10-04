@@ -1,7 +1,8 @@
 import { usePosts } from "@server-state/home/notice/hooks/notice.queries";
 import { useState } from "react";
-import * as Styled from "./Notice.style";
+import { Spinner } from "~/pages/home/facilities/Facilities.style";
 import NoticeContent from "./NoticeContent/NoticeContent";
+import * as Styled from "./Notice.style";
 
 const categories = ["일반", "학사", "장학", "취·창업"];
 
@@ -36,9 +37,7 @@ const Notice = () => {
           <NoticeContent posts={posts} />
         ) : (
           <Styled.NoticeError>
-            {isLoading
-              ? "공지사항을 가지고 오고 있어요"
-              : "공지사항을 가져오는 데 실패했어요"}
+            {isLoading ? <Spinner /> : "공지사항을 가져오는 데 실패했어요"}
           </Styled.NoticeError>
         )}
       </Styled.NoticeContent>
