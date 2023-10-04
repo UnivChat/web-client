@@ -23,6 +23,7 @@ const FacilitiesMap = () => {
             alt="map"
             layout="fill"
             objectFit="contain"
+            loading="lazy"
             onLoad={() => setIsLoading(false)}
           />
         </Styled.ImageWrapper>
