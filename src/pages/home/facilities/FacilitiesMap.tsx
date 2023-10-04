@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useAppDispatch } from "@client-state/hooks";
 import { setMapState } from "@client-state/Home/Facilities/facilitiesSlice";
@@ -6,17 +6,28 @@ import * as Styled from "./Facilities.style";
 
 const FacilitiesMap = () => {
   const dispatch = useAppDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <Styled.Bg>
-    <Styled.MapBox>
-      <Styled.MapClosed onClick={() => dispatch(setMapState(false))}>
-        X
-      </Styled.MapClosed>
-      <Styled.ImageWrapper>
-        <Image src="/image/map.png" alt="map" layout="fill" objectFit="contain" />
-      </Styled.ImageWrapper>
-    </Styled.MapBox>
-  </Styled.Bg>
+      <Styled.MapBox>
+        <button type="button" onClick={() => dispatch(setMapState(false))}>
+          <Styled.MapClosed svgName="close" />
+        </button>
+        <Styled.ImageWrapper>
+          {isLoading && (
+            <Styled.LoaderText>지도를 가지고 오고 있어요</Styled.LoaderText>
+          )}
+          <Image
+            src="/image/map.png"
+            alt="map"
+            layout="fill"
+            objectFit="contain"
+            onLoad={() => setIsLoading(false)}
+          />
+        </Styled.ImageWrapper>
+      </Styled.MapBox>
+    </Styled.Bg>
   );
 };
 

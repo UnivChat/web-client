@@ -3,7 +3,7 @@ import { flex } from "~/styles/utils/flex";
 import { pxToRem } from "~/utils";
 
 export const NoticeBox = styled.div`
-  height: ${pxToRem(228)};
+  height: ${pxToRem(224)};
   margin-top: ${pxToRem(16)};
   box-shadow: 0 ${pxToRem(5)} ${pxToRem(13)} #00000029;
   border-radius: ${pxToRem(14)};

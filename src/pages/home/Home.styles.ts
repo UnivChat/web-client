@@ -66,7 +66,7 @@ export const SelectText = styled.div`
 
   font-family: "NanumSquare";
   font-weight: 300;
-  font-size: ${pxToRem(8)};
+  font-size: ${pxToRem(10)};
   color: #767676;
 `;
 

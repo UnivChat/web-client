@@ -139,7 +139,7 @@ export const MapIcon = styled(Svg)`
   border-radius: ${pxToRem(45)};
   box-shadow: 0px 0px ${pxToRem(6)} #0f30643e;
   position: fixed;
-  top: ${pxToRem(14)};
+  top: ${pxToRem(5)};
   right: ${pxToRem(24)};
   z-index: 10;
 `;
@@ -234,7 +234,7 @@ export const DetailInfo = styled.div<DetailInfoProps>`
 `;
 export const MapBox = styled.div`
   width: ${pxToRem(350)};
-  height: ${pxToRem(435)};
+  height: ${pxToRem(434)};
   background: #fff;
   z-index: 10;
   border: ${pxToRem(1)} solid #dfe4e6;
@@ -246,15 +246,16 @@ export const MapBox = styled.div`
   position: relative;
 `;
 
-export const MapClosed = styled.button`
+export const LoaderText = styled.p`
+  font-size: ${pxToRem(16)};
+`;
+
+export const MapClosed = styled(Svg)`
+  width: ${pxToRem(15)};
+  height: ${pxToRem(15)};
   position: absolute;
-  top: ${pxToRem(14)};
-  right: ${pxToRem(15)};
-  width: ${pxToRem(30)};
-  height: ${pxToRem(30)};
-  font-size: ${pxToRem(19)};
-  font-family: "NanumSquare", sans-serif;
-  font-weight: 500;
+  top: ${pxToRem(20)};
+  right: ${pxToRem(23)};
   z-index: 25;
 `;
 
@@ -263,6 +264,9 @@ export const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   max-width: ${pxToRem(335)};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const BgSvg = styled(Svg)<DetailInfoProps>`
