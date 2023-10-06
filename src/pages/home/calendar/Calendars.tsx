@@ -39,14 +39,14 @@ let currentColorIndex = 0;
 
 const getNextColor = () => {
   const colors = [
-    "#EFDFE9",
-    "#8fc6f3",
-    "#81bb83",
-    "#99AACC",
-    "#a8a2dd",
-    "#e7b0c1",
-    "#afd1b0",
-    "#C9C3FF"
+    "#efdfe9bc",
+    "#8fc6f3bc",
+    "#81bb83bc",
+    "#99AACCbc",
+    "#a8a2ddbc",
+    "#e7b0c1bc",
+    "#afd1b0bc",
+    "#C9C3FFbc"
   ];
   const nextColor = colors[currentColorIndex % colors.length];
 
