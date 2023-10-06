@@ -170,3 +170,7 @@ export const AcceptMessage = styled.div`
   font-size: ${pxToRem(10)};
   font-weight: 600;
 `;
+
+export const LoadingWrap = styled.div`
+  margin-top: ${pxToRem(120)};
+`;

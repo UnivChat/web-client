@@ -7,10 +7,12 @@ import {
   CheckAuthButton,
   Container,
   AcceptMessage,
-  Span
+  Span,
+  LoadingWrap
 } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { useFindPw } from "./findPw.hooks";
+import { Spinner } from "~/pages/home/facilities/Facilities.style";
 
 const FindPw: NextPageWithLayout = () => {
   const hook = useFindPw();
@@ -38,6 +40,11 @@ const FindPw: NextPageWithLayout = () => {
         >
           확인
         </CheckAuthButton>
+        {hook.isLoading && (
+          <LoadingWrap>
+            <Spinner />
+          </LoadingWrap>
+        )}
         {hook.isFindPwButtonClicked && (
           <>
             <AcceptMessage>

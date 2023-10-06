@@ -11,6 +11,7 @@ export interface UseFindPwReturnValue {
   validateAuthCode: () => boolean;
   handleStartButtonClick: () => void;
   isVerified: boolean;
+  isLoading: boolean;
 }
 
 export interface AxiosResponseData {

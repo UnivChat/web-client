@@ -25,7 +25,7 @@ export const useEmailAuth = (): UseEmailAuthReturnValue => {
     isVerified
   } = useAppSelector(state => state.emailAuth);
 
-  const verifyEmailMutation = useEmailVerification();
+  const { isLoading, mutate } = useEmailVerification();
   const router = useRouter();
 
   const handleEmailChange: ChangeEventHandler<HTMLInputElement> = e => {
@@ -43,7 +43,7 @@ export const useEmailAuth = (): UseEmailAuthReturnValue => {
       return;
     }
     dispatch(setEmailErrorMessage(""));
-    verifyEmailMutation.mutate(email);
+    mutate(email);
   };
 
   const handleVerifyButtonClick = (): boolean => {
@@ -84,6 +84,7 @@ export const useEmailAuth = (): UseEmailAuthReturnValue => {
     handleEmailAuthButtonClick,
     validateAuthCode: handleVerifyButtonClick,
     handleStartButtonClick,
-    isVerified
+    isVerified,
+    isLoading
   };
 };

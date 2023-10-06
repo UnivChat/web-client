@@ -12,5 +12,6 @@ export type UseEmailAuthReturnValue = {
   validateAuthCode: () => boolean;
   authErrorMessage: string;
   isVerified: boolean;
+  isLoading: boolean;
   handleStartButtonClick: VoidFunction;
 };

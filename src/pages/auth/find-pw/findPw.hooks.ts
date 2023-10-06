@@ -28,7 +28,7 @@ export const useFindPw = (): UseFindPwReturnValue => {
   } = useAppSelector(state => state.findPw);
 
   const email = useAppSelector(state => state.email);
-  const mutation = useVerifyPasswordEmailMutation();
+  const { isLoading, mutate } = useVerifyPasswordEmailMutation();
 
   const handleEmailChange: React.ChangeEventHandler<HTMLInputElement> = e => {
     dispatch(setEmailInRedux(e.target.value));
@@ -47,7 +47,7 @@ export const useFindPw = (): UseFindPwReturnValue => {
       return;
     }
     dispatch(setEmailErrorMessage(""));
-    mutation.mutate(email);
+    mutate(email);
   };
 
   const handleVerifyButtonClick = (): boolean => {
@@ -98,6 +98,7 @@ export const useFindPw = (): UseFindPwReturnValue => {
     handleFindPwButtonClick,
     validateAuthCode: handleVerifyButtonClick,
     handleStartButtonClick,
-    isVerified
+    isVerified,
+    isLoading
   };
 };
