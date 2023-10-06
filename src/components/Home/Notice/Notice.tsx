@@ -1,4 +1,4 @@
-import { usePosts } from "@server-state/home/notice/hooks/notice.queries";
+import { useAllPosts } from "@server-state/home/notice/hooks/notice.queries";
 import { useState } from "react";
 import { Spinner } from "~/pages/home/facilities/Facilities.style";
 import NoticeContent from "./NoticeContent/NoticeContent";
@@ -8,15 +8,14 @@ const categories = ["일반", "학사", "장학", "취·창업"];
 
 const Notice = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
-  const {
-    data: posts,
-    isLoading,
-    isSuccess
-  } = usePosts(String(activeCategoryIndex + 1));
+  const allPostsData = useAllPosts();
 
   const handleCategoryClick = (index: number) => {
     setActiveCategoryIndex(index);
   };
+
+  const currentPosts = allPostsData[activeCategoryIndex]?.data;
+  const isLoading = allPostsData.some(query => query.isLoading);
 
   return (
     <Styled.NoticeBox>
@@ -33,8 +32,8 @@ const Notice = () => {
       </Styled.NoticeTitleWrap>
 
       <Styled.NoticeContent>
-        {isSuccess ? (
-          <NoticeContent posts={posts} />
+        {currentPosts ? (
+          <NoticeContent posts={currentPosts} />
         ) : (
           <Styled.NoticeError>
             {isLoading ? <Spinner /> : "공지사항을 가져오는 데 실패했어요"}
