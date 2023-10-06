@@ -53,3 +53,5 @@ export { default as team } from "./team.svg";
 export { default as toastexit } from "./toastexit.svg";
 export { default as toasttalk } from "./toasttalk.svg";
 export { default as unlock } from "./unlock.svg";
+export { default as left } from "./chevron-left.svg";
+export { default as right } from "./chevron-right.svg";
