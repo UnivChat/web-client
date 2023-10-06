@@ -114,7 +114,7 @@ export const resetCSS = css`
 
   .rbc-toolbar {
     margin-bottom: 0;
-    padding: ${pxToRem(14)} ${pxToRem(10)};
+    padding: ${pxToRem(14)} ${pxToRem(10)} ${pxToRem(7)} ${pxToRem(10)};
   }
 
   .rbc-today {
