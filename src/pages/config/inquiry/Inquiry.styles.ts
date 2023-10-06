@@ -121,6 +121,7 @@ export const TextBox = styled.div`
   font-weight: 600;
   font-size: ${pxToRem(12)};
   line-height: ${pxToRem(15)};
+  word-break: keep-all;
 
   border: ${pxToRem(1)} solid #d0d3d5;
   border-radius: ${pxToRem(9)};
