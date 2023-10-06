@@ -141,7 +141,7 @@ export const CheckAuthButton = styled.button<StyleProps>`
   margin-top: ${({ marginTop }) => pxToRem(marginTop || 20)};
 
   color: ${colors.white};
-  font-size: ${pxToRem(11)};
+  font-size: ${pxToRem(13)};
   font-weight: 600;
   letter-spacing: ${pxToRem(0.7)};
   background-color: ${props => props.bgColor || colors.background};
