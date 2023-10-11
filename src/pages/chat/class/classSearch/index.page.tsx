@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "~/components/Common/UI/Header/Header";
 import InfiniteScroll from "react-infinite-scroller";
 import { useClassSearch } from "@server-state/class/hooks/classSearch.queries";
@@ -10,6 +10,11 @@ import type { ClassBoxProps } from "./classbox.types";
 export default function ClassSearch() {
   const [searchTerm, setSearchTerm] = useState("");
   const { data, fetchNextPage, hasNextPage } = useClassSearch(searchTerm);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [searchTerm]);
 
   return (
     <>
@@ -27,10 +32,9 @@ export default function ClassSearch() {
         <Styled.TitleDivider />
         <InfiniteScroll
           pageStart={0}
-          loadMore={page => {
-            fetchNextPage({ pageParam: page });
-          }}
+          loadMore={page => fetchNextPage({ pageParam: page })}
           hasMore={hasNextPage}
+          initialLoad={false}
         >
           {data?.pages.length ? (
             data.pages.map(page => {

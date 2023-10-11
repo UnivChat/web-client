@@ -7,9 +7,7 @@ export const useClassSearch = (searchTerm: string) => {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    if (searchTerm === "") {
-      queryClient.invalidateQueries(ClassKey.getClassSearch);
-    }
+    queryClient.removeQueries(ClassKey.getClassSearch);
   }, [searchTerm, queryClient]);
 
   return useInfiniteQuery(
@@ -17,7 +15,8 @@ export const useClassSearch = (searchTerm: string) => {
     ({ pageParam = 0 }) => classSearch(pageParam, searchTerm),
     {
       getNextPageParam: (lastPage, pages) => {
-        if (searchTerm === "") return 0;
+        if (lastPage.length === 0) return undefined;
+
         const currentPage = pages.length;
         return currentPage < 26 ? currentPage : undefined;
       },
