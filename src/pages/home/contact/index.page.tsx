@@ -29,6 +29,12 @@ const Contact = () => {
     });
   };
 
+  useEffect(() => {
+    if (contactSearchInput !== "") {
+      setActiveIndices({});
+    }
+  }, [contactSearchInput]);
+
   return (
     <div style={{ backgroundColor: "#f8f9fb" }}>
       <Header.Back title="홈" />
