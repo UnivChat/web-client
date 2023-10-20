@@ -51,6 +51,7 @@ export const InputContainer = styled.div`
 export const InputBox = styled.input`
   width: 100%;
   height: ${pxToRem(28)};
+  padding: 0 ${pxToRem(14)};
 
   background-color: #f0f1f4;
 
@@ -60,4 +61,19 @@ export const InputBox = styled.input`
 export const InputButton = styled(Svg)`
   width: ${pxToRem(24)};
   height: ${pxToRem(24)};
+`;
+
+export const PlusButton = styled(Svg)`
+  width: ${pxToRem(24)};
+  height: ${pxToRem(24)};
+  margin-top: ${pxToRem(4)};
+`;
+
+export const alert = styled(Svg)`
+  width: ${pxToRem(24)};
+  height: ${pxToRem(24)};
+  position: fixed;
+  top: ${pxToRem(14)};
+  right: ${pxToRem(24)};
+  z-index: 10;
 `;

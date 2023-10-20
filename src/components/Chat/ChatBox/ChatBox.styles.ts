@@ -12,7 +12,7 @@ export const ChatBubble = styled.div`
   padding: ${pxToRem(8)};
 
   border: 0.5px solid #707070;
-  border-radius: ${pxToRem(31)};
+  border-radius: ${pxToRem(11)};
 
   line-height: 150%;
 `;

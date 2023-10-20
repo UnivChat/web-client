@@ -12,7 +12,14 @@ export const ClassChatBox = ({
   const { push } = useRouter();
 
   return (
-    <Styled.ChatBox onClick={() => push(`/chat/room/${classNumber}`)}>
+    <Styled.ChatBox
+      onClick={() =>
+        push({
+          pathname: `/chat/room/${classNumber}`,
+          query: { title: title }
+        })
+      }
+    >
       <div>
         <Styled.Title>{title}</Styled.Title>
         <Styled.ChatTime>{chatTime}</Styled.ChatTime>

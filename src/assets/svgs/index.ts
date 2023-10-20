@@ -62,3 +62,6 @@ export { default as alertOff } from "./alert-off.svg";
 export { default as chatEnter } from "./chat-enter.svg";
 export { default as chatPlus } from "./chat-plus.svg";
 export { default as chatProfile } from "./chat-profile.svg";
+export { default as send } from "./send.svg";
+export { default as alert } from "./alert.svg";
+export { default as alertoff } from "./alertoff.svg";

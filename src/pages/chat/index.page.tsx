@@ -11,7 +11,7 @@ const ChatPage: NextPageWithLayout = () => {
 
   return (
     <>
-    <Styled.CatChatTitle>CAT CHAT</Styled.CatChatTitle>
+      <Styled.CatChatTitle>CAT CHAT</Styled.CatChatTitle>
       <Styled.Container>
         {/* 라이브 채팅 박스 */}
         <Styled.LiveChatBox>

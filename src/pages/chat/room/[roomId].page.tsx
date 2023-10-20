@@ -3,11 +3,15 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AC_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "~/pages/app.types";
+import { ChatBox } from "~/components/Chat/ChatBox";
+import { Header } from "~/components/Common/UI/Header/Header";
 import { useWebsocket } from "./class.provider";
+import * as Styled from "./Room.styles";
 
 const ChatRoomPage: NextPageWithLayout = () => {
   const { query } = useRouter();
   const [classNumber, setClassNumber] = useState<string | null>(null);
+  const title = query.title as string;
 
   useEffect(() => {
     if (query.roomId) {
@@ -28,17 +32,56 @@ const ChatRoomPage: NextPageWithLayout = () => {
 
     if (stompClient) {
       console.log("SEND!!");
-      stompClient.send(`/pub/class/00036-01`, header, JSON.stringify(message));
+      stompClient.send(
+        `/pub/class/${classNumber}`,
+        header,
+        JSON.stringify(message)
+      );
     }
   };
 
+  const DUMMY_CHAT_LIST = [
+    {
+      memberNickname: "minsoo",
+      messageContent:
+        "채팅 더미 1 채팅 더미 1 채팅 더미 1 채팅 더미 1 채팅 더미 1채팅 더미 1 채팅 더미 1 채팅 더미 1 채팅 더미 1 ",
+      messageSendingTime: "2023-02-11"
+    },
+    {
+      memberNickname: "minsoo2",
+      messageContent: "채팅 더미 2",
+      messageSendingTime: "2023-02-11"
+    },
+    {
+      memberNickname: "minsoo3",
+      messageContent: "채팅 더미 3",
+      messageSendingTime: "2023-02-11"
+    }
+  ];
+
   return (
+    // {JSON.stringify(messages)}
     <div>
-      classNumber: {classNumber}
-      {JSON.stringify(messages)}
-      <button type="button" onClick={sendMessage}>
-        butto
-      </button>
+      <Styled.Container>
+        <Header.Back title={title} subTitle="32" bgColor="#FFF" />
+        <Styled.alert svgName="alert" />
+        <Styled.ChatContainer>
+          <Styled.ChatHr />
+          <Styled.Date>2023/09/11</Styled.Date>
+          {DUMMY_CHAT_LIST.map((chat, index) => (
+            <ChatBox key={`${chat.messageSendingTime}-${index}`} {...chat} />
+          ))}
+          과목코드: {classNumber}
+        </Styled.ChatContainer>
+
+        <Styled.InputContainer>
+          <Styled.PlusButton svgName="chatPlus" />
+          <Styled.InputBox />
+          <span onClick={sendMessage}>
+            <Styled.InputButton svgName="chatEnter" />
+          </span>
+        </Styled.InputContainer>
+      </Styled.Container>
     </div>
   );
 };
