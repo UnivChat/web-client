@@ -1,21 +1,24 @@
-import React from "react";
+import { useRouter } from "next/router";
 import * as Styled from "./class.styles";
 import type { ClassChatBoxProps } from "./classChatBox.types";
 
 export const ClassChatBox = ({
   title,
-  subTitle,
+  classTime,
   chatCount,
-  chatTime
+  chatTime,
+  classNumber
 }: ClassChatBoxProps) => {
+  const { push } = useRouter();
+
   return (
-    <Styled.ChatBox>
+    <Styled.ChatBox onClick={() => push(`/chat/room/${classNumber}`)}>
       <div>
         <Styled.Title>{title}</Styled.Title>
         <Styled.ChatTime>{chatTime}</Styled.ChatTime>
       </div>
       <div>
-        <Styled.SubTitle>{subTitle}</Styled.SubTitle>
+        <Styled.SubTitle>{classTime}</Styled.SubTitle>
         <Styled.ChatCountContainer>
           <Styled.ChatCount>{chatCount}</Styled.ChatCount>
         </Styled.ChatCountContainer>

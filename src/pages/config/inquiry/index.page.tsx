@@ -1,13 +1,13 @@
+import { useAppSelector } from "@client-state/hooks";
+import { useInquiry } from "@server-state/config/inquiry/hooks/inquiry.mutation";
 import { useForm } from "react-hook-form";
 import { Header } from "~/components/Common/UI/Header/Header";
-import type { NextPageWithLayout } from "~/pages/app.types";
 import { colors } from "~/constants";
-import { useInquiry } from "@server-state/config/inquiry/hooks/inquiry.mutation";
-import { useAppSelector } from "@client-state/hooks";
+import type { NextPageWithLayout } from "~/pages/app.types";
+import { Spinner } from "~/pages/home/facilities/Facilities.style";
 import * as Styled from "./Inquiry.styles";
 import type { InquiryProps } from "./Inquiry.types";
 import InquiryModal from "./inquiryModal";
-import { Spinner } from "~/pages/home/facilities/Facilities.style";
 
 const Inquiry: NextPageWithLayout = () => {
   const { isInquiryModal } = useAppSelector(state => state.inquiry);

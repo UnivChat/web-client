@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { pxToRem } from "~/utils";
 import { flex } from "~/styles/utils/flex";
 import { colors } from "~/constants";
+import { Svg } from "~/components/Common";
 
 const sharedTextStyles = css`
   font-family: "NanumSquare";
@@ -11,7 +12,7 @@ const sharedTextStyles = css`
 
 export const Container = styled.div`
   ${flex({ flexDirection: "column" })};
-  padding: 0 ${pxToRem(22)} 0 ${pxToRem(22)};
+  padding: ${pxToRem(20)} ${pxToRem(22)} 0 ${pxToRem(22)};
   background-color: #f8f9fb;
   min-height: 100vh;
 `;
@@ -68,4 +69,14 @@ export const ChatTime = styled.span`
   ${sharedTextStyles}
   font-size: ${pxToRem(10)};
   color: #a7a7a7;
+`;
+
+export const ClassPlusIcon = styled(Svg)`
+  width: ${pxToRem(20)};
+  height: ${pxToRem(20)};
+  position: absolute;
+  position: fixed;
+  top: ${pxToRem(15)};
+  right: ${pxToRem(24)};
+  z-index: 50;
 `;
