@@ -6,15 +6,19 @@ import { ClassBox } from "./ClassBox";
 import { Search } from "./Search";
 import * as Styled from "./classSearch.styles";
 import type { ClassBoxProps } from "./classbox.types";
+import { useClassList } from "@server-state/class/hooks/classList.queries";
 
 export default function ClassSearch() {
   const [searchTerm, setSearchTerm] = useState("");
   const { data, fetchNextPage, hasNextPage } = useClassSearch(searchTerm);
+  const { data: classList } = useClassList();
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     setCurrentPage(0);
   }, [searchTerm]);
+
+  console.log(classList);
 
   return (
     <>
@@ -25,6 +29,7 @@ export default function ClassSearch() {
           <Styled.Title>추가한 클래스</Styled.Title>
         </Styled.TitleContainer>
         <Styled.TitleDivider />
+        <ClassBox svgName="plus" />
 
         <Styled.TitleContainer className="class">
           <Styled.Title>클래스</Styled.Title>
