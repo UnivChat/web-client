@@ -7,6 +7,7 @@ import { useAppSelector } from "@client-state/hooks";
 import * as Styled from "./Inquiry.styles";
 import type { InquiryProps } from "./Inquiry.types";
 import InquiryModal from "./inquiryModal";
+import { Spinner } from "~/pages/home/facilities/Facilities.style";
 
 const Inquiry: NextPageWithLayout = () => {
   const { isInquiryModal } = useAppSelector(state => state.inquiry);
@@ -25,11 +26,11 @@ const Inquiry: NextPageWithLayout = () => {
 
   const hasErrors = Object.keys(errors).length > 0;
 
-  const inquiryMutation = useInquiry();
+  const { mutate: inquiryMutation, isLoading } = useInquiry();
 
   // TODO: 문의 접수 API 연동
   const onSubmit = (data: InquiryProps) => {
-    inquiryMutation.mutate({
+    inquiryMutation({
       content: data.contents,
       receiverEmail: data.email
     });
@@ -38,6 +39,11 @@ const Inquiry: NextPageWithLayout = () => {
   return (
     <Styled.Container onSubmit={handleSubmit(onSubmit)}>
       <Header.Back bgColor={colors.white} title="설정" />
+      {isLoading && (
+        <Styled.LoadingBg>
+          <Spinner />
+        </Styled.LoadingBg>
+      )}
       {isInquiryModal ? <InquiryModal /> : null}
       <Styled.Title>문의 내용 작성</Styled.Title>
       <Styled.SubContainer>

@@ -17,10 +17,13 @@ export const Container = styled.div`
 
 export const LogoBox = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Logo = styled(Svg)`
-  margin: ${pxToRem(203)} auto ${pxToRem(55)} auto;
+  margin: ${pxToRem(203)} ${pxToRem(10)} ${pxToRem(55)} 0;
   width: ${pxToRem(136)};
   height: ${pxToRem(136)};
 `;

@@ -7,10 +7,12 @@ import {
   CheckAuthButton,
   Container,
   AcceptMessage,
-  Span
+  Span,
+  LoadingWrap
 } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { useEmailAuth } from "./emailAuth.hooks";
+import { Spinner } from "~/pages/home/facilities/Facilities.style";
 
 const EmailAuth: NextPageWithLayout = () => {
   const hook = useEmailAuth();
@@ -40,6 +42,11 @@ const EmailAuth: NextPageWithLayout = () => {
         >
           이메일 주소를 인증합니다
         </CheckAuthButton>
+        {hook.isLoading && (
+          <LoadingWrap>
+            <Spinner />
+          </LoadingWrap>
+        )}
         {hook.isEmailAuthButtonClicked && (
           <>
             <AcceptMessage>

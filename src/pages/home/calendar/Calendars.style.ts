@@ -83,3 +83,9 @@ export const ClosedIcon = styled(Svg)`
   top: ${pxToRem(23)};
   right: ${pxToRem(30)};
 `;
+
+export const ArrowIcon = styled(Svg)`
+  width: ${pxToRem(10)};
+  height: ${pxToRem(16)};
+  fill: #ccc;
+`;

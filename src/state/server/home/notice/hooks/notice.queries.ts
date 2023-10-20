@@ -7,9 +7,11 @@ export interface Post {
   link: string;
 }
 
-export const usePosts = (keyword: string) => {
-  // 현재 페이지 데이터 가져오기
-  const queryResult = useQuery(["posts", keyword], () => fetchPosts(keyword));
+export const useAllPosts = () => {
+  const allCategories = ["1", "2", "3", "4"];
+  const queryResults = allCategories.map(keyword =>
+    useQuery(["posts", keyword], () => fetchPosts(keyword))
+  );
 
-  return queryResult;
+  return queryResults;
 };

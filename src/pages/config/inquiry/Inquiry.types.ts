@@ -3,4 +3,6 @@ export interface InquiryProps {
   contents: string;
   email: string;
   privateCheck: boolean;
+  onSuccess?: () => void;
+  onError?: () => void;
 }

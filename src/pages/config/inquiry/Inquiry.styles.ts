@@ -121,6 +121,7 @@ export const TextBox = styled.div`
   font-weight: 600;
   font-size: ${pxToRem(12)};
   line-height: ${pxToRem(15)};
+  word-break: keep-all;
 
   border: ${pxToRem(1)} solid #d0d3d5;
   border-radius: ${pxToRem(9)};
@@ -203,4 +204,16 @@ export const DetailBoxTxtBlue = styled.div`
   font-family: "NanumSquare";
   font-weight: 600;
   color: #003091;
+`;
+
+export const LoadingBg = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

@@ -3,7 +3,7 @@ import { flex } from "~/styles/utils/flex";
 import { pxToRem } from "~/utils";
 
 export const NoticeBox = styled.div`
-  height: ${pxToRem(228)};
+  height: ${pxToRem(224)};
   margin-top: ${pxToRem(16)};
   box-shadow: 0 ${pxToRem(5)} ${pxToRem(13)} #00000029;
   border-radius: ${pxToRem(14)};
@@ -56,7 +56,8 @@ export const TruncatedText = styled.span`
 
 export const NoticeError = styled.div`
   ${flex({ alignItems: "center", justifyContent: "center" })}
-  margin-top: ${pxToRem(83)};
-  margin-right: ${pxToRem(22)};
+  height: ${pxToRem(178)};
+  width: 100%;
+  padding-right: ${pxToRem(28)};
   font-size: ${pxToRem(12)};
 `;
