@@ -34,7 +34,7 @@ const SignIn: NextPageWithLayout = () => {
   return (
     <Styled.Container>
       <Styled.LogoBox>
-        <Styled.Logo svgName="logo" />
+        <Styled.Logo _width="135px" _height="135px" svgName="logo" />
       </Styled.LogoBox>
 
       <Styled.LoginForm onSubmit={handleSubmit}>
