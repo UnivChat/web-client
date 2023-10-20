@@ -1,12 +1,19 @@
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AC_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { useWebsocket } from "./class.provider";
 
 const ChatRoomPage: NextPageWithLayout = () => {
   const { query } = useRouter();
+  const [classNumber, setClassNumber] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (query.roomId) {
+      setClassNumber(String(query.roomId));
+    }
+  }, [query]);
 
   const stompClient = useWebsocket();
   const [messages, setMessages] = useState<string[]>([]);
@@ -27,7 +34,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
 
   return (
     <div>
-      ChatRoomPage
+      classNumber: {classNumber}
       {JSON.stringify(messages)}
       <button type="button" onClick={sendMessage}>
         butto

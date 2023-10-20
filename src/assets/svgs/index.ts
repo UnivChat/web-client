@@ -55,3 +55,5 @@ export { default as toasttalk } from "./toasttalk.svg";
 export { default as unlock } from "./unlock.svg";
 export { default as left } from "./chevron-left.svg";
 export { default as right } from "./chevron-right.svg";
+export { default as chatMinus } from "./chat_minus.svg";
+export { default as classPlus } from "./classPlus.svg";

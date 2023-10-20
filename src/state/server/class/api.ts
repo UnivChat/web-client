@@ -16,8 +16,14 @@ export const classEnter = async (classNumber: string) => {
   return response.data;
 };
 
+export const classExit = async (classNumber: string) => {
+  const classApi = createAxiosInstance({ needAuth: true });
+  const response = await classApi.delete(`chatting/class/exit/${classNumber}`);
+  return response.data;
+};
+
 export const classList = async () => {
   const classApi = createAxiosInstance({ needAuth: true });
   const response = await classApi.get("chatting/class/rooms");
-  return response.data;
+  return response.data.result || [];
 };
