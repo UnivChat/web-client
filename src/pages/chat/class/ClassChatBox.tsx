@@ -16,7 +16,7 @@ export const ClassChatBox = ({
       onClick={() =>
         push({
           pathname: `/chat/room/${classNumber}`,
-          query: { title: title }
+          query: { title }
         })
       }
     >

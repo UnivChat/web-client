@@ -21,7 +21,7 @@ interface ClassRoom {
 }
 
 export interface ClassListItem {
-  classRoom?: ClassRoom;
+  classRoom: ClassRoom;
 }
 
 export type ClassList = ClassListItem[];

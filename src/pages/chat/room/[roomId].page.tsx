@@ -64,7 +64,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
     <div>
       <Styled.Container>
         <Header.Back title={title} subTitle="32" bgColor="#FFF" />
-        <Styled.alert svgName="alert" />
+        <Styled.Alert svgName="alert" />
         <Styled.ChatContainer>
           <Styled.ChatHr />
           <Styled.Date>2023/09/11</Styled.Date>
@@ -77,9 +77,9 @@ const ChatRoomPage: NextPageWithLayout = () => {
         <Styled.InputContainer>
           <Styled.PlusButton svgName="chatPlus" />
           <Styled.InputBox />
-          <span onClick={sendMessage}>
+          <button type="button" onClick={sendMessage}>
             <Styled.InputButton svgName="chatEnter" />
-          </span>
+          </button>
         </Styled.InputContainer>
       </Styled.Container>
     </div>

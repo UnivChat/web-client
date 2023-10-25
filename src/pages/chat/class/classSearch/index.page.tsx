@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { Header } from "~/components/Common/UI/Header/Header";
 import InfiniteScroll from "react-infinite-scroller";
 import { useClassSearch } from "@server-state/class/hooks/classSearch.queries";
+import { useClassList } from "@server-state/class/hooks/classList.queries";
 import { ClassBox } from "./ClassBox";
 import { Search } from "./Search";
 import * as Styled from "./classSearch.styles";
 import type { ClassBoxProps, ClassListItem } from "./classbox.types";
-import { useClassList } from "@server-state/class/hooks/classList.queries";
 
 export default function ClassSearch() {
   const [searchTerm, setSearchTerm] = useState("");

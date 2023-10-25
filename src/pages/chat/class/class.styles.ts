@@ -74,6 +74,9 @@ export const ChatTime = styled.span`
 export const ClassPlusIcon = styled(Svg)`
   width: ${pxToRem(20)};
   height: ${pxToRem(20)};
+`;
+
+export const Button = styled.button`
   position: absolute;
   position: fixed;
   top: ${pxToRem(15)};

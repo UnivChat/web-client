@@ -1,9 +1,9 @@
 import React from "react";
 import { Svg } from "~/components/Common";
-import * as Styled from "./classbox.styles";
-import type { ClassBoxProps } from "./classbox.types";
 import { useClassEnter } from "@server-state/class/hooks/classEnter.mutation";
 import { useClassExit } from "@server-state/class/hooks/classExit.mutation";
+import * as Styled from "./classbox.styles";
+import type { ClassBoxProps } from "./classbox.types";
 
 export const ClassBox = ({
   svgName,
@@ -19,18 +19,10 @@ export const ClassBox = ({
   const handleClassEnter = () => {
     if (classNumber) {
       if (svgName === "plus") {
-        classEnterMutation(classNumber, {
-          onSuccess: () => {
-            onSuccess();
-          }
-        });
+        classEnterMutation(classNumber, { onSuccess });
       }
       if (svgName === "chatMinus") {
-        classExitMutation(classNumber, {
-          onSuccess: () => {
-            onSuccess();
-          }
-        });
+        classExitMutation(classNumber, { onSuccess });
       }
     } else {
       console.error("classNumber is undefined");

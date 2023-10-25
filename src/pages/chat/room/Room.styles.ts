@@ -69,7 +69,7 @@ export const PlusButton = styled(Svg)`
   margin-top: ${pxToRem(4)};
 `;
 
-export const alert = styled(Svg)`
+export const Alert = styled(Svg)`
   width: ${pxToRem(24)};
   height: ${pxToRem(24)};
   position: fixed;

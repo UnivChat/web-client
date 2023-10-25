@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               <Component {...pageProps} />
             </WebSocketProvider>
           </RootLayout>
-          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+          <ReactQueryDevtools initialIsOpen={false} />
         </Provider>
       </Hydrate>
     </QueryClientProvider>

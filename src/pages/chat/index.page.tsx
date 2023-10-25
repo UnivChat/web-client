@@ -4,7 +4,6 @@ import { DormitoryChat } from "@images/index";
 import { useRouter } from "next/router";
 import type { NextPageWithLayout } from "../app.types";
 import * as Styled from "./chat.styles";
-import { Title } from "../home/Home.styles";
 
 const ChatPage: NextPageWithLayout = () => {
   const { push } = useRouter();
