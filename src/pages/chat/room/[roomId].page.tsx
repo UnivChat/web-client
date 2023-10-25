@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AC_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "~/pages/app.types";
+import { useClassChat } from "@server-state/class/hooks/classChat.queries";
 import { ChatBox } from "~/components/Chat/ChatBox";
 import { Header } from "~/components/Common/UI/Header/Header";
 import { useWebsocket } from "./class.provider";
@@ -10,7 +11,7 @@ import * as Styled from "./Room.styles";
 
 const ChatRoomPage: NextPageWithLayout = () => {
   const { query } = useRouter();
-  const [classNumber, setClassNumber] = useState<string | null>(null);
+  const [classNumber, setClassNumber] = useState<string>("");
   const title = query.title as string;
 
   useEffect(() => {
@@ -18,6 +19,10 @@ const ChatRoomPage: NextPageWithLayout = () => {
       setClassNumber(String(query.roomId));
     }
   }, [query]);
+
+  // 메세지 응답 임시 확인
+  const { data } = useClassChat(classNumber, 0);
+  console.log(data);
 
   const stompClient = useWebsocket();
   const [messages, setMessages] = useState<string[]>([]);
