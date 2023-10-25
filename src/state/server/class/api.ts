@@ -27,3 +27,9 @@ export const classList = async () => {
   const response = await classApi.get("chatting/class/rooms");
   return response.data.result || [];
 };
+
+export const classChat = async (classNumber: string, page: number) => {
+  const classApi = createAxiosInstance({ needAuth: true });
+  const response = await classApi.get(`chatting/class/${classNumber}/${page}`);
+  return response.data;
+};
