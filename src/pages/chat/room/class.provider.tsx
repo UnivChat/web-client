@@ -31,7 +31,7 @@ export function WebSocketProvider({ children }: PropsWithChildren) {
     stompClient.connect(header, (frame: Frame) => {
       console.log(`Connected: ${frame}`);
       // 메시지 받는 방 url(구독)
-      stompClient.subscribe(`/sub/oto/00036-01`, greeting => {
+      stompClient.subscribe(`/sub/class/00036-01`, greeting => {
         // console.log(greeting)
         console.log("🔥🔥🔥🔥");
         console.log(`${JSON.stringify(greeting)}🔥🔥🔥🔥`);
