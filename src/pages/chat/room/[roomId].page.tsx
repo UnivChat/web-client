@@ -1,6 +1,7 @@
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import type { ChangeEventHandler } from "react";
 import { AC_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "~/pages/app.types";
 import { useClassChat } from "@server-state/class/hooks/classChat.queries";
@@ -8,6 +9,13 @@ import { ChatBox } from "~/components/Chat/ChatBox";
 import { Header } from "~/components/Common/UI/Header/Header";
 import { useWebsocket } from "./class.provider";
 import * as Styled from "./Room.styles";
+
+interface ChatListType {
+  memberEmail: string;
+  memberNickname: string;
+  messageContent: string;
+  messageSendingTime: string;
+}
 
 const ChatRoomPage: NextPageWithLayout = () => {
   const { query } = useRouter();
@@ -21,19 +29,20 @@ const ChatRoomPage: NextPageWithLayout = () => {
   }, [query]);
 
   // 메세지 응답 임시 확인
-  const { data } = useClassChat(classNumber, 0);
-  console.log(data);
+  const { data, refetch } = useClassChat(classNumber, 0);
+  const chatList: ChatListType[] = data?.result?.classChatList;
+  console.log(chatList);
 
   const stompClient = useWebsocket();
-  const [messages, setMessages] = useState<string[]>([]);
-  const [message, setMessage] = useState<string>("");
+  const [messages, setMessages] = useState<string>("");
+
+  const messageContents: ChangeEventHandler<HTMLInputElement> = e => {
+    setMessages(e.target.value);
+  };
 
   const sendMessage = () => {
     const header = { Authorization: `Bearer ${getCookie(AC_TOKEN_KEY)}` };
-    const message = {
-      memberNickname: "nick",
-      messageContent: "message"
-    };
+    const message = { messageContent: messages };
 
     if (stompClient) {
       console.log("SEND!!");
@@ -42,30 +51,12 @@ const ChatRoomPage: NextPageWithLayout = () => {
         header,
         JSON.stringify(message)
       );
+      refetch();
+      setMessages("");
     }
   };
 
-  const DUMMY_CHAT_LIST = [
-    {
-      memberNickname: "minsoo",
-      messageContent:
-        "채팅 더미 1 채팅 더미 1 채팅 더미 1 채팅 더미 1 채팅 더미 1채팅 더미 1 채팅 더미 1 채팅 더미 1 채팅 더미 1 ",
-      messageSendingTime: "2023-02-11"
-    },
-    {
-      memberNickname: "minsoo2",
-      messageContent: "채팅 더미 2",
-      messageSendingTime: "2023-02-11"
-    },
-    {
-      memberNickname: "minsoo3",
-      messageContent: "채팅 더미 3",
-      messageSendingTime: "2023-02-11"
-    }
-  ];
-
   return (
-    // {JSON.stringify(messages)}
     <div>
       <Styled.Container>
         <Header.Back title={title} subTitle="32" bgColor="#FFF" />
@@ -73,7 +64,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
         <Styled.ChatContainer>
           <Styled.ChatHr />
           <Styled.Date>2023/09/11</Styled.Date>
-          {DUMMY_CHAT_LIST.map((chat, index) => (
+          {chatList?.map((chat, index) => (
             <ChatBox key={`${chat.messageSendingTime}-${index}`} {...chat} />
           ))}
           과목코드: {classNumber}
@@ -81,7 +72,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
 
         <Styled.InputContainer>
           <Styled.PlusButton svgName="chatPlus" />
-          <Styled.InputBox />
+          <Styled.InputBox value={messages} onChange={messageContents} />
           <button type="button" onClick={sendMessage}>
             <Styled.InputButton svgName="chatEnter" />
           </button>
