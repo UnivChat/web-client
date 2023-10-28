@@ -14,15 +14,8 @@ import { AC_TOKEN_KEY } from "~/constants";
 const WebSocketContext = createContext<CompatClient | null>(null);
 
 export function WebSocketProvider({ children }: PropsWithChildren) {
-  const stompClient = useMemo(
-    () =>
-      Stomp.over(
-        new SockJS(
-          "http://catchateb-env-1.eba-skeqnc47.ap-northeast-2.elasticbeanstalk.com:8080/chat"
-        )
-      ),
-    []
-  );
+  const API_URL = process.env.NEXT_PUBLIC_SOKET_API_URL;
+  const stompClient = useMemo(() => Stomp.over(new SockJS(API_URL)), [API_URL]);
 
   useEffect(() => {
     const header = { Authorization: `Bearer ${getCookie(AC_TOKEN_KEY)}` };
