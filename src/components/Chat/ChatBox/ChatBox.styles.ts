@@ -38,3 +38,8 @@ export const Profile = styled(Svg)`
     fill: #f00;
   }
 `;
+
+export const ContainerRight = styled.div`
+  ${flex({ gap: 4.3 })};
+  justify-content: flex-end;
+`;
