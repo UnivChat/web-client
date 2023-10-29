@@ -33,3 +33,9 @@ export const classChat = async (classNumber: string, page: number) => {
   const response = await classApi.get(`chatting/class/${classNumber}/${page}`);
   return response.data;
 };
+
+export const memberSearch = async () => {
+  const classApi = createAxiosInstance({ needAuth: true });
+  const response = await classApi.get("/member/info");
+  return response.data;
+};

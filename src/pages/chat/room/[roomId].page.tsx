@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { ChangeEventHandler } from "react";
 import { AC_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "~/pages/app.types";
+import { useMemberSearch } from "@server-state/class/hooks/memberSearch.queries";
 import { useClassChat } from "@server-state/class/hooks/classChat.queries";
 import { ChatBox } from "~/components/Chat/ChatBox";
 import { Header } from "~/components/Common/UI/Header/Header";
@@ -27,6 +28,10 @@ const ChatRoomPage: NextPageWithLayout = () => {
       setClassNumber(String(query.roomId));
     }
   }, [query]);
+
+  // 멤버조회
+  const { data: memberData } = useMemberSearch();
+  const memberEmail = memberData?.result?.email;
 
   // 메세지 응답 임시 확인
   const { data, refetch } = useClassChat(classNumber, 0);
@@ -65,9 +70,12 @@ const ChatRoomPage: NextPageWithLayout = () => {
           <Styled.ChatHr />
           <Styled.Date>2023/09/11</Styled.Date>
           {chatList?.map((chat, index) => (
-            <ChatBox key={`${chat.messageSendingTime}-${index}`} {...chat} />
+            <ChatBox
+              key={`${chat.messageSendingTime}-${index}`}
+              {...chat}
+              currentUserEmail={memberEmail}
+            />
           ))}
-          과목코드: {classNumber}
         </Styled.ChatContainer>
 
         <Styled.InputContainer>
