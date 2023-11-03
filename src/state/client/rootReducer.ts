@@ -8,6 +8,7 @@ import signupReducer from "./Auth/signUp/signUpSlice";
 import inquiryReducer from "./config/inquiry/inquirySlice";
 import { rootReducer } from "./ducks";
 import facilitiesReducer from "./Home/Facilities/facilitiesSlice";
+import classNumeducer from "./Chat/classNumberSlice";
 
 const stores = combineReducers({
   root: rootReducer,
@@ -18,7 +19,8 @@ const stores = combineReducers({
   signup: signupReducer,
   inquiry: inquiryReducer,
   signin: signinReducer,
-  facilities: facilitiesReducer
+  facilities: facilitiesReducer,
+  classNumber: classNumeducer
 });
 
 export default stores;
