@@ -10,6 +10,8 @@ import { ChatBox } from "~/components/Chat/ChatBox";
 import { Header } from "~/components/Common/UI/Header/Header";
 import { useWebsocket } from "./class.provider";
 import * as Styled from "./Room.styles";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
+import { setClassNum } from "@client-state/Chat/classNumberSlice";
 
 interface ChatListType {
   memberEmail: string;
@@ -20,12 +22,13 @@ interface ChatListType {
 
 const ChatRoomPage: NextPageWithLayout = () => {
   const { query } = useRouter();
-  const [classNumber, setClassNumber] = useState<string>("");
+  const dispatch = useAppDispatch();
+  const { classNum } = useAppSelector(state => state.classNumber);
   const title = query.title as string;
 
   useEffect(() => {
     if (query.roomId) {
-      setClassNumber(String(query.roomId));
+      dispatch(setClassNum(String(query.roomId)));
     }
   }, [query]);
 
@@ -34,7 +37,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
   const memberEmail = memberData?.result?.email;
 
   // 메세지 응답 임시 확인
-  const { data, refetch } = useClassChat(classNumber, 0);
+  const { data, refetch } = useClassChat(classNum, 0);
   const [chatList, setChatList] = useState<ChatListType[]>([]);
   useEffect(() => {
     if (data?.result?.classChatList) {
@@ -57,7 +60,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
     if (stompClient) {
       console.log("SEND!!");
       stompClient.send(
-        `/pub/class/${classNumber}`,
+        `/pub/class/${classNum}`,
         header,
         JSON.stringify(message)
       );
@@ -67,31 +70,33 @@ const ChatRoomPage: NextPageWithLayout = () => {
   };
 
   return (
-    <div>
-      <Styled.Container>
-        <Header.Back title={title} subTitle="32" bgColor="#FFF" />
-        <Styled.Alert svgName="alert" />
-        <Styled.ChatContainer>
-          <Styled.ChatHr />
-          <Styled.Date>2023/09/11</Styled.Date>
-          {chatList?.map((chat, index) => (
-            <ChatBox
-              key={`${chat.messageSendingTime}-${index}`}
-              {...chat}
-              currentUserEmail={memberEmail}
-            />
-          ))}
-        </Styled.ChatContainer>
+    <Styled.Container>
+      <Header.Back title={title} subTitle="32" bgColor="#FFF" />
+      <Styled.Alert svgName="alert" />
+      <Styled.ChatContainer>
+        <Styled.ChatHr />
+        <Styled.Date>2023/09/11</Styled.Date>
+        {chatList?.map((chat, index) => (
+          <ChatBox
+            key={`${chat.messageSendingTime}-${index}`}
+            showProfile={
+              index === 0 ||
+              chatList[index - 1].memberEmail !== chat.memberEmail
+            }
+            {...chat}
+            currentUserEmail={memberEmail}
+          />
+        ))}
+      </Styled.ChatContainer>
 
-        <Styled.InputContainer>
-          <Styled.PlusButton svgName="chatPlus" />
-          <Styled.InputBox value={messages} onChange={messageContents} />
-          <button type="button" onClick={sendMessage}>
-            <Styled.InputButton svgName="chatEnter" />
-          </button>
-        </Styled.InputContainer>
-      </Styled.Container>
-    </div>
+      <Styled.InputContainer>
+        <Styled.PlusButton svgName="chatPlus" />
+        <Styled.InputBox value={messages} onChange={messageContents} />
+        <button type="button" onClick={sendMessage}>
+          <Styled.InputButton svgName="chatEnter" />
+        </button>
+      </Styled.InputContainer>
+    </Styled.Container>
   );
 };
 

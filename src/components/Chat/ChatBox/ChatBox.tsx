@@ -5,8 +5,9 @@ export const ChatBox = ({
   memberEmail,
   memberNickname,
   messageContent,
-  currentUserEmail
-}: Chat.DTO & { currentUserEmail: string }) => {
+  currentUserEmail,
+  showProfile = true
+}: Chat.DTO & { currentUserEmail: string; showProfile?: boolean }) => {
   const isCurrentUser = memberEmail === currentUserEmail;
 
   return (
@@ -19,9 +20,12 @@ export const ChatBox = ({
         </Styled.ContainerRight>
       ) : (
         <Styled.Container>
-          <Styled.Profile svgName="chatProfile" />
+          <Styled.Profile
+            svgName="chatProfile"
+            visibility={showProfile ? "visible" : "hidden"}
+          />
           <Flex gap={5.27} direction="column">
-            {memberNickname}
+            {showProfile && memberNickname}
             <Styled.ChatBubble>{messageContent}</Styled.ChatBubble>
           </Flex>
         </Styled.Container>
