@@ -35,8 +35,13 @@ const ChatRoomPage: NextPageWithLayout = () => {
 
   // 메세지 응답 임시 확인
   const { data, refetch } = useClassChat(classNumber, 0);
-  const chatList: ChatListType[] = data?.result?.classChatList;
-  console.log(chatList);
+  const [chatList, setChatList] = useState<ChatListType[]>([]);
+  useEffect(() => {
+    if (data?.result?.classChatList) {
+      // 새로운 메시지가 아래로 오도록
+      setChatList([...data.result.classChatList].reverse());
+    }
+  }, [data]);
 
   const stompClient = useWebsocket();
   const [messages, setMessages] = useState<string>("");
