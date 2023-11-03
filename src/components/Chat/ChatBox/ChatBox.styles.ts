@@ -30,7 +30,8 @@ const profileColors = {
   male: "#C0D6EB"
 };
 
-export const Profile = styled(Svg)`
+export const Profile = styled(Svg)<{ visibility: "visible" | "hidden" }>`
+  visibility: ${props => props.visibility};
   width: ${pxToRem(36.8)};
   min-width: ${pxToRem(36.8)};
   height: ${pxToRem(36.8)};
