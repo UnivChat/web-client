@@ -22,6 +22,9 @@ interface ClassRoom {
 
 export interface ClassListItem {
   classRoom: ClassRoom;
+  lastMessageSendingTime: string;
+  numberOfParticipant?: number;
+  numberOfUnreadMessage: number;
 }
 
 export type ClassList = ClassListItem[];
