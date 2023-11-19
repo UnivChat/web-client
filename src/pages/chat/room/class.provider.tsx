@@ -1,45 +1,60 @@
-import { useAppSelector } from "@client-state/hooks";
-import type { CompatClient, Frame } from "@stomp/stompjs";
-import { Stomp } from "@stomp/stompjs";
-import { getCookie } from "cookies-next";
-import {
+import React, {
   createContext,
   useContext,
+  useState,
   useEffect,
-  useMemo,
-  type PropsWithChildren
+  useMemo
 } from "react";
 import SockJS from "sockjs-client";
+import { Stomp } from "@stomp/stompjs";
+import type { CompatClient } from "@stomp/stompjs";
+import { getCookie } from "cookies-next";
+import { useAppSelector } from "@client-state/hooks";
 import { AC_TOKEN_KEY } from "~/constants";
 
-const WebSocketContext = createContext<CompatClient | null>(null);
+// 메시지 타입 정의
+interface Message {
+  memberEmail: string;
+  memberNickname: string;
+  messageContent: string;
+  messageSendingTime: string;
+}
 
-export function WebSocketProvider({ children }: PropsWithChildren) {
+const WebSocketContext = createContext({
+  client: null as CompatClient | null,
+  messages: [] as Message[],
+  addMessage: (message: Message) => {}
+});
+
+export function WebSocketProvider({ children }: any) {
   const API_URL = process.env.NEXT_PUBLIC_SOKET_API_URL;
   const stompClient = useMemo(() => Stomp.over(new SockJS(API_URL)), [API_URL]);
   const { classNum } = useAppSelector(state => state.classNumber);
+  const [messages, setMessages] = useState<Message[]>([]);
+
+  const addMessage = (message: Message) => {
+    setMessages(prevMessages => [...prevMessages, message]);
+  };
 
   useEffect(() => {
     const header = { Authorization: `Bearer ${getCookie(AC_TOKEN_KEY)}` };
 
-    stompClient.activate();
-    stompClient.connect(header, (frame: Frame) => {
-      console.log(`Connected: ${frame}`);
-      // 메시지 받는 방 url(구독)
+    stompClient.connect(header, frame => {
       stompClient.subscribe(`/sub/class/${classNum}`, greeting => {
-        // console.log(greeting)
-        console.log("🔥🔥🔥🔥");
-        console.log(`${JSON.stringify(greeting)}🔥🔥🔥🔥`);
+        const message: Message = JSON.parse(greeting.body);
+        addMessage(message);
       });
     });
 
     return () => {
       stompClient.deactivate();
     };
-  }, [stompClient]);
+  }, [stompClient, classNum]);
 
   return (
-    <WebSocketContext.Provider value={stompClient}>
+    <WebSocketContext.Provider
+      value={{ client: stompClient, messages, addMessage }}
+    >
       {children}
     </WebSocketContext.Provider>
   );

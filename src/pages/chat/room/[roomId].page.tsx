@@ -8,10 +8,10 @@ import { useMemberSearch } from "@server-state/class/hooks/memberSearch.queries"
 import { useClassChat } from "@server-state/class/hooks/classChat.queries";
 import { ChatBox } from "~/components/Chat/ChatBox";
 import { Header } from "~/components/Common/UI/Header/Header";
-import { useWebsocket } from "./class.provider";
-import * as Styled from "./Room.styles";
 import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import { setClassNum } from "@client-state/Chat/classNumberSlice";
+import { useWebsocket } from "./class.provider";
+import * as Styled from "./Room.styles";
 
 interface ChatListType {
   memberEmail: string;
@@ -32,40 +32,63 @@ const ChatRoomPage: NextPageWithLayout = () => {
     }
   }, [query]);
 
-  // 멤버조회
+  // 멤버 조회
   const { data: memberData } = useMemberSearch();
   const memberEmail = memberData?.result?.email;
 
-  // 메세지 응답 임시 확인
-  const { data, refetch } = useClassChat(classNum, 0);
+  // 메시지 응답 임시 확인
+  const { data, refetch } = useClassChat(classNum, 0); // TODO: 메세지 10개 이상일 때 페이지 수정필요
   const [chatList, setChatList] = useState<ChatListType[]>([]);
+
   useEffect(() => {
     if (data?.result?.classChatList) {
-      // 새로운 메시지가 아래로 오도록
       setChatList([...data.result.classChatList].reverse());
     }
   }, [data]);
 
-  const stompClient = useWebsocket();
-  const [messages, setMessages] = useState<string>("");
+  const { client: stompClient, messages: receivedMessages } = useWebsocket();
 
-  const messageContents: ChangeEventHandler<HTMLInputElement> = e => {
-    setMessages(e.target.value);
+  useEffect(() => {
+    // 새 메시지를 기존 채팅 목록에 추가하기 전에 중복을 확인합니다.
+    const newMessages = receivedMessages.filter(
+      receivedMessage =>
+        !chatList.some(
+          chatMessage =>
+            chatMessage.messageSendingTime ===
+            receivedMessage.messageSendingTime
+        )
+    );
+
+    if (newMessages.length > 0) {
+      setChatList(prevChatList =>
+        [...prevChatList, ...newMessages].sort(
+          (a, b) =>
+            new Date(a.messageSendingTime) - new Date(b.messageSendingTime)
+        )
+      );
+    }
+  }, [receivedMessages]);
+
+  const [messageContent, setMessageContent] = useState<string>("");
+
+  const handleMessageContentChange: ChangeEventHandler<
+    HTMLInputElement
+  > = e => {
+    setMessageContent(e.target.value);
   };
 
   const sendMessage = () => {
     const header = { Authorization: `Bearer ${getCookie(AC_TOKEN_KEY)}` };
-    const message = { messageContent: messages };
+    const message = { messageContent };
 
     if (stompClient) {
-      console.log("SEND!!");
       stompClient.send(
         `/pub/class/${classNum}`,
         header,
         JSON.stringify(message)
       );
       refetch();
-      setMessages("");
+      setMessageContent("");
     }
   };
 
@@ -74,8 +97,8 @@ const ChatRoomPage: NextPageWithLayout = () => {
       <Header.Back title={title} subTitle="32" bgColor="#FFF" />
       <Styled.Alert svgName="alert" />
       <Styled.ChatContainer>
-        <Styled.ChatHr />
-        <Styled.Date>2023/09/11</Styled.Date>
+        {/* <Styled.ChatHr />
+        <Styled.Date>2023/09/11</Styled.Date> */}
         {chatList?.map((chat, index) => (
           <ChatBox
             key={`${chat.messageSendingTime}-${index}`}
@@ -91,7 +114,10 @@ const ChatRoomPage: NextPageWithLayout = () => {
 
       <Styled.InputContainer>
         <Styled.PlusButton svgName="chatPlus" />
-        <Styled.InputBox value={messages} onChange={messageContents} />
+        <Styled.InputBox
+          value={messageContent}
+          onChange={handleMessageContentChange}
+        />
         <button type="button" onClick={sendMessage}>
           <Styled.InputButton svgName="chatEnter" />
         </button>
