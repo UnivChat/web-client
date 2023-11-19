@@ -15,9 +15,7 @@ const ClassChatPage: NextPageWithLayout = () => {
   return (
     <>
       <Header.Back title="클래스 채팅" />
-      <Styled.Button
-        onClick={() => router.push("/chat/class/classSearch")}
-      >
+      <Styled.Button onClick={() => router.push("/chat/class/classSearch")}>
         <Styled.ClassPlusIcon svgName="classPlus" />
       </Styled.Button>
 
@@ -29,8 +27,8 @@ const ClassChatPage: NextPageWithLayout = () => {
               classNumber={classItem.classRoom.classNumber}
               title={classItem.classRoom.className}
               classTime={classItem.classRoom.classTime}
-              chatCount={classItem.classRoom.credit}
-              chatTime="10:22"
+              chatCount={classItem.numberOfUnreadMessage}
+              chatTime={classItem.lastMessageSendingTime}
             />
           );
         })}
