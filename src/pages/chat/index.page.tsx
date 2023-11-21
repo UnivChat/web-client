@@ -13,7 +13,7 @@ const ChatPage: NextPageWithLayout = () => {
       <Styled.CatChatTitle>CAT CHAT</Styled.CatChatTitle>
       <Styled.Container>
         {/* 라이브 채팅 박스 */}
-        <Styled.LiveChatBox>
+        <Styled.LiveChatBox onClick={() => push("/chat/live")}>
           <div className="span">
             <div>
               <Styled.Text>다 함께</Styled.Text>
@@ -45,7 +45,7 @@ const ChatPage: NextPageWithLayout = () => {
             </div>
           </Styled.ClassChatBox>
           {/* 기숙사 채팅 박스 */}
-          <Styled.DormitoryChatBox>
+          <Styled.DormitoryChatBox onClick={() => push("/chat/dorm")}>
             <div className="span">
               <div>
                 <Styled.LittleBlueText>기숙사생</Styled.LittleBlueText>
@@ -67,7 +67,7 @@ const ChatPage: NextPageWithLayout = () => {
         </Styled.BoxContainer>
         {/* 연애 채팅 박스 */}
         <Styled.BoxContainer>
-          <Styled.LoveChatBox>
+          <Styled.LoveChatBox onClick={() => push("/chat/love")}>
             <div className="span">
               <div>
                 <Styled.LittleText>말 못할 </Styled.LittleText>
@@ -82,7 +82,7 @@ const ChatPage: NextPageWithLayout = () => {
             </div>
           </Styled.LoveChatBox>
           {/* 1대1 채팅 박스 */}
-          <Styled.PrivateChatBox>
+          <Styled.PrivateChatBox onClick={() => push("/chat/oto")}>
             <div className="icon">
               <Styled.PrivateChatIcon svgName="privateChat" />
             </div>
