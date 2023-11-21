@@ -27,7 +27,7 @@ const ClassChatPage: NextPageWithLayout = () => {
               classNumber={classItem.classRoom.classNumber}
               title={classItem.classRoom.className}
               classTime={classItem.classRoom.classTime}
-              chatCount={classItem.numberOfUnreadMessage}
+              chatCount={classItem.numberOfUnreadMessage} // 서버오류? 1번방에 메세지 보내면 2번 3번 방이 안 읽은 메세지로 생김
               chatTime={classItem.lastMessageSendingTime}
             />
           );
