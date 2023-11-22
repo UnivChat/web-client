@@ -16,10 +16,6 @@ export const ChatBox = ({
   const isCurrentUser = memberEmail === currentUserEmail;
 
   const dispatch = useAppDispatch();
-  const otoChat = () => {
-    dispatch(setOtoModalState(true));
-    dispatch(setOtoMemberName(memberNickname));
-  };
 
   return (
     <div>
@@ -31,7 +27,14 @@ export const ChatBox = ({
         </Styled.ContainerRight>
       ) : (
         <Styled.Container>
-          <span onClick={otoChat}>
+          <span
+            onClick={() => {
+              if (showProfile) {
+                dispatch(setOtoModalState(true));
+                dispatch(setOtoMemberName(memberNickname));
+              }
+            }}
+          >
             <Styled.Profile
               svgName="chatProfile"
               visibility={showProfile ? "visible" : "hidden"}
