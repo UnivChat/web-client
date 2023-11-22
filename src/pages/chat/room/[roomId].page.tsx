@@ -28,6 +28,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
   const { otoModalState } = useAppSelector(state => state.otoModal);
   const { classNum } = useAppSelector(state => state.classNumber);
   const title = query.title as string;
+  const numberOfParticipant = query.numberOfParticipant;
 
   useEffect(() => {
     if (query.roomId) {
@@ -98,7 +99,11 @@ const ChatRoomPage: NextPageWithLayout = () => {
   return (
     <Styled.Container>
       {otoModalState ? <ChatToast /> : null}
-      <Header.Back title={title} subTitle="32" bgColor="#FFF" />
+      <Header.Back
+        title={title}
+        subTitle={numberOfParticipant?.toString()}
+        bgColor="#FFF"
+      />
       <Styled.Alert svgName="alert" />
       <Styled.ChatContainer>
         {/* <Styled.ChatHr />

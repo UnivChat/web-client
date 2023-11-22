@@ -31,7 +31,8 @@ export const ClassChatBox = ({
   classTime,
   chatCount,
   chatTime,
-  classNumber
+  classNumber,
+  numberOfParticipant
 }: ClassChatBoxProps) => {
   const { push } = useRouter();
 
@@ -40,7 +41,7 @@ export const ClassChatBox = ({
       onClick={() =>
         push({
           pathname: `/chat/room/${classNumber}`,
-          query: { title }
+          query: { title, numberOfParticipant }
         })
       }
     >

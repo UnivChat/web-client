@@ -4,4 +4,5 @@ export interface ClassChatBoxProps {
   classNumber: string;
   chatCount: number;
   chatTime: string;
+  numberOfParticipant: number;
 }

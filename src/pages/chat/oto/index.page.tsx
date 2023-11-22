@@ -7,7 +7,7 @@ import { Container } from "../class/class.styles";
 const OtoChatPage: NextPageWithLayout = () => {
   return (
     <>
-      <Header.Back title="일대일 채팅" />
+      <Header.Back title="개인 채팅" />
 
       <Container>
         <OtoChatBox />
