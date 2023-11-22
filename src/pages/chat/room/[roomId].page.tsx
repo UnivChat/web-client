@@ -12,6 +12,8 @@ import { useAppDispatch, useAppSelector } from "@client-state/hooks";
 import { setClassNum } from "@client-state/Chat/classNumberSlice";
 import { useWebsocket } from "./class.provider";
 import * as Styled from "./Room.styles";
+import ChatToast from "~/components/Chat/ChatToast/ChatToast";
+import ChatExitToast from "~/components/Chat/ChatExitToast/ChatExitToast";
 
 interface ChatListType {
   memberEmail: string;
@@ -23,6 +25,7 @@ interface ChatListType {
 const ChatRoomPage: NextPageWithLayout = () => {
   const { query } = useRouter();
   const dispatch = useAppDispatch();
+  const { otoModalState } = useAppSelector(state => state.otoModal);
   const { classNum } = useAppSelector(state => state.classNumber);
   const title = query.title as string;
 
@@ -94,6 +97,7 @@ const ChatRoomPage: NextPageWithLayout = () => {
 
   return (
     <Styled.Container>
+      {otoModalState ? <ChatToast /> : null}
       <Header.Back title={title} subTitle="32" bgColor="#FFF" />
       <Styled.Alert svgName="alert" />
       <Styled.ChatContainer>

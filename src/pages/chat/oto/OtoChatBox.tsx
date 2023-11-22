@@ -1,27 +1,26 @@
-import React from "react";
 import {
   ChatBox,
   ChatCount,
   ChatCountContainer,
   ChatTime,
-  SubTitle,
   Title
 } from "../class/class.styles";
+import * as Styled from "./OtoChatBox.styles";
 
 const OtoChatBox = () => {
   return (
-    <ChatBox>
-      <div>
-        <Title>이가대</Title>
-        <ChatTime>오후 11:30</ChatTime>
-      </div>
-      <div>
-        <SubTitle></SubTitle>
-        <ChatCountContainer>
-          <ChatCount>6</ChatCount>
-        </ChatCountContainer>
-      </div>
-    </ChatBox>
+    <Styled.ChatBox>
+      <Styled.Container>
+        <Styled.Title>이가대</Styled.Title>
+
+        <Styled.RightContainer>
+          <ChatTime>오후 11:30</ChatTime>
+          <ChatCountContainer>
+            <ChatCount>6</ChatCount>
+          </ChatCountContainer>
+        </Styled.RightContainer>
+      </Styled.Container>
+    </Styled.ChatBox>
   );
 };
 

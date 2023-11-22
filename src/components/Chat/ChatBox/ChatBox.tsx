@@ -1,5 +1,10 @@
 import { Flex } from "~/styles";
 import * as Styled from "./ChatBox.styles";
+import { useAppDispatch } from "@client-state/hooks";
+import {
+  setOtoMemberName,
+  setOtoModalState
+} from "@client-state/Chat/otoModalSlice";
 
 export const ChatBox = ({
   memberEmail,
@@ -9,6 +14,12 @@ export const ChatBox = ({
   showProfile = true
 }: Chat.DTO & { currentUserEmail: string; showProfile?: boolean }) => {
   const isCurrentUser = memberEmail === currentUserEmail;
+
+  const dispatch = useAppDispatch();
+  const otoChat = () => {
+    dispatch(setOtoModalState(true));
+    dispatch(setOtoMemberName(memberNickname));
+  };
 
   return (
     <div>
@@ -20,10 +31,12 @@ export const ChatBox = ({
         </Styled.ContainerRight>
       ) : (
         <Styled.Container>
-          <Styled.Profile
-            svgName="chatProfile"
-            visibility={showProfile ? "visible" : "hidden"}
-          />
+          <span onClick={otoChat}>
+            <Styled.Profile
+              svgName="chatProfile"
+              visibility={showProfile ? "visible" : "hidden"}
+            />
+          </span>
           <Flex gap={5.27} direction="column">
             {showProfile && memberNickname}
             <Styled.ChatBubble>{messageContent}</Styled.ChatBubble>
