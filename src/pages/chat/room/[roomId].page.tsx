@@ -13,7 +13,6 @@ import { setClassNum } from "@client-state/Chat/classNumberSlice";
 import { useWebsocket } from "./class.provider";
 import * as Styled from "./Room.styles";
 import ChatToast from "~/components/Chat/ChatToast/ChatToast";
-import ChatExitToast from "~/components/Chat/ChatExitToast/ChatExitToast";
 
 interface ChatListType {
   memberEmail: string;

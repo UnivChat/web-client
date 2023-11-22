@@ -3,6 +3,9 @@ import * as Styled from "./class.styles";
 import type { ClassChatBoxProps } from "./classChatBox.types";
 
 const formatDate = dateString => {
+  if (!dateString || !dateString.includes(" ")) {
+    return "";
+  }
   // 날짜와 시간 분리
   const [datePart, timePart] = dateString.split(" ");
   const [year, month, day] = datePart.split("-").map(num => parseInt(num, 10));
