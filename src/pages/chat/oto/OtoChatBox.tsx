@@ -1,10 +1,4 @@
-import {
-  ChatBox,
-  ChatCount,
-  ChatCountContainer,
-  ChatTime,
-  Title
-} from "../class/class.styles";
+import { ChatCount, ChatCountContainer, ChatTime } from "../class/class.styles";
 import * as Styled from "./OtoChatBox.styles";
 
 const OtoChatBox = () => {

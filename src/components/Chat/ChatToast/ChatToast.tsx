@@ -1,9 +1,8 @@
-import React from "react";
+import { setOtoModalState } from "@client-state/Chat/otoModalSlice";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
+import { Bg } from "~/pages/home/facilities/Facilities.style";
 import { pxToRem } from "~/utils";
 import * as CommonStyle from "../ChatToastCommon.style";
-import { Bg } from "~/pages/home/facilities/Facilities.style";
-import { useAppDispatch, useAppSelector } from "@client-state/hooks";
-import { setOtoModalState } from "@client-state/Chat/otoModalSlice";
 
 export const ChatToast = () => {
   const dispatch = useAppDispatch();

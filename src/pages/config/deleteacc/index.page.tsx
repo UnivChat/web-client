@@ -1,4 +1,9 @@
+import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
+import { useDeleteAcc } from "@server-state/config/hooks/deleteacc.mutation";
+import { deleteCookie } from "cookies-next";
+import { useRouter } from "next/router";
 import { useState } from "react";
+import * as Auth from "~/components/Auth/Auth";
 import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
   AcceptMessage,
@@ -7,12 +12,7 @@ import {
   Container
 } from "~/components/Auth/Auth.styles";
 import { Header } from "~/components/Common/UI/Header/Header";
-import { useDeleteAcc } from "@server-state/config/hooks/deleteacc.mutation";
-import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
-import { deleteCookie } from "cookies-next";
 import { AC_TOKEN_KEY, RE_TOKEN_KEY } from "~/constants";
-import { useRouter } from "next/router";
-import * as Auth from "~/components/Auth/Auth";
 import type { NextPageWithLayout } from "../../app.types";
 import * as CommonStyled from "../config.styles";
 
@@ -27,7 +27,7 @@ const DeleteAcc: NextPageWithLayout = () => {
   const handleSubmit = () => {
     DeleteMutation.mutate(
       {
-        email: data?.result.email,
+        email: data?.result.email || "",
         password
       },
       {

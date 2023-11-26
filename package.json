@@ -23,6 +23,7 @@
     "cheerio": "^1.0.0-rc.12",
     "cookies-next": "^2.1.1",
     "date-fns": "^2.29.3",
+    "dayjs": "^1.11.10",
     "emotion-reset": "^3.0.1",
     "moment": "^2.29.4",
     "next": "latest",

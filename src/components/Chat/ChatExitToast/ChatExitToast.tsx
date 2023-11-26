@@ -1,8 +1,7 @@
-import React from "react";
-import { pxToRem } from "~/utils";
-import * as Styled from "./ChatExitToast.style";
-import * as CommonStyle from "../ChatToastCommon.style";
 import { Bg } from "~/pages/home/facilities/Facilities.style";
+import { pxToRem } from "~/utils";
+import * as CommonStyle from "../ChatToastCommon.style";
+import * as Styled from "./ChatExitToast.style";
 
 export const ChatExitToast = () => {
   return (

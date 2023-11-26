@@ -1,18 +1,20 @@
+/* eslint-disable react/no-array-index-key */
+import { setClassNum } from "@client-state/Chat/classNumberSlice";
+import { useAppDispatch, useAppSelector } from "@client-state/hooks";
+import { useClassChat } from "@server-state/class/hooks/classChat.queries";
+import { useMemberSearch } from "@server-state/class/hooks/memberSearch.queries";
 import { getCookie } from "cookies-next";
+import dayjs from "dayjs";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import type { ChangeEventHandler } from "react";
+import { useEffect, useState } from "react";
+import { ChatBox } from "~/components/Chat/ChatBox";
+import ChatToast from "~/components/Chat/ChatToast/ChatToast";
+import { Header } from "~/components/Common/UI/Header/Header";
 import { AC_TOKEN_KEY } from "~/constants";
 import type { NextPageWithLayout } from "~/pages/app.types";
-import { useMemberSearch } from "@server-state/class/hooks/memberSearch.queries";
-import { useClassChat } from "@server-state/class/hooks/classChat.queries";
-import { ChatBox } from "~/components/Chat/ChatBox";
-import { Header } from "~/components/Common/UI/Header/Header";
-import { useAppDispatch, useAppSelector } from "@client-state/hooks";
-import { setClassNum } from "@client-state/Chat/classNumberSlice";
-import { useWebsocket } from "./class.provider";
 import * as Styled from "./Room.styles";
-import ChatToast from "~/components/Chat/ChatToast/ChatToast";
+import { useWebsocket } from "./class.provider";
 
 interface ChatListType {
   memberEmail: string;
@@ -27,13 +29,13 @@ const ChatRoomPage: NextPageWithLayout = () => {
   const { otoModalState } = useAppSelector(state => state.otoModal);
   const { classNum } = useAppSelector(state => state.classNumber);
   const title = query.title as string;
-  const numberOfParticipant = query.numberOfParticipant;
+  const { numberOfParticipant } = query;
 
   useEffect(() => {
     if (query.roomId) {
       dispatch(setClassNum(String(query.roomId)));
     }
-  }, [query]);
+  }, [dispatch, query]);
 
   // 멤버 조회
   const { data: memberData } = useMemberSearch();
@@ -64,13 +66,12 @@ const ChatRoomPage: NextPageWithLayout = () => {
 
     if (newMessages.length > 0) {
       setChatList(prevChatList =>
-        [...prevChatList, ...newMessages].sort(
-          (a, b) =>
-            new Date(a.messageSendingTime) - new Date(b.messageSendingTime)
+        [...prevChatList, ...newMessages].sort((a, b) =>
+          dayjs(a.messageSendingTime).diff(dayjs(b.messageSendingTime))
         )
       );
     }
-  }, [receivedMessages]);
+  }, [chatList, receivedMessages]);
 
   const [messageContent, setMessageContent] = useState<string>("");
 
@@ -105,8 +106,6 @@ const ChatRoomPage: NextPageWithLayout = () => {
       />
       <Styled.Alert svgName="alert" />
       <Styled.ChatContainer>
-        {/* <Styled.ChatHr />
-        <Styled.Date>2023/09/11</Styled.Date> */}
         {chatList?.map((chat, index) => (
           <ChatBox
             key={`${chat.messageSendingTime}-${index}`}

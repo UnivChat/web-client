@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { colors } from "~/constants/colors";
 import { Svg } from "~/components/Common";
+import { colors } from "~/constants/colors";
 import { flex } from "~/styles";
 import { pxToRem } from "~/utils";
 
@@ -12,8 +12,9 @@ export const Container = styled.div`
 
 export const ChatContainer = styled.div`
   ${flex({ direction: "column" })};
-  padding: ${pxToRem(24)} ${pxToRem(22)};
+  padding: ${pxToRem(24)} ${pxToRem(22)} ${pxToRem(24 + 51)};
   gap: ${pxToRem(8)};
+  overflow: scroll;
 `;
 
 export const ChatHr = styled.hr`

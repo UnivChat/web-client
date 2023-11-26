@@ -5,12 +5,11 @@ import {
   QueryClientProvider
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Head from "next/head";
 import { Provider } from "react-redux";
 import { RootLayout } from "~/layouts";
 import "~/styles/font-face.css";
-import Head from "next/head";
 import type { AppPropsWithLayout } from "./app.types";
-import { WebSocketProvider } from "./chat/room/class.provider";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,9 +34,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             />
           </Head>
           <RootLayout layoutConfig={Component.layoutConfig}>
-            <WebSocketProvider>
               <Component {...pageProps} />
-            </WebSocketProvider>
           </RootLayout>
           <ReactQueryDevtools initialIsOpen={false} />
         </Provider>

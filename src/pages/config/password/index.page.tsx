@@ -1,3 +1,8 @@
+import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
+import { useChangePasswordMutation } from "@server-state/config/hooks/password.mutation";
+import { useState } from "react";
+import * as Auth from "~/components/Auth/Auth";
+import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
   AcceptMessage,
   BodyForm,
@@ -5,14 +10,9 @@ import {
   CheckAuthButton,
   Container
 } from "~/components/Auth/Auth.styles";
-import type { NextPageWithLayout } from "~/pages/app.types";
 import { Header } from "~/components/Common/UI/Header/Header";
-import { useState } from "react";
-import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
+import type { NextPageWithLayout } from "~/pages/app.types";
 import { pxToRem } from "~/utils";
-import { useFetchUserInfo } from "@server-state/auth/hooks/auth.queries";
-import { useChangePasswordMutation } from "@server-state/config/hooks/password.mutation";
-import * as Auth from "~/components/Auth/Auth";
 import * as CommonStyled from "../config.styles";
 
 const Password: NextPageWithLayout = () => {
@@ -40,7 +40,7 @@ const Password: NextPageWithLayout = () => {
     } else {
       mutation.mutate(
         {
-          emailValue: data?.result.email,
+          emailValue: data?.result.email || "",
           passwordValue: confirmPassword
         },
         {

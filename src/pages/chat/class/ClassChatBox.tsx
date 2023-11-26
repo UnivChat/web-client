@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import * as Styled from "./class.styles";
 import type { ClassChatBoxProps } from "./classChatBox.types";
 
-const formatDate = dateString => {
+const formatDate = (dateString: string) => {
   if (!dateString || !dateString.includes(" ")) {
     return "";
   }
@@ -23,10 +23,9 @@ const formatDate = dateString => {
     const hoursFormatted = hours % 12 || 12;
     const minutesFormatted = minutes.toString().padStart(2, "0");
     return `${ampm} ${hoursFormatted}:${minutesFormatted}`;
-  } else {
-    // 오늘이 아닌 경우 날짜 포맷 (YYYY. MM. DD.)
-    return `${year}. ${month}. ${day}.`;
   }
+  // 오늘이 아닌 경우 날짜 포맷 (YYYY. MM. DD.)
+  return `${year}. ${month}. ${day}.`;
 };
 
 export const ClassChatBox = ({
@@ -43,7 +42,7 @@ export const ClassChatBox = ({
     <Styled.ChatBox
       onClick={() =>
         push({
-          pathname: `/chat/room/${classNumber}`,
+          pathname: `/chat/class/room/${classNumber}`,
           query: { title, numberOfParticipant }
         })
       }

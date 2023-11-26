@@ -15,3 +15,10 @@ export type SignInResponseDTO = API.DefaultResponse<{
   gender: string;
   jwtDto: JWTDTO;
 }>;
+
+export type UserInfo = {
+  email: string;
+  nickname: string;
+  gender: string;
+  profileImgUrl: string;
+};

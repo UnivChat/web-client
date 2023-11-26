@@ -1,10 +1,12 @@
-import { Flex } from "~/styles";
-import * as Styled from "./ChatBox.styles";
-import { useAppDispatch } from "@client-state/hooks";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import {
   setOtoMemberName,
   setOtoModalState
 } from "@client-state/Chat/otoModalSlice";
+import { useAppDispatch } from "@client-state/hooks";
+import { Flex } from "~/styles";
+import * as Styled from "./ChatBox.styles";
 
 export const ChatBox = ({
   memberEmail,
