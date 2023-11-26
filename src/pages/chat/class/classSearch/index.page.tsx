@@ -1,8 +1,7 @@
+import { useClassList, useClassSearch } from "@server-state/chat/hooks/queries";
 import { useEffect, useState } from "react";
-import { Header } from "~/components/Common/UI/Header/Header";
 import InfiniteScroll from "react-infinite-scroller";
-import { useClassSearch } from "@server-state/class/hooks/classSearch.queries";
-import { useClassList } from "@server-state/class/hooks/classList.queries";
+import { Header } from "~/components/Common/UI/Header/Header";
 import { ClassBox } from "./ClassBox";
 import { Search } from "./Search";
 import * as Styled from "./classSearch.styles";

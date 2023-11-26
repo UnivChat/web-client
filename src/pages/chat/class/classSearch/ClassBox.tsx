@@ -1,7 +1,8 @@
-import React from "react";
+import {
+  useClassEnter,
+  useClassExit
+} from "@server-state/chat/hooks/mutations";
 import { Svg } from "~/components/Common";
-import { useClassEnter } from "@server-state/class/hooks/classEnter.mutation";
-import { useClassExit } from "@server-state/class/hooks/classExit.mutation";
 import * as Styled from "./classbox.styles";
 import type { ClassBoxProps } from "./classbox.types";
 

@@ -1,6 +1,6 @@
-import { Header } from "~/components/Common/UI/Header/Header";
-import { useClassList } from "@server-state/class/hooks/classList.queries";
+import { useClassList } from "@server-state/chat/hooks/queries";
 import { useRouter } from "next/router";
+import { Header } from "~/components/Common/UI/Header/Header";
 import type { NextPageWithLayout } from "../../app.types";
 import { ClassChatBox } from "./ClassChatBox";
 import * as Styled from "./class.styles";
@@ -20,19 +20,23 @@ const ClassChatPage: NextPageWithLayout = () => {
       </Styled.Button>
 
       <Styled.Container>
-        {classList?.map(classItem => {
-          return (
-            <ClassChatBox
-              key={classItem.classRoom.classNumber}
-              classNumber={classItem.classRoom.classNumber}
-              title={classItem.classRoom.className}
-              classTime={classItem.classRoom.classTime}
-              chatCount={classItem.numberOfUnreadMessage} // 서버오류? 1번방에 메세지 보내면 2번 3번 방이 안 읽은 메세지로 생김
-              chatTime={classItem.lastMessageSendingTime}
-              numberOfParticipant={classItem.numberOfParticipant}
-            />
-          );
-        })}
+        {classList.length > 0 ? (
+          classList.map(classItem => {
+            return (
+              <ClassChatBox
+                key={classItem.classRoom.classNumber}
+                classNumber={classItem.classRoom.classNumber}
+                title={classItem.classRoom.className}
+                classTime={classItem.classRoom.classTime}
+                chatCount={classItem.numberOfUnreadMessage} // 서버오류? 1번방에 메세지 보내면 2번 3번 방이 안 읽은 메세지로 생김
+                chatTime={classItem.lastMessageSendingTime}
+                numberOfParticipant={classItem.numberOfParticipant}
+              />
+            );
+          })
+        ) : (
+          <div>추가된 클래스 채팅이 없습니다.</div>
+        )}
       </Styled.Container>
     </>
   );

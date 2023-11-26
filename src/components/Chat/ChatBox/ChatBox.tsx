@@ -13,6 +13,7 @@ export const ChatBox = ({
   memberNickname,
   messageContent,
   currentUserEmail,
+  messageSendingTime,
   showProfile = true
 }: Chat.DTO & { currentUserEmail: string; showProfile?: boolean }) => {
   const isCurrentUser = memberEmail === currentUserEmail;
@@ -46,6 +47,8 @@ export const ChatBox = ({
             {showProfile && memberNickname}
             <Styled.ChatBubble>{messageContent}</Styled.ChatBubble>
           </Flex>
+
+          {messageSendingTime}
         </Styled.Container>
       )}
     </div>

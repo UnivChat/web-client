@@ -17,6 +17,19 @@ export const ChatContainer = styled.div`
   overflow: scroll;
 `;
 
+export const ChatListWithInfinityScroll = styled.div({
+  "& >div": {
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: pxToRem(24),
+    paddingLeft: pxToRem(22),
+    paddingRight: pxToRem(22),
+    paddingBottom: pxToRem(24 + 51),
+    gap: pxToRem(8),
+    overflowY: "scroll"
+  }
+});
+
 export const ChatHr = styled.hr`
   width: 90%;
   border: 0;
