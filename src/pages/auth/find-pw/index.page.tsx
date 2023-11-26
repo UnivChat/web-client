@@ -2,17 +2,17 @@ import * as Auth from "~/components/Auth/Auth";
 import { BodyTopsDots } from "~/components/Auth/Auth.BodyTop";
 import { CustomInput, CustomText } from "~/components/Auth/Auth.Input";
 import {
+  AcceptMessage,
   Body,
   BodyForm,
   CheckAuthButton,
   Container,
-  AcceptMessage,
-  Span,
-  LoadingWrap
+  LoadingWrap,
+  Span
 } from "~/components/Auth/Auth.styles";
 import type { NextPageWithLayout } from "~/pages/app.types";
-import { useFindPw } from "./findPw.hooks";
 import { Spinner } from "~/pages/home/facilities/Facilities.style";
+import { useFindPw } from "./findPw.hooks";
 
 const FindPw: NextPageWithLayout = () => {
   const hook = useFindPw();

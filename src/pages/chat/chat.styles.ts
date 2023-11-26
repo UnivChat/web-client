@@ -11,7 +11,7 @@ export const sharedTextStyles = css`
 `;
 
 export const Container = styled.div`
-  padding: ${pxToRem(35)} ${pxToRem(35)} ${pxToRem(74)};
+  padding: ${pxToRem(55)} ${pxToRem(35)} ${pxToRem(74)};
   border-top-right-radius: ${pxToRem(40)};
 `;
 
@@ -166,4 +166,14 @@ export const PrivateChatIcon = styled(Svg)`
   width: ${pxToRem(96)};
   height: ${pxToRem(96)};
   opacity: 0.5;
+`;
+
+export const CatChatTitle = styled.div`
+  padding-top: ${pxToRem(17)};
+  margin-left: ${pxToRem(21)};
+
+  font-family: "NanumSquare";
+  font-weight: 600;
+  font-size: ${pxToRem(20)};
+  color: #003197;
 `;

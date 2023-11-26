@@ -1,8 +1,8 @@
 import { useAllPosts } from "@server-state/home/notice/hooks/notice.queries";
 import { useState } from "react";
 import { Spinner } from "~/pages/home/facilities/Facilities.style";
-import NoticeContent from "./NoticeContent/NoticeContent";
 import * as Styled from "./Notice.style";
+import NoticeContent from "./NoticeContent/NoticeContent";
 
 const categories = ["일반", "학사", "장학", "취·창업"];
 
